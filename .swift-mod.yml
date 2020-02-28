@@ -1,0 +1,18 @@
+format:
+  indent: 4
+  lineBreakBeforeEachArgument: true
+
+targets:
+  main:
+    paths:
+      - Sources
+      - Example/SampleComponent
+    rules:
+      defaultAccessLevel:
+        accessLevel: openOrPublic
+        implicitInternal: true
+
+      defaultMemberwiseInitializer:
+        implicitInitializer: true
+        implicitInternal: true
+        ignoreClassesWithInheritance: true

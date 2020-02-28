@@ -1,0 +1,3 @@
+#include "./project.xcconfig"
+
+IPHONEOS_DEPLOYMENT_TARGET = 13.0

@@ -1,0 +1,54 @@
+name: PlaybookExample
+projectReferences:
+  Playbook:
+    path: ../Playbook.xcodeproj
+options:
+  bundleIdPrefix: app.playbook-ui.Example
+  deploymentTarget:
+    iOS: 13.0
+targets:
+  SamplePlaybook:
+    Example:
+    type: application
+    platform: iOS
+    sources: SamplePlaybook
+    dependencies:
+      - target: SampleComponent
+      - target: Playbook/Playbook
+      - target: Playbook/PlaybookUI
+    scheme:
+      testTargets:
+        - SampleSnapshot
+      commandLineArguments:
+        -AppleLanguages (en): true
+      environmentVariables:
+        SNAPSHOT_DIR: $(SOURCE_ROOT)/Snapshots
+    attributes:
+      ProvisioningStyle: Manual
+
+  SampleSnapshot:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - SampleSnapshot
+    dependencies:
+      - target: SamplePlaybook
+      - target: Playbook/PlaybookSnapshot
+    attributes:
+      ProvisioningStyle: Manual
+
+  SampleApp:
+    type: application
+    platform: iOS
+    sources:
+      - SampleApp
+    dependencies:
+      - target: SampleComponent
+    attributes:
+      ProvisioningStyle: Manual
+
+  SampleComponent:
+    type: framework
+    platform: iOS
+    sources:
+      - SampleComponent

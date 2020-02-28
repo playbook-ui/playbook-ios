@@ -1,0 +1,76 @@
+name: Playbook
+configFiles:
+  Debug: XCConfigs/project.xcconfig
+  Release: XCConfigs/project.xcconfig
+options:
+  bundleIdPrefix: app.playbook-ui
+  createIntermediateGroups: true
+targets:
+  Playbook:
+    type: framework
+    platform: iOS
+    sources:
+      - Sources/Playbook
+    configFiles:
+      Debug: XCConfigs/playbook.xcconfig
+      Release: XCConfigs/playbook.xcconfig
+    scheme:
+      testTargets:
+        - Playbook-Tests
+
+  Playbook-Tests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Tests/Playbook
+    dependencies:
+      - target: Playbook
+
+  PlaybookUI:
+    type: framework
+    platform: iOS
+    sources:
+      - Sources/PlaybookUI
+    configFiles:
+      Debug: XCConfigs/playbook-ui.xcconfig
+      Release: XCConfigs/playbook-ui.xcconfig
+    dependencies:
+      - target: Playbook
+    scheme:
+      testTargets:
+        - PlaybookUI-Tests
+      commandLineArguments:
+        -AppleLanguages (en): true
+      environmentVariables:
+        SNAPSHOT_DIR: $(SOURCE_ROOT)/Snapshots
+
+  PlaybookUI-Tests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Tests/PlaybookUI
+    dependencies:
+      - target: PlaybookUI
+      - target: PlaybookSnapshot
+
+  PlaybookSnapshot:
+    type: framework
+    platform: iOS
+    sources:
+      - Sources/PlaybookSnapshot
+    configFiles:
+      Debug: XCConfigs/playbook-snapshot.xcconfig
+      Release: XCConfigs/playbook-snapshot.xcconfig
+    dependencies:
+      - target: Playbook
+    scheme:
+      testTargets:
+        - PlaybookSnapshot-Tests
+
+  PlaybookSnapshot-Tests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Tests/PlaybookSnapshot
+    dependencies:
+      - target: PlaybookSnapshot

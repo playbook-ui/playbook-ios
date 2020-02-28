@@ -1,0 +1,14 @@
+{
+    "title": "Playbook",
+    "description": "Playbook API Document",
+    "author": "Playbook",
+    "plugins": [
+        "github@2.0.0",
+        "hide-published-with@0.0.1"
+    ],
+    "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/playbook-ui/playbook-ios"
+        }
+    }
+}

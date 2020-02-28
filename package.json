@@ -1,0 +1,8 @@
+{
+    "name": "playbook",
+    "version": "0.1.0",
+    "author": "Playbook",
+    "dependencies": {
+        "gitbook-cli": "2.3.2"
+    }
+}

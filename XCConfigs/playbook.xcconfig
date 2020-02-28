@@ -1,0 +1,4 @@
+#include "./project.xcconfig"
+
+IPHONEOS_DEPLOYMENT_TARGET = 11.0
+OTHER_LDFLAGS = -weak_framework SwiftUI -weak_framework Combine
