@@ -45,7 +45,7 @@ internal extension Image {
         case sidebarLeft = "sidebar.left"
         case rectangle = "rectangle"
         case squareAndArrowUp = "square.and.arrow.up"
-        case docTextMagnifyingglass = "doc.text.magnifyingglass"
+        case magnifyingglass = "magnifyingglass"
     }
 
     init(symbol: SFSymbols) {
