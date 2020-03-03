@@ -1,5 +1,5 @@
 <p align="center">
-<img src="assets/logo.png" alt="playbook" width="60%">
+<img src="assets/logo.png" alt="Playbook" width="400">
 </p>
 
 <p align="center">A library for isolated developing UI components and automatically snapshots of them.</p>
@@ -149,5 +149,5 @@ Playbook is released under the [Apache 2.0 License](LICENSE).
 
 <br>
 <p align="center">
-<img alt="Playbook" src="assets/footer-logo.png">
+<img alt="Playbook" src="assets/footer-logo.png" width="280">
 </p>
