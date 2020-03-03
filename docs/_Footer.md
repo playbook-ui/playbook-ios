@@ -1,1 +1,1 @@
-Generated at 2020-02-27T18:15:34+0900 using [swift-doc](https://github.com/SwiftDocOrg/swift-doc).
+Generated at 2020-03-05T08:04:33+0900 using [swift-doc](https://github.com/SwiftDocOrg/swift-doc).

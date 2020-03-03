@@ -1,5 +1,6 @@
 SWIFT_TOOL := swift run -c release --package-path ./Tools
-GITHUB_RAW_CONTENT_PATH := https://raw.githubusercontent.com/playbook-ui/playbook-ios/$(shell cat .version)/
+GITHUB_RAW_CONTENT_PATH := https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/
+GITHUB_TREE_PATH := https://github.com/playbook-ui/playbook-ios/tree/master/
 
 .PHONY: all
 all: proj mod format
@@ -31,7 +32,7 @@ pod-release:
 	bundle exec pod trunk push --allow-warnings
 
 .PHONY: gem
-gems:
+gem:
 	bundle config path vendor/bundle
 	bundle install --jobs 4 --retry 3
 
@@ -43,13 +44,20 @@ npm:
 docs:
 	@echo "Currently swift-doc is installed via HomeBrew, it should be installed via SwiftPM after merged this PR 'https://github.com/SwiftDocOrg/swift-doc/pull/7'"
 	rm -rf docs
-	cp -f README.md gitbook/
-	sed -i '' -E 's#src="([^http|"]+)#src="$(GITHUB_RAW_CONTENT_PATH)\1#g' gitbook/README.md
-	sed -i '' -E 's#(\[.+\])\(([^http]+)\)#\1($(GITHUB_RAW_CONTENT_PATH)\2)#g' gitbook/README.md
+	cat README.md | \
+	  sed -E '/.?http/!s#(<img src=")([^"]+)#\1$(GITHUB_RAW_CONTENT_PATH)\2#g' | \
+	  sed -E '/.?http/!s#(<img .+src=")([^"]+)#\1$(GITHUB_RAW_CONTENT_PATH)\2#g' | \
+	  sed -E '/.?http/!s#(<a href=")([^"]+)#\1$(GITHUB_TREE_PATH)\2#g' | \
+	  sed -E '/.?http/!s#(<a .+href=")([^"]+)#\1$(GITHUB_TREE_PATH)\2#g' | \
+	  sed -E '/.?http/!s#(\!\[.+\])\((.+)\)#\1($(GITHUB_RAW_CONTENT_PATH)\2)#g' | \
+	  sed -E '/.?http/!s#(\[.+\])\((.+)\)#\1($(GITHUB_TREE_PATH)\2)#g' > \
+	  gitbook/README.md
 	swift doc Sources --output gitbook
-	echo '## Playbook\n\n' > gitbook/SUMMARY.md
-	cat gitbook/Home.md | sed 's/#/##/g' >> gitbook/SUMMARY.md
-	sed -i '' -E 's#\[(.+)\]\((.+)\)#[\1](\2.md)#g' gitbook/SUMMARY.md
+	echo '## Playbook\n' > gitbook/SUMMARY.md
+	cat gitbook/Home.md | \
+	  sed 's/#/##/g' | \
+	  sed -E 's#\[(.+)\]\((.+)\)#[\1](\2.md)#g' >> \
+	  gitbook/SUMMARY.md
 	npx gitbook install gitbook
 	npx gitbook build gitbook docs
 

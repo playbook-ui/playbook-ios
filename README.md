@@ -5,18 +5,18 @@
 <p align="center">A library for isolated developing UI components and automatically snapshots of them.</p>
 
 <p align="center">
-<img src="assets/demo.png" alt="playbook" height="300">
+<img src="assets/demo.png" alt="playbook" height="400">
 </p>
 
 # Playbook
 
-<img src="assets/mockup.gif" alt="playbook" width="300" align="right">
+<img src="assets/mockup.gif" alt="Playbook" width="350" align="right">
 
 <a href="https://developer.apple.com/swift"><img alt="Swift5" src="https://img.shields.io/badge/language-Swift5-orange.svg"/></a>
 <a href="https://github.com/playbook-ui/playbook-ios/actions"><img alt="CI Status" src="https://github.com/playbook-ui/playbook-ios/workflows/GitHub%20Actions/badge.svg"/></a>
 <a href="LICENSE"><img alt="Lincense" src="http://img.shields.io/badge/License-Apache%202.0-black.svg"/></a>
 <br>
-<a href="https://github.com/playbook-ui/playbook-ios/releases/latest"><img alt="Release" src="https://img.shields.io/github/release/playbook-ui/playbook-ios.svg"/></a>
+<a href="https://github.com/playbook-ui/playbook-ios/releases/latest"><img alt="Release" src="https://img.shields.io/github/v/release/playbook-ui/playbook-ios.svg"/></a>
 <a href="https://swift.org/package-manager"><img alt="Swift Package Manager" src="https://img.shields.io/badge/SwiftPM-compatible-yellowgreen.svg"/></a>
 <a href="https://cocoapods.org/pods/Playbook"><img alt="CocoaPods" src="https://img.shields.io/cocoapods/v/Playbook.svg"/></a>
 <a href="https://github.com/Carthage/Carthage"><img alt="Carthage" src="https://img.shields.io/badge/Carthage-compatible-yellow.svg"/></a>
@@ -31,6 +31,9 @@ soon...
 
 ## Usage
 
+- [API Document](https://playbook-ui.github.io/playbook-ios)
+- [Example App](Example)
+
 ### Playbook
 
 soon...
@@ -39,7 +42,7 @@ soon...
 
 soon...
 
-<img src="assets/generated-images.png" alt="generate images" width="500">
+<img src="assets/generated-images.png" alt="generate images" height="400">
 
 ### PlaybookUI
 
