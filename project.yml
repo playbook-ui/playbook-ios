@@ -17,14 +17,10 @@ targets:
     scheme:
       testTargets:
         - Playbook-Tests
-
-  Playbook-Tests:
-    type: bundle.unit-test
-    platform: iOS
-    sources:
-      - Tests/Playbook
-    dependencies:
-      - target: Playbook
+      commandLineArguments:
+        -AppleLanguages (en): true
+      environmentVariables:
+        SNAPSHOT_DIR: $(SOURCE_ROOT)/Snapshots
 
   PlaybookUI:
     type: framework
@@ -36,22 +32,6 @@ targets:
       Release: XCConfigs/playbook-ui.xcconfig
     dependencies:
       - target: Playbook
-    scheme:
-      testTargets:
-        - PlaybookUI-Tests
-      commandLineArguments:
-        -AppleLanguages (en): true
-      environmentVariables:
-        SNAPSHOT_DIR: $(SOURCE_ROOT)/Snapshots
-
-  PlaybookUI-Tests:
-    type: bundle.unit-test
-    platform: iOS
-    sources:
-      - Tests/PlaybookUI
-    dependencies:
-      - target: PlaybookUI
-      - target: PlaybookSnapshot
 
   PlaybookSnapshot:
     type: framework
@@ -63,14 +43,13 @@ targets:
       Release: XCConfigs/playbook-snapshot.xcconfig
     dependencies:
       - target: Playbook
-    scheme:
-      testTargets:
-        - PlaybookSnapshot-Tests
 
-  PlaybookSnapshot-Tests:
+  Playbook-Tests:
     type: bundle.unit-test
     platform: iOS
     sources:
-      - Tests/PlaybookSnapshot
+      - Tests
     dependencies:
+      - target: Playbook
+      - target: PlaybookUI
       - target: PlaybookSnapshot
