@@ -1,4 +1,3 @@
-import Playbook
 import SwiftUI
 
 internal struct GalleryDependency {

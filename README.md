@@ -78,9 +78,9 @@ soon...
 - Swift 5.1+
 - Xcode 11.0+
 - iOS
-  - Playbook: 11.0+
-  - PlaybookSnapshot: iOS11.0
-  - PlaybookUI: iOS11.0
+  - `Playbook`: 11.0+
+  - `PlaybookSnapshot`: 11.0+
+  - `PlaybookUI`: 13.0+
 
 ---
 
@@ -88,9 +88,9 @@ soon...
 
 Playbook features are separated into the following frameworks.  
 
-- Playbook: Core system of component management.
-- PlaybookSnapshot: Generates snapshots of all components.
-- PlaybookUI: Products a browsing UI for components managed by Playbook.
+- `Playbook`: Core system of component management.
+- `PlaybookSnapshot`: Generates snapshots of all components.
+- `PlaybookUI`: Products a browsing UI for components managed by Playbook.
 
 ### [CocoaPods](https://cocoapods.org)
 
