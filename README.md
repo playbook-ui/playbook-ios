@@ -5,12 +5,12 @@
 <p align="center">A library for isolated developing UI components and automatically snapshots of them.</p>
 
 <p align="center">
-<img src="assets/demo.png" alt="playbook" height="300">
+<img src="assets/demo.png" alt="playbook" height="400">
 </p>
 
 # Playbook
 
-<img src="assets/mockup.gif" alt="playbook" width="300" align="right">
+<img src="assets/mockup.gif" alt="playbook" width="350" align="right">
 
 <a href="https://developer.apple.com/swift"><img alt="Swift5" src="https://img.shields.io/badge/language-Swift5-orange.svg"/></a>
 <a href="https://github.com/playbook-ui/playbook-ios/actions"><img alt="CI Status" src="https://github.com/playbook-ui/playbook-ios/workflows/GitHub%20Actions/badge.svg"/></a>
@@ -39,7 +39,7 @@ soon...
 
 soon...
 
-<img src="assets/generated-images.png" alt="generate images" width="500">
+<img src="assets/generated-images.png" alt="generate images" height="400">
 
 ### PlaybookUI
 
