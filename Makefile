@@ -1,4 +1,5 @@
 SWIFT_TOOL := swift run -c release --package-path ./Tools
+GITHUB_RAW_CONTENT_PATH := https://raw.githubusercontent.com/playbook-ui/playbook-ios/$(shell cat .version)/
 
 .PHONY: all
 all: proj mod format
@@ -42,11 +43,13 @@ npm:
 docs:
 	@echo "Currently swift-doc is installed via HomeBrew, it should be installed via SwiftPM after merged this PR 'https://github.com/SwiftDocOrg/swift-doc/pull/7'"
 	rm -rf docs
-	swift doc Sources --output gitbook
 	cp -f README.md gitbook/
+	sed -i '' -E 's#src="([^http|"]+)#src="$(GITHUB_RAW_CONTENT_PATH)\1#g' gitbook/README.md
+	sed -i '' -E 's#(\[.+\])\(([^http]+)\)#\1($(GITHUB_RAW_CONTENT_PATH)\2)#g' gitbook/README.md
+	swift doc Sources --output gitbook
 	echo '## Playbook\n\n' > gitbook/SUMMARY.md
 	cat gitbook/Home.md | sed 's/#/##/g' >> gitbook/SUMMARY.md
-	sed -i '' -E 's/\[(.+)\]\((.+)\)/[\1](\2.md)/g' gitbook/SUMMARY.md
+	sed -i '' -E 's#\[(.+)\]\((.+)\)#[\1](\2.md)#g' gitbook/SUMMARY.md
 	npx gitbook install gitbook
 	npx gitbook build gitbook docs
 
