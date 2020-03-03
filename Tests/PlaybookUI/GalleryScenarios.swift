@@ -185,7 +185,6 @@ struct GalleryScenarios: ScenarioProvider {
                         scheduler: SchedulerMock()
                     )
                 )
-                    .environment(\.snapshotColorScheme, .dark)
             }
         }
     }

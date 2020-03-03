@@ -10,10 +10,6 @@ internal struct GalleryDependency {
     }
 }
 
-internal enum SnapshotColorEnvironmentKey: EnvironmentKey {
-    static var defaultValue: ColorScheme { .light }
-}
-
 internal enum GalleryDependencyEnvironmentKey: EnvironmentKey {
     static var defaultValue: GalleryDependency {
         GalleryDependency(
@@ -28,11 +24,6 @@ internal enum GalleryDependencyEnvironmentKey: EnvironmentKey {
 }
 
 internal extension EnvironmentValues {
-    var snapshotColorScheme: ColorScheme {
-        get { self[SnapshotColorEnvironmentKey.self] }
-        set { self[SnapshotColorEnvironmentKey.self] = newValue }
-    }
-
     var galleryDependency: GalleryDependency {
         get { self[GalleryDependencyEnvironmentKey.self] }
         set { self[GalleryDependencyEnvironmentKey.self] = newValue }

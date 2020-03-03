@@ -80,10 +80,17 @@ private struct StubView: View {
     @Environment(\.verticalSizeClass)
     var verticalSizeClass
 
+    @Environment(\.colorScheme)
+    var colorScheme
+
+    var isLight: Bool {
+        colorScheme == .light
+    }
+
     var body: some View {
         ZStack {
-            Image(systemName: "sun.haze")
-                .foregroundColor(.orange)
+            Image(systemName: isLight ? "sun.haze" : "cloud.moon.rain")
+                .foregroundColor(isLight ? .orange : .blue)
                 .imageScale(.large)
                 .font(.system(size: 150))
 

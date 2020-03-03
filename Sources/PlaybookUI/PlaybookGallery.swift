@@ -78,7 +78,6 @@ internal struct PlaybookGalleryInternal: View {
                             .environmentObject(self.store)
                     }
             }
-                .environment(\.snapshotColorScheme, self.snapshotColorScheme)
                 .environmentObject(self.store)
                 .navigationViewStyle(StackNavigationViewStyle())
                 .onAppear {

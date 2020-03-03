@@ -1,3 +1,4 @@
 #include "./project.xcconfig"
 
 IPHONEOS_DEPLOYMENT_TARGET = 13.0
+APPLICATION_EXTENSION_API_ONLY = YES

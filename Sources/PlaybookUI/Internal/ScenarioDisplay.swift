@@ -25,9 +25,6 @@ internal struct ScenarioDisplay: View {
     @State
     private var status = Status.default
 
-    @Environment(\.snapshotColorScheme)
-    private var snapshotColorScheme
-
     @Environment(\.galleryDependency)
     private var dependency
 
@@ -44,7 +41,6 @@ internal struct ScenarioDisplay: View {
                     .id(AnimationID.content)
             }
                 .compositingGroup()
-                .colorScheme(snapshotColorScheme)
                 .transition(.opacity)
                 .animation(.spring(), value: status.isWaitForSnapshot)
                 .frame(
