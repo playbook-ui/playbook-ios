@@ -13,7 +13,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Validation
-        run: '[ "${{ github.ref }}" = "$(cat .version)" ]'
+        run: true && [ "${GITHUB_REF##*/}" = "$(cat .version)" ]
 
       - name: Get ruby gem cache
         id: gem-cache
