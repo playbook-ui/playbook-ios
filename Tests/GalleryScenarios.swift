@@ -128,15 +128,23 @@ struct GalleryScenarios: ScenarioProvider {
                         scenarios: [.stub, .stub, .stub]
                     ),
                     safeAreaInsets: EdgeInsets(),
-                    serialDispatcher: SerialMainDispatcher(interval: 0, scheduler: Scheduler()),
+                    serialDispatcher: SerialMainDispatcher(interval: 0, scheduler: SchedulerMock()),
                     onSelect: { _ in }
                 )
                     .environmentObject(
                         GalleryStore(
                             playbook: .test,
-                            preSnapshotCountLimit: 0,
+                            preSnapshotCountLimit: 100,
                             screenSize: context.screenSize.portrait,
                             userInterfaceStyle: .light
+                        )
+                            .takeSnapshots()
+                    )
+                    .environment(
+                        \.galleryDependency,
+                        GalleryDependency(
+                            scheduler: SchedulerMock(),
+                            context: context
                         )
                     )
             }
