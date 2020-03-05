@@ -8,8 +8,8 @@ let package = Package(
     ],
     products: [
         .library(name: "Playbook", targets: ["Playbook"]),
-        .library(name: "PlaybookSnapshot", targets: ["Playbook"]),
-        .library(name: "PlaybookUI", targets: ["Playbook"]),
+        .library(name: "PlaybookSnapshot", targets: ["PlaybookSnapshot"]),
+        .library(name: "PlaybookUI", targets: ["PlaybookUI"]),
     ],
     targets: [
         .target(

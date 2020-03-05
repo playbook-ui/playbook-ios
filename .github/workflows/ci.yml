@@ -5,7 +5,6 @@ jobs:
     name: Test on macOS
     runs-on: macOS-10.15
     strategy:
-      fail-fast: false
       matrix:
         xcode_version:
           - "11.3.1"
