@@ -19,33 +19,35 @@ jobs:
           xcodebuild -version
 
       - name: Get ruby gem cache
+        id: gem-cache
         uses: actions/cache@v1.1.2
         with:
           path: vendor/bundle
-          key: ${{ runner.os }}-gem-${{ hashFiles('Gemfile.lock') }}
-          restore-keys: ${{ runner.os }}-gem-
+          key: ${{ runner.os }}-1-gem-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: ${{ runner.os }}-1-gem-
 
       - name: Install ruby gems
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.gem-cache.cache.outputs.cache-hit != 'true'
         run: make gem
 
       - name: Get npm cache
+        id: npm-cache
         uses: actions/cache@v1.1.2
         with:
           path: node_modules
-          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: ${{ runner.os }}-npm-
+          key: ${{ runner.os }}-1-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ runner.os }}-1-npm-
 
       - name: Install npm packages
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.npm-cache.cache.outputs.cache-hit != 'true'
         run: make npm
 
       - name: Get SwiftPM cache
         uses: actions/cache@v1.1.2
         with:
           path: Tools/.build
-          key: ${{ runner.os }}-spm-${{ hashFiles('Tools/Package.resolved') }}
-          restore-keys: ${{ runner.os }}-spm-
+          key: ${{ runner.os }}-1-spm-${{ hashFiles('Tools/Package.resolved') }}
+          restore-keys: ${{ runner.os }}-1-spm-
 
       - name: Validation
         run: make all && [ -z "$(git status --porcelain)" ] && make lint
@@ -61,10 +63,8 @@ jobs:
 
       - name: Visual Regression Test
         run: |
-          echo $GCLOUD_GCS_SERVICE_KEY > $GOOGLE_APPLICATION_CREDENTIALS
+          echo $GCLOUD_SERVICE_KEY > $GOOGLE_APPLICATION_CREDENTIALS
           npx reg-suit run
         env:
           GOOGLE_APPLICATION_CREDENTIALS: gcloud-service-key.json
-
-      - name: Visual Regression Test For Example
-        run: npx reg-suit run -c Example/regconfig.json
+          GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}

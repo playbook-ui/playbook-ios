@@ -6,7 +6,7 @@ PACKAGE_NAME=${1?"USAGE: swift_run.sh #{package name} #{parameter}"}
 PARAMETERS=${@:2}
 SWIFT_BUILD="swift build -c release --package-path $(dirname $0)"
 PACKAGE_PATH=$($SWIFT_BUILD --show-bin-path)
-CHECKSUM_PATH="$PACKAGE_PATH/checksum.sha256"
+CHECKSUM_PATH="$PACKAGE_PATH/$PACKAGE_NAME.sha256"
 PACKAGE="$PACKAGE_PATH/$PACKAGE_NAME"
 
 if [[ -e $PACKAGE && -e $CHECKSUM_PATH && $(shasum -a 256 -c $CHECKSUM_PATH) ]]; then
