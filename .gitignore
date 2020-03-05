@@ -41,5 +41,7 @@ Pods/
 .swiftpm
 .build
 
-## Snapshots
+## Visual regression test
 Snapshots
+.reg
+gcloud-service-key.json

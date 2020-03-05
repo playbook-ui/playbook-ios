@@ -65,3 +65,6 @@ jobs:
           export GOOGLE_APPLICATION_CREDENTIALS=gcloud-service-key.json
           echo $GCLOUD_GCS_SERVICE_KEY | base64 -D > $GOOGLE_APPLICATION_CREDENTIALS
           npx reg-suit run
+
+      - name: Visual Regression Test For Example
+        run: npx reg-suit run -c Example/regconfig.json
