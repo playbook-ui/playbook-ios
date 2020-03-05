@@ -50,7 +50,7 @@ soon...
 
 | UI    | Browser | Detail |
 | ----- | ------- | ------ |
-| Light |<img src="assets/gallery-light.png" alt="Gellery Light" width="150">|<img src="assets/gallery-content-light.png" alt="Gellery Content Light" width="150">||
+| Light |<img src="assets/gallery-light.png" alt="Gellery Light" width="150">|<img src="assets/gallery-content-light.png" alt="Gellery Content Light" width="150">|
 | Dark  |<img src="assets/gallery-dark.png" alt="Gellery Dark" width="150">|<img src="assets/gallery-content-dark.png" alt="Gellery Content Dark" width="150">|
 
 soon...

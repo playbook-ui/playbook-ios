@@ -33,7 +33,7 @@ jobs:
         uses: actions/cache@v1.1.2
         with:
           path: node_modules
-          key: ${{ runner.os }}-gem-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
           restore-keys: ${{ runner.os }}-npm-
 
       - name: Install npm packages
@@ -44,26 +44,20 @@ jobs:
         uses: actions/cache@v1.1.2
         with:
           path: Tools/.build
-          key: ${{ runner.os }}-gem-${{ hashFiles('Tools/Package.resolved') }}
+          key: ${{ runner.os }}-spm-${{ hashFiles('Tools/Package.resolved') }}
           restore-keys: ${{ runner.os }}-spm-
-
       - name: Validation
         run: make all && [ -z "$(git status --porcelain)" ] && make lint
-
-      - name: Podspec Lint
-        run: make pod-lib-lint
-
-      - name: Test Library iOS
-        run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Playbook.xcodeproj -scheme Playbook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
-
-      - name: Test Example iOS
-        run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Example/PlaybookExample.xcodeproj -scheme SamplePlaybook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
-
-      - name: Visual Regression Test
-        run: |
-          export GOOGLE_APPLICATION_CREDENTIALS=gcloud-service-key.json
-          echo $GCLOUD_GCS_SERVICE_KEY | base64 -D > $GOOGLE_APPLICATION_CREDENTIALS
-          npx reg-suit run
-
-      - name: Visual Regression Test For Example
-        run: npx reg-suit run -c Example/regconfig.json
+      # - name: Podspec Lint
+      #   run: make pod-lib-lint
+      # - name: Test Library iOS
+      #   run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Playbook.xcodeproj -scheme Playbook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
+      # - name: Test Example iOS
+      #   run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Example/PlaybookExample.xcodeproj -scheme SamplePlaybook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
+      # - name: Visual Regression Test
+      #   run: |
+      #     export GOOGLE_APPLICATION_CREDENTIALS=gcloud-service-key.json
+      #     echo $GCLOUD_GCS_SERVICE_KEY | base64 -D > $GOOGLE_APPLICATION_CREDENTIALS
+      #     npx reg-suit run
+      # - name: Visual Regression Test For Example
+      #   run: npx reg-suit run -c Example/regconfig.json
