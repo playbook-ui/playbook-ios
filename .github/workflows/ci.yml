@@ -46,6 +46,7 @@ jobs:
           path: Tools/.build
           key: ${{ runner.os }}-spm-${{ hashFiles('Tools/Package.resolved') }}
           restore-keys: ${{ runner.os }}-spm-
+
       - name: Validation
         run: make all && [ -z "$(git status --porcelain)" ] && make lint
 

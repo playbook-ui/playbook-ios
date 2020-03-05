@@ -1,4 +1,4 @@
-SWIFT_TOOL := swift run -c release --package-path ./Tools
+SWIFT_TOOL := Tools/swift-run.sh
 GITHUB_RAW_CONTENT_PATH := https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/
 GITHUB_TREE_PATH := https://github.com/playbook-ui/playbook-ios/tree/master/
 
