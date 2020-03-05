@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Show Environments
+      - name: Show environments
         run: |
           swift --version
           xcodebuild -version
@@ -52,13 +52,13 @@ jobs:
       - name: Validation
         run: make all && [ -z "$(git status --porcelain)" ] && make lint
 
-      - name: Podspec Lint
+      - name: Podspec lint
         run: make pod-lib-lint
 
-      - name: Test Library iOS
+      - name: Test library iOS
         run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Playbook.xcodeproj -scheme Playbook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
 
-      - name: Visual Regression Test
+      - name: Visual regression test
         run: |
           echo $GCLOUD_SERVICE_KEY > $GOOGLE_APPLICATION_CREDENTIALS
           npx reg-suit run

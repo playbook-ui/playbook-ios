@@ -29,7 +29,7 @@ pod-lib-lint:
 
 .PHONY: pod-release
 pod-release:
-	bundle exec pod trunk push --allow-warnings
+	bundle exec pod trunk push
 
 .PHONY: gem
 gem:
