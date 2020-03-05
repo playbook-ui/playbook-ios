@@ -1,0 +1,67 @@
+name: GitHub Actions
+on: push
+jobs:
+  macOS:
+    name: Test on macOS
+    runs-on: macOS-10.15
+    strategy:
+      matrix:
+        xcode_version:
+          - "11.3.1"
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode_version }}.app
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Show Environments
+        run: |
+          swift --version
+          xcodebuild -version
+
+      - name: Get ruby gem cache
+        id: gem-cache
+        uses: actions/cache@v1.1.2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-1-gem-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: ${{ runner.os }}-1-gem-
+
+      - name: Install ruby gems
+        if: steps.gem-cache.cache.outputs.cache-hit != 'true'
+        run: make gem
+
+      - name: Get npm cache
+        id: npm-cache
+        uses: actions/cache@v1.1.2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-1-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ runner.os }}-1-npm-
+
+      - name: Install npm packages
+        if: steps.npm-cache.cache.outputs.cache-hit != 'true'
+        run: make npm
+
+      - name: Get SwiftPM cache
+        uses: actions/cache@v1.1.2
+        with:
+          path: Tools/.build
+          key: ${{ runner.os }}-1-spm-${{ hashFiles('Tools/Package.resolved') }}
+          restore-keys: ${{ runner.os }}-1-spm-
+
+      - name: Validation
+        run: make all && [ -z "$(git status --porcelain)" ] && make lint
+
+      - name: Podspec Lint
+        run: make pod-lib-lint
+
+      - name: Test Library iOS
+        run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Playbook.xcodeproj -scheme Playbook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
+
+      - name: Visual Regression Test
+        run: |
+          echo $GCLOUD_SERVICE_KEY > $GOOGLE_APPLICATION_CREDENTIALS
+          npx reg-suit run
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: gcloud-service-key.json
+          GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
