@@ -153,6 +153,7 @@
 		385C5E36DF37E9A2AF379859 /* Playbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playbook.swift; sourceTree = "<group>"; };
 		38F7F9F34307C4DEEDF210F9 /* GalleryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryStore.swift; sourceTree = "<group>"; };
 		39688046A26BC35A5FDFC672 /* ScenarioDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioDisplay.swift; sourceTree = "<group>"; };
+		3C6A8B3A250BFEBCF94DE00F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4351CB488B9D56ABCDD4E27A /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		51782585DE3DFFD2FDB8684B /* Export.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Export.swift; sourceTree = "<group>"; };
 		5576F4CB67593B259E12C387 /* HorizontalSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSeparator.swift; sourceTree = "<group>"; };
@@ -409,6 +410,7 @@
 				302C484FF86103B73D1C1122 /* AllScenarios.swift */,
 				D15384CB93B122425863A487 /* CatalogScenarios.swift */,
 				9BAD3FE8D577886981218938 /* GalleryScenarios.swift */,
+				3C6A8B3A250BFEBCF94DE00F /* Info.plist */,
 				AEB78746E7DE13CB4BBD42FC /* Mocks.swift */,
 				9370D44977281AAEBF6DEF44 /* PlaybookTests.swift */,
 				F291632484870BA6A8BA1609 /* ScenarioContentTests.swift */,
@@ -674,6 +676,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Tests/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "app.playbook-ui.Playbook-Tests";
 			};
 			name = Debug;
@@ -856,6 +859,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Tests/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "app.playbook-ui.Playbook-Tests";
 			};
 			name = Release;
