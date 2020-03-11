@@ -64,7 +64,7 @@ docs:
 .PHONY: xcframework
 xcframework:
 	rm -rf ./archive
-	for scheme in "Playbook" "PlaybookUI"; do \
+	for scheme in "Playbook" "PlaybookUI" "PlaybookSnapshot"; do \
 	for sdk in "iphoneos" "iphonesimulator"; do \
 	xcodebuild archive \
 	  -scheme $$scheme \
