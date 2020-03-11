@@ -5,6 +5,31 @@ configFiles:
 options:
   bundleIdPrefix: app.playbook-ui
   createIntermediateGroups: true
+
+schemes:
+  Playbook:
+    build:
+      targets:
+        Playbook: all
+        Playbook-Tests: test
+    test:
+      targets:
+        - Playbook-Tests
+      commandLineArguments:
+        -AppleLanguages (en): true
+      environmentVariables:
+        SNAPSHOT_DIR: $(SOURCE_ROOT)/Snapshots
+
+  PlaybookUI:
+    build:
+      targets:
+        PlaybookUI: all
+
+  PlaybookSnapshot:
+    build:
+      targets:
+        PlaybookSnapshot: all
+
 targets:
   Playbook:
     type: framework
@@ -14,13 +39,6 @@ targets:
     configFiles:
       Debug: XCConfigs/playbook.xcconfig
       Release: XCConfigs/playbook.xcconfig
-    scheme:
-      testTargets:
-        - Playbook-Tests
-      commandLineArguments:
-        -AppleLanguages (en): true
-      environmentVariables:
-        SNAPSHOT_DIR: $(SOURCE_ROOT)/Snapshots
 
   PlaybookUI:
     type: framework
