@@ -22,15 +22,29 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9B0C5998FC74E5F962F13622"
-               BuildableName = "Playbook-Tests.xctest"
-               BlueprintName = "Playbook-Tests"
+               BlueprintIdentifier = "94A1D69E00418C80F93877D3"
+               BuildableName = "PlaybookSnapshot.framework"
+               BlueprintName = "PlaybookSnapshot"
+               ReferencedContainer = "container:Playbook.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F63CE3653F9A8266A78D20C6"
+               BuildableName = "PlaybookUI.framework"
+               BlueprintName = "PlaybookUI"
                ReferencedContainer = "container:Playbook.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,7 +54,20 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      onlyGenerateCoverageForSpecifiedTargets = "NO"
       shouldUseLaunchSchemeArgsEnv = "NO">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9B0C5998FC74E5F962F13622"
+               BuildableName = "Playbook-Tests.xctest"
+               BlueprintName = "Playbook-Tests"
+               ReferencedContainer = "container:Playbook.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -63,18 +90,10 @@
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
-      <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9B0C5998FC74E5F962F13622"
-               BuildableName = "Playbook-Tests.xctest"
-               BlueprintName = "Playbook-Tests"
-               ReferencedContainer = "container:Playbook.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <CodeCoverageTargets>
+      </CodeCoverageTargets>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -95,6 +114,8 @@
             ReferencedContainer = "container:Playbook.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

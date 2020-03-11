@@ -11,7 +11,8 @@ schemes:
     build:
       targets:
         Playbook: all
-        Playbook-Tests: test
+        PlaybookUI: [test]
+        PlaybookSnapshot: [test]
     test:
       targets:
         - Playbook-Tests
