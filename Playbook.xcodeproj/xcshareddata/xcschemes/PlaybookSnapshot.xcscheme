@@ -14,37 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "85CBE39381637979CD313688"
-               BuildableName = "Playbook.framework"
-               BlueprintName = "Playbook"
-               ReferencedContainer = "container:Playbook.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "94A1D69E00418C80F93877D3"
                BuildableName = "PlaybookSnapshot.framework"
                BlueprintName = "PlaybookSnapshot"
-               ReferencedContainer = "container:Playbook.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F63CE3653F9A8266A78D20C6"
-               BuildableName = "PlaybookUI.framework"
-               BlueprintName = "PlaybookUI"
                ReferencedContainer = "container:Playbook.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -55,41 +27,18 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       onlyGenerateCoverageForSpecifiedTargets = "NO"
-      shouldUseLaunchSchemeArgsEnv = "NO">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9B0C5998FC74E5F962F13622"
-               BuildableName = "Playbook-Tests.xctest"
-               BlueprintName = "Playbook-Tests"
-               ReferencedContainer = "container:Playbook.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "85CBE39381637979CD313688"
-            BuildableName = "Playbook.framework"
-            BlueprintName = "Playbook"
+            BlueprintIdentifier = "94A1D69E00418C80F93877D3"
+            BuildableName = "PlaybookSnapshot.framework"
+            BlueprintName = "PlaybookSnapshot"
             ReferencedContainer = "container:Playbook.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-AppleLanguages (en)"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "SNAPSHOT_DIR"
-            value = "$(SOURCE_ROOT)/Snapshots"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
       <CodeCoverageTargets>
@@ -108,9 +57,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "85CBE39381637979CD313688"
-            BuildableName = "Playbook.framework"
-            BlueprintName = "Playbook"
+            BlueprintIdentifier = "94A1D69E00418C80F93877D3"
+            BuildableName = "PlaybookSnapshot.framework"
+            BlueprintName = "PlaybookSnapshot"
             ReferencedContainer = "container:Playbook.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -127,9 +76,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "85CBE39381637979CD313688"
-            BuildableName = "Playbook.framework"
-            BlueprintName = "Playbook"
+            BlueprintIdentifier = "94A1D69E00418C80F93877D3"
+            BuildableName = "PlaybookSnapshot.framework"
+            BlueprintName = "PlaybookSnapshot"
             ReferencedContainer = "container:Playbook.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

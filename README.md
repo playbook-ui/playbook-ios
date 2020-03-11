@@ -131,6 +131,8 @@ Select Xcode menu `File > Swift Packages > Add Package Dependency...` and enter 
 Repository: https://github.com/playbook-ui/playbook-ios
 ```
 
+Note: Currently, SwiftPM doesn't support specifying the OS version for each library, so only `iOS13` is supported.  
+
 ---
 
 ## Development
