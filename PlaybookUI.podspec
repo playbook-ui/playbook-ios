@@ -13,7 +13,7 @@ Pod::Spec.new do |spec|
     spec.ios.deployment_target = '13.0'
     spec.ios.source_files = 'Sources/PlaybookUI/**/*.swift'
     spec.ios.frameworks = 'SwiftUI', 'Combine'
-    spec.dependency 'Playbook', "~> #{spec.version.to_s}"
+    spec.dependency 'Playbook', "~> 0.0.2"
 
     spec.pod_target_xcconfig = {
         'APPLICATION_EXTENSION_API_ONLY' => 'YES',
