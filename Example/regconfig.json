@@ -1,7 +1,7 @@
 {
     "core": {
         "workingDir": ".reg",
-        "actualDir": "Snapshots",
+        "actualDir": "Example/Snapshots",
         "addIgnore": true,
         "thresholdPixel": 25,
         "ximgdiff": {
