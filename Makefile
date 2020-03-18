@@ -1,6 +1,7 @@
 SWIFT_TOOL := Tools/swift-run.sh
 GITHUB_RAW_CONTENT_PATH := https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/
 GITHUB_TREE_PATH := https://github.com/playbook-ui/playbook-ios/tree/master/
+LIBS := "Playbook" "PlaybookUI" "PlaybookSnapshot"
 
 .PHONY: all
 all: proj mod format
@@ -25,11 +26,15 @@ lint:
 
 .PHONY: pod-lib-lint
 pod-lib-lint:
-	bundle exec pod lib lint
+	for lib in $(LIBS); do \
+	  bundle exec pod lib lint $$lib.podspec; \
+	done
 
 .PHONY: pod-release
 pod-release:
-	bundle exec pod trunk push
+	for lib in $(LIBS); do \
+	  bundle exec pod trunk push $$lib.podspec; \
+	done
 
 .PHONY: gem
 gem:
@@ -64,19 +69,19 @@ docs:
 .PHONY: xcframework
 xcframework:
 	rm -rf ./archive
-	for scheme in "Playbook" "PlaybookUI"; do \
-	for sdk in "iphoneos" "iphonesimulator"; do \
-	xcodebuild archive \
-	  -scheme $$scheme \
-	  -configuration Release \
-	  -sdk $$sdk \
-	  -destination="iOS" \
-	  -archivePath "archive/$$sdk.xcarchive"; \
-	done; \
-	find archive -name '*.swiftinterface' -exec sed -i '' -e 's/Playbook\.//g' {} \;; \
-	rm -rf ./$$scheme.xcframework; \
-	xcodebuild -create-xcframework \
-	  -framework archive/iphoneos.xcarchive/Products/Library/Frameworks/$$scheme.framework \
-	  -framework archive/iphonesimulator.xcarchive/Products/Library/Frameworks/$$scheme.framework \
-	  -output $$scheme.xcframework; \
+	for scheme in $(LIBS); do \
+	  for sdk in "iphoneos" "iphonesimulator"; do \
+	  xcodebuild archive \
+	    -scheme $$scheme \
+	    -configuration Release \
+	    -sdk $$sdk \
+	    -destination="iOS" \
+	    -archivePath "archive/$$sdk.xcarchive"; \
+	  done; \
+	  find archive -name '*.swiftinterface' -exec sed -i '' -e 's/Playbook\.//g' {} \;; \
+	  rm -rf ./$$scheme.xcframework; \
+	  xcodebuild -create-xcframework \
+	    -framework archive/iphoneos.xcarchive/Products/Library/Frameworks/$$scheme.framework \
+	    -framework archive/iphonesimulator.xcarchive/Products/Library/Frameworks/$$scheme.framework \
+	    -output $$scheme.xcframework; \
 	done

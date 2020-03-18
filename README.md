@@ -100,19 +100,16 @@ Playbook features are separated into the following frameworks.
 Add the following to your `Podfile`:
 
 ```ruby
-pod 'Playbook' # Playbook, PlaybookSnapshot and PlaybookUI
-```
+target 'YourPlaybook' do
+  pod 'Playbook'
+  pod 'PlaybookUI'
 
-```ruby
-pod 'Playbook/System' # Playbook only
-```
+  target 'YourPlaybookTests' do
+    inherit! :search_paths
 
-```ruby
-pod 'Playbook/Snapshot' # Playbook and PlaybookSnapshot
-```
-
-```ruby
-pod 'Playbook/UI' # Playbook and PlaybookUI
+    pod 'PlaybookSnapshot'
+  end
+end
 ```
 
 ### [Carthage](https://github.com/Carthage/Carthage)
@@ -130,6 +127,8 @@ Select Xcode menu `File > Swift Packages > Add Package Dependency...` and enter 
 ```
 Repository: https://github.com/playbook-ui/playbook-ios
 ```
+
+Note: Currently, SwiftPM doesn't support specifying the OS version for each library, so only `iOS13` is supported.  
 
 ---
 
