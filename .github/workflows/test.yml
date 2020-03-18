@@ -61,12 +61,12 @@ jobs:
         run: make pod-lib-lint
 
       - name: Test library iOS
-        run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Playbook.xcodeproj -scheme Playbook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
+        run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Example/PlaybookExample.xcodeproj -scheme SamplePlaybook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
 
       - name: Visual regression test
         run: |
           echo $GCLOUD_SERVICE_KEY > $GOOGLE_APPLICATION_CREDENTIALS
-          npx reg-suit run
+          npx reg-suit run -c Example/regconfig.json
         env:
           GOOGLE_APPLICATION_CREDENTIALS: gcloud-service-key.json
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
