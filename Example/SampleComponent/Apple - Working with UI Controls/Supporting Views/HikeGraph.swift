@@ -42,7 +42,7 @@ public struct HikeGraph: View {
         let heightRatio = 1 - CGFloat(maxMagnitude / magnitude(of: overallRange))
 
         return GeometryReader { proxy in
-            AnyView(HStack(alignment: .bottom, spacing: proxy.size.width / 120) {
+            AnyView(HStack(alignment: .bottom, spacing: proxy.size.width / 40) {
                 ForEach(data.indices) { index in
                     GraphCapsule(
                         index: index,

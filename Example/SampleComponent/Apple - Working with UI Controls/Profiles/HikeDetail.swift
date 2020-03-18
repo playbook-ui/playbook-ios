@@ -28,7 +28,7 @@ public struct HikeDetail: View {
                         self.dataToShow = value.1
                     }) {
                         Text(verbatim: value.0)
-                            .font(.system(size: 15))
+                            .font(.system(size: 20))
                             .foregroundColor(value.1 == self.dataToShow
                                 ? Color.gray
                                 : Color.accentColor)
