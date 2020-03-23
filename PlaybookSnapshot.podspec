@@ -13,7 +13,7 @@ Pod::Spec.new do |spec|
     spec.ios.deployment_target = '11.0'
     spec.ios.source_files = 'Sources/PlaybookSnapshot/**/*.swift'
     spec.ios.frameworks = 'XCTest'
-    spec.dependency 'Playbook', "~> 0.0.2"
+    spec.dependency 'Playbook', "~> 0"
 
     spec.pod_target_xcconfig = {
         'APPLICATION_EXTENSION_API_ONLY' => 'YES',
