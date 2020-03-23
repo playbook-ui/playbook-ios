@@ -49,15 +49,8 @@ npm:
 docs:
 	@echo "Currently swift-doc is installed via HomeBrew, it should be installed via SwiftPM after merged this PR 'https://github.com/SwiftDocOrg/swift-doc/pull/7'"
 	rm -rf docs
-	cat README.md | \
-	  sed -E '/.?http/!s#(<img src=")([^"]+)#\1$(GITHUB_RAW_CONTENT_PATH)\2#g' | \
-	  sed -E '/.?http/!s#(<img .+src=")([^"]+)#\1$(GITHUB_RAW_CONTENT_PATH)\2#g' | \
-	  sed -E '/.?http/!s#(<a href=")([^"]+)#\1$(GITHUB_TREE_PATH)\2#g' | \
-	  sed -E '/.?http/!s#(<a .+href=")([^"]+)#\1$(GITHUB_TREE_PATH)\2#g' | \
-	  sed -E '/.?http/!s#(\!\[.+\])\((.+)\)#\1($(GITHUB_RAW_CONTENT_PATH)\2)#g' | \
-	  sed -E '/.?http/!s#(\[.+\])\((.+)\)#\1($(GITHUB_TREE_PATH)\2)#g' > \
-	  gitbook/README.md
 	swift doc Sources --output gitbook
+	cp README.md gitbook
 	echo '## Playbook\n' > gitbook/SUMMARY.md
 	cat gitbook/Home.md | \
 	  sed 's/#/##/g' | \
@@ -65,6 +58,15 @@ docs:
 	  gitbook/SUMMARY.md
 	npx gitbook install gitbook
 	npx gitbook build gitbook docs
+
+.PHONY: fix-readme-links
+fix-readme-links:
+	sed -i '' -E '/.?http/!s#(<img src=")([^"]+)#\1$(GITHUB_RAW_CONTENT_PATH)\2#g' README.md
+	sed -i '' -E '/.?http/!s#(<img .+src=")([^"]+)#\1$(GITHUB_RAW_CONTENT_PATH)\2#g' README.md
+	sed -i '' -E '/.?http/!s#(<a href=")([^"]+)#\1$(GITHUB_TREE_PATH)\2#g' README.md
+	sed -i '' -E '/.?http/!s#(<a .+href=")([^"]+)#\1$(GITHUB_TREE_PATH)\2#g' README.md
+	sed -i '' -E '/.?http/!s#(\!\[.+\])\((.+)\)#\1($(GITHUB_RAW_CONTENT_PATH)\2)#g' README.md
+	sed -i '' -E '/.?http/!s#(\[.+\])\((.+)\)#\1($(GITHUB_TREE_PATH)\2)#g' README.md
 
 .PHONY: xcframework
 xcframework:

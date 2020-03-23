@@ -13,7 +13,6 @@
   - [ScenarioViewController](ScenarioViewController)
   - [ScenariosBuilder](ScenariosBuilder)
   - [Snapshot](Snapshot)
-  - [Snapshot.Context](Snapshot_Context)
   - [SnapshotDevice](SnapshotDevice)
   - [SnapshotDevice.Orientation](SnapshotDevice_Orientation)
   - [SnapshotSupport](SnapshotSupport)
