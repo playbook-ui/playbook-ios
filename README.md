@@ -225,16 +225,6 @@ Note: Currently, SwiftPM doesn't support specifying the OS version for each libr
 
 ---
 
-## Development
-
-soon...
-
-### TODO
-
-- [ ] Compare snapshot diffs without third-party libraries.
-
----
-
 ## License
 
 Playbook is released under the [Apache 2.0 License](https://github.com/playbook-ui/playbook-ios/tree/master/LICENSE).

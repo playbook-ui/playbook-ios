@@ -50,6 +50,7 @@ docs:
 	@echo "Currently swift-doc is installed via HomeBrew, it should be installed via SwiftPM after merged this PR 'https://github.com/SwiftDocOrg/swift-doc/pull/7'"
 	rm -rf docs
 	swift doc Sources --output gitbook
+	cp README.md gitbook
 	echo '## Playbook\n' > gitbook/SUMMARY.md
 	cat gitbook/Home.md | \
 	  sed 's/#/##/g' | \
