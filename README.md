@@ -47,7 +47,7 @@ With the `Playbook`, you don't have to struggle through preparing the data and a
 ### Playbook
 
 `Playbook` is a framework that provides the basic functionality for managing components and supports both `SwiftUI` and `UIKit`.  
-Components are uniquely stored as scenarios. A `Scenario` has the way to layout component. Please check the [API Doc](https://playbook-ui.github.io/playbook-ios/ScenarioLayout.html) for the variety of layouts.  
+Components are uniquely stored as scenarios. A `Scenario` has the way to layout component.Please check the [API Doc](https://playbook-ui.github.io/playbook-ios/ScenarioLayout.html) for the variety of layouts.  
 
 ```swift
 Playbook.default.addScenarios(of: "Home") {
@@ -59,6 +59,12 @@ Playbook.default.addScenarios(of: "Home") {
         NavigationView {
             LandmarkList().environmentObject(UserData.stub)
         }
+    }
+
+    Scenario("UIView red", layout: .fixed(length: 100)) {
+        let view = UIView()
+        view.backgroundColor = .red
+        return view
     }
 }
 ```

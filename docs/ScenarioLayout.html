@@ -456,77 +456,7 @@
 <h2 id="inheritance">Inheritance</h2>
 <p><code>Equatable</code></p>
 <h2 id="nested-types">Nested Types</h2>
-<ul>
-<li><a href="ScenarioLayout_Sizing">ScenarioLayout.Sizing</a></li>
-</ul>
-<h2 id="properties">Properties</h2>
-<h2 id="h">h</h2>
-<p>A horizontal sizing strategy.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">var</span> h: <span class="hljs-type">Sizing</span>
-</code></pre>
-<h2 id="v">v</h2>
-<p>A vertical sizing strategy.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">var</span> v: <span class="hljs-type">Sizing</span>
-</code></pre>
-<h2 id="compressed">compressed</h2>
-<p>Compresses both the horizontal and vertical to the intrinsic size of the component.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">let</span> compressed = <span class="hljs-type">ScenarioLayout</span>(h: .compressed, v: .compressed)
-</code></pre>
-<h2 id="fill">fill</h2>
-<p>Fill both the horizontal and vertical to the size of the canvas on
-which to layout the component.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">let</span> fill = <span class="hljs-type">ScenarioLayout</span>(h: .fill, v: .fill)
-</code></pre>
-<h2 id="fillh">fillH</h2>
-<p>Fill the horizontal to the size of the canvas on which to layout the component
-and compresses the vertical to the intrinsic size of the component.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">let</span> fillH = <span class="hljs-type">ScenarioLayout</span>(h: .fill, v: .compressed)
-</code></pre>
-<h2 id="fillv">fillV</h2>
-<p>Fill the vetical to the size of the canvas on which to layout the component
-and compresses the horizontal to the intrinsic size of the component.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">let</span> fillV = <span class="hljs-type">ScenarioLayout</span>(h: .compressed, v: .fill)
-</code></pre>
-<h2 id="methods">Methods</h2>
-<h2 id="fixedwidthheight">fixed(width:height:)</h2>
-<p>Layout both the vertical and horizontal with given fixed width and height.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">fixed</span><span class="hljs-params">(width: CGFloat, height: CGFloat)</span></span> -&gt; <span class="hljs-type">ScenarioLayout</span>
-</code></pre>
-<p>Note: There are cases that to compressed to
-the size of the canvas on which to layout it when it can&apos;t be displayed
-on the user interface.</p>
-<h2 id="fixedlength">fixed(length:)</h2>
-<p>Layout both the vertical and horizontal with given fixed length.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">fixed</span><span class="hljs-params">(length: CGFloat)</span></span> -&gt; <span class="hljs-type">ScenarioLayout</span>
-</code></pre>
-<p>Note: There are cases that to compressed to
-the size of the canvas on which to layout it when it can&apos;t be displayed
-on the user interface.</p>
-<h2 id="fixedh">fixedH(_:)</h2>
-<p>Layout the horizontal with given fixed width and compresses the vertical
-to the intrinsic size of the component.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">fixedH</span><span class="hljs-params">(<span class="hljs-number">_</span> width: CGFloat)</span></span> -&gt; <span class="hljs-type">ScenarioLayout</span>
-</code></pre>
-<p>Note: There are cases that to compressed to
-the size of the canvas on which to layout it when it can&apos;t be displayed
-on the user interface.</p>
-<h2 id="fixedv">fixedV(_:)</h2>
-<p>Layout the vertical with given fixed height and compresses the horizontal
-to the intrinsic size of the component.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">fixedV</span><span class="hljs-params">(<span class="hljs-number">_</span> height: CGFloat)</span></span> -&gt; <span class="hljs-type">ScenarioLayout</span>
-</code></pre>
-<p>Note: There are cases that to compressed to
-the size of the canvas on which to layout it when it can&apos;t be displayed
-on the user interface.</p>
-<h2 id="sizinghv">sizing(h:v:)</h2>
-<p>Layout the vertical and horizontal sizes according to the specified strategies.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">sizing</span><span class="hljs-params">(h: Sizing, v: Sizing)</span></span> -&gt; <span class="hljs-type">ScenarioLayout</span>
-</code></pre>
-<h3 id="parameters">Parameters</h3>
-<ul>
-<li>h: A horizontal sizing strategy.</li>
-<li>v: A vertical sizing strategy.</li>
-</ul>
+<p><a href="ScenarioLayout_Sizing"><code>ScenarioLayout.Sizing</code></a></p>
 
                                 
                                 </section>
@@ -570,7 +500,7 @@ on the user interface.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ScenarioLayout","level":"2.7","depth":1,"next":{"title":"ScenarioLayout.Sizing","level":"2.8","depth":1,"path":"ScenarioLayout_Sizing.md","ref":"ScenarioLayout_Sizing.md","articles":[]},"previous":{"title":"ScenarioKind","level":"2.6","depth":1,"path":"ScenarioKind.md","ref":"ScenarioKind.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github@2.0.0","hide-published-with@0.0.1"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/playbook-ui/playbook-ios"},"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Playbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Playbook","gitbook":"*","description":"Playbook API Document"},"file":{"path":"ScenarioLayout.md","mtime":"2020-03-23T17:38:22.153Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-23T17:38:25.593Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ScenarioLayout","level":"2.7","depth":1,"next":{"title":"ScenarioLayout.Sizing","level":"2.8","depth":1,"path":"ScenarioLayout_Sizing.md","ref":"ScenarioLayout_Sizing.md","articles":[]},"previous":{"title":"ScenarioKind","level":"2.6","depth":1,"path":"ScenarioKind.md","ref":"ScenarioKind.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github@2.0.0","hide-published-with@0.0.1"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/playbook-ui/playbook-ios"},"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Playbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Playbook","gitbook":"*","description":"Playbook API Document"},"file":{"path":"ScenarioLayout.md","mtime":"2020-03-31T16:29:03.573Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-31T16:29:09.039Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

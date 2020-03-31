@@ -483,7 +483,7 @@
 </ul>
 <hr>
 <h3 id="playbook">Playbook</h3>
-<p><code>Playbook</code> is a framework that provides the basic functionality for managing components and supports both <code>SwiftUI</code> and <code>UIKit</code>.<br>Components are uniquely stored as scenarios. A <code>Scenario</code> has the way to layout component. Please check the <a href="https://playbook-ui.github.io/playbook-ios/ScenarioLayout.html" target="_blank">API Doc</a> for the variety of layouts.  </p>
+<p><code>Playbook</code> is a framework that provides the basic functionality for managing components and supports both <code>SwiftUI</code> and <code>UIKit</code>.<br>Components are uniquely stored as scenarios. A <code>Scenario</code> has the way to layout component.Please check the <a href="https://playbook-ui.github.io/playbook-ios/ScenarioLayout.html" target="_blank">API Doc</a> for the variety of layouts.  </p>
 <pre><code class="lang-swift"><span class="hljs-type">Playbook</span>.<span class="hljs-keyword">default</span>.addScenarios(of: <span class="hljs-string">&quot;Home&quot;</span>) {
     <span class="hljs-type">Scenario</span>(<span class="hljs-string">&quot;CategoryHome&quot;</span>, layout: .fill) {
         <span class="hljs-type">CategoryHome</span>().environmentObject(<span class="hljs-type">UserData</span>.stub)
@@ -493,6 +493,12 @@
         <span class="hljs-type">NavigationView</span> {
             <span class="hljs-type">LandmarkList</span>().environmentObject(<span class="hljs-type">UserData</span>.stub)
         }
+    }
+
+    <span class="hljs-type">Scenario</span>(<span class="hljs-string">&quot;UIView red&quot;</span>, layout: .fixed(length: <span class="hljs-number">100</span>)) {
+        <span class="hljs-keyword">let</span> view = <span class="hljs-type">UIView</span>()
+        view.backgroundColor = .red
+        <span class="hljs-keyword">return</span> view
     }
 }
 </code></pre>
@@ -672,7 +678,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Playbook","level":"2.1","depth":1,"path":"Playbook.md","ref":"Playbook.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github@2.0.0","hide-published-with@0.0.1"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/playbook-ui/playbook-ios"},"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Playbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Playbook","gitbook":"*","description":"Playbook API Document"},"file":{"path":"README.md","mtime":"2020-03-23T17:38:22.172Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-23T17:38:25.593Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Playbook","level":"2.1","depth":1,"path":"Playbook.md","ref":"Playbook.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github@2.0.0","hide-published-with@0.0.1"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/playbook-ui/playbook-ios"},"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Playbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Playbook","gitbook":"*","description":"Playbook API Document"},"file":{"path":"README.md","mtime":"2020-03-31T16:29:03.613Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-31T16:29:09.039Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

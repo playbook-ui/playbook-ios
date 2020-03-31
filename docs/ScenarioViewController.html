@@ -454,16 +454,12 @@
 <pre><code class="lang-swift">open <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ScenarioViewController</span>: <span class="hljs-title">UIViewController</span>
 </span></code></pre>
 <h2 id="inheritance">Inheritance</h2>
-<p><code>UIViewController</code>, <a href="ScenarioContent"><code>ScenarioContent</code></a></p>
+<p><code>UIViewController</code></p>
 <h2 id="initializers">Initializers</h2>
-<h2 id="initcontext">init(context:)</h2>
-<p>Initialize a new scenario view controller with given context.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">init</span>(context: <span class="hljs-type">ScenarioContext</span>)
+<h2 id="initcoder">init?(coder:)</h2>
+<p>Unavailable initializer.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(*, unavailable) <span class="hljs-keyword">public</span> <span class="hljs-keyword">required</span> <span class="hljs-keyword">init</span>?(coder: <span class="hljs-type">NSCoder</span>)
 </code></pre>
-<h3 id="parameters">Parameters</h3>
-<ul>
-<li>context: The context of scenario.</li>
-</ul>
 <h2 id="initcontextscenario">init(context:scenario:)</h2>
 <p>Initialize a new scenario view controller with given context.</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">convenience</span> <span class="hljs-keyword">init</span>(context: <span class="hljs-type">ScenarioContext</span>, scenario: <span class="hljs-type">Scenario</span>)
@@ -473,11 +469,23 @@
 <li>context: The context of scenario.</li>
 <li>scenario: A scenario to be displayed initially.</li>
 </ul>
-<h2 id="initcoder">init?(coder:)</h2>
-<p>Unavailable initializer.</p>
-<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(*, unavailable) <span class="hljs-keyword">public</span> <span class="hljs-keyword">required</span> <span class="hljs-keyword">init</span>?(coder: <span class="hljs-type">NSCoder</span>)
+<h2 id="initcontext">init(context:)</h2>
+<p>Initialize a new scenario view controller with given context.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">init</span>(context: <span class="hljs-type">ScenarioContext</span>)
 </code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>context: The context of scenario.</li>
+</ul>
 <h2 id="properties">Properties</h2>
+<h2 id="prefersstatusbarhidden">prefersStatusBarHidden</h2>
+<p>Specifies whether the view controller prefers the status bar to be hidden or shown.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> prefersStatusBarHidden: <span class="hljs-type">Bool</span>
+</code></pre>
+<h2 id="shouldstatusbarhidden">shouldStatusBarHidden</h2>
+<p>Specifies whether the status bar should be hidden.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> shouldStatusBarHidden = <span class="hljs-literal">false</span>
+</code></pre>
 <h2 id="context">context</h2>
 <p>The context of scenario that indicating environments.</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">let</span> context: <span class="hljs-type">ScenarioContext</span>
@@ -490,26 +498,14 @@
 <p>The view controller wrapping content of currently displayed scenario.</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> contentViewController: <span class="hljs-type">UIViewController</span>?
 </code></pre>
-<h2 id="shouldstatusbarhidden">shouldStatusBarHidden</h2>
-<p>Specifies whether the status bar should be hidden.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">var</span> shouldStatusBarHidden = <span class="hljs-literal">false</span>
-</code></pre>
 <h2 id="disablesendappearancetransition">disablesEndAppearanceTransition</h2>
 <p>Specifies whether the <code>endAppearanceTransition</code> should be call after transition.</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> disablesEndAppearanceTransition = <span class="hljs-literal">false</span>
-</code></pre>
-<h2 id="prefersstatusbarhidden">prefersStatusBarHidden</h2>
-<p>Specifies whether the view controller prefers the status bar to be hidden or shown.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">var</span> prefersStatusBarHidden: <span class="hljs-type">Bool</span>
 </code></pre>
 <h2 id="methods">Methods</h2>
 <h2 id="endappearancetransition">endAppearanceTransition()</h2>
 <p>Tells the child controller its appearance changed.</p>
 <pre><code class="lang-swift">open <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">endAppearanceTransition</span><span class="hljs-params">()</span></span>
-</code></pre>
-<h2 id="makeuiviewcontroller">makeUIViewController()</h2>
-<p>Makes a new <code>UIViewController</code> instance thats wraps <code>self</code>.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">makeUIViewController</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">UIViewController</span>
 </code></pre>
 
                                 
@@ -554,7 +550,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ScenarioViewController","level":"2.11","depth":1,"next":{"title":"ScenariosBuilder","level":"2.12","depth":1,"path":"ScenariosBuilder.md","ref":"ScenariosBuilder.md","articles":[]},"previous":{"title":"ScenarioStore","level":"2.10","depth":1,"path":"ScenarioStore.md","ref":"ScenarioStore.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github@2.0.0","hide-published-with@0.0.1"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/playbook-ui/playbook-ios"},"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Playbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Playbook","gitbook":"*","description":"Playbook API Document"},"file":{"path":"ScenarioViewController.md","mtime":"2020-03-23T17:38:22.163Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-23T17:38:25.593Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ScenarioViewController","level":"2.11","depth":1,"next":{"title":"ScenariosBuilder","level":"2.12","depth":1,"path":"ScenariosBuilder.md","ref":"ScenariosBuilder.md","articles":[]},"previous":{"title":"ScenarioStore","level":"2.10","depth":1,"path":"ScenarioStore.md","ref":"ScenarioStore.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github@2.0.0","hide-published-with@0.0.1"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/playbook-ui/playbook-ios"},"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Playbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Playbook","gitbook":"*","description":"Playbook API Document"},"file":{"path":"ScenarioViewController.md","mtime":"2020-03-31T16:29:03.582Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-31T16:29:09.039Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

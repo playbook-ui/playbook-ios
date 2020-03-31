@@ -453,21 +453,29 @@
 <p>Represents part of the component state.</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Scenario</span>
 </span></code></pre>
-<h2 id="inheritance">Inheritance</h2>
-<p><a href="ScenariosBuildable"><code>ScenariosBuildable</code></a></p>
 <h2 id="initializers">Initializers</h2>
 <h2 id="initlayoutfilelinecontent">init(_:layout:file:line:content:)</h2>
-<p>Creates a new scenario.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">init</span>(<span class="hljs-number">_</span> name: <span class="hljs-type">ScenarioName</span>, layout: <span class="hljs-type">ScenarioLayout</span>, file: <span class="hljs-type">StaticString</span> = #file, line: <span class="hljs-type">UInt</span> = #line, content: @escaping (<span class="hljs-type">ScenarioContext</span>) -&gt; <span class="hljs-type">ScenarioContent</span>)
-</code></pre>
-<h3 id="parameters">Parameters</h3>
-<ul>
-<li>name: An unique name of this scenario.</li>
-<li>layout: Represents how the component should be laid out.</li>
-<li>file: A file path where defined this scenario.</li>
-<li>line: A line number where defined this scenario in file.</li>
-<li>content: A closure that make a new content with passed context.</li>
-</ul>
+<dl>
+<dt><code>canImport(SwiftUI) &amp;&amp; canImport(Combine)</code></dt>
+<dd>
+
+Creates a new scenario with SwiftUI view.
+
+``` swift
+init<content: view="">(_ name: ScenarioName, layout: ScenarioLayout, file: StaticString = #file, line: UInt = #line, content: @escaping () -&gt; Content)
+```
+
+### Parameters
+
+  - name: An unique name of this scenario.
+  - layout: Represents how the component should be laid out.
+  - file: A file path where defined this scenario.
+  - line: A line number where defined this scenario in file.
+  - content: A closure that make a new content.
+
+</content:></dd>
+</dl>
+
 <h2 id="initlayoutfilelinecontent">init(_:layout:file:line:content:)</h2>
 <p>Creates a new scenario.</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">init</span>(<span class="hljs-number">_</span> name: <span class="hljs-type">ScenarioName</span>, layout: <span class="hljs-type">ScenarioLayout</span>, file: <span class="hljs-type">StaticString</span> = #file, line: <span class="hljs-type">UInt</span> = #line, content: @escaping () -&gt; <span class="hljs-type">ScenarioContent</span>)
@@ -481,27 +489,59 @@
 <li>content: A closure that make a new content.</li>
 </ul>
 <h2 id="initlayoutfilelinecontent">init(_:layout:file:line:content:)</h2>
+<dl>
+<dt><code>canImport(SwiftUI) &amp;&amp; canImport(Combine)</code></dt>
+<dd>
+
+Creates a new scenario with SwiftUI view.
+
+``` swift
+init<content: view="">(_ name: ScenarioName, layout: ScenarioLayout, file: StaticString = #file, line: UInt = #line, content: @escaping (ScenarioContext) -&gt; Content)
+```
+
+### Parameters
+
+  - name: An unique name of this scenario.
+  - layout: Represents how the component should be laid out.
+  - file: A file path where defined this scenario.
+  - line: A line number where defined this scenario in file.
+  - content: A closure that make a new content with passed context.
+
+</content:></dd>
+</dl>
+
 <h2 id="initlayoutfilelinecontent">init(_:layout:file:line:content:)</h2>
+<p>Creates a new scenario.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">init</span>(<span class="hljs-number">_</span> name: <span class="hljs-type">ScenarioName</span>, layout: <span class="hljs-type">ScenarioLayout</span>, file: <span class="hljs-type">StaticString</span> = #file, line: <span class="hljs-type">UInt</span> = #line, content: @escaping (<span class="hljs-type">ScenarioContext</span>) -&gt; <span class="hljs-type">ScenarioContent</span>)
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>name: An unique name of this scenario.</li>
+<li>layout: Represents how the component should be laid out.</li>
+<li>file: A file path where defined this scenario.</li>
+<li>line: A line number where defined this scenario in file.</li>
+<li>content: A closure that make a new content with passed context.</li>
+</ul>
 <h2 id="properties">Properties</h2>
-<h2 id="name">name</h2>
-<p>An unique name of scenario that describes component and its state.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">var</span> name: <span class="hljs-type">ScenarioName</span>
+<h2 id="file">file</h2>
+<p>A file path where defined this scenario.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> file: <span class="hljs-type">StaticString</span>
 </code></pre>
 <h2 id="layout">layout</h2>
 <p>Represents how the component should be laid out.</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> layout: <span class="hljs-type">ScenarioLayout</span>
 </code></pre>
-<h2 id="file">file</h2>
-<p>A file path where defined this scenario.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">var</span> file: <span class="hljs-type">StaticString</span>
+<h2 id="content">content</h2>
+<p>A closure that make a new content with passed context.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> content: (<span class="hljs-type">ScenarioContext</span>) -&gt; <span class="hljs-type">ScenarioContent</span>
 </code></pre>
 <h2 id="line">line</h2>
 <p>A line number where defined this scenario in file.</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">var</span> line: <span class="hljs-type">UInt</span>
 </code></pre>
-<h2 id="content">content</h2>
-<p>A closure that make a new content with passed context.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">var</span> content: (<span class="hljs-type">ScenarioContext</span>) -&gt; <span class="hljs-type">ScenarioContent</span>
+<h2 id="name">name</h2>
+<p>An unique name of scenario that describes component and its state.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> name: <span class="hljs-type">ScenarioName</span>
 </code></pre>
 <h2 id="methods">Methods</h2>
 <h2 id="buildscenarios">buildScenarios()</h2>
@@ -551,7 +591,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Scenario","level":"2.4","depth":1,"next":{"title":"ScenarioContext","level":"2.5","depth":1,"path":"ScenarioContext.md","ref":"ScenarioContext.md","articles":[]},"previous":{"title":"PlaybookGallery","level":"2.3","depth":1,"path":"PlaybookGallery.md","ref":"PlaybookGallery.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github@2.0.0","hide-published-with@0.0.1"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/playbook-ui/playbook-ios"},"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Playbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Playbook","gitbook":"*","description":"Playbook API Document"},"file":{"path":"Scenario.md","mtime":"2020-03-23T17:38:22.161Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-23T17:38:25.593Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Scenario","level":"2.4","depth":1,"next":{"title":"ScenarioContext","level":"2.5","depth":1,"path":"ScenarioContext.md","ref":"ScenarioContext.md","articles":[]},"previous":{"title":"PlaybookGallery","level":"2.3","depth":1,"path":"PlaybookGallery.md","ref":"PlaybookGallery.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github@2.0.0","hide-published-with@0.0.1"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/playbook-ui/playbook-ios"},"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Playbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Playbook","gitbook":"*","description":"Playbook API Document"},"file":{"path":"Scenario.md","mtime":"2020-03-31T16:29:03.581Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-31T16:29:09.039Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

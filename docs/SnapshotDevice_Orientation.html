@@ -453,15 +453,343 @@
 <p>Represents the orientation of a device.</p>
 <pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Orientation</span>
 </span></code></pre>
-<h2 id="enumeration-cases">Enumeration Cases</h2>
-<h2 id="portrait">portrait</h2>
-<p>Device oriented vertically.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">case</span> portrait
+<h2 id="initializers">Initializers</h2>
+<h2 id="initnamesizesafeareainsetstraitcollection">init(name:size:safeAreaInsets:traitCollection:)</h2>
+<p>Creates a new custom device simulation.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">init</span>(name: <span class="hljs-type">String</span>, size: <span class="hljs-type">CGSize</span>, safeAreaInsets: <span class="hljs-type">UIEdgeInsets</span> = .zero, traitCollection: <span class="hljs-type">UITraitCollection</span> = <span class="hljs-type">UITraitCollection</span>())
 </code></pre>
-<h2 id="landscape">landscape</h2>
-<p>Device oriented horizontally.</p>
-<pre><code class="lang-swift"><span class="hljs-keyword">case</span> landscape
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>name: A name that to be used as a directory name of snapshots.</li>
+<li>size: A simulated device size.</li>
+<li>safeAreaInsets: A simulated safe area insets.</li>
+<li>traitCollection: A simulated trait collection.</li>
+</ul>
+<h2 id="properties">Properties</h2>
+<h2 id="traitcollection">traitCollection</h2>
+<p>The simulated trait collection of this device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> traitCollection: <span class="hljs-type">UITraitCollection</span>
 </code></pre>
+<h2 id="size">size</h2>
+<p>The simulated size of this device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> size: <span class="hljs-type">CGSize</span>
+</code></pre>
+<h2 id="safeareainsets">safeAreaInsets</h2>
+<p>The simulated safe area insets of this device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> safeAreaInsets: <span class="hljs-type">UIEdgeInsets</span>
+</code></pre>
+<h2 id="name">name</h2>
+<p>The name of this device that to be used as a directory name of snapshots.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span>
+</code></pre>
+<h2 id="methods">Methods</h2>
+<h2 id="iphonexrstyle">iPhoneXR(_:style:)</h2>
+<p><code>iPhone XR</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(iOS <span class="hljs-number">12.0</span>, *) <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhoneXR</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation, style: UIUserInterfaceStyle)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+<li>style: A theme of UI appearance.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone XR</code>.</p>
+<h2 id="iphonexstyle">iPhoneX(_:style:)</h2>
+<p><code>iPhone X</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(iOS <span class="hljs-number">12.0</span>, *) <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhoneX</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation, style: UIUserInterfaceStyle)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+<li>style: A theme of UI appearance.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone X</code>.</p>
+<h2 id="iphonexr">iPhoneXR(_:)</h2>
+<p><code>iPhone XR</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhoneXR</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone XR</code>.</p>
+<h2 id="iphone11pro">iPhone11Pro(_:)</h2>
+<p><code>iPhone 11 Pro</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhone11Pro</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone 11 Pro</code>.</p>
+<h2 id="ipadpro11style">iPadPro11(_:style:)</h2>
+<p><code>iPad Pro 11</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(iOS <span class="hljs-number">12.0</span>, *) <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPadPro11</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation, style: UIUserInterfaceStyle)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+<li>style: A theme of UI appearance.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPad Pro 11</code>.</p>
+<h2 id="iphone8">iPhone8(_:)</h2>
+<p><code>iPhone 8</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhone8</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone 8</code>.</p>
+<h2 id="iphone8style">iPhone8(_:style:)</h2>
+<p><code>iPhone 8</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(iOS <span class="hljs-number">12.0</span>, *) <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhone8</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation, style: UIUserInterfaceStyle)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+<li>style: A theme of UI appearance.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone 8</code>.</p>
+<h2 id="iphonexsmaxstyle">iPhoneXSMax(_:style:)</h2>
+<p><code>iPhone XS Max</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(iOS <span class="hljs-number">12.0</span>, *) <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhoneXSMax</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation, style: UIUserInterfaceStyle)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+<li>style: A theme of UI appearance.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone XS Max</code>.</p>
+<h2 id="iphonese">iPhoneSE(_:)</h2>
+<p><code>iPhone SE</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhoneSE</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone SE</code>.</p>
+<h2 id="iphonexs">iPhoneXS(_:)</h2>
+<p><code>iPhone XS</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhoneXS</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone XS</code>.</p>
+<h2 id="addingtraitcollection">addingTraitCollection(_:)</h2>
+<p>Adds an arbitrary trait collection to change the appearance.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">addingTraitCollection</span><span class="hljs-params">(<span class="hljs-number">_</span> traitCollection: UITraitCollection)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<ul>
+<li><p>Parameters</p>
+<ul>
+<li>traitCollection: A trait collection to be added.</li>
+</ul>
+</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>The device that added the given trait collection to the <code>self</code>.</p>
+<h2 id="ipadmini5th">iPadMini5th(_:)</h2>
+<p><code>iPad Mini 5th generation</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPadMini5th</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPad Mini 5th generation</code>.</p>
+<h2 id="iphonexsstyle">iPhoneXS(_:style:)</h2>
+<p><code>iPhone XS</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(iOS <span class="hljs-number">12.0</span>, *) <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhoneXS</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation, style: UIUserInterfaceStyle)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+<li>style: A theme of UI appearance.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone XS</code>.</p>
+<h2 id="ipadpro105">iPadPro10_5(_:)</h2>
+<p><code>iPad Pro 10.5 inch</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPadPro10_5</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPad Pro 10.5 inch</code>.</p>
+<h2 id="ipadpro129">iPadPro12_9(_:)</h2>
+<p><code>iPad Pro 12.9 inch</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPadPro12_9</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPad Pro 12.9 inch</code>.</p>
+<h2 id="iphone11">iPhone11(_:)</h2>
+<p><code>iPhone 11</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhone11</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone 11</code>.</p>
+<h2 id="ipadpro11">iPadPro11(_:)</h2>
+<p><code>iPad Pro 11</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPadPro11</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPad Pro 11</code>.</p>
+<h2 id="iphone11promaxstyle">iPhone11ProMax(_:style:)</h2>
+<p><code>iPhone 11 Pro Max</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(iOS <span class="hljs-number">12.0</span>, *) <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhone11ProMax</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation, style: UIUserInterfaceStyle)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+<li>style: A theme of UI appearance.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone 11 Pro Max</code>.</p>
+<h2 id="iphone11prostyle">iPhone11Pro(_:style:)</h2>
+<p><code>iPhone 11 Pro</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(iOS <span class="hljs-number">12.0</span>, *) <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhone11Pro</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation, style: UIUserInterfaceStyle)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+<li>style: A theme of UI appearance.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone 11 Pro</code>.</p>
+<h2 id="iphonesestyle">iPhoneSE(_:style:)</h2>
+<p><code>iPhone SE</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(iOS <span class="hljs-number">12.0</span>, *) <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhoneSE</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation, style: UIUserInterfaceStyle)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+<li>style: A theme of UI appearance.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone SE</code>.</p>
+<h2 id="ipadpro105style">iPadPro10_5(_:style:)</h2>
+<p><code>iPad Pro 10.5 inch</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(iOS <span class="hljs-number">12.0</span>, *) <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPadPro10_5</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation, style: UIUserInterfaceStyle)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+<li>style: A theme of UI appearance.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPad Pro 10.5 inch</code>.</p>
+<h2 id="ipadmini5thstyle">iPadMini5th(_:style:)</h2>
+<p><code>iPad Mini 5th generation</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(iOS <span class="hljs-number">12.0</span>, *) <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPadMini5th</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation, style: UIUserInterfaceStyle)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+<li>style: A theme of UI appearance.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPad Mini 5th generation</code>.</p>
+<h2 id="iphone11promax">iPhone11ProMax(_:)</h2>
+<p><code>iPhone 11 Pro Max</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhone11ProMax</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone 11 Pro Max</code>.</p>
+<h2 id="iphonexsmax">iPhoneXSMax(_:)</h2>
+<p><code>iPhone XS Max</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhoneXSMax</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone XS Max</code>.</p>
+<h2 id="ipadpro129style">iPadPro12_9(_:style:)</h2>
+<p><code>iPad Pro 12.9 inch</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(iOS <span class="hljs-number">12.0</span>, *) <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPadPro12_9</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation, style: UIUserInterfaceStyle)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+<li>style: A theme of UI appearance.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPad Pro 12.9 inch</code>.</p>
+<h2 id="iphone8plus">iPhone8Plus(_:)</h2>
+<p><code>iPhone 8 Plus</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhone8Plus</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone 8 Plus</code>.</p>
+<h2 id="iphone8plusstyle">iPhone8Plus(_:style:)</h2>
+<p><code>iPhone 8 Plus</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(iOS <span class="hljs-number">12.0</span>, *) <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhone8Plus</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation, style: UIUserInterfaceStyle)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+<li>style: A theme of UI appearance.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone 8 Plus</code>.</p>
+<h2 id="iphone11style">iPhone11(_:style:)</h2>
+<p><code>iPhone 11</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-meta">@available</span>(iOS <span class="hljs-number">12.0</span>, *) <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhone11</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation, style: UIUserInterfaceStyle)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+<li>style: A theme of UI appearance.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone 11</code>.</p>
+<h2 id="iphonex">iPhoneX(_:)</h2>
+<p><code>iPhone X</code> simulated device.</p>
+<pre><code class="lang-swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">iPhoneX</span><span class="hljs-params">(<span class="hljs-number">_</span> orientation: Orientation)</span></span> -&gt; <span class="hljs-type">SnapshotDevice</span>
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>orientation: A simulated orientation.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A device simulated the <code>iPhone X</code>.</p>
 
                                 
                                 </section>
@@ -505,7 +833,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SnapshotDevice.Orientation","level":"2.15","depth":1,"next":{"title":"SnapshotSupport","level":"2.16","depth":1,"path":"SnapshotSupport.md","ref":"SnapshotSupport.md","articles":[]},"previous":{"title":"SnapshotDevice","level":"2.14","depth":1,"path":"SnapshotDevice.md","ref":"SnapshotDevice.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github@2.0.0","hide-published-with@0.0.1"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/playbook-ui/playbook-ios"},"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Playbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Playbook","gitbook":"*","description":"Playbook API Document"},"file":{"path":"SnapshotDevice_Orientation.md","mtime":"2020-03-23T17:38:22.142Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-23T17:38:25.593Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SnapshotDevice.Orientation","level":"2.15","depth":1,"next":{"title":"SnapshotSupport","level":"2.16","depth":1,"path":"SnapshotSupport.md","ref":"SnapshotSupport.md","articles":[]},"previous":{"title":"SnapshotDevice","level":"2.14","depth":1,"path":"SnapshotDevice.md","ref":"SnapshotDevice.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github@2.0.0","hide-published-with@0.0.1"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/playbook-ui/playbook-ios"},"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Playbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Playbook","gitbook":"*","description":"Playbook API Document"},"file":{"path":"SnapshotDevice_Orientation.md","mtime":"2020-03-31T16:29:03.565Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-31T16:29:09.039Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
