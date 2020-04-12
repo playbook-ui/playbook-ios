@@ -57,16 +57,16 @@ private extension ScenarioSearchTree {
 
         static func == (lhs: Row, rhs: Row) -> Bool {
             switch (lhs, rhs) {
-            case (.kind(let lhs), .kind(let rhs)):
-                return lhs.data.kind == rhs.data.kind
-                    && lhs.data.shouldHighlight == rhs.data.shouldHighlight
-                    && lhs.isOpen == rhs.isOpen
+            case (.kind(let lData, let lIsOpen), .kind(let rData, let rIsOpen)):
+                return lData.kind == rData.kind
+                    && lData.shouldHighlight == rData.shouldHighlight
+                    && lIsOpen == rIsOpen
 
-            case (.scenario(let lhs), .scenario(let rhs)):
-                return lhs.data.kind == rhs.data.kind
-                    && lhs.data.scenario.name == rhs.data.scenario.name
-                    && lhs.data.shouldHighlight == rhs.data.shouldHighlight
-                    && lhs.isSelected == rhs.isSelected
+            case (.scenario(let lData, let lIsSelected), .scenario(let rData, let rIsSelected)):
+                return lData.kind == rData.kind
+                    && lData.scenario.name == rData.scenario.name
+                    && lData.shouldHighlight == rData.shouldHighlight
+                    && lIsSelected == rIsSelected
 
             default:
                 return false

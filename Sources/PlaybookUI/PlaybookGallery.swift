@@ -123,8 +123,8 @@ private extension PlaybookGalleryInternal {
             case (.scenarios(let lhs), .scenarios(let rhs)):
                 return lhs.kind == rhs.kind && lhs.shouldHighlight == rhs.shouldHighlight
 
-            case (.counter(let lhs), .counter(let rhs)):
-                return lhs == rhs
+            case (.counter(let lDenominator, let lNumerator), .counter(let rDenominator, let rNumerator)):
+                return lDenominator == rDenominator && lNumerator == rNumerator
 
             case (.standby, .standby), (.empty, .empty):
                 return true
