@@ -84,6 +84,7 @@ private extension ScenarioDisplaySheet {
                 .imageScale(.large)
                 .font(.headline)
                 .foregroundColor(Color(.label))
+                .frame(width: 30, height: 30)
         }
     }
 
