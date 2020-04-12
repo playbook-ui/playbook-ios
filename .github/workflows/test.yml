@@ -8,6 +8,7 @@ jobs:
       matrix:
         xcode_version:
           - "11.3.1"
+          - "11.4"
     env:
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode_version }}.app
     steps:
@@ -51,10 +52,11 @@ jobs:
         uses: actions/cache@v1.1.2
         with:
           path: Tools/.build
-          key: ${{ runner.os }}-1-spm-${{ hashFiles('Tools/Package.resolved') }}
-          restore-keys: ${{ runner.os }}-1-spm-
+          key: ${{ runner.os }}-2-spm-${{ hashFiles('Tools/Package.resolved') }}
+          restore-keys: ${{ runner.os }}-2-spm-
 
       - name: Validation
+        if: matrix.xcode_version == '11.4'
         run: make all && [ -z "$(git status --porcelain)" ] && make lint
 
       - name: Podspec lint
@@ -64,6 +66,7 @@ jobs:
         run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Playbook.xcodeproj -scheme Playbook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
 
       - name: Visual regression test
+        if: matrix.xcode_version == '11.4'
         run: |
           echo $GCLOUD_SERVICE_KEY > $GOOGLE_APPLICATION_CREDENTIALS
           npx reg-suit run
