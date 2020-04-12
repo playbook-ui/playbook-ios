@@ -1,6 +1,6 @@
 /// The class for managing a set of scenarios identified by the arbitrary kind.
 public final class ScenarioStore {
-    /// An unique identifier of the secenarios managed by this instance.
+    /// A unique identifier of the secenarios managed by this instance.
     public let kind: ScenarioKind
 
     private var storage = OrderedStorage<ScenarioName, Scenario>()
@@ -13,7 +13,7 @@ public final class ScenarioStore {
     /// Initialize a new store with given kind.
     ///
     /// - Parameters:
-    ///   - kind: An unique identifier of the secenarios managed by this instance.
+    ///   - kind: A unique identifier of the secenarios managed by this instance.
     public init(kind: ScenarioKind) {
         self.kind = kind
     }

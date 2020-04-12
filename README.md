@@ -2,7 +2,7 @@
 <img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/logo.png" alt="Playbook" width="400">
 </p>
 
-<p align="center">A library for isolated developing UI components and automatically snapshots of them.</p>
+<p align="center">A library for isolated developing UI components and automatically taking snapshots of them.</p>
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/demo.png" alt="playbook" width="850">
@@ -138,7 +138,7 @@ final class SnapshotTests: XCTestCase {
 #### PlaybookGallery
 
 The component visuals are listed and displayed.  
-Those are displayed on the top screen are not actually doing layout, but rather display the snapshots that is efficiently generated at runtime.
+Those that are displayed on the top screen are not actually doing layout, but rather display the snapshots that are efficiently generated at runtime.  
 
 | Browser | Detail |
 | ------- | ------ |
