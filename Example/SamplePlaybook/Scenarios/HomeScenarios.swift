@@ -13,8 +13,8 @@ struct HomeScenarios: ScenarioProvider {
                 LandmarkDetail(landmark: landmarkData[10]) {
                     context.snapshotWaiter.fulfill()
                 }
-                    .environmentObject(UserData.stub)
-                    .onAppear(perform: context.snapshotWaiter.wait)
+                .environmentObject(UserData.stub)
+                .onAppear(perform: context.snapshotWaiter.wait)
             }
 
             Scenario("LandmarkList", layout: .fill) {
@@ -28,7 +28,7 @@ struct HomeScenarios: ScenarioProvider {
                     categoryName: landmarkData[0].category.rawValue,
                     items: Array(landmarkData.prefix(6))
                 )
-                    .environmentObject(UserData.stub)
+                .environmentObject(UserData.stub)
             }
         }
     }

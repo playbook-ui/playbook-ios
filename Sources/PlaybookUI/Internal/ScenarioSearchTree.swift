@@ -18,13 +18,13 @@ internal struct ScenarioSearchTree: View {
                     row: row,
                     onSelect: onSelect
                 )
-                    .edgesIgnoringSafeArea(.bottom)
+                .edgesIgnoringSafeArea(.bottom)
             }
         }
-            .background(
-                Color(.secondaryBackground)
-                    .edgesIgnoringSafeArea(.all)
-            )
+        .background(
+            Color(.secondaryBackground)
+                .edgesIgnoringSafeArea(.all)
+        )
     }
 }
 
@@ -57,16 +57,16 @@ private extension ScenarioSearchTree {
 
         static func == (lhs: Row, rhs: Row) -> Bool {
             switch (lhs, rhs) {
-            case (.kind(let lhs), .kind(let rhs)):
-                return lhs.data.kind == rhs.data.kind
-                    && lhs.data.shouldHighlight == rhs.data.shouldHighlight
-                    && lhs.isOpen == rhs.isOpen
+            case (.kind(let lData, let lIsOpen), .kind(let rData, let rIsOpen)):
+                return lData.kind == rData.kind
+                    && lData.shouldHighlight == rData.shouldHighlight
+                    && lIsOpen == rIsOpen
 
-            case (.scenario(let lhs), .scenario(let rhs)):
-                return lhs.data.kind == rhs.data.kind
-                    && lhs.data.scenario.name == rhs.data.scenario.name
-                    && lhs.data.shouldHighlight == rhs.data.shouldHighlight
-                    && lhs.isSelected == rhs.isSelected
+            case (.scenario(let lData, let lIsSelected), .scenario(let rData, let rIsSelected)):
+                return lData.kind == rData.kind
+                    && lData.scenario.name == rData.scenario.name
+                    && lData.shouldHighlight == rData.shouldHighlight
+                    && lIsSelected == rIsSelected
 
             default:
                 return false
@@ -96,10 +96,10 @@ private extension ScenarioSearchTree {
                 let backgroundImage = UIColor.tertiarySystemFill.circleImage(length: height)
                 searchBar.setSearchFieldBackgroundImage(backgroundImage, for: .normal)
             }
-                .accentColor(Color(.primaryBlue))
-                .frame(height: height)
-                .padding(.top, 16)
-                .padding(.horizontal, 8)
+            .accentColor(Color(.primaryBlue))
+            .frame(height: height)
+            .padding(.top, 16)
+            .padding(.horizontal, 8)
 
             Counter(
                 numerator: store.result.matchedCount,
@@ -144,11 +144,11 @@ private extension ScenarioSearchTree {
 
                 Spacer(minLength: 16)
             }
-                .padding(.vertical, 24)
+            .padding(.vertical, 24)
 
             HorizontalSeparator()
         }
-            .padding(.leading, 16)
+        .padding(.leading, 16)
     }
 
     func scenarioRow(data: SearchedData, isSelected: Bool) -> some View {
@@ -169,11 +169,11 @@ private extension ScenarioSearchTree {
 
                 Spacer(minLength: 16)
             }
-                .padding(.vertical, 16)
+            .padding(.vertical, 16)
 
             HorizontalSeparator()
         }
-            .padding(.leading, 56)
+        .padding(.leading, 56)
     }
 
     func emptyContent() -> some View {
@@ -187,7 +187,7 @@ private extension ScenarioSearchTree {
 
             Spacer.zero
         }
-            .padding(.top, 24)
+        .padding(.top, 24)
     }
 
     func snapshot() -> NSDiffableDataSourceSnapshot<Section, Row> {

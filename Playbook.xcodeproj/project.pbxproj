@@ -532,7 +532,6 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				Base,
 				en,
 			);
 			mainGroup = 8B6E14A93189E4BB09A962CD;
@@ -874,7 +873,7 @@
 				45280683F227949289B6FF05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "";
+			defaultConfigurationName = Debug;
 		};
 		6E759B5DB95B7A94703E8374 /* Build configuration list for PBXNativeTarget "Playbook-Tests" */ = {
 			isa = XCConfigurationList;
@@ -883,7 +882,7 @@
 				F3F04F56CF1C5A2AD372357A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "";
+			defaultConfigurationName = Debug;
 		};
 		B5DFE76B8C428779BF70DA5D /* Build configuration list for PBXProject "Playbook" */ = {
 			isa = XCConfigurationList;
@@ -901,7 +900,7 @@
 				1CCBF6D6B05821678343CF97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "";
+			defaultConfigurationName = Debug;
 		};
 		FF19085437BA975606DCE500 /* Build configuration list for PBXNativeTarget "PlaybookUI" */ = {
 			isa = XCConfigurationList;
@@ -910,7 +909,7 @@
 				3FA2E61367E6AC3013C9E9D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "";
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

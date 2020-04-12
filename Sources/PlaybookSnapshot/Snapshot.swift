@@ -27,7 +27,7 @@ public struct Snapshot: TestTool {
     ///
     /// - Parameters:
     ///   - directory: A base directory for exporting snapshot image files.
-    ///   - clean: Specifies whether that to clean directory before generating snapshots.
+    ///   - clean: Specifies whether to clean directory before generating snapshots.
     ///   - format: An image file format of exported data.
     ///   - timeout: A timeout interval until the finish snapshot of all scenarios.
     ///   - scale: A rendering scale of the snapshot image.

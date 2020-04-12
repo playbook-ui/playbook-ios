@@ -27,7 +27,7 @@ internal struct CatalogSplitStyle<Content: View>: View {
                     Divider()
                         .edgesIgnoringSafeArea(.all)
                 }
-                    .frame(width: self.sidebarWidth(with: geometry))
+                .frame(width: self.sidebarWidth(with: geometry))
 
                 HStack(spacing: 0) {
                     Spacer.fixed(length: self.store.isSearchTreeHidden ? 0 : self.sidebarWidth(with: geometry))
@@ -41,13 +41,13 @@ internal struct CatalogSplitStyle<Content: View>: View {
                     )
                 }
             }
-                .animation(nil, value: geometry.size)
-                .animation(.interactiveSpring())
-                .transformEnvironment(\.horizontalSizeClass) { sizeClass in
-                    if !self.store.isSearchTreeHidden && geometry.size.width < geometry.size.height {
-                        sizeClass = .compact
-                    }
+            .animation(nil, value: geometry.size)
+            .animation(.interactiveSpring())
+            .transformEnvironment(\.horizontalSizeClass) { sizeClass in
+                if !self.store.isSearchTreeHidden && geometry.size.width < geometry.size.height {
+                    sizeClass = .compact
                 }
+            }
         }
     }
 }

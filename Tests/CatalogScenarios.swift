@@ -14,7 +14,7 @@ struct CatalogScenarios: ScenarioProvider {
                         selectedScenario: .stub,
                         isSearchTreeHidden: true
                     )
-                        .start()
+                    .start()
                 )
             }
 
@@ -28,7 +28,7 @@ struct CatalogScenarios: ScenarioProvider {
                         openedKinds: ["Kind 1"],
                         isSearchTreeHidden: false
                     )
-                        .start()
+                    .start()
                 )
             }
 
@@ -64,7 +64,7 @@ struct CatalogScenarios: ScenarioProvider {
                         openedSearchingKinds: Set(Playbook.test.stores.map { $0.kind }),
                         isSearchTreeHidden: false
                     )
-                        .start(with: "2")
+                    .start(with: "2")
                 )
             }
         }

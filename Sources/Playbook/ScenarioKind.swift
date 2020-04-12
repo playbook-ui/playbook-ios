@@ -1,4 +1,4 @@
-/// Represents an unique identifier of the set of scenarios.
+/// Represents a unique identifier of the set of scenarios.
 public struct ScenarioKind: Hashable, RawRepresentable, ExpressibleByStringLiteral, CustomStringConvertible, ExpressibleByStringInterpolation {
     /// The raw string value.
     public var rawValue: String

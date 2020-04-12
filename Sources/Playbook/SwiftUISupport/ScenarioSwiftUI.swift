@@ -7,7 +7,7 @@ public extension Scenario {
     /// Creates a new scenario with SwiftUI view.
     ///
     /// - Parameters:
-    ///   - name: An unique name of this scenario.
+    ///   - name: A unique name of this scenario.
     ///   - layout: Represents how the component should be laid out.
     ///   - file: A file path where defined this scenario.
     ///   - line: A line number where defined this scenario in file.
@@ -29,7 +29,7 @@ public extension Scenario {
     /// Creates a new scenario with SwiftUI view.
     ///
     /// - Parameters:
-    ///   - name: An unique name of this scenario.
+    ///   - name: A unique name of this scenario.
     ///   - layout: Represents how the component should be laid out.
     ///   - file: A file path where defined this scenario.
     ///   - line: A line number where defined this scenario in file.

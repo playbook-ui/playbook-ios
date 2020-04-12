@@ -1,725 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook - Playbook</title>
+    <style type="text/css">
+    :root {
+    --system-red: rgb(255, 59, 48);
+    --system-orange: rgb(255, 149, 0);
+    --system-yellow: rgb(255, 204, 0);
+    --system-green: rgb(52, 199, 89);
+    --system-teal: rgb(90, 200, 250);
+    --system-blue: rgb(0, 122, 255);
+    --system-indigo: rgb(88, 86, 214);
+    --system-purple: rgb(175, 82, 222);
+    --system-pink: rgb(255, 45, 85);
+    --system-gray: rgb(142, 142, 147);
+    --system-gray2: rgb(174, 174, 178);
+    --system-gray3: rgb(199, 199, 204);
+    --system-gray4: rgb(209, 209, 214);
+    --system-gray5: rgb(229, 229, 234);
+    --system-gray6: rgb(242, 242, 247);
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · Playbook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        <meta name="author" content="Playbook">
-        
-        
-    
-    <link rel="stylesheet" href="gitbook/style.css">
+    --label: rgb(0, 0, 0);
+    --secondary-label: rgb(60, 60, 67);
+    --tertiary-label: rgb(72, 72, 74);
+    --quaternary-label: rgb(99, 99, 102);
+    --placeholder-text: rgb(142, 142, 147);
+    --link: rgb(0, 122, 255);
+    --separator: rgb(229, 229, 234);
+    --opaque-separator: rgb(198, 198, 200);
+    --system-fill: rgb(120, 120, 128);
+    --secondary-system-fill: rgb(120, 120, 128);
+    --tertiary-system-fill: rgb(118, 118, 128);
+    --quaternary-system-fill: rgb(116, 116, 128);
+    --system-background: rgb(255, 255, 255);
+    --secondary-system-background: rgb(242, 242, 247);
+    --tertiary-system-background: rgb(255, 255, 255);
+    --system-grouped-background: rgb(242, 242, 247);
+    --secondary-system-grouped-background: rgb(255, 255, 255);
+    --tertiary-system-grouped-background: rgb(242, 242, 247);
+}
 
-    
-            
-                
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+@supports (color: color(display-p3 1 1 1)) {
+    :root {
+        --system-red: color(display-p3 1 0.2314 0.1882);
+        --system-orange: color(display-p3 1 0.5843 0);
+        --system-yellow: color(display-p3 1 0.8 0);
+        --system-green: color(display-p3 0.2039 0.7804 0.349);
+        --system-teal: color(display-p3 0.3529 0.7843 0.9804);
+        --system-blue: color(display-p3 0 0.4784 1);
+        --system-indigo: color(display-p3 0.3451 0.3373 0.8392);
+        --system-purple: color(display-p3 0.6863 0.3216 0.8706);
+        --system-pink: color(display-p3 1 0.1765 0.3333);
+        --system-gray: color(display-p3 0.5569 0.5569 0.5765);
+        --system-gray2: color(display-p3 0.6824 0.6824 0.698);
+        --system-gray3: color(display-p3 0.7804 0.7804 0.8);
+        --system-gray4: color(display-p3 0.8196 0.8196 0.8392);
+        --system-gray5: color(display-p3 0.898 0.898 0.9176);
+        --system-gray6: color(display-p3 0.949 0.949 0.9686);
 
-    
+        --label: color(display-p3 0 0 0);
+        --secondary-label: color(display-p3 0.2353 0.2353 0.2627);
+        --tertiary-label: color(display-p3 0.2823 0.2823 0.2901);
+        --quaternary-label: color(display-p3 0.4627 0.4627 0.5019);
+        --placeholder-text: color(display-p3 0.5568 0.5568 0.5764);
+        --link: color(display-p3 0 0.4784 1);
+        --separator: color(display-p3 0.898 0.898 0.9176);
+        --opaque-separator: color(display-p3 0.7765 0.7765 0.7843);
+        --system-fill: color(display-p3 0.4706 0.4706 0.502);
+        --secondary-system-fill: color(display-p3 0.4706 0.4706 0.502);
+        --tertiary-system-fill: color(display-p3 0.4627 0.4627 0.502);
+        --quaternary-system-fill: color(display-p3 0.4549 0.4549 0.502);
+        --system-background: color(display-p3 1 1 1);
+        --secondary-system-background: color(display-p3 0.949 0.949 0.9686);
+        --tertiary-system-background: color(display-p3 1 1 1);
+        --system-grouped-background: color(display-p3 0.949 0.949 0.9686);
+        --secondary-system-grouped-background: color(display-p3 1 1 1);
+        --tertiary-system-grouped-background: color(
+            display-p3 0.949 0.949 0.9686
+        );
+    }
+}
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+/*
+@media (prefers-color-scheme: dark) {
+    :root {
+        --system-red: rgb(255, 69, 58);
+        --system-orange: rgb(255, 159, 10);
+        --system-yellow: rgb(255, 214, 10);
+        --system-green: rgb(48, 209, 88);
+        --system-teal: rgb(100, 210, 255);
+        --system-blue: rgb(10, 132, 255);
+        --system-indigo: rgb(94, 92, 230);
+        --system-purple: rgb(191, 90, 242);
+        --system-pink: rgb(255, 55, 95);
+        --system-gray: rgb(142, 142, 147);
+        --system-gray2: rgb(99, 99, 102);
+        --system-gray3: rgb(72, 72, 74);
+        --system-gray4: rgb(58, 58, 60);
+        --system-gray5: rgb(44, 44, 46);
+        --system-gray6: rgb(28, 28, 30);
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        --label: rgb(255, 255, 255);
+        --secondary-label: rgb(235, 235, 245);
+        --tertiary-label: rgb(235, 235, 245);
+        --quaternary-label: rgb(235, 235, 245);
+        --placeholder-text: rgb(235, 235, 245);
+        --link: rgb(9, 132, 255);
+        --separator: rgb(44, 44, 46);
+        --opaque-separator: rgb(56, 56, 58);
+        --system-fill: rgb(120, 120, 128);
+        --secondary-system-fill: rgb(120, 120, 128);
+        --tertiary-system-fill: rgb(118, 118, 128);
+        --quaternary-system-fill: rgb(118, 118, 128);
+        --system-background: rgb(0, 0, 0);
+        --secondary-system-background: rgb(28, 28, 30);
+        --tertiary-system-background: rgb(44, 44, 46);
+        --system-grouped-background: rgb(0, 0, 0);
+        --secondary-system-grouped-background: rgb(28, 28, 30);
+        --tertiary-system-grouped-background: rgb(44, 44, 46);
+    }
 
-    
-    <link rel="next" href="Playbook.html" />
-    
-    
+    @supports (color: color(display-p3 1 1 1)) {
+        :root {
+            --system-red: color(display-p3 1 0.4118 0.3804);
+            --system-orange: color(display-p3 1 0.702 0.251);
+            --system-yellow: color(display-p3 1 0.8314 0.149);
+            --system-green: color(display-p3 0.1882 0.8588 0.3569);
+            --system-teal: color(display-p3 0.4392 0.8431 1);
+            --system-blue: color(display-p3 0.251 0.6118 1);
+            --system-indigo: color(display-p3 0.4902 0.4784 1);
+            --system-purple: color(display-p3 0.8549 0.5608 1);
+            --system-pink: color(display-p3 1 0.3922 0.5098);
+            --system-gray: color(display-p3 0.6824 0.6824 0.698);
+            --system-gray2: color(display-p3 0.4863 0.4863 0.502);
+            --system-gray3: color(display-p3 0.3294 0.3294 0.3373);
+            --system-gray4: color(display-p3 0.2667 0.2667 0.2745);
+            --system-gray5: color(display-p3 0.2118 0.2118 0.2196);
+            --system-gray6: color(display-p3 0.1412 0.1412 0.149);
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
+            --label: color(display-p3 1 1 1);
+            --secondary-label: color(display-p3 0.9216 0.9216 0.9608);
+            --tertiary-label: color(display-p3 0.9216 0.9216 0.9608);
+            --quaternary-label: color(display-p3 0.9216 0.9216 0.9608);
+            --placeholder-text: color(display-p3 0.9216 0.9216 0.9608);
+            --link: color(display-p3 0.03529 0.5176 1);
+            --separator: color(display-p3 0.2118 0.2118 0.2196);
+            --opaque-separator: color(display-p3 0.2196 0.2196 0.2275);
+            --system-fill: color(display-p3 0.4706 0.4706 0.502);
+            --secondary-system-fill: color(display-p3 0.4706 0.4706 0.502);
+            --tertiary-system-fill: color(display-p3 0.4627 0.4627 0.502);
+            --quaternary-system-fill: color(display-p3 0.4627 0.4627 0.502);
+            --system-background: color(display-p3 0 0 0);
+            --secondary-system-background: color(
+                display-p3 0.1412 0.1412 0.149
+            );
+            --tertiary-system-background: color(
+                display-p3 0.2118 0.2118 0.2196
+            );
+            --system-grouped-background: color(display-p3 0 0 0);
+            --secondary-system-grouped-background: color(
+                display-p3 0.1412 0.1412 0.149
+            );
+            --tertiary-system-grouped-background: color(
+                display-p3 0.2118 0.2118 0.2196
+            );
+        }
+    }
+} */
 
-            
-                <nav role="navigation">
-                
+:root {
+    --large-title: 600 32pt / 39pt sans-serif;
+    --title-1: 600 26pt / 32pt sans-serif;
+    --title-2: 600 20pt / 25pt sans-serif;
+    --title-3: 500 18pt / 23pt sans-serif;
+    --headline: 500 15pt / 20pt sans-serif;
+    --body: 300 15pt / 20pt sans-serif;
+    --callout: 300 14pt / 19pt sans-serif;
+    --subhead: 300 13pt / 18pt sans-serif;
+    --footnote: 300 12pt / 16pt sans-serif;
+    --caption-1: 300 11pt / 13pt sans-serif;
+    --caption-2: 300 11pt / 13pt sans-serif;
+}
 
+:root {
+    --icon-case: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%2389c5e6' height='90' rx='8' stroke='%236bb7e1' stroke-miterlimit='10' stroke-width='4' width='90' x='5' y='5'/%3E%3Cpath d='m20.21 50c0-20.7 11.9-32.79 30.8-32.79 16 0 28.21 10.33 28.7 25.32h-15.52c-.79-7.53-6.1-12.42-13.19-12.42-8.79 0-14.37 7.52-14.37 19.82s5.54 20 14.41 20c7.08 0 12.22-4.66 13.23-12.09h15.52c-.74 15.07-12.43 25-28.78 25-19.01-.03-30.8-12.12-30.8-32.84z' fill='%23fff'/%3E%3C/svg%3E%0A");
+    --icon-class: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%239b98e6' height='90' rx='8' stroke='%235856d6' stroke-miterlimit='10' stroke-width='4' width='90' x='5' y='5'/%3E%3Cpath d='m20.21 50c0-20.7 11.9-32.79 30.8-32.79 16 0 28.21 10.33 28.7 25.32h-15.52c-.79-7.53-6.1-12.42-13.19-12.42-8.79 0-14.37 7.52-14.37 19.82s5.54 20 14.41 20c7.08 0 12.22-4.66 13.23-12.09h15.52c-.74 15.07-12.43 25-28.78 25-19.01-.03-30.8-12.12-30.8-32.84z' fill='%23fff'/%3E%3C/svg%3E");
+    --icon-enumeration: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%23eca95b' height='90' rx='8' stroke='%23e89234' stroke-miterlimit='10' stroke-width='4' width='90' x='5.17' y='5'/%3E%3Cpath d='m71.9 81.71h-43.47v-63.42h43.47v13h-27.34v12.62h25.71v11.87h-25.71v12.92h27.34z' fill='%23fff'/%3E%3C/svg%3E%0A");
+    --icon-extension: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%23eca95b' height='90' rx='8' stroke='%23e89234' stroke-miterlimit='10' stroke-width='4' width='90' x='5' y='5'/%3E%3Cg fill='%23fff'%3E%3Cpath d='m54.43 81.93h-33.92v-63.86h33.92v12.26h-21.82v13.8h20.45v11.32h-20.45v14.22h21.82z'/%3E%3Cpath d='m68.74 74.58h-.27l-2.78 7.35h-7.28l5.59-12.61-6-12.54h8l2.74 7.3h.27l2.76-7.3h7.64l-6.14 12.54 5.89 12.61h-7.64z'/%3E%3C/g%3E%3C/svg%3E%0A");
+    --icon-function: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%237ac673' height='90' rx='8' stroke='%235bb74f' stroke-miterlimit='10' stroke-width='4' width='90' x='5' y='5'/%3E%3Cpath d='m24.25 75.66a5.47 5.47 0 0 1 5.75-5.73c1.55 0 3.55.41 6.46.41 3.19 0 4.78-1.55 5.46-6.65l1.5-10.14h-9.34a6 6 0 1 1 0-12h11.1l1.09-7.27c1.55-10.89 8.01-16.58 17.73-16.58 6.69 0 11.74 1.77 11.74 6.64a5.47 5.47 0 0 1 -5.74 5.73c-1.55 0-3.55-.41-6.46-.41-3.14 0-4.73 1.51-5.46 6.65l-.78 5.27h11.44a6 6 0 1 1 .05 12h-13.19l-1.78 12.11c-1.59 10.92-8.1 16.61-17.82 16.61-6.7 0-11.75-1.77-11.75-6.64z' fill='%23fff'/%3E%3C/svg%3E%0A");
+    --icon-method: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%235a98f8' height='90' rx='8' stroke='%232974ed' stroke-miterlimit='10' stroke-width='4' width='90' x='5' y='5'/%3E%3Cpath d='m70.61 81.71v-39.6h-.31l-15.69 39.6h-9.22l-15.65-39.6h-.35v39.6h-14.19v-63.42h18.63l16 41.44h.36l16-41.44h18.61v63.42z' fill='%23fff'/%3E%3C/svg%3E%0A");
+    --icon-property: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%2389c5e6' height='90' rx='8' stroke='%236bb7e1' stroke-miterlimit='10' stroke-width='4' width='90' x='5' y='5'/%3E%3Cpath d='m52.31 18.29c13.62 0 22.85 8.84 22.85 22.46s-9.71 22.37-23.82 22.37h-10.34v18.59h-16.16v-63.42zm-11.31 32.71h7c6.85 0 10.89-3.56 10.89-10.2s-4.08-10.16-10.89-10.16h-7z' fill='%23fff'/%3E%3C/svg%3E%0A");
+    --icon-protocol: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%23ff6682' height='90' rx='8' stroke='%23ff2d55' stroke-miterlimit='10' stroke-width='4' width='90' x='5' y='5'/%3E%3Cg fill='%23fff'%3E%3Cpath d='m46.28 18.29c11.84 0 20 8.66 20 21.71s-8.44 21.71-20.6 21.71h-10.81v20h-12.09v-63.42zm-11.41 33.05h8.13c6.93 0 11-4 11-11.29s-4-11.25-10.93-11.25h-8.2z'/%3E%3Cpath d='m62 57.45h8v4.77h.16c.84-3.45 2.54-5.12 5.17-5.12a5.06 5.06 0 0 1 1.92.35v7.55a5.69 5.69 0 0 0 -2.39-.51c-3.08 0-4.66 1.74-4.66 5.12v12.1h-8.2z'/%3E%3C/g%3E%3C/svg%3E%0A");
+    --icon-structure: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%23b57edf' height='90' rx='8' stroke='%239454c2' stroke-miterlimit='10' stroke-width='4' width='90' x='5' y='5'/%3E%3Cpath d='m38.38 63c.74 4.53 5.62 7.16 11.82 7.16s10.37-2.81 10.37-6.68c0-3.51-2.73-5.31-10.24-6.76l-6.5-1.23c-12.66-2.35-19.21-8.49-19.21-18.21 0-12.22 10.59-20.09 25.18-20.09 16 0 25.36 7.83 25.53 19.91h-15c-.26-4.57-4.57-7.29-10.42-7.29s-9.31 2.63-9.31 6.37c0 3.34 2.9 5.18 9.8 6.5l6.5 1.23c13.56 2.6 19.71 8.09 19.71 18.09 0 12.74-10 20.83-26.72 20.83-15.82 0-26.28-7.3-26.5-19.78z' fill='%23fff'/%3E%3C/svg%3E%0A");
+    --icon-typealias: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%237ac673' height='90' rx='8' stroke='%235bb74f' stroke-miterlimit='10' stroke-width='4' width='90' x='5' y='5'/%3E%3Cpath d='m42 81.71v-50.41h-17.53v-13h51.06v13h-17.53v50.41z' fill='%23fff'/%3E%3C/svg%3E%0A");
+    --icon-variable: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%237ac673' height='90' rx='8' stroke='%235bb74f' stroke-miterlimit='10' stroke-width='4' width='90' x='5' y='5'/%3E%3Cpath d='m39.85 81.71-20.22-63.42h18.37l12.18 47.64h.35l12.17-47.64h17.67l-20.22 63.42z' fill='%23fff'/%3E%3C/svg%3E%0A");
+}
 
-<ul class="summary">
-    
-    
+/************/
 
-    
+body,
+input,
+textarea,
+select,
+button {
+    font-synthesis: none;
+    -moz-font-feature-settings: "kern";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    direction: ltr;
+    text-align: left;
+}
 
-    
-        
-        <li class="header">Playbook</li>
-        
-        
-    
-        <li class="chapter active" data-level="1.1" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    Introduction
-            
-                </a>
-            
+h1:first-of-type,
+h2:first-of-type,
+h3:first-of-type,
+h4:first-of-type,
+h5:first-of-type,
+h6:first-of-type {
+    margin-top: 0;
+}
 
-            
-        </li>
-    
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+    font-family: inherit;
+    font-weight: inherit;
+}
 
-    
-        
-        <li class="header">Types</li>
-        
-        
-    
-        <li class="chapter " data-level="2.1" data-path="Playbook.html">
-            
-                <a href="Playbook.html">
-            
-                    
-                    Playbook
-            
-                </a>
-            
+h1 img,
+h2 img,
+h3 img,
+h4 img,
+h5 img,
+h6 img {
+    margin: 0 0.5em 0.2em 0;
+    vertical-align: middle;
+    display: inline-block;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2" data-path="PlaybookCatalog.html">
-            
-                <a href="PlaybookCatalog.html">
-            
-                    
-                    PlaybookCatalog
-            
-                </a>
-            
+img + h1 {
+    margin-top: 0.5em;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3" data-path="PlaybookGallery.html">
-            
-                <a href="PlaybookGallery.html">
-            
-                    
-                    PlaybookGallery
-            
-                </a>
-            
+img + h1,
+img + h2,
+img + h3,
+img + h4,
+img + h5,
+img + h6 {
+    margin-top: 0.3em;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.4" data-path="Scenario.html">
-            
-                <a href="Scenario.html">
-            
-                    
-                    Scenario
-            
-                </a>
-            
+h1 + *,
+h2 + *,
+h3 + *,
+h4 + *,
+h5 + *,
+h6 + * {
+    margin-top: 0.8em;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.5" data-path="ScenarioContext.html">
-            
-                <a href="ScenarioContext.html">
-            
-                    
-                    ScenarioContext
-            
-                </a>
-            
+:is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: 0.4em;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.6" data-path="ScenarioKind.html">
-            
-                <a href="ScenarioKind.html">
-            
-                    
-                    ScenarioKind
-            
-                </a>
-            
+:matches(h1, h2, h3, h4, h5, h6) + :matches(h1, h2, h3, h4, h5, h6) {
+    margin-top: 0.4em;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.7" data-path="ScenarioLayout.html">
-            
-                <a href="ScenarioLayout.html">
-            
-                    
-                    ScenarioLayout
-            
-                </a>
-            
+:is(p, ul, ol) + :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: 1.6em;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.8" data-path="ScenarioLayout_Sizing.html">
-            
-                <a href="ScenarioLayout_Sizing.html">
-            
-                    
-                    ScenarioLayout.Sizing
-            
-                </a>
-            
+:matches(p, ul, ol) + :matches(h1, h2, h3, h4, h5, h6) {
+    margin-top: 1.6em;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.9" data-path="ScenarioName.html">
-            
-                <a href="ScenarioName.html">
-            
-                    
-                    ScenarioName
-            
-                </a>
-            
+:is(p, ul, ol) + * {
+    margin-top: 0.8em;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.10" data-path="ScenarioStore.html">
-            
-                <a href="ScenarioStore.html">
-            
-                    
-                    ScenarioStore
-            
-                </a>
-            
+:matches(p, ul, ol) + * {
+    margin-top: 0.8em;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.11" data-path="ScenarioViewController.html">
-            
-                <a href="ScenarioViewController.html">
-            
-                    
-                    ScenarioViewController
-            
-                </a>
-            
+ul,
+ol {
+    margin-left: 1.17647em;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.12" data-path="ScenariosBuilder.html">
-            
-                <a href="ScenariosBuilder.html">
-            
-                    
-                    ScenariosBuilder
-            
-                </a>
-            
+:matches(ul, ol) :matches(ul, ol) {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.13" data-path="Snapshot.html">
-            
-                <a href="Snapshot.html">
-            
-                    
-                    Snapshot
-            
-                </a>
-            
+nav h2 {
+    color: var(--secondary-label);
+    text-transform: uppercase;
+    font-variant: small-caps;
+    font-weight: 600;
+    font-size: 1rem;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.14" data-path="SnapshotDevice.html">
-            
-                <a href="SnapshotDevice.html">
-            
-                    
-                    SnapshotDevice
-            
-                </a>
-            
+nav ul,
+nav ol {
+    margin: 0;
+    list-style: none;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.15" data-path="SnapshotDevice_Orientation.html">
-            
-                <a href="SnapshotDevice_Orientation.html">
-            
-                    
-                    SnapshotDevice.Orientation
-            
-                </a>
-            
+nav li li {
+    font-size: smaller;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.16" data-path="SnapshotSupport.html">
-            
-                <a href="SnapshotSupport.html">
-            
-                    
-                    SnapshotSupport
-            
-                </a>
-            
+a:link,
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:active {
+    text-decoration: none;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.17" data-path="SnapshotSupport_ImageFormat.html">
-            
-                <a href="SnapshotSupport_ImageFormat.html">
-            
-                    
-                    SnapshotSupport.ImageFormat
-            
-                </a>
-            
+p + a {
+    display: inline-block;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="2.18" data-path="SnapshotWaiter.html">
-            
-                <a href="SnapshotWaiter.html">
-            
-                    
-                    SnapshotWaiter
-            
-                </a>
-            
+b,
+strong {
+    font-weight: 600;
+}
 
-            
-        </li>
-    
+.summary,
+.discussion {
+    font: var(--callout);
+}
 
-    
-        
-        <li class="header">Protocols</li>
-        
-        
-    
-        <li class="chapter " data-level="3.1" data-path="ScenarioContent.html">
-            
-                <a href="ScenarioContent.html">
-            
-                    
-                    ScenarioContent
-            
-                </a>
-            
+article > .discussion {
+    margin-bottom: 2em;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="3.2" data-path="ScenarioProvider.html">
-            
-                <a href="ScenarioProvider.html">
-            
-                    
-                    ScenarioProvider
-            
-                </a>
-            
+.discussion .highlight {
+    font: var(--caption-1);
+    background: transparent;
+    border: 1px var(--separator) solid;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="3.3" data-path="ScenariosBuildable.html">
-            
-                <a href="ScenariosBuildable.html">
-            
-                    
-                    ScenariosBuildable
-            
-                </a>
-            
+em,
+i,
+cite,
+dfn {
+    font-style: italic;
+}
 
-            
-        </li>
-    
-        <li class="chapter " data-level="3.4" data-path="TestTool.html">
-            
-                <a href="TestTool.html">
-            
-                    
-                    TestTool
-            
-                </a>
-            
+/* sup {
+    font-size: 0.6em;
+    vertical-align: top;
+    position: relative;
+    bottom: -0.2em;
+} */
 
-            
-        </li>
-    
+:matches(h1, h2, h3) sup {
+    font-size: 0.4em;
+}
 
-    
+sup a {
+    vertical-align: inherit;
+    color: inherit;
+}
 
-    <li class="divider"></li>
+sup a:hover {
+    color: var(--link);
+    text-decoration: none;
+}
 
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+sub {
+    line-height: 1;
+}
+
+abbr {
+    border: 0;
+}
+
+:lang(ja),
+:lang(ko),
+:lang(th),
+:lang(zh) {
+    font-style: normal;
+}
+
+:lang(ko) {
+    word-break: keep-all;
+}
+
+form fieldset {
+    width: 95%;
+    margin: 1em auto;
+    max-width: 450px;
+}
+
+form label {
+    position: relative;
+    display: block;
+    margin-bottom: 14px;
+    width: 100%;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="tel"],
+input[type="url"],
+textarea {
+    margin: 0;
+    width: 100%;
+    height: 34px;
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: 400;
+    border: 1px solid var(--separator);
+    border-radius: 4px;
+    padding: 0 1em 0;
+    position: relative;
+    z-index: 1;
+    color: #333333;
+    vertical-align: top;
+}
+
+input[type="text"],
+input[type="text"]:focus,
+input[type="email"],
+input[type="email"]:focus,
+input[type="number"],
+input[type="number"]:focus,
+input[type="password"],
+input[type="password"]:focus,
+input[type="tel"],
+input[type="tel"]:focus,
+input[type="url"],
+input[type="url"]:focus,
+textarea,
+textarea:focus {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+    border-color: #0088cc;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.3);
+    box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.3);
+    z-index: 9;
+}
+
+input[type="text"]:-moz-read-only,
+input[type="text"]:-moz-read-only,
+input[type="email"]:-moz-read-only,
+input[type="email"]:-moz-read-only,
+input[type="number"]:-moz-read-only,
+input[type="number"]:-moz-read-only,
+input[type="password"]:-moz-read-only,
+input[type="password"]:-moz-read-only,
+input[type="tel"]:-moz-read-only,
+input[type="tel"]:-moz-read-only,
+input[type="url"]:-moz-read-only,
+input[type="url"]:-moz-read-only {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding-left: 0;
+}
+
+input[type="text"]:-moz-read-only,
+input[type="text"]:read-only,
+input[type="email"]:-moz-read-only,
+input[type="email"]:read-only,
+input[type="number"]:-moz-read-only,
+input[type="number"]:read-only,
+input[type="password"]:-moz-read-only,
+input[type="password"]:read-only,
+input[type="tel"]:-moz-read-only,
+input[type="tel"]:read-only,
+input[type="url"]:-moz-read-only,
+input[type="url"]:read-only {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding-left: 0;
+}
+
+::-webkit-input-placeholder,
+:-moz-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder {
+    color: var(--placeholder-text);
+}
+
+textarea {
+    min-height: 134px;
+    line-height: 1.4737;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    resize: vertical;
+}
+textarea,
+textarea:focus {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+select {
+    background: transparent;
+    width: 100%;
+    height: 34px;
+    padding: 0 1em;
+    font-size: 1em;
+    font-family: inherit;
+    border-radius: 4px;
+    border: none;
+    margin: 0;
+    cursor: pointer;
+}
+select,
+select:focus {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+select:focus {
+    border-color: #0088cc;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.3);
+    box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.3);
+    z-index: 9;
+}
+
+input[type="file"] {
+    margin: 0;
+    font-family: inherit;
+    font-size: 100%;
+    background: #fafafa;
+    width: 100%;
+    height: 34px;
+    border-radius: 4px;
+    padding: 6px 1em;
+    position: relative;
+    z-index: 1;
+    color: #333333;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+input[type="file"]:focus {
+    border-color: #0088cc;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.3);
+    box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.3);
+    z-index: 9;
+}
+input[type="file"]:focus,
+input[type="file"]:focus:focus {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+button,
+button:focus,
+input[type="reset"],
+input[type="reset"]:focus,
+input[type="submit"],
+input[type="submit"]:focus {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+:matches(button, input[type="reset"], input[type="submit"]) {
+    background-color: #e3e3e3;
+    background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(white),
+        to(#e3e3e3)
+    );
+    background: linear-gradient(white, #e3e3e3);
+    border-color: #d6d6d6;
+    color: #0070c9;
+}
+:matches(button, input[type="reset"], input[type="submit"]):hover {
+    background-color: #eeeeee;
+    background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(white),
+        to(#eeeeee)
+    );
+    background: linear-gradient(white, #eeeeee);
+    border-color: #d9d9d9;
+}
+:matches(button, input[type="reset"], input[type="submit"]):active {
+    background-color: gainsboro;
+    background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(#f7f7f7),
+        to(gainsboro)
+    );
+    background: linear-gradient(#f7f7f7, gainsboro);
+    border-color: #d0d0d0;
+}
+:matches(button, input[type="reset"], input[type="submit"]):disabled {
+    background-color: #e3e3e3;
+    background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(white),
+        to(#e3e3e3)
+    );
+    background: linear-gradient(white, #e3e3e3);
+    border-color: #d6d6d6;
+    color: #0070c9;
+}
+
+/*  */
+
+body {
+    background: var(--system-grouped-background);
+    font: var(--body);
+    font-family: ui-system, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--label);
+}
+
+h1 {
+    font: var(--large-title);
+}
+
+h2 {
+    font: var(--title-2);
+}
+
+h3 {
+    font: var(--title-3);
+}
+
+h4,
+h5,
+h6 {
+    font: var(--headline);
+}
+
+/* strong,
+    th,
+    dt {
+        font: var(--headline);
+    } */
+
+a {
+    color: var(--link);
+}
+
+label {
+    font: var(--callout);
+}
+
+label,
+input {
+    display: block;
+}
+
+input {
+    margin-bottom: 1em;
+}
+
+/* button,
+    input[type="submit"] {
+        color: var(--link);
+        background: transparent;
+        border: none;
+        padding: 0.5em;
+    } */
+
+/*********************/
+
+hr {
+    border: none;
+    border-top: 1px var(--separator) solid;
+    margin: 1em 0;
+}
+
+table {
+    width: 100%;
+    font: var(--caption-1);
+    caption-side: bottom;
+    margin-bottom: 2em;
+}
+
+th,
+td {
+    padding: 0 1em;
+}
+
+th {
+    font-weight: 600;
+    text-align: left;
+}
+
+thead th {
+    border-bottom: 1px var(--separator) solid;
+}
+
+tr:last-of-type td,
+tr:last-of-type th {
+    border-bottom: none;
+}
+
+th,
+td {
+    border-bottom: 1px var(--separator) solid;
+    color: var(--secondary-label);
+}
+
+caption {
+    text-align: left;
+    margin-top: 2em;
+    font: var(--caption-2);
+    color: var(--tertiary-label);
+}
+
+code,
+.graph text {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+        "Courier New", monospace;
+    font-weight: 300;
+}
+
+.graph > polygon {
+    display: none;
+}
+
+.graph text {
+    fill: currentColor !important;
+}
+
+.graph path,
+.graph ellipse,
+.graph rect,
+.graph polygon {
+    stroke: currentColor !important;
+}
+
+body {
+    width: 90vw;
+    max-width: 1280px;
+    margin: 1em auto;
+}
+
+body > header {
+    font: var(--title-1);
+}
+
+body > header a {
+    color: var(--label);
+}
+
+body > header span {
+    font-weight: normal;
+}
+
+body > header sup {
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: 300;
+    color: var(--secondary-label);
+    letter-spacing: 0.1ch;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        width: 96vw;
+        max-width: 100%;
+    }
+
+    body > header {
+        font: var(--title-3);
+        text-align: left;
+        padding: 1em 0;
+    }
+
+    body > nav {
+        display: none;
+    }
+
+    body > main {
+        padding: 0 1em;
+    }
+
+    #relationships figure {
+        display: none;
+    }
+
+    section > [role="article"][class] pre {
+        margin-left: -2.5em;
+    }
+
+    section > [role="article"][class] div {
+        margin-left: -2em;
+    }
+}
+
+body > header {
+    padding: 0.5em 0;
+}
+
+main,
+nav {
+    overflow-x: scroll;
+}
+
+main {
+    background: var(--system-background);
+    border-radius: 8px;
+}
+
+form.search {
+}
+
+body > footer {
+    clear: both;
+    padding: 1em 0;
+    font: var(--caption-1);
+    color: var(--secondary-label);
+}
+
+main {
+    padding: 0 2em;
+    /* max-width: 66ch; */
+}
+
+nav {
+    width: 20vw;
+    float: right;
+    overflow: scroll;
+    padding: 0 1em 3em 1em;
+    margin-left: 1em;
+    position: sticky;
+    top: 1em;
+    max-height: 100vh;
+}
+
+nav a {
+    color: var(--secondary-label);
+}
+
+nav ul a {
+    color: var(--tertiary-label);
+}
+
+nav ol {
+    padding: 0;
+}
+
+nav ul {
+    padding: 0;
+    margin-bottom: 1em;
+    font: var(--callout);
+}
+
+nav ol > li > a {
+    font: var(--headline);
+    font-size: smaller;
+    display: block;
+    margin: 0.5em 0;
+}
+
+nav li {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+main section {
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px var(--separator) solid;
+}
+
+main section:last-of-type {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+/* main :matches(h1, h2, h3) {
+    position: sticky;
+    top: 0px;
+}
+
+main h1 {
+    z-index: 1;
+}
+
+main h2 {
+    z-index: 2;
+}
+
+main h3 {
+    z-index: 3;
+} */
+
+blockquote {
+    border-left: 4px var(--separator) solid;
+    padding-left: 2em;
+    margin-left: 0;
+    font-size: smaller;
+    color: var(--secondary-label);
+    --link: var(--secondary-label);
+}
+
+blockquote a {
+    text-decoration: underline;
+}
+
+article {
+    padding: 2em 0 1em 0;
+}
+
+article > .summary {
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px var(--separator) solid;
+}
+
+article > .summary:last-child {
+    border-bottom: none;
+}
+
+.parameters th {
+    text-align: right;
+}
+
+.parameters td {
+    color: var(--secondary-label);
+}
+
+.parameters th + td {
+    text-align: center;
+}
+
+dl {
+    padding-top: 1em;
+}
+
+dt {
+    font: var(--headline);
+}
+
+dd {
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+dd p {
+    margin-top: 0;
+}
+
+.highlight {
+    background: var(--secondary-system-background);
+    border-radius: 8px;
+    font-size: smaller;
+    overflow-x: scroll;
+    white-space: pre-line;
+    padding: 1em;
+    padding-left: 3em;
+    text-indent: -2em;
+    margin-bottom: 2em;
+}
+
+.highlight .p {
+    white-space: nowrap;
+}
+
+.highlight .placeholder {
+    color: var(--label);
+}
+
+.highlight a {
+    text-decoration: underline;
+    color: var(--placeholder-text);
+}
+
+.highlight .literal,
+.highlight .keyword,
+.highlight .attribute {
+    color: var(--system-purple);
+}
+
+.highlight .number {
+    color: var(--system-blue);
+}
+
+.highlight .declaration {
+    color: var(--system-teal);
+}
+
+.highlight .type {
+    color: var(--system-indigo);
+}
+
+.highlight .directive {
+    color: var(--system-orange);
+}
+
+.highlight .comment {
+    color: var(--system-gray);
+}
+
+main summary:hover {
+    text-decoration: underline;
+}
+
+figure {
+    margin: 2em 0;
+    padding: 1em 0;
+}
+
+figure svg {
+    max-width: 100%;
+    height: auto !important;
+    margin: 0 auto;
+    display: block;
+}
+
+h1 small {
+    font-size: 0.5em;
+    line-height: 1.5;
+    display: block;
+    font-weight: normal;
+    color: var(--quaternary-label);
+}
+
+p code,
+dd code,
+li code {
+    font-size: smaller;
+    color: var(--secondary-label);
+}
+
+a code {
+    text-decoration: underline;
+}
+
+section > [role="article"][class],
+nav li[class],
+dl dt[class] {
+    background-image: var(--background-image);
+    background-size: 1em;
+    background-repeat: no-repeat;
+    background-position: left 0.25em;
+    padding-left: 3em;
+}
+
+dl dt[class] {
+    background-position-y: 0.125em;
+}
+
+section > [role="article"] {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px var(--separator) solid;
+    padding-left: 2em !important;
+}
+
+section > [role="article"]:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+nav li[class],
+dl dt[class] {
+    list-style: none;
+    text-indent: -1em;
+    margin-bottom: 0.5em;
+}
+
+nav li[class] {
+    padding-left: 2.5em;
+}
+
+.case,
+.enumeration_case {
+    --background-image: var(--icon-case);
+    --link: var(--system-teal);
+}
+
+.class {
+    --background-image: var(--icon-class);
+    --link: var(--system-indigo);
+}
+
+.enumeration {
+    --background-image: var(--icon-enumeration);
+    --link: var(--system-orange);
+}
+
+.extension {
+    --background-image: var(--icon-extension);
+    --link: var(--system-orange);
+}
+
+.function {
+    --background-image: var(--icon-function);
+    --link: var(--system-green);
+}
+
+.method,
+.initializer {
+    --background-image: var(--icon-method);
+    --link: var(--system-blue);
+}
+
+.property {
+    --background-image: var(--icon-property);
+    --link: var(--system-teal);
+}
+
+.protocol {
+    --background-image: var(--icon-protocol);
+    --link: var(--system-pink);
+}
+
+.structure {
+    --background-image: var(--icon-structure);
+    --link: var(--system-purple);
+}
+
+.typealias {
+    --background-image: var(--icon-typealias);
+    --link: var(--system-green);
+}
+
+.variable {
+    --background-image: var(--icon-variable);
+    --link: var(--system-green);
+}
+
+.unknown {
+    --link: var(--quaternary-label);
+    color: var(--link);
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Playbook
+            </strong>
+            <span>Documentation</span>
         </a>
-    </li>
-</ul>
+        <sup>Beta</sup>
+    </header>
 
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
 
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <p align="center">
-<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/logo.png" alt="Playbook" width="400">
-</p>
-
-<p align="center">A library for isolated developing UI components and automatically snapshots of them.</p>
-
-<p align="center">
-<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/demo.png" alt="playbook" width="850">
-</p>
-
-<h1 id="playbook">Playbook</h1>
-<p><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/mockup.gif" alt="Playbook" width="350" align="right"></p>
-<p><a href="https://developer.apple.com/swift" target="_blank"><img alt="Swift5" src="https://img.shields.io/badge/language-Swift5-orange.svg"></a>
-<a href="https://github.com/playbook-ui/playbook-ios/actions" target="_blank"><img alt="CI Status" src="https://github.com/playbook-ui/playbook-ios/workflows/GitHub%20Actions/badge.svg"></a>
-<a href="LICENSE"><img alt="Lincense" src="http://img.shields.io/badge/License-Apache%202.0-black.svg"></a>
-<br>
-<a href="https://github.com/playbook-ui/playbook-ios/releases/latest" target="_blank"><img alt="Release" src="https://img.shields.io/github/v/release/playbook-ui/playbook-ios.svg"></a>
-<a href="https://swift.org/package-manager" target="_blank"><img alt="Swift Package Manager" src="https://img.shields.io/badge/SwiftPM-compatible-yellowgreen.svg"></a>
-<a href="https://cocoapods.org/pods/Playbook" target="_blank"><img alt="CocoaPods" src="https://img.shields.io/cocoapods/v/Playbook.svg"></a>
-<a href="https://github.com/Carthage/Carthage" target="_blank"><img alt="Carthage" src="https://img.shields.io/badge/Carthage-compatible-yellow.svg"></a></p>
-<p><code>Playbook</code> is a library that provides a sandbox for building UI components without having to worry about application-specific dependencies, strongly inspired by <a href="https://storybook.js.org/" target="_blank">Storybook</a> for JavaScript in web-frontend development.  </p>
-<p>Components built using <code>Playbook</code> can generates a standalone app as living style guide.<br>This not only allows quick UI confirmation but also facilitates business logic separation and deliver more robust designs.  </p>
-<p>Besides, snapshots of each component can be automatically generated by unit tests, and visual regression tests can be performed using arbitrary third-party tools.  </p>
-<p>For complex modern app development, it&#x2019;s important to catch UI changes more sensitively and keep improving them faster.<br>With the <code>Playbook</code>, you don&apos;t have to struggle through preparing the data and also spend human resources on elaborate manual testing.  </p>
-<blockquote>
-<p><em>Android version is &#x1F51C;</em></p>
-</blockquote>
-<p><br clear="all"></p>
-<hr>
-<h2 id="usage">Usage</h2>
-<ul>
-<li><a href="https://playbook-ui.github.io/playbook-ios" target="_blank">API Document</a></li>
-<li><a href="https://github.com/playbook-ui/playbook-ios/tree/master/Example" target="_blank">Example App</a></li>
-</ul>
-<hr>
-<h3 id="playbook">Playbook</h3>
-<p><code>Playbook</code> is a framework that provides the basic functionality for managing components and supports both <code>SwiftUI</code> and <code>UIKit</code>.<br>Components are uniquely stored as scenarios. A <code>Scenario</code> has the way to layout component.Please check the <a href="https://playbook-ui.github.io/playbook-ios/ScenarioLayout.html" target="_blank">API Doc</a> for the variety of layouts.  </p>
-<pre><code class="lang-swift"><span class="hljs-type">Playbook</span>.<span class="hljs-keyword">default</span>.addScenarios(of: <span class="hljs-string">&quot;Home&quot;</span>) {
-    <span class="hljs-type">Scenario</span>(<span class="hljs-string">&quot;CategoryHome&quot;</span>, layout: .fill) {
-        <span class="hljs-type">CategoryHome</span>().environmentObject(<span class="hljs-type">UserData</span>.stub)
-    }
-
-    <span class="hljs-type">Scenario</span>(<span class="hljs-string">&quot;LandmarkList&quot;</span>, layout: .fill) {
-        <span class="hljs-type">NavigationView</span> {
-            <span class="hljs-type">LandmarkList</span>().environmentObject(<span class="hljs-type">UserData</span>.stub)
-        }
-    }
-
-    <span class="hljs-type">Scenario</span>(<span class="hljs-string">&quot;UIView red&quot;</span>, layout: .fixed(length: <span class="hljs-number">100</span>)) {
-        <span class="hljs-keyword">let</span> view = <span class="hljs-type">UIView</span>()
-        view.backgroundColor = .red
-        <span class="hljs-keyword">return</span> view
-    }
-}
-</code></pre>
-<p><code>ScenarioProvider</code> allows you to isolate additional scenarios and keep your playbook building clean.  </p>
-<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">HomeScenarios</span>: <span class="hljs-title">ScenarioProvider</span> </span>{
-    <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">addScenarios</span><span class="hljs-params">(into playbook: Playbook)</span></span> {
-        playbook.addScenarios(of: <span class="hljs-string">&quot;Home&quot;</span>) {
-            <span class="hljs-type">Scenario</span>(<span class="hljs-string">&quot;CategoryHome&quot;</span>, layout: .fill) {
-                <span class="hljs-type">CategoryHome</span>().environmentObject(<span class="hljs-type">UserData</span>.stub)
-            }
-        }
-    }
-}
-
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">AllScenarios</span>: <span class="hljs-title">ScenarioProvider</span> </span>{
-    <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">addScenarios</span><span class="hljs-params">(into playbook: Playbook)</span></span> {
-        playbook.add(<span class="hljs-type">HomeScenarios</span>.<span class="hljs-keyword">self</span>)
-    }
-}
-</code></pre>
-<p>You can use the <code>ScenarioContext</code> passed to the closure that creates the component to get the screen size in snapshot, or wait before generating a snapshot.  </p>
-<pre><code class="lang-swift"><span class="hljs-type">Scenario</span>(<span class="hljs-string">&quot;MapView&quot;</span>, layout: .fill) { context <span class="hljs-keyword">in</span>
-    <span class="hljs-type">MapView</span>(coordinate: landmarkData[<span class="hljs-number">10</span>].locationCoordinate) {
-        <span class="hljs-comment">// This closure will called after the map has completed to render.</span>
-        context.snapshotWaiter.fulfill()
-     }
-     .onAppear(perform: context.snapshotWaiter.wait)
-}
-</code></pre>
-<hr>
-<h3 id="playbooksnapshot">PlaybookSnapshot</h3>
-<p>Scenarios can be tested by the instance of types conform to <code>TestTool</code> protocol.<br><code>Snapshot</code> is one of them, which can generate the snapshots of all scenarios with simulate the screen size and safe area of the given devices.<br>Since <code>Snapshot</code> depends on <code>XCTest</code>, it should be used in the module for unit test.   </p>
-<pre><code class="lang-swift"><span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SnapshotTests</span>: <span class="hljs-title">XCTestCase</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testTakeSnapshot</span><span class="hljs-params">()</span></span> <span class="hljs-keyword">throws</span> {
-        <span class="hljs-keyword">let</span> directory = <span class="hljs-type">ProcessInfo</span>.processInfo.environment[<span class="hljs-string">&quot;SNAPSHOT_DIR&quot;</span>]!
-
-        <span class="hljs-keyword">try</span> <span class="hljs-type">Playbook</span>.<span class="hljs-keyword">default</span>.run(
-            <span class="hljs-type">Snapshot</span>(
-                directory: <span class="hljs-type">URL</span>(fileURLWithPath: directory),
-                clean: <span class="hljs-literal">true</span>,
-                format: .png,
-                keyWindow: <span class="hljs-type">UIApplication</span>.shared.windows.first { $<span class="hljs-number">0</span>.isKeyWindow },
-                devices: [.iPhone11Pro(.portrait)]
-            )
-        )
-    }
-}
-</code></pre>
-<p><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/generated-images.png" alt="generate images" width="660"></p>
-<hr>
-<h3 id="playbookui">PlaybookUI</h3>
-<p><code>PlaybookUI</code> is a framework that provides user interfaces made by <code>SwiftUI</code> for browsing a list of scenarios.  </p>
-<h4 id="playbookgallery">PlaybookGallery</h4>
-<p>The component visuals are listed and displayed.<br>Those are displayed on the top screen are not actually doing layout, but rather display the snapshots that is efficiently generated at runtime.</p>
-<table>
-<thead>
-<tr>
-<th>Browser</th>
-<th>Detail</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/gallery-light.png" alt="Gellery Light" width="150"><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/gallery-dark.png" alt="Gellery Dark" width="150"></td>
-<td><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/gallery-content-light.png" alt="Gellery Content Light" width="150"><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/gallery-content-dark.png" alt="Gellery Content Dark" width="150"></td>
-</tr>
-</tbody>
-</table>
-<h4 id="playbookcatalog">PlaybookCatalog</h4>
-<p>The UI that search and select a scenario in a drawer. It&apos;s more similar to <code>Storybook</code>.<br>If you have too many scenarios, this may be more efficient than <code>PlaybookCatalog</code>.  </p>
-<table>
-<thead>
-<tr>
-<th>Browser</th>
-<th>Detail</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/catalog-drawer-light.png" alt="Catalog Drawer Light" width="150"><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/catalog-drawer-dark.png" alt="Catalog Drawer Dark" width="150"></td>
-<td><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/catalog-light.png" alt="Catalog Light" width="150"><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/catalog-dark.png" alt="Catalog Dark" width="150"></td>
-</tr>
-</tbody>
-</table>
-<h4 id="how-to-save-snapshot-images">How to Save Snapshot Images</h4>
-<p>To save snapshot images to the photo library from the share button on each UI, <code>NSPhootLibraryAddUsageDescription</code> must be supported.  See the <a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW73" target="_blank">official document</a> for more information.</p>
-<hr>
-<h3 id="integration-with-third-party-tools">Integration with Third-party Tools</h3>
-<p>The snapshot image files generated on the host machine&apos;s file system by <code>PlaybookSnapshot</code> can be used with a variety of third-party tools.  </p>
-<h4 id="reg-vizreg-suit"><a href="https://github.com/reg-viz/reg-suit" target="_blank">reg-viz/reg-suit</a></h4>
-<p>It&apos;s highly recommended to use <code>reg-suit</code> in order to sublimate the snapshot images to the visual regression test.<br>It sends a report of UI changes for each pull request and visually check the impact on the existing components.<br>See <a href="https://github.com/reg-viz/reg-suit" target="_blank">reg-viz/reg-suit</a> for more details.  </p>
-<p><a href="https://github.com/playbook-ui/playbook-ios/pull/13" target="_blank">Example pull-request</a> is here.  </p>
-<p><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/reg-report.png" alt="Report from reg-suit" width="600"></p>
-<hr>
-<h2 id="requirements">Requirements</h2>
-<ul>
-<li>Swift 5.1+</li>
-<li>Xcode 11.0+</li>
-<li>iOS<ul>
-<li><code>Playbook</code>: 11.0+</li>
-<li><code>PlaybookSnapshot</code>: 11.0+</li>
-<li><code>PlaybookUI</code>: 13.0+</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="installation">Installation</h2>
-<p>Playbook features are separated into the following frameworks.  </p>
-<ul>
-<li><code>Playbook</code>: Core system of component management.</li>
-<li><code>PlaybookSnapshot</code>: Generates snapshots of all components.</li>
-<li><code>PlaybookUI</code>: Products a browsing UI for components managed by Playbook.</li>
-</ul>
-<h3 id="cocoapods"><a href="https://cocoapods.org" target="_blank">CocoaPods</a></h3>
-<p>Add the following to your <code>Podfile</code>:</p>
-<pre><code class="lang-ruby">target <span class="hljs-string">&apos;YourPlaybook&apos;</span> <span class="hljs-keyword">do</span>
-  pod <span class="hljs-string">&apos;Playbook&apos;</span>
-  pod <span class="hljs-string">&apos;PlaybookUI&apos;</span>
-
-  target <span class="hljs-string">&apos;YourPlaybookTests&apos;</span> <span class="hljs-keyword">do</span>
-    inherit! <span class="hljs-symbol">:search_paths</span>
-
-    pod <span class="hljs-string">&apos;PlaybookSnapshot&apos;</span>
-  <span class="hljs-keyword">end</span>
-<span class="hljs-keyword">end</span>
-</code></pre>
-<h3 id="carthage"><a href="https://github.com/Carthage/Carthage" target="_blank">Carthage</a></h3>
-<p>Add the following to your <code>Cartfile</code>:</p>
-<pre><code>github &quot;playbook-ui/playbook-ios&quot;
-</code></pre><h3 id="swift-package-manager"><a href="https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app" target="_blank">Swift Package Manager</a></h3>
-<p>Select Xcode menu <code>File &gt; Swift Packages &gt; Add Package Dependency...</code> and enter repository URL with GUI.</p>
-<pre><code>Repository: https://github.com/playbook-ui/playbook-ios
-</code></pre><p>Note: Currently, SwiftPM doesn&apos;t support specifying the OS version for each library, so only <code>iOS13</code> is supported.  </p>
-<hr>
-<h2 id="license">License</h2>
-<p>Playbook is released under the <a href="https://github.com/playbook-ui/playbook-ios/tree/master/LICENSE" target="_blank">Apache 2.0 License</a>.</p>
-<p><br></p>
-<p align="center">
-<img alt="Playbook" src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/footer-logo.png" width="280">
-</p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#classes">Classes</a></li><li><a href="#structures">Structures</a></li><li><a href="#enumerations">Enumerations</a></li><li><a href="#protocols">Protocols</a></li></ol>
         </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
+    </nav>
 
-                        </div>
-                    </div>
-                
-            </div>
+    <main>
+        <article>
+                <section id="classes">
+        <h2>Classes</h2>
+        <dl>
+            <dt class="class">
+    <a href="Playbook" title="class - Playbook">
+        Playbook
+    </a>
+</dt>
+<dd>
+    <p>The central scenario manager.</p>
 
-            
-                
-                
-                <a href="Playbook.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Playbook">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
-    </div>
+</dd>
+<dt class="class">
+    <a href="ScenarioStore" title="class - ScenarioStore">
+        Scenario​Store
+    </a>
+</dt>
+<dd>
+    <p>The class for managing a set of scenarios identified by the arbitrary kind.</p>
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Playbook","level":"2.1","depth":1,"path":"Playbook.md","ref":"Playbook.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github@2.0.0","hide-published-with@0.0.1"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/playbook-ui/playbook-ios"},"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Playbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Playbook","gitbook":"*","description":"Playbook API Document"},"file":{"path":"README.md","mtime":"2020-03-31T16:29:03.613Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-31T16:29:09.039Z"},"basePath":".","book":{"language":""}});
-        });
-    </script>
-</div>
+</dd>
+<dt class="class">
+    <a href="ScenarioViewController" title="class - ScenarioViewController">
+        Scenario​View​Controller
+    </a>
+</dt>
+<dd>
+    <p>The view controller to layout scenario's content.</p>
 
-        
-    <script src="gitbook/gitbook.js"></script>
-    <script src="gitbook/theme.js"></script>
-    
-        
-        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-hide-published-with/plugin.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+</dd>
+<dt class="class">
+    <a href="SnapshotWaiter" title="class - SnapshotWaiter">
+        Snapshot​Waiter
+    </a>
+</dt>
+<dd>
+    <p>A snapshot timing manager to wait and fulfillment for the scenario
+content to be rendered.</p>
 
-    </body>
+</dd>
+        </dl>
+    </section>
+    <section id="structures">
+        <h2>Structures</h2>
+        <dl>
+            <dt class="structure">
+    <a href="ScenariosBuilder" title="structure - ScenariosBuilder">
+        Scenarios​Builder
+    </a>
+</dt>
+<dd>
+    <p>The custom parameter attribute that constructs scenarios from multi-statement closures.</p>
+
+</dd>
+<dt class="structure">
+    <a href="Scenario" title="structure - Scenario">
+        Scenario
+    </a>
+</dt>
+<dd>
+    <p>Represents part of the component state.</p>
+
+</dd>
+<dt class="structure">
+    <a href="ScenarioContext" title="structure - ScenarioContext">
+        Scenario​Context
+    </a>
+</dt>
+<dd>
+    <p>The context of scenario.</p>
+
+</dd>
+<dt class="structure">
+    <a href="ScenarioKind" title="structure - ScenarioKind">
+        Scenario​Kind
+    </a>
+</dt>
+<dd>
+    <p>Represents a unique identifier of the set of scenarios.</p>
+
+</dd>
+<dt class="structure">
+    <a href="ScenarioLayout" title="structure - ScenarioLayout">
+        Scenario​Layout
+    </a>
+</dt>
+<dd>
+    <p>Represents how the component should be laid out.</p>
+
+</dd>
+<dt class="structure">
+    <a href="ScenarioName" title="structure - ScenarioName">
+        Scenario​Name
+    </a>
+</dt>
+<dd>
+    <p>Represents a unique name of the scenario.</p>
+
+</dd>
+<dt class="structure">
+    <a href="SnapshotDevice" title="structure - SnapshotDevice">
+        Snapshot​Device
+    </a>
+</dt>
+<dd>
+    <p>The device representation for simulating environments of each device such as
+size, orientation, safe area, trait collection, or dark mode appearance.</p>
+
+</dd>
+<dt class="structure">
+    <a href="Snapshot" title="structure - Snapshot">
+        Snapshot
+    </a>
+</dt>
+<dd>
+    <p>The testing tool which generates snapshot images from scenarios managed by <code>Playbook</code>.</p>
+
+</dd>
+<dt class="structure">
+    <a href="PlaybookCatalog" title="structure - PlaybookCatalog">
+        Playbook​Catalog
+    </a>
+</dt>
+<dd>
+    <p>A view that displays scenarios manged by given <code>Playbook</code> instance with
+catalog-style appearance.</p>
+
+</dd>
+<dt class="structure">
+    <a href="PlaybookGallery" title="structure - PlaybookGallery">
+        Playbook​Gallery
+    </a>
+</dt>
+<dd>
+    <p>A view that displays scenarios manged by given <code>Playbook</code> instance with
+gallery-style appearance.</p>
+
+</dd>
+        </dl>
+    </section>
+    <section id="enumerations">
+        <h2>Enumerations</h2>
+        <dl>
+            <dt class="enumeration">
+    <a href="ScenarioLayout_Sizing" title="enumeration - ScenarioLayout.Sizing">
+        Scenario​Layout.​Sizing
+    </a>
+</dt>
+<dd>
+    <p>A sizing strategy for the horizontal or vertical dimensions.</p>
+
+</dd>
+<dt class="enumeration">
+    <a href="SnapshotDevice_Orientation" title="enumeration - SnapshotDevice.Orientation">
+        Snapshot​Device.​Orientation
+    </a>
+</dt>
+<dd>
+    <p>Represents the orientation of a device.</p>
+
+</dd>
+<dt class="enumeration">
+    <a href="SnapshotSupport" title="enumeration - SnapshotSupport">
+        Snapshot​Support
+    </a>
+</dt>
+<dd>
+    <p>A namespace for the methods supporting to generate snapshot from scenarios.</p>
+
+</dd>
+<dt class="enumeration">
+    <a href="SnapshotSupport_ImageFormat" title="enumeration - SnapshotSupport.ImageFormat">
+        Snapshot​Support.​Image​Format
+    </a>
+</dt>
+<dd>
+    <p>The image format of the exported file.</p>
+
+</dd>
+        </dl>
+    </section>
+    <section id="protocols">
+        <h2>Protocols</h2>
+        <dl>
+            <dt class="protocol">
+    <a href="ScenariosBuildable" title="protocol - ScenariosBuildable">
+        Scenarios​Buildable
+    </a>
+</dt>
+<dd>
+    <p>Represents an instance that can build an array of scenarios.</p>
+
+</dd>
+<dt class="protocol">
+    <a href="ScenarioContent" title="protocol - ScenarioContent">
+        Scenario​Content
+    </a>
+</dt>
+<dd>
+    <p>Represents a content of scenario.</p>
+
+</dd>
+<dt class="protocol">
+    <a href="ScenarioProvider" title="protocol - ScenarioProvider">
+        Scenario​Provider
+    </a>
+</dt>
+<dd>
+    <p>Products a group of separated scenario definitions.</p>
+
+</dd>
+<dt class="protocol">
+    <a href="TestTool" title="protocol - TestTool">
+        Test​Tool
+    </a>
+</dt>
+<dd>
+    <p>Represents a tool for testing scenarios managed by playbooks.</p>
+
+</dd>
+        </dl>
+    </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-04-12T11:05:22+0900">April 12, 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a>.
+</p>
+    </footer>
+</body>
 </html>
-

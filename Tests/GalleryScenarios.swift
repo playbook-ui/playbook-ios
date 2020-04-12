@@ -16,16 +16,16 @@ struct GalleryScenarios: ScenarioProvider {
                         userInterfaceStyle: .light,
                         status: .ready
                     )
-                        .takeSnapshots()
-                        .start()
+                    .takeSnapshots()
+                    .start()
                 )
-                    .environment(
-                        \.galleryDependency,
-                        GalleryDependency(
-                            scheduler: SchedulerMock(),
-                            context: context
-                        )
+                .environment(
+                    \.galleryDependency,
+                    GalleryDependency(
+                        scheduler: SchedulerMock(),
+                        context: context
                     )
+                )
             }
 
             Scenario("Preparing", layout: .fill) { context in
@@ -38,7 +38,7 @@ struct GalleryScenarios: ScenarioProvider {
                         screenSize: context.screenSize.portrait,
                         userInterfaceStyle: .light
                     )
-                        .start()
+                    .start()
                 )
             }
 
@@ -53,13 +53,13 @@ struct GalleryScenarios: ScenarioProvider {
                         userInterfaceStyle: .light
                     )
                 )
-                    .environment(
-                        \.galleryDependency,
-                        GalleryDependency(
-                            scheduler: SchedulerMock(),
-                            context: context
-                        )
+                .environment(
+                    \.galleryDependency,
+                    GalleryDependency(
+                        scheduler: SchedulerMock(),
+                        context: context
                     )
+                )
             }
 
             Scenario("Searching", layout: .fill) { context in
@@ -73,16 +73,16 @@ struct GalleryScenarios: ScenarioProvider {
                         userInterfaceStyle: .light,
                         status: .ready
                     )
-                        .takeSnapshots()
-                        .start(with: "2")
+                    .takeSnapshots()
+                    .start(with: "2")
                 )
-                    .environment(
-                        \.galleryDependency,
-                        GalleryDependency(
-                            scheduler: SchedulerMock(),
-                            context: context
-                        )
+                .environment(
+                    \.galleryDependency,
+                    GalleryDependency(
+                        scheduler: SchedulerMock(),
+                        context: context
                     )
+                )
             }
 
             Scenario("Dark snapshots", layout: .fill) { context in
@@ -96,16 +96,16 @@ struct GalleryScenarios: ScenarioProvider {
                         userInterfaceStyle: .dark,
                         status: .ready
                     )
-                        .takeSnapshots()
-                        .start()
+                    .takeSnapshots()
+                    .start()
                 )
-                    .environment(
-                        \.galleryDependency,
-                        GalleryDependency(
-                            scheduler: SchedulerMock(),
-                            context: context
-                        )
+                .environment(
+                    \.galleryDependency,
+                    GalleryDependency(
+                        scheduler: SchedulerMock(),
+                        context: context
                     )
+                )
             }
 
             Scenario("Sheet", layout: .fill) { context in
@@ -131,22 +131,22 @@ struct GalleryScenarios: ScenarioProvider {
                     serialDispatcher: SerialMainDispatcher(interval: 0, scheduler: SchedulerMock()),
                     onSelect: { _ in }
                 )
-                    .environmentObject(
-                        GalleryStore(
-                            playbook: .test,
-                            preSnapshotCountLimit: 100,
-                            screenSize: context.screenSize.portrait,
-                            userInterfaceStyle: .light
-                        )
-                            .takeSnapshots()
+                .environmentObject(
+                    GalleryStore(
+                        playbook: .test,
+                        preSnapshotCountLimit: 100,
+                        screenSize: context.screenSize.portrait,
+                        userInterfaceStyle: .light
                     )
-                    .environment(
-                        \.galleryDependency,
-                        GalleryDependency(
-                            scheduler: SchedulerMock(),
-                            context: context
-                        )
+                    .takeSnapshots()
+                )
+                .environment(
+                    \.galleryDependency,
+                    GalleryDependency(
+                        scheduler: SchedulerMock(),
+                        context: context
                     )
+                )
             }
 
             Scenario("Display empty", layout: .compressed) { context in

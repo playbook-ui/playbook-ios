@@ -2,7 +2,7 @@ import UIKit
 
 /// Represents part of the component state.
 public struct Scenario {
-    /// An unique name of scenario that describes component and its state.
+    /// A unique name of scenario that describes component and its state.
     public var name: ScenarioName
 
     /// Represents how the component should be laid out.
@@ -20,7 +20,7 @@ public struct Scenario {
     /// Creates a new scenario.
     ///
     /// - Parameters:
-    ///   - name: An unique name of this scenario.
+    ///   - name: A unique name of this scenario.
     ///   - layout: Represents how the component should be laid out.
     ///   - file: A file path where defined this scenario.
     ///   - line: A line number where defined this scenario in file.
@@ -42,7 +42,7 @@ public struct Scenario {
     /// Creates a new scenario.
     ///
     /// - Parameters:
-    ///   - name: An unique name of this scenario.
+    ///   - name: A unique name of this scenario.
     ///   - layout: Represents how the component should be laid out.
     ///   - file: A file path where defined this scenario.
     ///   - line: A line number where defined this scenario in file.

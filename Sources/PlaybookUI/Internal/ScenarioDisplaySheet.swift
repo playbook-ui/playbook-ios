@@ -26,11 +26,11 @@ internal struct ScenarioDisplaySheet: View {
                 additionalSafeAreaInsets: .only(top: topBarHeight),
                 contentUIView: _contentUIView
             )
-                .edgesIgnoringSafeArea(.all)
-                .background(
-                    Color(.scenarioBackground)
-                        .edgesIgnoringSafeArea(.all)
-                )
+            .edgesIgnoringSafeArea(.all)
+            .background(
+                Color(.scenarioBackground)
+                    .edgesIgnoringSafeArea(.all)
+            )
 
             VStack(spacing: 0) {
                 topBar()
@@ -41,14 +41,14 @@ internal struct ScenarioDisplaySheet: View {
                 Spacer.zero
             }
         }
-            .sheet(item: $store.shareItem) { item in
-                ImageSharingView(item: item) { self.store.shareItem = nil }
-                    .edgesIgnoringSafeArea(.all)
-            }
-            .background(
-                Color(.scenarioBackground)
-                    .edgesIgnoringSafeArea(.all)
-            )
+        .sheet(item: $store.shareItem) { item in
+            ImageSharingView(item: item) { self.store.shareItem = nil }
+                .edgesIgnoringSafeArea(.all)
+        }
+        .background(
+            Color(.scenarioBackground)
+                .edgesIgnoringSafeArea(.all)
+        )
     }
 }
 
@@ -69,13 +69,13 @@ private extension ScenarioDisplaySheet {
 
             closeButton()
         }
-            .padding(.horizontal, 24)
-            .frame(height: topBarHeight)
-            .background(
-                Blur(style: .systemMaterial)
-                    .edgesIgnoringSafeArea(.all),
-                alignment: .topLeading
-            )
+        .padding(.horizontal, 24)
+        .frame(height: topBarHeight)
+        .background(
+            Blur(style: .systemMaterial)
+                .edgesIgnoringSafeArea(.all),
+            alignment: .topLeading
+        )
     }
 
     func shareButton() -> some View {
@@ -84,6 +84,7 @@ private extension ScenarioDisplaySheet {
                 .imageScale(.large)
                 .font(.headline)
                 .foregroundColor(Color(.label))
+                .frame(width: 30, height: 30)
         }
     }
 

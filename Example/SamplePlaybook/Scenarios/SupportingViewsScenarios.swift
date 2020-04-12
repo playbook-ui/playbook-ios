@@ -17,8 +17,8 @@ struct SupportingViewsScenarios: ScenarioProvider {
                 MapView(coordinate: landmarkData[10].locationCoordinate) {
                     context.snapshotWaiter.fulfill()
                 }
-                    .edgesIgnoringSafeArea(.all)
-                    .onAppear(perform: context.snapshotWaiter.wait)
+                .edgesIgnoringSafeArea(.all)
+                .onAppear(perform: context.snapshotWaiter.wait)
             }
 
             Scenario("LandmarkRow", layout: .fixedH(300)) {
@@ -35,19 +35,19 @@ struct SupportingViewsScenarios: ScenarioProvider {
                         hike: hikeData[0],
                         path: \.elevation
                     )
-                        .frame(height: 150)
+                    .frame(height: 150)
 
                     HikeGraph(
                         hike: hikeData[0],
                         path: \.heartRate
                     )
-                        .frame(height: 150)
+                    .frame(height: 150)
 
                     HikeGraph(
                         hike: hikeData[0],
                         path: \.pace
                     )
-                        .frame(height: 150)
+                    .frame(height: 150)
                 }
             }
         }

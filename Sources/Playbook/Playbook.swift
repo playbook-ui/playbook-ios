@@ -35,7 +35,7 @@ open class Playbook {
     /// If there is no store yet, add and return it.
     ///
     /// - Parameters:
-    ///   - kind: An unique identifier that stores a set of scenarios.
+    ///   - kind: A unique identifier that stores a set of scenarios.
     ///
     /// - Returns: A store identified by specified kind.
     public func scenarios(of kind: ScenarioKind) -> ScenarioStore {
@@ -57,7 +57,7 @@ open class Playbook {
     /// Adds a set of scenarios passed by function builder.
     ///
     /// - Parameters:
-    ///   - kind: An unique identifier that stores a set of scenarios.
+    ///   - kind: A unique identifier that stores a set of scenarios.
     ///   - scenarios: A function builder that create a set of scenarios.
     ///
     /// - Returns: A instance of `self`.

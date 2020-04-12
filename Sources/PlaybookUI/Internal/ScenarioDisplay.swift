@@ -40,16 +40,16 @@ internal struct ScenarioDisplay: View {
                 content()
                     .id(AnimationID.content)
             }
-                .compositingGroup()
-                .transition(.opacity)
-                .animation(.spring(), value: status.isWaitForSnapshot)
-                .frame(
-                    width: contentWidth,
-                    height: store.snapshotLoader.device.size.height * Self.scale,
-                    alignment: .topLeading
-                )
-                .cornerRadius(12)
-                .shadow(color: Color(.black).opacity(0.25), radius: shadowRadius)
+            .compositingGroup()
+            .transition(.opacity)
+            .animation(.spring(), value: status.isWaitForSnapshot)
+            .frame(
+                width: contentWidth,
+                height: store.snapshotLoader.device.size.height * Self.scale,
+                alignment: .topLeading
+            )
+            .cornerRadius(12)
+            .shadow(color: Color(.black).opacity(0.25), radius: shadowRadius)
 
             Text(store.data.scenario.name.rawValue)
                 .font(.subheadline)
@@ -57,20 +57,20 @@ internal struct ScenarioDisplay: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .background(Highlight(store.data.shouldHighlight))
         }
-            .frame(width: contentWidth + 16)
-            .padding(shadowRadius * 2)
-            .onVisibilityChanged(
-                in: CGRect(origin: .zero, size: dependency.context.screenSize),
-                perform: store.isVisible.send
-            )
-            .onReceive(store.isVisible.removeDuplicates(by: ==)) { isVisible in
-                if isVisible {
-                    self.store.loadImage(into: self.$status)
-                }
-                else {
-                    self.store.cancellAll()
-                }
+        .frame(width: contentWidth + 16)
+        .padding(shadowRadius * 2)
+        .onVisibilityChanged(
+            in: CGRect(origin: .zero, size: dependency.context.screenSize),
+            perform: store.isVisible.send
+        )
+        .onReceive(store.isVisible.removeDuplicates(by: ==)) { isVisible in
+            if isVisible {
+                self.store.loadImage(into: self.$status)
             }
+            else {
+                self.store.cancellAll()
+            }
+        }
     }
 }
 
