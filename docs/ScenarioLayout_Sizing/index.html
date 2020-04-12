@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playbook - Playbook</title>
+    <title>Playbook - ScenarioLayout.Sizing</title>
     <style type="text/css">
     :root {
     --system-red: rgb(255, 59, 48);
@@ -1197,234 +1197,144 @@ nav li[class] {
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#classes">Classes</a></li><li><a href="#structures">Structures</a></li><li><a href="#enumerations">Enumerations</a></li><li><a href="#protocols">Protocols</a></li></ol>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#scenariolayout.sizing.compressed">compressed</a></li><li class="case"><a href="#scenariolayout.sizing.fill">fill</a></li><li class="case"><a href="#scenariolayout.sizing.fixed">fixed</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#scenariolayout.sizing.init(integerliteral:)">init(integer​Literal:​)</a></li><li class="initializer"><a href="#scenariolayout.sizing.init(floatliteral:)">init(float​Literal:​)</a></li></ul></li></ol>
         </div>
     </nav>
 
     <main>
         <article>
-                <section id="classes">
-        <h2>Classes</h2>
-        <dl>
-            <dt class="class">
-    <a href="Playbook" title="class - Playbook">
-        Playbook
-    </a>
-</dt>
-<dd>
-    <p>The central scenario manager.</p>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">Scenario​Layout.​Sizing</code>
+</h1>
 
-</dd>
-<dt class="class">
-    <a href="ScenarioStore" title="class - ScenarioStore">
-        Scenario​Store
-    </a>
-</dt>
-<dd>
-    <p>The class for managing a set of scenarios identified by the arbitrary kind.</p>
-
-</dd>
-<dt class="class">
-    <a href="ScenarioViewController" title="class - ScenarioViewController">
-        Scenario​View​Controller
-    </a>
-</dt>
-<dd>
-    <p>The view controller to layout scenario's content.</p>
-
-</dd>
-<dt class="class">
-    <a href="SnapshotWaiter" title="class - SnapshotWaiter">
-        Snapshot​Waiter
-    </a>
-</dt>
-<dd>
-    <p>A snapshot timing manager to wait and fulfillment for the scenario
-content to be rendered.</p>
-
-</dd>
-        </dl>
-    </section>
-    <section id="structures">
-        <h2>Structures</h2>
-        <dl>
-            <dt class="structure">
-    <a href="ScenariosBuilder" title="structure - ScenariosBuilder">
-        Scenarios​Builder
-    </a>
-</dt>
-<dd>
-    <p>The custom parameter attribute that constructs scenarios from multi-statement closures.</p>
-
-</dd>
-<dt class="structure">
-    <a href="Scenario" title="structure - Scenario">
-        Scenario
-    </a>
-</dt>
-<dd>
-    <p>Represents part of the component state.</p>
-
-</dd>
-<dt class="structure">
-    <a href="ScenarioContext" title="structure - ScenarioContext">
-        Scenario​Context
-    </a>
-</dt>
-<dd>
-    <p>The context of scenario.</p>
-
-</dd>
-<dt class="structure">
-    <a href="ScenarioKind" title="structure - ScenarioKind">
-        Scenario​Kind
-    </a>
-</dt>
-<dd>
-    <p>Represents a unique identifier of the set of scenarios.</p>
-
-</dd>
-<dt class="structure">
-    <a href="ScenarioLayout" title="structure - ScenarioLayout">
-        Scenario​Layout
-    </a>
-</dt>
-<dd>
-    <p>Represents how the component should be laid out.</p>
-
-</dd>
-<dt class="structure">
-    <a href="ScenarioName" title="structure - ScenarioName">
-        Scenario​Name
-    </a>
-</dt>
-<dd>
-    <p>Represents a unique name of the scenario.</p>
-
-</dd>
-<dt class="structure">
-    <a href="SnapshotDevice" title="structure - SnapshotDevice">
-        Snapshot​Device
-    </a>
-</dt>
-<dd>
-    <p>The device representation for simulating environments of each device such as
-size, orientation, safe area, trait collection, or dark mode appearance.</p>
-
-</dd>
-<dt class="structure">
-    <a href="Snapshot" title="structure - Snapshot">
-        Snapshot
-    </a>
-</dt>
-<dd>
-    <p>The testing tool which generates snapshot images from scenarios managed by <code>Playbook</code>.</p>
-
-</dd>
-<dt class="structure">
-    <a href="PlaybookCatalog" title="structure - PlaybookCatalog">
-        Playbook​Catalog
-    </a>
-</dt>
-<dd>
-    <p>A view that displays scenarios manged by given <code>Playbook</code> instance with
-catalog-style appearance.</p>
-
-</dd>
-<dt class="structure">
-    <a href="PlaybookGallery" title="structure - PlaybookGallery">
-        Playbook​Gallery
-    </a>
-</dt>
-<dd>
-    <p>A view that displays scenarios manged by given <code>Playbook</code> instance with
-gallery-style appearance.</p>
-
-</dd>
-        </dl>
-    </section>
-    <section id="enumerations">
-        <h2>Enumerations</h2>
-        <dl>
-            <dt class="enumeration">
-    <a href="ScenarioLayout_Sizing" title="enumeration - ScenarioLayout.Sizing">
-        Scenario​Layout.​Sizing
-    </a>
-</dt>
-<dd>
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">Sizing</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
     <p>A sizing strategy for the horizontal or vertical dimensions.</p>
 
-</dd>
-<dt class="enumeration">
-    <a href="SnapshotDevice_Orientation" title="enumeration - SnapshotDevice.Orientation">
-        Snapshot​Device.​Orientation
-    </a>
-</dt>
-<dd>
-    <p>Represents the orientation of a device.</p>
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+    <figure>
+        
 
+        <figcaption hidden>Inheritance graph for ScenarioLayout.Sizing.</figcaption>
+    </figure>
+        <h3>Member Of</h3>
+<dl>
+    <dt class="structure"><code><a href="/ScenarioLayout">ScenarioLayout</a></code></dt>
+<dd><p>Represents how the component should be laid out.</p>
 </dd>
-<dt class="enumeration">
-    <a href="SnapshotSupport" title="enumeration - SnapshotSupport">
-        Snapshot​Support
-    </a>
-</dt>
-<dd>
-    <p>A namespace for the methods supporting to generate snapshot from scenarios.</p>
+</dl>
+<h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>Equatable</code></dt>
+<dt class="unknown"><code>ExpressibleByFloatLiteral</code></dt>
+<dt class="unknown"><code>ExpressibleByIntegerLiteral</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
 
-</dd>
-<dt class="enumeration">
-    <a href="SnapshotSupport_ImageFormat" title="enumeration - SnapshotSupport.ImageFormat">
-        Snapshot​Support.​Image​Format
-    </a>
-</dt>
-<dd>
-    <p>The image format of the exported file.</p>
+        <div role="article" class="enumeration" id="scenariolayout.sizing.compressed">
+    <h3>
+        <code>compressed</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">compressed</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Compresses to the intrinsic size of the component.</p>
 
-</dd>
-        </dl>
+</div>
+</div>
+<div role="article" class="enumeration" id="scenariolayout.sizing.fill">
+    <h3>
+        <code>fill</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fill</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Fill to the size of the canvas on which to layout the component.</p>
+
+</div>
+</div>
+<div role="article" class="enumeration" id="scenariolayout.sizing.fixed">
+    <h3>
+        <code>fixed</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fixed</span>(: <span class="type">CGFloat</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Layout with given fixed size.
+Note: There are cases that to compressed to
+the size of the canvas on which to layout it when it can't be displayed
+on the UI.</p>
+
+</div>
+</div>
     </section>
-    <section id="protocols">
-        <h2>Protocols</h2>
-        <dl>
-            <dt class="protocol">
-    <a href="ScenariosBuildable" title="protocol - ScenariosBuildable">
-        Scenarios​Buildable
-    </a>
-</dt>
-<dd>
-    <p>Represents an instance that can build an array of scenarios.</p>
+    <section id="initializers">
+        <h2>Initializers</h2>
 
-</dd>
-<dt class="protocol">
-    <a href="ScenarioContent" title="protocol - ScenarioContent">
-        Scenario​Content
-    </a>
-</dt>
-<dd>
-    <p>Represents a content of scenario.</p>
+        <div role="article" class="enumeration" id="scenariolayout.sizing.init(integerliteral:)">
+    <h3>
+        <code>init(integer​Literal:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">integerLiteral</span> <span class="variable">value</span>: <span class="type">Int</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates a <code>fixed</code> sizing with the specified value converted to a <code>CGFloat</code>.</p>
 
-</dd>
-<dt class="protocol">
-    <a href="ScenarioProvider" title="protocol - ScenarioProvider">
-        Scenario​Provider
-    </a>
-</dt>
-<dd>
-    <p>Products a group of separated scenario definitions.</p>
+</div>
+<h4>Parameters</h4>
 
-</dd>
-<dt class="protocol">
-    <a href="TestTool" title="protocol - TestTool">
-        Test​Tool
-    </a>
-</dt>
-<dd>
-    <p>Represents a tool for testing scenarios managed by playbooks.</p>
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>value</th>
+    <td><code class="type">Int</code></td></td>
+    <td><p>The actual value of <code>fixed</code> sizing.</p>
+</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<div role="article" class="enumeration" id="scenariolayout.sizing.init(floatliteral:)">
+    <h3>
+        <code>init(float​Literal:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">floatLiteral</span> <span class="variable">value</span>: <span class="type">Float</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates a <code>fixed</code> sizing with the specified value converted to a <code>CGFloat</code>.</p>
 
-</dd>
-        </dl>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>value</th>
+    <td><code class="type">Float</code></td></td>
+    <td><p>The actual value of <code>fixed</code> sizing.</p>
+</td>
+</tr>
+  </tbody>
+</table>
+</div>
     </section>
+
+
+
         </article>
     </main>
 

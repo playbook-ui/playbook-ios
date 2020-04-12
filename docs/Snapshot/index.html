@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playbook - Playbook</title>
+    <title>Playbook - Snapshot</title>
     <style type="text/css">
     :root {
     --system-red: rgb(255, 59, 48);
@@ -1197,234 +1197,215 @@ nav li[class] {
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#classes">Classes</a></li><li><a href="#structures">Structures</a></li><li><a href="#enumerations">Enumerations</a></li><li><a href="#protocols">Protocols</a></li></ol>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#snapshot.init(directory:clean:format:timeout:scale:keywindow:devices:)">init(directory:​clean:​format:​timeout:​scale:​key​Window:​devices:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="property"><a href="#snapshot.directory">directory</a></li><li class="property"><a href="#snapshot.clean">clean</a></li><li class="property"><a href="#snapshot.format">format</a></li><li class="property"><a href="#snapshot.timeout">timeout</a></li><li class="property"><a href="#snapshot.scale">scale</a></li><li class="property"><a href="#snapshot.keywindow">key​Window</a></li><li class="property"><a href="#snapshot.devices">devices</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="method"><a href="#snapshot.run(with:)">run(with:​)</a></li></ul></li></ol>
         </div>
     </nav>
 
     <main>
         <article>
-                <section id="classes">
-        <h2>Classes</h2>
-        <dl>
-            <dt class="class">
-    <a href="Playbook" title="class - Playbook">
-        Playbook
-    </a>
-</dt>
-<dd>
-    <p>The central scenario manager.</p>
+            <h1>
+    <small>Structure</small>
+    <code class="name">Snapshot</code>
+</h1>
 
-</dd>
-<dt class="class">
-    <a href="ScenarioStore" title="class - ScenarioStore">
-        Scenario​Store
-    </a>
-</dt>
-<dd>
-    <p>The class for managing a set of scenarios identified by the arbitrary kind.</p>
-
-</dd>
-<dt class="class">
-    <a href="ScenarioViewController" title="class - ScenarioViewController">
-        Scenario​View​Controller
-    </a>
-</dt>
-<dd>
-    <p>The view controller to layout scenario's content.</p>
-
-</dd>
-<dt class="class">
-    <a href="SnapshotWaiter" title="class - SnapshotWaiter">
-        Snapshot​Waiter
-    </a>
-</dt>
-<dd>
-    <p>A snapshot timing manager to wait and fulfillment for the scenario
-content to be rendered.</p>
-
-</dd>
-        </dl>
-    </section>
-    <section id="structures">
-        <h2>Structures</h2>
-        <dl>
-            <dt class="structure">
-    <a href="ScenariosBuilder" title="structure - ScenariosBuilder">
-        Scenarios​Builder
-    </a>
-</dt>
-<dd>
-    <p>The custom parameter attribute that constructs scenarios from multi-statement closures.</p>
-
-</dd>
-<dt class="structure">
-    <a href="Scenario" title="structure - Scenario">
-        Scenario
-    </a>
-</dt>
-<dd>
-    <p>Represents part of the component state.</p>
-
-</dd>
-<dt class="structure">
-    <a href="ScenarioContext" title="structure - ScenarioContext">
-        Scenario​Context
-    </a>
-</dt>
-<dd>
-    <p>The context of scenario.</p>
-
-</dd>
-<dt class="structure">
-    <a href="ScenarioKind" title="structure - ScenarioKind">
-        Scenario​Kind
-    </a>
-</dt>
-<dd>
-    <p>Represents a unique identifier of the set of scenarios.</p>
-
-</dd>
-<dt class="structure">
-    <a href="ScenarioLayout" title="structure - ScenarioLayout">
-        Scenario​Layout
-    </a>
-</dt>
-<dd>
-    <p>Represents how the component should be laid out.</p>
-
-</dd>
-<dt class="structure">
-    <a href="ScenarioName" title="structure - ScenarioName">
-        Scenario​Name
-    </a>
-</dt>
-<dd>
-    <p>Represents a unique name of the scenario.</p>
-
-</dd>
-<dt class="structure">
-    <a href="SnapshotDevice" title="structure - SnapshotDevice">
-        Snapshot​Device
-    </a>
-</dt>
-<dd>
-    <p>The device representation for simulating environments of each device such as
-size, orientation, safe area, trait collection, or dark mode appearance.</p>
-
-</dd>
-<dt class="structure">
-    <a href="Snapshot" title="structure - Snapshot">
-        Snapshot
-    </a>
-</dt>
-<dd>
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">Snapshot</span>: <a href="/TestTool"><span class="type">TestTool</span></a></code></pre></body></html>
+<div class="summary" role="doc-abstract">
     <p>The testing tool which generates snapshot images from scenarios managed by <code>Playbook</code>.</p>
 
-</dd>
-<dt class="structure">
-    <a href="PlaybookCatalog" title="structure - PlaybookCatalog">
-        Playbook​Catalog
-    </a>
-</dt>
-<dd>
-    <p>A view that displays scenarios manged by given <code>Playbook</code> instance with
-catalog-style appearance.</p>
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+    <figure>
+        
 
+        <figcaption hidden>Inheritance graph for Snapshot.</figcaption>
+    </figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="protocol"><code><a href="/TestTool">TestTool</a></code></dt>
+<dd><p>Represents a tool for testing scenarios managed by playbooks.</p>
 </dd>
-<dt class="structure">
-    <a href="PlaybookGallery" title="structure - PlaybookGallery">
-        Playbook​Gallery
-    </a>
-</dt>
-<dd>
-    <p>A view that displays scenarios manged by given <code>Playbook</code> instance with
-gallery-style appearance.</p>
+</dl>
+</section>
+    <section id="initializers">
+        <h2>Initializers</h2>
 
-</dd>
-        </dl>
+        <div role="article" class="structure" id="snapshot.init(directory:clean:format:timeout:scale:keywindow:devices:)">
+    <h3>
+        <code>init(directory:​clean:​format:​timeout:​scale:​key​Window:​devices:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">directory</span>: <span class="type">URL</span>, <span class="variable">clean</span>: <span class="type">Bool</span> = <span class="keyword">false</span>, <span class="variable">format</span>: <a href="/SnapshotSupport"><span class="type">SnapshotSupport</span></a>.<span class="type">ImageFormat</span>, <span class="variable">timeout</span>: <span class="type">TimeInterval</span> = <span class="number literal">600</span>, <span class="variable">scale</span>: <span class="type">CGFloat</span> = <span class="variable">UIScreen</span>.<span class="type">main</span>.<span class="type">scale</span>, <span class="variable">keyWindow</span>: <span class="type">UIWindow</span>? = <span class="keyword">nil</span>, <span class="variable">devices</span>: [<a href="/SnapshotDevice"><span class="type">SnapshotDevice</span></a>])</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates a new snapshot tool for export all image files into specified directory.</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>directory</th>
+    <td><code class="type">URL</code></td></td>
+    <td><p>A base directory for exporting snapshot image files.</p>
+</td>
+</tr>
+<tr>
+    <th>clean</th>
+    <td><code class="type">Bool</code></td></td>
+    <td><p>Specifies whether to clean directory before generating snapshots.</p>
+</td>
+</tr>
+<tr>
+    <th>format</th>
+    <td><code class="type">Snapshot​Support.​Image​Format</code></td></td>
+    <td><p>An image file format of exported data.</p>
+</td>
+</tr>
+<tr>
+    <th>timeout</th>
+    <td><code class="type">Time​Interval</code></td></td>
+    <td><p>A timeout interval until the finish snapshot of all scenarios.</p>
+</td>
+</tr>
+<tr>
+    <th>scale</th>
+    <td><code class="type">CGFloat</code></td></td>
+    <td><p>A rendering scale of the snapshot image.</p>
+</td>
+</tr>
+<tr>
+    <th>key​Window</th>
+    <td><code class="type">UIWindow?</code></td></td>
+    <td><p>The key window of the application.</p>
+</td>
+</tr>
+<tr>
+    <th>devices</th>
+    <td><code class="type">[Snapshot​Device]</code></td></td>
+    <td><p>A set of snapshot environment simulating devices.</p>
+</td>
+</tr>
+  </tbody>
+</table>
+</div>
     </section>
-    <section id="enumerations">
-        <h2>Enumerations</h2>
-        <dl>
-            <dt class="enumeration">
-    <a href="ScenarioLayout_Sizing" title="enumeration - ScenarioLayout.Sizing">
-        Scenario​Layout.​Sizing
-    </a>
-</dt>
-<dd>
-    <p>A sizing strategy for the horizontal or vertical dimensions.</p>
+    <section id="properties">
+        <h2>Properties</h2>
 
-</dd>
-<dt class="enumeration">
-    <a href="SnapshotDevice_Orientation" title="enumeration - SnapshotDevice.Orientation">
-        Snapshot​Device.​Orientation
-    </a>
-</dt>
-<dd>
-    <p>Represents the orientation of a device.</p>
+        <div role="article" class="structure" id="snapshot.directory">
+    <h3>
+        <code>directory</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">directory</span>: <span class="type">URL</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>A base directory for exporting snapshot image files.</p>
 
-</dd>
-<dt class="enumeration">
-    <a href="SnapshotSupport" title="enumeration - SnapshotSupport">
-        Snapshot​Support
-    </a>
-</dt>
-<dd>
-    <p>A namespace for the methods supporting to generate snapshot from scenarios.</p>
+</div>
+</div>
+<div role="article" class="structure" id="snapshot.clean">
+    <h3>
+        <code>clean</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">clean</span>: <span class="type">Bool</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Specifies whether that to clean directory before generating snapshots.</p>
 
-</dd>
-<dt class="enumeration">
-    <a href="SnapshotSupport_ImageFormat" title="enumeration - SnapshotSupport.ImageFormat">
-        Snapshot​Support.​Image​Format
-    </a>
-</dt>
-<dd>
-    <p>The image format of the exported file.</p>
+</div>
+</div>
+<div role="article" class="structure" id="snapshot.format">
+    <h3>
+        <code>format</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">format</span>: <a href="/SnapshotSupport"><span class="type">SnapshotSupport</span></a>.<span class="type">ImageFormat</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>An image file format of exported data.</p>
 
-</dd>
-        </dl>
+</div>
+</div>
+<div role="article" class="structure" id="snapshot.timeout">
+    <h3>
+        <code>timeout</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">timeout</span>: <span class="type">TimeInterval</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>A timeout interval until the finish snapshot of all scenarios.</p>
+
+</div>
+</div>
+<div role="article" class="structure" id="snapshot.scale">
+    <h3>
+        <code>scale</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">scale</span>: <span class="type">CGFloat</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>A rendering scale of the snapshot image.</p>
+
+</div>
+</div>
+<div role="article" class="structure" id="snapshot.keywindow">
+    <h3>
+        <code>key​Window</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">keyWindow</span>: <span class="type">UIWindow</span>?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>The key window of the application.</p>
+
+</div>
+</div>
+<div role="article" class="structure" id="snapshot.devices">
+    <h3>
+        <code>devices</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">devices</span>: [<a href="/SnapshotDevice"><span class="type">SnapshotDevice</span></a>]</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>A set of snapshot environment simulating devices.</p>
+
+</div>
+</div>
     </section>
-    <section id="protocols">
-        <h2>Protocols</h2>
-        <dl>
-            <dt class="protocol">
-    <a href="ScenariosBuildable" title="protocol - ScenariosBuildable">
-        Scenarios​Buildable
-    </a>
-</dt>
-<dd>
-    <p>Represents an instance that can build an array of scenarios.</p>
+    <section id="methods">
+        <h2>Methods</h2>
 
-</dd>
-<dt class="protocol">
-    <a href="ScenarioContent" title="protocol - ScenarioContent">
-        Scenario​Content
-    </a>
-</dt>
-<dd>
-    <p>Represents a content of scenario.</p>
+        <div role="article" class="structure" id="snapshot.run(with:)">
+    <h3>
+        <code>run(with:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">run</span>(<span class="variable">with</span> <span class="variable">playbook</span>: <a href="/Playbook"><span class="type">Playbook</span></a>) <span class="keyword">throws</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Generates snapshot images for passed <code>Playbook</code> instance.</p>
 
-</dd>
-<dt class="protocol">
-    <a href="ScenarioProvider" title="protocol - ScenarioProvider">
-        Scenario​Provider
-    </a>
-</dt>
-<dd>
-    <p>Products a group of separated scenario definitions.</p>
+</div>
+<h4>Parameters</h4>
 
-</dd>
-<dt class="protocol">
-    <a href="TestTool" title="protocol - TestTool">
-        Test​Tool
-    </a>
-</dt>
-<dd>
-    <p>Represents a tool for testing scenarios managed by playbooks.</p>
-
-</dd>
-        </dl>
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>playbook</th>
+    <td><code class="type">Playbook</code></td></td>
+    <td><p>A <code>Playbook</code> instance to be tested.</p>
+</td>
+</tr>
+  </tbody>
+</table>
+</div>
     </section>
+
+
+
         </article>
     </main>
 

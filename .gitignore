@@ -20,10 +20,6 @@ build/
 archive/
 *.xcframework
 
-## Documentation
-gitbook/**
-!gitbook/book.json
-
 ## Gem
 .bundle
 vendor

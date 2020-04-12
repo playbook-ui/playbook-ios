@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playbook - Playbook</title>
+    <title>Playbook - ScenarioContext</title>
     <style type="text/css">
     :root {
     --system-red: rgb(255, 59, 48);
@@ -1197,234 +1197,105 @@ nav li[class] {
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#classes">Classes</a></li><li><a href="#structures">Structures</a></li><li><a href="#enumerations">Enumerations</a></li><li><a href="#protocols">Protocols</a></li></ol>
+            <ol><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#scenariocontext.init(snapshotwaiter:issnapshot:screensize:)">init(snapshot​Waiter:​is​Snapshot:​screen​Size:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="property"><a href="#scenariocontext.snapshotwaiter">snapshot​Waiter</a></li><li class="property"><a href="#scenariocontext.issnapshot">is​Snapshot</a></li><li class="property"><a href="#scenariocontext.screensize">screen​Size</a></li></ul></li></ol>
         </div>
     </nav>
 
     <main>
         <article>
-                <section id="classes">
-        <h2>Classes</h2>
-        <dl>
-            <dt class="class">
-    <a href="Playbook" title="class - Playbook">
-        Playbook
-    </a>
-</dt>
-<dd>
-    <p>The central scenario manager.</p>
+            <h1>
+    <small>Structure</small>
+    <code class="name">Scenario​Context</code>
+</h1>
 
-</dd>
-<dt class="class">
-    <a href="ScenarioStore" title="class - ScenarioStore">
-        Scenario​Store
-    </a>
-</dt>
-<dd>
-    <p>The class for managing a set of scenarios identified by the arbitrary kind.</p>
-
-</dd>
-<dt class="class">
-    <a href="ScenarioViewController" title="class - ScenarioViewController">
-        Scenario​View​Controller
-    </a>
-</dt>
-<dd>
-    <p>The view controller to layout scenario's content.</p>
-
-</dd>
-<dt class="class">
-    <a href="SnapshotWaiter" title="class - SnapshotWaiter">
-        Snapshot​Waiter
-    </a>
-</dt>
-<dd>
-    <p>A snapshot timing manager to wait and fulfillment for the scenario
-content to be rendered.</p>
-
-</dd>
-        </dl>
-    </section>
-    <section id="structures">
-        <h2>Structures</h2>
-        <dl>
-            <dt class="structure">
-    <a href="ScenariosBuilder" title="structure - ScenariosBuilder">
-        Scenarios​Builder
-    </a>
-</dt>
-<dd>
-    <p>The custom parameter attribute that constructs scenarios from multi-statement closures.</p>
-
-</dd>
-<dt class="structure">
-    <a href="Scenario" title="structure - Scenario">
-        Scenario
-    </a>
-</dt>
-<dd>
-    <p>Represents part of the component state.</p>
-
-</dd>
-<dt class="structure">
-    <a href="ScenarioContext" title="structure - ScenarioContext">
-        Scenario​Context
-    </a>
-</dt>
-<dd>
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">ScenarioContext</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
     <p>The context of scenario.</p>
 
-</dd>
-<dt class="structure">
-    <a href="ScenarioKind" title="structure - ScenarioKind">
-        Scenario​Kind
-    </a>
-</dt>
-<dd>
-    <p>Represents a unique identifier of the set of scenarios.</p>
+</div>
 
-</dd>
-<dt class="structure">
-    <a href="ScenarioLayout" title="structure - ScenarioLayout">
-        Scenario​Layout
-    </a>
-</dt>
-<dd>
-    <p>Represents how the component should be laid out.</p>
+    <section id="initializers">
+        <h2>Initializers</h2>
 
-</dd>
-<dt class="structure">
-    <a href="ScenarioName" title="structure - ScenarioName">
-        Scenario​Name
-    </a>
-</dt>
-<dd>
-    <p>Represents a unique name of the scenario.</p>
+        <div role="article" class="structure" id="scenariocontext.init(snapshotwaiter:issnapshot:screensize:)">
+    <h3>
+        <code>init(snapshot​Waiter:​is​Snapshot:​screen​Size:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">snapshotWaiter</span>: <a href="/SnapshotWaiter"><span class="type">SnapshotWaiter</span></a>, <span class="variable">isSnapshot</span>: <span class="type">Bool</span>, <span class="variable">screenSize</span>: <span class="attribute">@</span><span class="attribute">autoclosure</span> <span class="attribute">@</span><span class="attribute">escaping</span> () -&gt; <span class="type">CGSize</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates a new context.</p>
 
-</dd>
-<dt class="structure">
-    <a href="SnapshotDevice" title="structure - SnapshotDevice">
-        Snapshot​Device
-    </a>
-</dt>
-<dd>
-    <p>The device representation for simulating environments of each device such as
-size, orientation, safe area, trait collection, or dark mode appearance.</p>
+</div>
+<h4>Parameters</h4>
 
-</dd>
-<dt class="structure">
-    <a href="Snapshot" title="structure - Snapshot">
-        Snapshot
-    </a>
-</dt>
-<dd>
-    <p>The testing tool which generates snapshot images from scenarios managed by <code>Playbook</code>.</p>
-
-</dd>
-<dt class="structure">
-    <a href="PlaybookCatalog" title="structure - PlaybookCatalog">
-        Playbook​Catalog
-    </a>
-</dt>
-<dd>
-    <p>A view that displays scenarios manged by given <code>Playbook</code> instance with
-catalog-style appearance.</p>
-
-</dd>
-<dt class="structure">
-    <a href="PlaybookGallery" title="structure - PlaybookGallery">
-        Playbook​Gallery
-    </a>
-</dt>
-<dd>
-    <p>A view that displays scenarios manged by given <code>Playbook</code> instance with
-gallery-style appearance.</p>
-
-</dd>
-        </dl>
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>snapshot​Waiter</th>
+    <td><code class="type">Snapshot​Waiter</code></td></td>
+    <td><p>The waiter that controls snapshot to wait until content did finished rendering.</p>
+</td>
+</tr>
+<tr>
+    <th>is​Snapshot</th>
+    <td><code class="type">Bool</code></td></td>
+    <td><p>Specifies whether that currently in snapshotting context.</p>
+</td>
+</tr>
+<tr>
+    <th>screen​Size</th>
+    <td><code class="type">@autoclosure @escaping () -&gt; CGSize</code></td></td>
+    <td><p>The size of screen or snapshotting device.</p>
+</td>
+</tr>
+  </tbody>
+</table>
+</div>
     </section>
-    <section id="enumerations">
-        <h2>Enumerations</h2>
-        <dl>
-            <dt class="enumeration">
-    <a href="ScenarioLayout_Sizing" title="enumeration - ScenarioLayout.Sizing">
-        Scenario​Layout.​Sizing
-    </a>
-</dt>
-<dd>
-    <p>A sizing strategy for the horizontal or vertical dimensions.</p>
+    <section id="properties">
+        <h2>Properties</h2>
 
-</dd>
-<dt class="enumeration">
-    <a href="SnapshotDevice_Orientation" title="enumeration - SnapshotDevice.Orientation">
-        Snapshot​Device.​Orientation
-    </a>
-</dt>
-<dd>
-    <p>Represents the orientation of a device.</p>
+        <div role="article" class="structure" id="scenariocontext.snapshotwaiter">
+    <h3>
+        <code>snapshot​Waiter</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">snapshotWaiter</span>: <a href="/SnapshotWaiter"><span class="type">SnapshotWaiter</span></a></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>The waiter that controls snapshot to wait until content did finished rendering.</p>
 
-</dd>
-<dt class="enumeration">
-    <a href="SnapshotSupport" title="enumeration - SnapshotSupport">
-        Snapshot​Support
-    </a>
-</dt>
-<dd>
-    <p>A namespace for the methods supporting to generate snapshot from scenarios.</p>
+</div>
+</div>
+<div role="article" class="structure" id="scenariocontext.issnapshot">
+    <h3>
+        <code>is​Snapshot</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">isSnapshot</span>: <span class="type">Bool</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Specifies whether that currently in snapshotting context.</p>
 
-</dd>
-<dt class="enumeration">
-    <a href="SnapshotSupport_ImageFormat" title="enumeration - SnapshotSupport.ImageFormat">
-        Snapshot​Support.​Image​Format
-    </a>
-</dt>
-<dd>
-    <p>The image format of the exported file.</p>
+</div>
+</div>
+<div role="article" class="structure" id="scenariocontext.screensize">
+    <h3>
+        <code>screen​Size</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">screenSize</span>: <span class="type">CGSize</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>The size of screen or snapshotting device.</p>
 
-</dd>
-        </dl>
+</div>
+</div>
     </section>
-    <section id="protocols">
-        <h2>Protocols</h2>
-        <dl>
-            <dt class="protocol">
-    <a href="ScenariosBuildable" title="protocol - ScenariosBuildable">
-        Scenarios​Buildable
-    </a>
-</dt>
-<dd>
-    <p>Represents an instance that can build an array of scenarios.</p>
 
-</dd>
-<dt class="protocol">
-    <a href="ScenarioContent" title="protocol - ScenarioContent">
-        Scenario​Content
-    </a>
-</dt>
-<dd>
-    <p>Represents a content of scenario.</p>
 
-</dd>
-<dt class="protocol">
-    <a href="ScenarioProvider" title="protocol - ScenarioProvider">
-        Scenario​Provider
-    </a>
-</dt>
-<dd>
-    <p>Products a group of separated scenario definitions.</p>
 
-</dd>
-<dt class="protocol">
-    <a href="TestTool" title="protocol - TestTool">
-        Test​Tool
-    </a>
-</dt>
-<dd>
-    <p>Represents a tool for testing scenarios managed by playbooks.</p>
-
-</dd>
-        </dl>
-    </section>
         </article>
     </main>
 
