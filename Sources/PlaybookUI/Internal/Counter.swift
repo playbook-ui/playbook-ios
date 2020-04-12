@@ -12,8 +12,8 @@ internal struct Counter: View, Equatable {
                 .font(Font.subheadline.monospacedDigit())
                 .foregroundColor(Color(.label))
         }
-            .padding(.top, 8)
-            .padding(.horizontal, 24)
-            .animation(nil, value: self)
+        .padding(.top, 8)
+        .padding(.horizontal, 24)
+        .animation(nil, value: self)
     }
 }

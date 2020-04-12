@@ -41,9 +41,9 @@ internal struct ScenarioDisplayList: View {
 
                 Spacer.zero
             }
-                .padding(.horizontal, 24)
-                .padding(.leading, safeAreaInsets.leading)
-                .padding(.trailing, safeAreaInsets.trailing)
+            .padding(.horizontal, 24)
+            .padding(.leading, safeAreaInsets.leading)
+            .padding(.trailing, safeAreaInsets.trailing)
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 0) {
@@ -61,18 +61,18 @@ internal struct ScenarioDisplayList: View {
                                 )
                             }
                         )
-                            .buttonStyle(ScaleButtonStyle())
+                        .buttonStyle(ScaleButtonStyle())
                     }
                 }
-                    .padding(.horizontal, 24)
-                    .padding(.leading, safeAreaInsets.leading)
-                    .padding(.trailing, safeAreaInsets.trailing)
+                .padding(.horizontal, 24)
+                .padding(.leading, safeAreaInsets.leading)
+                .padding(.trailing, safeAreaInsets.trailing)
             }
 
             HorizontalSeparator()
         }
-            .padding(.vertical, 8)
-            .onDisappear(perform: serialDispatcher.cancel)
+        .padding(.vertical, 8)
+        .onDisappear(perform: serialDispatcher.cancel)
     }
 }
 

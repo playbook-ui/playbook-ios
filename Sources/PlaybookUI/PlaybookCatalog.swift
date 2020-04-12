@@ -88,7 +88,7 @@ private extension PlaybookCatalogInternal {
                     additionalSafeAreaInsets: .only(bottom: bottomBarHeight),
                     contentUIView: _contentUIView
                 )
-                    .edgesIgnoringSafeArea(.all)
+                .edgesIgnoringSafeArea(.all)
             )
         }
         else {
@@ -118,7 +118,7 @@ private extension PlaybookCatalogInternal {
 
             Spacer.zero
         }
-            .padding(.horizontal, 24)
+        .padding(.horizontal, 24)
     }
 
     func scenarioContent(firstBarItem: CatalogBarItem) -> some View {
@@ -160,14 +160,14 @@ private extension PlaybookCatalogInternal {
                     .font(.system(size: 24))
             }
         }
-            .padding(.horizontal, 24)
-            .frame(height: bottomBarHeight)
-            .background(
-                Blur(style: .systemMaterial)
-                    .scaledToFill()
-                    .edgesIgnoringSafeArea(.all),
-                alignment: .topLeading
-            )
+        .padding(.horizontal, 24)
+        .frame(height: bottomBarHeight)
+        .background(
+            Blur(style: .systemMaterial)
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all),
+            alignment: .topLeading
+        )
     }
 
     func share() {

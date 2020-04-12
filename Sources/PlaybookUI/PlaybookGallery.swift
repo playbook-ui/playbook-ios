@@ -69,20 +69,20 @@ internal struct PlaybookGalleryInternal: View {
                     configureUIView: self.configureTableview,
                     row: { self.row(with: $0, geometry: geometry) }
                 )
-                    .edgesIgnoringSafeArea(.all)
-                    .navigationBarTitle(self.name)
-                    .sheet(item: self.$store.selectedScenario) { data in
-                        ScenarioDisplaySheet(data: data) {
-                            self.store.selectedScenario = nil
-                        }
-                            .environmentObject(self.store)
+                .edgesIgnoringSafeArea(.all)
+                .navigationBarTitle(self.name)
+                .sheet(item: self.$store.selectedScenario) { data in
+                    ScenarioDisplaySheet(data: data) {
+                        self.store.selectedScenario = nil
                     }
-            }
-                .environmentObject(self.store)
-                .navigationViewStyle(StackNavigationViewStyle())
-                .onAppear {
-                    self.dependency.scheduler.schedule(on: .main, action: self.store.prepare)
+                    .environmentObject(self.store)
                 }
+            }
+            .environmentObject(self.store)
+            .navigationViewStyle(StackNavigationViewStyle())
+            .onAppear {
+                self.dependency.scheduler.schedule(on: .main, action: self.store.prepare)
+            }
         }
     }
 }
@@ -141,10 +141,10 @@ private extension PlaybookGalleryInternal {
             let backgroundImage = UIColor.tertiarySystemFill.circleImage(length: height)
             searchBar.setSearchFieldBackgroundImage(backgroundImage, for: .normal)
         }
-            .accentColor(Color(.primaryBlue))
-            .frame(height: height)
-            .padding(.top, 16)
-            .padding(.horizontal, 8)
+        .accentColor(Color(.primaryBlue))
+        .frame(height: height)
+        .padding(.top, 16)
+        .padding(.horizontal, 8)
     }
 
     func row(with row: Row, geometry: GeometryProxy) -> some View {
@@ -201,8 +201,8 @@ private extension PlaybookGalleryInternal {
                 .lineLimit(nil)
                 .fixedSize(horizontal: false, vertical: true)
         }
-            .padding(.vertical, 44)
-            .padding(.horizontal, 24)
+        .padding(.vertical, 44)
+        .padding(.horizontal, 24)
     }
 
     func snapshot() -> NSDiffableDataSourceSnapshot<Section, Row> {

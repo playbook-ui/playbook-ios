@@ -47,11 +47,20 @@
         }
       },
       {
-        "package": "swift-format",
-        "repositoryURL": "https://github.com/ra1028/swift-format.git",
+        "package": "swift-argument-parser",
+        "repositoryURL": "https://github.com/apple/swift-argument-parser.git",
         "state": {
-          "branch": "swift-5.1-branch-latest",
-          "revision": "d53bc0f8225040cbae99035b3b12a27a215fbd88",
+          "branch": null,
+          "revision": "8d31a0905c346a45c87773ad50862b5b3df8dff6",
+          "version": "0.0.4"
+        }
+      },
+      {
+        "package": "swift-format",
+        "repositoryURL": "https://github.com/apple/swift-format.git",
+        "state": {
+          "branch": "swift-5.2-branch",
+          "revision": "1fda39893d3652a9a3f1673565a227f843d59f3c",
           "version": null
         }
       },
@@ -60,8 +69,8 @@
         "repositoryURL": "https://github.com/ra1028/swift-mod.git",
         "state": {
           "branch": null,
-          "revision": "5d27a46be426feda86e06f6cf8ab35f54b8edbd2",
-          "version": "0.0.2"
+          "revision": "f008849446c43bd7ba5851a09f5671de3aa6dad5",
+          "version": "0.0.3"
         }
       },
       {
@@ -69,8 +78,8 @@
         "repositoryURL": "https://github.com/apple/swift-syntax",
         "state": {
           "branch": null,
-          "revision": "3e3eb191fcdbecc6031522660c4ed6ce25282c25",
-          "version": "0.50100.0"
+          "revision": "0688b9cfc4c3dd234e4f55f1f056b2affc849873",
+          "version": "0.50200.0"
         }
       },
       {
@@ -78,8 +87,8 @@
         "repositoryURL": "https://github.com/apple/swift-tools-support-core.git",
         "state": {
           "branch": null,
-          "revision": "693aba4c4c9dcc4767cc853a0dd38bf90ad8c258",
-          "version": "0.0.1"
+          "revision": "ae8ccef3274e38eb5ae3189c357883510da74a01",
+          "version": "0.1.1"
         }
       },
       {
@@ -105,8 +114,8 @@
         "repositoryURL": "https://github.com/yonaskolb/XcodeGen.git",
         "state": {
           "branch": null,
-          "revision": "d3a3640fcbb39f2959d1f48778b5dae2ed15f5ba",
-          "version": "2.13.1"
+          "revision": "01c6959f487fd67f57d05f1fe82d1263771cda25",
+          "version": "2.15.1"
         }
       },
       {
@@ -114,8 +123,17 @@
         "repositoryURL": "https://github.com/tuist/XcodeProj.git",
         "state": {
           "branch": null,
-          "revision": "f32704e01d2752bdc17cde3963bee4256c1f4df4",
-          "version": "7.8.0"
+          "revision": "912d40cc2ea4a300eff6dd7c6a10b4f4dedbcbec",
+          "version": "7.10.0"
+        }
+      },
+      {
+        "package": "XcodeProjCExt",
+        "repositoryURL": "https://github.com/tuist/XcodeProjCExt",
+        "state": {
+          "branch": null,
+          "revision": "21a510c225ff2bc83d5920a21d902af4b1e7e218",
+          "version": "0.1.0"
         }
       },
       {

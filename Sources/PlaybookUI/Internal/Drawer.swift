@@ -37,19 +37,19 @@ internal struct Drawer<Content: View>: View {
                                 .foregroundColor(.white)
                                 .padding(16)
                         }
-                            .opacity(self.openingRatio(with: geometry))
-                            .allowsHitTesting(self.isOpened)
+                        .opacity(self.openingRatio(with: geometry))
+                        .allowsHitTesting(self.isOpened)
                     )
 
                     Spacer.zero
                 }
-                    .offset(x: self.offset(with: geometry))
+                .offset(x: self.offset(with: geometry))
             }
-                .animation(nil, value: geometry.size)
-                .animation(.interactiveSpring())
-                .frame(width: geometry.size.width, height: geometry.size.height)
-                .gesture(self.dragGesture(with: geometry))
-                .dismissKeyboard(by: self.keyboardProxy)
+            .animation(nil, value: geometry.size)
+            .animation(.interactiveSpring())
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            .gesture(self.dragGesture(with: geometry))
+            .dismissKeyboard(by: self.keyboardProxy)
         }
     }
 }

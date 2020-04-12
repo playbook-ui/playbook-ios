@@ -564,7 +564,6 @@
 					};
 					FCB8178D69617DAF634AD15B = {
 						ProvisioningStyle = Manual;
-						TestTargetID = F1242D73A9001135DE9257F7;
 					};
 				};
 			};
@@ -818,7 +817,6 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SamplePlaybook.app/SamplePlaybook";
-				TEST_TARGET_NAME = SamplePlaybook;
 			};
 			name = Release;
 		};
@@ -907,7 +905,6 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SamplePlaybook.app/SamplePlaybook";
-				TEST_TARGET_NAME = SamplePlaybook;
 			};
 			name = Debug;
 		};
@@ -976,7 +973,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1030,7 +1027,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1049,7 +1046,7 @@
 				46005BBC60A067CB7CD55711 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "";
+			defaultConfigurationName = Debug;
 		};
 		5153B497A7271E289ECB9AB4 /* Build configuration list for PBXNativeTarget "SampleApp" */ = {
 			isa = XCConfigurationList;
@@ -1058,7 +1055,7 @@
 				AD279754F095EFB0099A6E6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "";
+			defaultConfigurationName = Debug;
 		};
 		A8D99D50741B0546B304C97B /* Build configuration list for PBXNativeTarget "SamplePlaybook" */ = {
 			isa = XCConfigurationList;
@@ -1067,7 +1064,7 @@
 				66320C81143949A6F15DAE68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "";
+			defaultConfigurationName = Debug;
 		};
 		A9BE3D05554B7B5CBC071272 /* Build configuration list for PBXNativeTarget "SampleComponent" */ = {
 			isa = XCConfigurationList;
@@ -1076,7 +1073,7 @@
 				A2106F23C44C16947D8D78D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "";
+			defaultConfigurationName = Debug;
 		};
 		FC8F3989ED6098B8FD993A7E /* Build configuration list for PBXProject "PlaybookExample" */ = {
 			isa = XCConfigurationList;
