@@ -26,7 +26,6 @@ struct PlaybookView: View {
                     Text("Catalog")
                 }
         }
-            .edgesIgnoringSafeArea(.top)
     }
 }
 
