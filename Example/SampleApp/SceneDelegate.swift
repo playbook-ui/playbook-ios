@@ -1,5 +1,5 @@
 import SwiftUI
-import Components
+import SampleComponent
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
