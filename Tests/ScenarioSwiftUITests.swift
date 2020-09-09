@@ -7,19 +7,18 @@ import XCTest
 final class ScenarioSwiftUITests: XCTestCase {
     @available(iOS 13.0, *)
     func testSwiftUI() {
-        let scenario = Scenario("name", layout: .fill) {
-            Color.blue
-        }
-
-        let context = ScenarioContext(
-            snapshotWaiter: SnapshotWaiter(),
-            isSnapshot: false,
-            screenSize: .zero
+        let scenario = Scenario(
+            "name",
+            layout: .fill,
+            file: "file",
+            line: 10,
+            content: { Color.blue }
         )
-        let controller = scenario.content(context).makeUIViewController()
 
-        XCTAssertTrue(controller is UIHostingController<Color>)
-        XCTAssertEqual((controller as? UIHostingController<Color>)?.rootView, .blue)
+        XCTAssertEqual(scenario.name, "name")
+        XCTAssertEqual(scenario.layout, .fill)
+        XCTAssertEqual(String(describing: scenario.file), "file")
+        XCTAssertEqual(scenario.line, 10)
     }
 }
 
