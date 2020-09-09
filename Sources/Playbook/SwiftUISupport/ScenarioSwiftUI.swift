@@ -20,7 +20,12 @@ public extension Scenario {
         content: @escaping (ScenarioContext) -> Content
     ) {
         self.init(name, layout: layout, file: file, line: line) { context in
-            let controller = UIHostingController(rootView: content(context))
+            let content = content(context).transaction { transaction in
+                if context.isSnapshot {
+                    transaction.disablesAnimations = true
+                }
+            }
+            let controller = UIHostingController(rootView: content)
             controller.view.backgroundColor = .clear
             return controller
         }
