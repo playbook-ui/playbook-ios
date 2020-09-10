@@ -34,8 +34,6 @@ extension SnapshotSupport {
             handler(resource.renderer.data(format: format, actions: resource.actions))
         }
     }
-    
-    
 }
 
 private extension SnapshotSupport {
