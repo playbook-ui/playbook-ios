@@ -39,6 +39,16 @@
                ReferencedContainer = "container:PlaybookExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "99CCFDB7502E8C66AE1EFD6A"
+               BuildableName = "SampleAccessibilitySnapshot.xctest"
+               BlueprintName = "SampleAccessibilitySnapshot"
+               ReferencedContainer = "container:PlaybookExample.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
@@ -59,6 +69,11 @@
          <EnvironmentVariable
             key = "SNAPSHOT_DIR"
             value = "$(SOURCE_ROOT)/Snapshots"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "SNAPSHOT_DIR_ACC"
+            value = "$(SOURCE_ROOT)/AccessibilitySnapshots"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
@@ -95,6 +110,11 @@
             value = "$(SOURCE_ROOT)/Snapshots"
             isEnabled = "YES">
          </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "SNAPSHOT_DIR_ACC"
+            value = "$(SOURCE_ROOT)/AccessibilitySnapshots"
+            isEnabled = "YES">
+         </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
@@ -123,6 +143,11 @@
          <EnvironmentVariable
             key = "SNAPSHOT_DIR"
             value = "$(SOURCE_ROOT)/Snapshots"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "SNAPSHOT_DIR_ACC"
+            value = "$(SOURCE_ROOT)/AccessibilitySnapshots"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

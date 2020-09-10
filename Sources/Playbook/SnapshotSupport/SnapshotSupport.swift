@@ -43,11 +43,16 @@ public enum SnapshotSupport {
         keyWindow: UIWindow? = nil,
         handler: @escaping (Data) -> Void
     ) {
-        makeResource(for: scenario, on: device, scale: scale, keyWindow: keyWindow) { resource in
+        makeResource(
+            for: scenario,
+            on: device,
+            scale: scale,
+            keyWindow: keyWindow
+        ) { resource in
             handler(resource.renderer.data(format: format, actions: resource.actions))
         }
     }
-
+    
     /// Generates an `UIImage` that snapshots the given scenario.
     ///
     /// - Parameters:
@@ -67,18 +72,76 @@ public enum SnapshotSupport {
         keyWindow: UIWindow? = nil,
         handler: @escaping (UIImage) -> Void
     ) {
-        makeResource(for: scenario, on: device, scale: scale, keyWindow: keyWindow) { resource in
+        makeResource(
+            for: scenario,
+            on: device,
+            scale: scale,
+            keyWindow: keyWindow
+        ) { resource in
             handler(resource.renderer.image(actions: resource.actions))
         }
     }
 }
 
-private extension SnapshotSupport {
+public extension SnapshotSupport {
     struct Resource {
-        var renderer: UIGraphicsImageRenderer
-        var actions: UIGraphicsDrawingActions
+        public var renderer: UIGraphicsImageRenderer
+        public var actions: UIGraphicsDrawingActions
+        
+        public init(
+            renderer: UIGraphicsImageRenderer,
+            actions: @escaping UIGraphicsDrawingActions
+        ) {
+            self.renderer = renderer
+            self.actions = actions
+        }
     }
+    
+    static func makeResource(
+        for view: UIView,
+        on device: SnapshotDevice,
+        scale: CGFloat,
+        keyWindow: UIWindow?,
+        completion: @escaping (Resource) -> Void
+    ) {
+        let format = UIGraphicsImageRendererFormat(for: device.traitCollection)
+        format.scale = scale
 
+        if #available(iOS 12.0, *) {
+            format.preferredRange = .standard
+        }
+        else {
+            format.prefersExtendedRange = false
+        }
+        
+        let isEmbedInKeyWindow = keyWindow != nil
+        let renderer = UIGraphicsImageRenderer(bounds: view.bounds, format: format)
+        let actions: UIGraphicsDrawingActions = { context in
+            withoutAnimation {
+                if isEmbedInKeyWindow {
+                    view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+                    view.removeFromSuperview()
+                }
+                else {
+                    view.layer.render(in: context.cgContext)
+                }
+            }
+        }
+
+        let resource = Resource(renderer: renderer, actions: actions)
+        completion(resource)
+    }
+    
+    static func withoutAnimation<T>(_ action: () throws -> T) rethrows -> T {
+        let disableActions = CATransaction.disableActions()
+        CATransaction.setDisableActions(true)
+        defer { CATransaction.setDisableActions(disableActions) }
+
+        return try action()
+    }
+}
+
+private extension SnapshotSupport {
     static func makeResource(
         for scenario: Scenario,
         on device: SnapshotDevice,
@@ -90,64 +153,32 @@ private extension SnapshotSupport {
             let window = SnapshotWindow(scenario: scenario, device: device)
             let contentView = window.contentView!
 
-            let isEmbedInKeyWindow: Bool
-
             if let keyWindow = keyWindow {
                 keyWindow.addSubview(window)
-                isEmbedInKeyWindow = true
             }
-            else {
-                isEmbedInKeyWindow = false
-            }
-
+            
             window.prepareForSnapshot {
                 if contentView.bounds.size.width <= 0 {
                     fatalError("The view did laid out with zero width in scenario - \(scenario.name)", file: scenario.file, line: scenario.line)
                 }
-
+                
                 if contentView.bounds.size.height <= 0 {
                     fatalError("The view did laied out with zero height in scenario - \(scenario.name)", file: scenario.file, line: scenario.line)
                 }
-
-                let format = UIGraphicsImageRendererFormat(for: device.traitCollection)
-                format.scale = scale
-
-                if #available(iOS 12.0, *) {
-                    format.preferredRange = .standard
-                }
-                else {
-                    format.prefersExtendedRange = false
-                }
-
-                let renderer = UIGraphicsImageRenderer(bounds: contentView.bounds, format: format)
-                let actions: UIGraphicsDrawingActions = { context in
-                    withoutAnimation {
-                        if isEmbedInKeyWindow {
-                            contentView.drawHierarchy(in: contentView.bounds, afterScreenUpdates: true)
-                            contentView.removeFromSuperview()
-                        }
-                        else {
-                            contentView.layer.render(in: context.cgContext)
-                        }
-                    }
-                }
-
-                let resource = Resource(renderer: renderer, actions: actions)
-                completion(resource)
+                
+                makeResource(
+                    for: contentView,
+                    on: device,
+                    scale: scale,
+                    keyWindow: keyWindow,
+                    completion: completion
+                )
             }
         }
     }
-
-    static func withoutAnimation<T>(_ action: () throws -> T) rethrows -> T {
-        let disableActions = CATransaction.disableActions()
-        CATransaction.setDisableActions(true)
-        defer { CATransaction.setDisableActions(disableActions) }
-
-        return try action()
-    }
 }
 
-private extension UIGraphicsImageRenderer {
+public extension UIGraphicsImageRenderer {
     func data(format: SnapshotSupport.ImageFormat, actions: (UIGraphicsImageRendererContext) -> Void) -> Data {
         switch format {
         case .png:

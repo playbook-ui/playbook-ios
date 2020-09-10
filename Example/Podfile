@@ -1,0 +1,14 @@
+use_modular_headers!
+platform :ios, '11.0'
+
+target 'SamplePlaybook' do
+	use_frameworks!
+
+	pod 'Playbook', :path => '../Playbook.podspec'
+	pod 'PlaybookAccessibility', :path => '../PlaybookAccessibility.podspec'
+
+end
+
+project 'PlaybookExample.xcodeproj'
+
+install! 'cocoapods', :disable_input_output_paths => true

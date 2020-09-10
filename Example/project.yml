@@ -19,10 +19,12 @@ targets:
     scheme:
       testTargets:
         - SampleSnapshot
+        - SampleAccessibilitySnapshot
       commandLineArguments:
         -AppleLanguages (en): true
       environmentVariables:
         SNAPSHOT_DIR: $(SOURCE_ROOT)/Snapshots
+        SNAPSHOT_DIR_ACC: $(SOURCE_ROOT)/AccessibilitySnapshots
     attributes:
       ProvisioningStyle: Manual
 
@@ -34,6 +36,16 @@ targets:
     dependencies:
       - target: SamplePlaybook
       - target: Playbook/PlaybookSnapshot
+    attributes:
+      ProvisioningStyle: Manual
+      
+  SampleAccessibilitySnapshot:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - SampleSnapshot
+    dependencies:
+      - target: SamplePlaybook
     attributes:
       ProvisioningStyle: Manual
 

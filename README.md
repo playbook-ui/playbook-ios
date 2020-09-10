@@ -131,6 +131,11 @@ final class SnapshotTests: XCTestCase {
 
 ---
 
+### PlaybookAccessibility
+`PlaybookAccessibility` is a framework that uses [AccessibilitySnapshot](https://github.com/cashapp/AccessibilitySnapshot/tree/master/AccessibilitySnapshot) to produce snapshots with accessibility information such as activation points and labels.
+
+---
+
 ### PlaybookUI
 
 `PlaybookUI` is a framework that provides user interfaces made by `SwiftUI` for browsing a list of scenarios.  
@@ -182,6 +187,7 @@ See [reg-viz/reg-suit](https://github.com/reg-viz/reg-suit) for more details.
 - iOS
   - `Playbook`: 11.0+
   - `PlaybookSnapshot`: 11.0+
+  - `PlaybookAccessibility`: 11.0+
   - `PlaybookUI`: 13.0+
 
 ---
@@ -192,6 +198,8 @@ Playbook features are separated into the following frameworks.
 
 - `Playbook`: Core system of component management.
 - `PlaybookSnapshot`: Generates snapshots of all components.
+- `PlaybookAccessibility`: Generates snapshots of all components with accessibility information. 
+    - Must be installed using CocoaPods.
 - `PlaybookUI`: Products a browsing UI for components managed by Playbook.
 
 ### [CocoaPods](https://cocoapods.org)

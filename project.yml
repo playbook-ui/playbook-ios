@@ -30,6 +30,18 @@ schemes:
     build:
       targets:
         PlaybookSnapshot: all
+        
+  PlaybookAccessibility:
+    build:
+      targets:
+        PlaybookAccessibility: all
+    test:
+      targets:
+        - Playbook-Accessibility-Tests
+      commandLineArguments:
+        -AppleLanguages (en): true
+      environmentVariables:
+        SNAPSHOT_DIR_ACC: $(SOURCE_ROOT)/AccessibilitySnapshots
 
 targets:
   Playbook:
@@ -63,12 +75,35 @@ targets:
     dependencies:
       - target: Playbook
 
+  PlaybookAccessibility:
+    type: framework
+    platform: iOS
+    sources:
+      - Sources/PlaybookAccessibility
+    configFiles:
+      Debug: XCConfigs/playbook-accessibility.xcconfig
+      Release: XCConfigs/playbook-accessibility.xcconfig
+    dependencies:
+      - target: Playbook
+
   Playbook-Tests:
     type: bundle.unit-test
     platform: iOS
     sources:
-      - Tests
+      - Tests/Playbook
+      - Tests/Support
     dependencies:
       - target: Playbook
       - target: PlaybookUI
       - target: PlaybookSnapshot
+      
+  Playbook-Accessibility-Tests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Tests/Accessibility
+      - Tests/Support
+    dependencies:
+      - target: Playbook
+      - target: PlaybookUI
+      - target: PlaybookAccessibility

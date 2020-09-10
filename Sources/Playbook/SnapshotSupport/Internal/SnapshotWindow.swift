@@ -1,19 +1,23 @@
 import UIKit
 
-internal final class SnapshotWindow: UIWindow {
+public final class SnapshotWindow: UIWindow {
     private let scenario: Scenario
     private let device: SnapshotDevice
     private let scenarioViewController: ScenarioViewController
 
-    var contentView: UIView? {
+    public var scenarioView: UIView {
+        scenarioViewController.view
+    }
+    
+    public var contentView: UIView? {
         scenarioViewController.contentViewController?.view
     }
 
-    override var traitCollection: UITraitCollection {
+    public override var traitCollection: UITraitCollection {
         UITraitCollection(traitsFrom: [super.traitCollection, device.traitCollection])
     }
 
-    override var safeAreaInsets: UIEdgeInsets {
+    public override var safeAreaInsets: UIEdgeInsets {
         var safeAreaInsets = device.safeAreaInsets
         let prefersStatusBarHidden = scenarioViewController.contentViewController?.prefersStatusBarHidden ?? false
 
@@ -24,7 +28,7 @@ internal final class SnapshotWindow: UIWindow {
         return safeAreaInsets
     }
 
-    init(scenario: Scenario, device: SnapshotDevice) {
+    public init(scenario: Scenario, device: SnapshotDevice) {
         let context = ScenarioContext(
             snapshotWaiter: SnapshotWaiter(),
             isSnapshot: true,
@@ -43,7 +47,7 @@ internal final class SnapshotWindow: UIWindow {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func prepareForSnapshot(completion: @escaping () -> Void) {
+    public func prepareForSnapshot(completion: @escaping () -> Void) {
         scenarioViewController.disablesEndAppearanceTransition = true
         scenarioViewController.shouldStatusBarHidden = true
 
@@ -59,7 +63,7 @@ internal final class SnapshotWindow: UIWindow {
         if window != nil {
             // Prioritise use snapshot device's `safeAreaInsets`
             // by `additionalSafeAreaInsets` if having a parent window.
-            let originalSafeAreaInsets = scenarioViewController.view.safeAreaInsets
+            let originalSafeAreaInsets = scenarioView.safeAreaInsets
             scenarioViewController.additionalSafeAreaInsets = originalSafeAreaInsets
                 .negate
                 .adding(insets: safeAreaInsets)
@@ -67,7 +71,7 @@ internal final class SnapshotWindow: UIWindow {
 
         // This sometimes occurs the warning with symbol `UITableViewAlertForLayoutOutsideViewHierarchy`
         // However, that's probably caused by SwiftUI.
-        scenarioViewController.view.layer.layoutIfNeeded()
+        scenarioView.layer.layoutIfNeeded()
 
         let waiter = scenarioViewController.context.snapshotWaiter
 
