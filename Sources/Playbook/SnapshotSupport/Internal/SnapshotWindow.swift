@@ -8,6 +8,10 @@ internal final class SnapshotWindow: UIWindow {
     var contentView: UIView? {
         scenarioViewController.contentViewController?.view
     }
+    
+    var scenarioView: UIView {
+        scenarioViewController.view
+    }
 
     override var traitCollection: UITraitCollection {
         UITraitCollection(traitsFrom: [super.traitCollection, device.traitCollection])

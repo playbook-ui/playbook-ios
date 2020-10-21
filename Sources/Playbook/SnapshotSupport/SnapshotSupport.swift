@@ -71,6 +71,48 @@ public enum SnapshotSupport {
             handler(resource.renderer.image(actions: resource.actions))
         }
     }
+    
+    public static func view(
+        for scenario: Scenario,
+        on device: SnapshotDevice,
+        scale: CGFloat = UIScreen.main.scale,
+        keyWindow: UIWindow? = nil,
+        handler: @escaping (UIView) -> Void
+    ) {
+        withoutAnimation {
+            let window = SnapshotWindow(scenario: scenario, device: device)
+            let contentView = window.contentView!
+
+            if let keyWindow = keyWindow {
+                keyWindow.addSubview(window)
+            }
+
+            window.prepareForSnapshot {
+                if contentView.bounds.size.width <= 0 {
+                    fatalError("The view was laid out with zero width in scenario - \(scenario.name)", file: scenario.file, line: scenario.line)
+                }
+
+                if contentView.bounds.size.height <= 0 {
+                    fatalError("The view was laid out with zero height in scenario - \(scenario.name)", file: scenario.file, line: scenario.line)
+                }
+            
+                handler(window.scenarioView)
+            }
+        }
+    }
+    
+    public static func data(
+        for view: UIView,
+        on device: SnapshotDevice,
+        format: ImageFormat,
+        scale: CGFloat = UIScreen.main.scale,
+        keyWindow: UIWindow? = nil,
+        handler: @escaping (Data) -> Void
+    ) {
+        makeResource(for: view, on: device, scale: scale, keyWindow: keyWindow) { resource in
+            handler(resource.renderer.data(format: format, actions: resource.actions))
+        }
+    }
 }
 
 private extension SnapshotSupport {
@@ -78,7 +120,7 @@ private extension SnapshotSupport {
         var renderer: UIGraphicsImageRenderer
         var actions: UIGraphicsDrawingActions
     }
-
+    
     static func makeResource(
         for scenario: Scenario,
         on device: SnapshotDevice,
@@ -86,58 +128,52 @@ private extension SnapshotSupport {
         keyWindow: UIWindow?,
         completion: @escaping (Resource) -> Void
     ) {
-        withoutAnimation {
-            let window = SnapshotWindow(scenario: scenario, device: device)
-            let contentView = window.contentView!
-
-            let isEmbedInKeyWindow: Bool
-
-            if let keyWindow = keyWindow {
-                keyWindow.addSubview(window)
-                isEmbedInKeyWindow = true
-            }
-            else {
-                isEmbedInKeyWindow = false
-            }
-
-            window.prepareForSnapshot {
-                if contentView.bounds.size.width <= 0 {
-                    fatalError("The view did laid out with zero width in scenario - \(scenario.name)", file: scenario.file, line: scenario.line)
-                }
-
-                if contentView.bounds.size.height <= 0 {
-                    fatalError("The view did laied out with zero height in scenario - \(scenario.name)", file: scenario.file, line: scenario.line)
-                }
-
-                let format = UIGraphicsImageRendererFormat(for: device.traitCollection)
-                format.scale = scale
-
-                if #available(iOS 12.0, *) {
-                    format.preferredRange = .standard
-                }
-                else {
-                    format.prefersExtendedRange = false
-                }
-
-                let renderer = UIGraphicsImageRenderer(bounds: contentView.bounds, format: format)
-                let actions: UIGraphicsDrawingActions = { context in
-                    withoutAnimation {
-                        if isEmbedInKeyWindow {
-                            contentView.drawHierarchy(in: contentView.bounds, afterScreenUpdates: true)
-                            contentView.removeFromSuperview()
-                        }
-                        else {
-                            contentView.layer.render(in: context.cgContext)
-                        }
-                    }
-                }
-
-                let resource = Resource(renderer: renderer, actions: actions)
-                completion(resource)
-            }
+        view(for: scenario, on: device, scale: scale, keyWindow: keyWindow) { scenarioView in
+            makeResource(
+                for: scenarioView,
+                on: device,
+                scale: scale,
+                keyWindow: keyWindow,
+                completion: completion
+            )
         }
     }
-
+    
+    static func makeResource(
+        for view: UIView,
+        on device: SnapshotDevice,
+        scale: CGFloat,
+        keyWindow: UIWindow?,
+        completion: @escaping (Resource) -> Void
+    ) {
+        let format = UIGraphicsImageRendererFormat(for: device.traitCollection)
+        format.scale = scale
+        
+        if #available(iOS 12.0, *) {
+            format.preferredRange = .standard
+        }
+        else {
+            format.prefersExtendedRange = false
+        }
+        
+        let isEmbedInKeyWindow = keyWindow != nil
+        let renderer = UIGraphicsImageRenderer(bounds: view.bounds, format: format)
+        let actions: UIGraphicsDrawingActions = { context in
+            withoutAnimation {
+                if isEmbedInKeyWindow {
+                    view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+                    view.removeFromSuperview()
+                }
+                else {
+                    view.layer.render(in: context.cgContext)
+                }
+            }
+        }
+        
+        let resource = Resource(renderer: renderer, actions: actions)
+        completion(resource)
+    }
+    
     static func withoutAnimation<T>(_ action: () throws -> T) rethrows -> T {
         let disableActions = CATransaction.disableActions()
         CATransaction.setDisableActions(true)
