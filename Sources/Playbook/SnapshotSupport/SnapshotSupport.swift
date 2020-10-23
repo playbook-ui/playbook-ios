@@ -72,10 +72,20 @@ public enum SnapshotSupport {
         }
     }
     
+    /// Generates an `UIView` that snapshots the given scenario.
+    ///
+    /// - Parameters:
+    ///   - scenario: A scenario to be snapshot.
+    ///   - device: A snapshot environment simulating device.
+    ///   - keyWindow: The key window of the application.
+    ///   - handler: A closure that to handle generated `UIView`.
+    ///
+    /// - Note: Passing the key window adds the scenario content to the view
+    ///         hierarchy and actually renders it, so producing a more accurate
+    ///         snapshot image.
     public static func view(
         for scenario: Scenario,
         on device: SnapshotDevice,
-        scale: CGFloat = UIScreen.main.scale,
         keyWindow: UIWindow? = nil,
         handler: @escaping (UIView) -> Void
     ) {
@@ -101,6 +111,19 @@ public enum SnapshotSupport {
         }
     }
     
+    /// Generates an image file data for the given `UIView`
+    ///
+    /// - Parameters:
+    ///   - view: A `UIView` of a snapshot.
+    ///   - device: A snapshot environment simulating device.
+    ///   - format: An image file format of exported data.
+    ///   - scale: A rendering scale of the snapshot image.
+    ///   - keyWindow: The key window of the application.
+    ///   - handler: A closure that to handle generated data.
+    ///
+    /// - Note: Passing the key window adds the scenario content to the view
+    ///         hierarchy and actually renders it, so producing a more accurate
+    ///         snapshot image.
     public static func data(
         for view: UIView,
         on device: SnapshotDevice,
@@ -128,7 +151,7 @@ private extension SnapshotSupport {
         keyWindow: UIWindow?,
         completion: @escaping (Resource) -> Void
     ) {
-        view(for: scenario, on: device, scale: scale, keyWindow: keyWindow) { scenarioView in
+        view(for: scenario, on: device, keyWindow: keyWindow) { scenarioView in
             makeResource(
                 for: scenarioView,
                 on: device,
