@@ -71,7 +71,7 @@ public enum SnapshotSupport {
             handler(resource.renderer.image(actions: resource.actions))
         }
     }
-    
+
     /// Generates an `UIView` that snapshots the given scenario.
     ///
     /// - Parameters:
@@ -105,12 +105,12 @@ public enum SnapshotSupport {
                 if contentView.bounds.size.height <= 0 {
                     fatalError("The view was laid out with zero height in scenario - \(scenario.name)", file: scenario.file, line: scenario.line)
                 }
-            
-                handler(window.scenarioView)
+
+                handler(contentView)
             }
         }
     }
-    
+
     /// Generates an image file data for the given `UIView`
     ///
     /// - Parameters:
@@ -143,7 +143,7 @@ private extension SnapshotSupport {
         var renderer: UIGraphicsImageRenderer
         var actions: UIGraphicsDrawingActions
     }
-    
+
     static func makeResource(
         for scenario: Scenario,
         on device: SnapshotDevice,
@@ -151,9 +151,9 @@ private extension SnapshotSupport {
         keyWindow: UIWindow?,
         completion: @escaping (Resource) -> Void
     ) {
-        view(for: scenario, on: device, keyWindow: keyWindow) { scenarioView in
+        view(for: scenario, on: device, keyWindow: keyWindow) { contentView in
             makeResource(
-                for: scenarioView,
+                for: contentView,
                 on: device,
                 scale: scale,
                 keyWindow: keyWindow,
@@ -161,7 +161,7 @@ private extension SnapshotSupport {
             )
         }
     }
-    
+
     static func makeResource(
         for view: UIView,
         on device: SnapshotDevice,
@@ -171,14 +171,14 @@ private extension SnapshotSupport {
     ) {
         let format = UIGraphicsImageRendererFormat(for: device.traitCollection)
         format.scale = scale
-        
+
         if #available(iOS 12.0, *) {
             format.preferredRange = .standard
         }
         else {
             format.prefersExtendedRange = false
         }
-        
+
         let isEmbedInKeyWindow = keyWindow != nil
         let renderer = UIGraphicsImageRenderer(bounds: view.bounds, format: format)
         let actions: UIGraphicsDrawingActions = { context in
@@ -192,11 +192,11 @@ private extension SnapshotSupport {
                 }
             }
         }
-        
+
         let resource = Resource(renderer: renderer, actions: actions)
         completion(resource)
     }
-    
+
     static func withoutAnimation<T>(_ action: () throws -> T) rethrows -> T {
         let disableActions = CATransaction.disableActions()
         CATransaction.setDisableActions(true)

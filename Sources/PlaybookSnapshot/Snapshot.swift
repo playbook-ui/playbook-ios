@@ -22,6 +22,9 @@ public struct Snapshot: TestTool {
 
     /// A set of snapshot environment simulating devices.
     public var devices: [SnapshotDevice]
+    
+    /// A closure to preprocess scenario UIView before generating snapshot.
+    public var viewPreprocessor: ((UIView) -> UIView)?
 
     /// Creates a new snapshot tool for export all image files into specified directory.
     ///
@@ -33,6 +36,7 @@ public struct Snapshot: TestTool {
     ///   - scale: A rendering scale of the snapshot image.
     ///   - keyWindow: The key window of the application.
     ///   - devices: A set of snapshot environment simulating devices.
+    ///   - viewPreprocessor: A closure to preprocess scenario UIView before generating snapshot.
     public init(
         directory: URL,
         clean: Bool = false,
@@ -40,7 +44,8 @@ public struct Snapshot: TestTool {
         timeout: TimeInterval = 600,
         scale: CGFloat = UIScreen.main.scale,
         keyWindow: UIWindow? = nil,
-        devices: [SnapshotDevice]
+        devices: [SnapshotDevice],
+        viewPreprocessor: ((UIView) -> UIView)? = nil
     ) {
         self.directory = directory
         self.clean = clean
@@ -49,6 +54,7 @@ public struct Snapshot: TestTool {
         self.scale = scale
         self.keyWindow = keyWindow
         self.devices = devices
+        self.viewPreprocessor = viewPreprocessor
     }
 
     /// Generates snapshot images for passed `Playbook` instance.
@@ -86,18 +92,38 @@ public struct Snapshot: TestTool {
 
                 for scenario in store.scenarios {
                     group.enter()
-
-                    SnapshotSupport.data(
-                        for: scenario,
-                        on: device,
-                        format: format,
-                        scale: scale,
-                        keyWindow: keyWindow,
-                        handler: { data in
-                            attemptToWrite(data: data, scenario: scenario)
-                            group.leave()
+                    
+                    let handler: (Data) -> Void  = { data in
+                        attemptToWrite(data: data, scenario: scenario)
+                        group.leave()
+                    }
+                    
+                    if let viewPreprocessor = self.viewPreprocessor {
+                        SnapshotSupport.view(
+                            for: scenario,
+                            on: device,
+                            keyWindow: keyWindow) { scenarioView in
+                            let processedView = viewPreprocessor(scenarioView)
+                            
+                            SnapshotSupport.data(
+                                for: processedView,
+                                on: device,
+                                format: format,
+                                scale: scale,
+                                keyWindow: keyWindow,
+                                handler: handler
+                            )
                         }
-                    )
+                    } else {
+                        SnapshotSupport.data(
+                            for: scenario,
+                            on: device,
+                            format: format,
+                            scale: scale,
+                            keyWindow: keyWindow,
+                            handler: handler
+                        )
+                    }
                 }
             }
         }
