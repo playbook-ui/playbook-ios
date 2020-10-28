@@ -92,11 +92,6 @@ public struct Snapshot: TestTool {
 
                 for scenario in store.scenarios {
                     group.enter()
-                    
-                    let handler: (Data) -> Void  = { data in
-                        attemptToWrite(data: data, scenario: scenario)
-                        group.leave()
-                    }
 
                     SnapshotSupport.data(
                         for: scenario,
@@ -105,7 +100,10 @@ public struct Snapshot: TestTool {
                         scale: scale,
                         keyWindow: keyWindow,
                         viewPreprocessor: viewPreprocessor,
-                        handler: handler
+                        handler: { data in
+                            attemptToWrite(data: data, scenario: scenario)
+                            group.leave()
+                        }
                     )
                 }
             }
