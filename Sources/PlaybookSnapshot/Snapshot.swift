@@ -102,8 +102,8 @@ public struct Snapshot: TestTool {
                         SnapshotSupport.view(
                             for: scenario,
                             on: device,
-                            keyWindow: keyWindow) { scenarioView in
-                            let processedView = viewPreprocessor(scenarioView)
+                            keyWindow: keyWindow) { contentView in
+                            let processedView = viewPreprocessor(contentView)
                             
                             SnapshotSupport.data(
                                 for: processedView,
