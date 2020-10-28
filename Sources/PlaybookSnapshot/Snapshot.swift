@@ -97,33 +97,16 @@ public struct Snapshot: TestTool {
                         attemptToWrite(data: data, scenario: scenario)
                         group.leave()
                     }
-                    
-                    if let viewPreprocessor = self.viewPreprocessor {
-                        SnapshotSupport.view(
-                            for: scenario,
-                            on: device,
-                            keyWindow: keyWindow) { contentView in
-                            let processedView = viewPreprocessor(contentView)
-                            
-                            SnapshotSupport.data(
-                                for: processedView,
-                                on: device,
-                                format: format,
-                                scale: scale,
-                                keyWindow: keyWindow,
-                                handler: handler
-                            )
-                        }
-                    } else {
-                        SnapshotSupport.data(
-                            for: scenario,
-                            on: device,
-                            format: format,
-                            scale: scale,
-                            keyWindow: keyWindow,
-                            handler: handler
-                        )
-                    }
+
+                    SnapshotSupport.data(
+                        for: scenario,
+                        on: device,
+                        format: format,
+                        scale: scale,
+                        keyWindow: keyWindow,
+                        viewPreprocessor: viewPreprocessor,
+                        handler: handler
+                    )
                 }
             }
         }

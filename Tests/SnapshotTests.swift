@@ -28,22 +28,17 @@ final class SnapshotTests: XCTestCase {
             )
         )
     }
-    
+
     func testTakeSnapshotWithPreprocessor() throws {
         guard let directory = ProcessInfo.processInfo.environment["SNAPSHOT_DIR"] else {
             fatalError("Set directory to the build environment variables with key `SNAPSHOT_DIR`.")
         }
 
         Playbook.default.add(AllScenarios.self)
-        
-        let preprocessor: ((UIView) -> UIView) = { view in
-            view.backgroundColor = .lightGray
-            return view
-        }
 
         try Playbook.default.run(
             Snapshot(
-                directory: URL(fileURLWithPath: directory),
+                directory: URL(fileURLWithPath: directory).appendingPathComponent("GrayBackground"),
                 clean: true,
                 format: .png,
                 scale: 1,
@@ -51,7 +46,10 @@ final class SnapshotTests: XCTestCase {
                 devices: [
                     .iPhone11Pro(.portrait),
                 ],
-                viewPreprocessor:preprocessor
+                viewPreprocessor: { view in
+                    view.backgroundColor = .lightGray
+                    return view
+                }
             )
         )
     }
