@@ -1,9 +1,10 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 
 import PackageDescription
 
 let package = Package(
     name: "Tools",
+    platforms: [.macOS(.v11)],
     dependencies: [
         .package(url: "https://github.com/ra1028/swift-mod.git", .exact("0.0.4")),
         .package(url: "https://github.com/apple/swift-format.git", .branch("swift-5.3-branch")),

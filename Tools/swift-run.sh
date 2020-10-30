@@ -13,7 +13,7 @@ CHECKSUM="$BIN_DIR/$PACKAGE_NAME.sha256"
 
 shasum -a 256 -c $CHECKSUM && check=0 || check=1
 
-if [[ ! -e $BIN || $check != 0 ]]; then
+if [[ ! -e $BIN || $check != 0 || "${SPM_FORCE_BUILD-0}" -gt 0 ]]; then
     echo "$PACKAGE_NAME is not installed"
     echo "Installing ..."
     $SWIFT_BUILD --product $PACKAGE_NAME

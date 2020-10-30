@@ -3,9 +3,6 @@
     "version": "0.1.0",
     "author": "Playbook",
     "devDependencies": {
-        "reg-suit": "0.10.0",
-        "reg-keygen-git-hash-plugin": "0.8.5",
-        "reg-notify-github-plugin": "0.8.5",
-        "reg-publish-gcs-plugin": "0.9.0"
+        "percy": "0.28.4"
     }
 }
