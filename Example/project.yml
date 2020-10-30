@@ -2,10 +2,25 @@ name: PlaybookExample
 projectReferences:
   Playbook:
     path: ../Playbook.xcodeproj
+
 options:
   bundleIdPrefix: app.playbook-ui.Example
   deploymentTarget:
     iOS: 13.4
+
+schemes:
+  SamplePlaybook:
+    build:
+      targets:
+        SamplePlaybook: all
+    test:
+      targets:
+        - SampleSnapshot
+      commandLineArguments:
+        -AppleLanguages (en): true
+      environmentVariables:
+        SNAPSHOT_DIR: $(SOURCE_ROOT)/../Snapshots/Example
+
 targets:
   SamplePlaybook:
     Example:
@@ -16,15 +31,9 @@ targets:
       - target: SampleComponent
       - target: Playbook/Playbook
       - target: Playbook/PlaybookUI
-    scheme:
-      testTargets:
-        - SampleSnapshot
-      commandLineArguments:
-        -AppleLanguages (en): true
-      environmentVariables:
-        SNAPSHOT_DIR: $(SOURCE_ROOT)/../Snapshots/Example
-    attributes:
-      ProvisioningStyle: Manual
+    configFiles:
+      Debug: ../XCConfigs/project.xcconfig
+      Release: ../XCConfigs/project.xcconfig
 
   SampleSnapshot:
     type: bundle.unit-test
@@ -34,8 +43,9 @@ targets:
     dependencies:
       - target: SamplePlaybook
       - target: Playbook/PlaybookSnapshot
-    attributes:
-      ProvisioningStyle: Manual
+    configFiles:
+      Debug: ../XCConfigs/project.xcconfig
+      Release: ../XCConfigs/project.xcconfig
 
   SampleApp:
     type: application
@@ -44,11 +54,15 @@ targets:
       - SampleApp
     dependencies:
       - target: SampleComponent
-    attributes:
-      ProvisioningStyle: Manual
+    configFiles:
+      Debug: ../XCConfigs/project.xcconfig
+      Release: ../XCConfigs/project.xcconfig
 
   SampleComponent:
     type: framework
     platform: iOS
     sources:
       - SampleComponent
+    configFiles:
+      Debug: ../XCConfigs/project.xcconfig
+      Release: ../XCConfigs/project.xcconfig
