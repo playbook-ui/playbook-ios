@@ -37,6 +37,18 @@ jobs:
         if: steps.gem-cache.cache.outputs.cache-hit != 'true'
         run: make gem
 
+      - name: Get npm cache
+        id: npm-cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-0-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ runner.os }}-0-npm-
+
+      - name: Install npm packages
+        if: steps.npm-cache.cache.outputs.cache-hit != 'true'
+        run: make npm
+
       - name: Get SwiftPM cache
         uses: actions/cache@v2
         with:
@@ -53,3 +65,9 @@ jobs:
 
       - name: Test library iOS
         run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Playbook.xcodeproj -scheme Playbook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
+
+      - name: Visual regression test
+        if: matrix.xcode_version == '12.2'
+        run: npx percy upload Snapshots
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
