@@ -6,7 +6,7 @@ projectReferences:
 options:
   bundleIdPrefix: app.playbook-ui.Example
   deploymentTarget:
-    iOS: 13.4
+    iOS: 13.0
 
 schemes:
   SamplePlaybook:
