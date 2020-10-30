@@ -32,18 +32,19 @@ public struct ProfileSummary: View {
             VStack(alignment: .leading) {
                 Text("Completed Badges")
                     .font(.headline)
-                ScrollView {
+                ScrollView(.horizontal) {
                     HStack {
                         HikeBadge(name: "First Hike")
                         
                         HikeBadge(name: "Earth Day")
                             .hueRotation(Angle(degrees: 90))
+
                         HikeBadge(name: "Tenth Hike")
                             .grayscale(0.5)
                             .hueRotation(Angle(degrees: 45))
                     }
                 }
-                .frame(height: 140)
+                .padding(.bottom, 24)
             }
             
             VStack(alignment: .leading) {

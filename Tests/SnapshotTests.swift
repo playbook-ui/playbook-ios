@@ -18,12 +18,9 @@ final class SnapshotTests: XCTestCase {
                 keyWindow: UIApplication.shared.windows.first { $0.isKeyWindow },
                 devices: [
                     .iPhone11Pro(.portrait),
-                    .iPhone11Pro(.portrait, style: .dark),
                     .iPhone11Pro(.landscape, style: .dark),
-                    .iPhoneSE(.portrait),
-                    .iPhoneSE(.landscape),
-                    .iPadPro12_9(.portrait),
-                    .iPadPro12_9(.landscape, style: .dark),
+                    .iPhoneSE(.portrait, style: .dark),
+                    .iPadPro12_9(.landscape),
                 ]
             )
         )
