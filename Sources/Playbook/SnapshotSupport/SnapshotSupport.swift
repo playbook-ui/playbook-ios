@@ -140,7 +140,8 @@ private extension SnapshotSupport {
 
                 if let viewPreprocessor = viewPreprocessor {
                     snapshotView = viewPreprocessor(contentView)
-                } else {
+                }
+                else {
                     snapshotView = contentView
                 }
 

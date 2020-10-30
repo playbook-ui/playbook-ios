@@ -11,7 +11,7 @@ public struct PlaybookCatalog: View {
     }
 
     /// Creates a new view that displays scenarios managed by given `Playbook` instance.
-    /// 
+    ///
     /// - Parameters:
     ///   - name: A name of `Playbook` to be displayed on the user interface.
     ///   - playbook: A `Playbook` instance that manages scenarios to be displayed.

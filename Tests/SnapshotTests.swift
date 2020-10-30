@@ -44,7 +44,7 @@ final class SnapshotTests: XCTestCase {
                 scale: 1,
                 keyWindow: UIApplication.shared.windows.first { $0.isKeyWindow },
                 devices: [
-                    .iPhone11Pro(.portrait),
+                    .iPhone11Pro(.portrait)
                 ],
                 viewPreprocessor: { view in
                     view.backgroundColor = .lightGray
