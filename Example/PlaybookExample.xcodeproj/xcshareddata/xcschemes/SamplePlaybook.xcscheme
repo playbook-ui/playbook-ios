@@ -58,7 +58,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "SNAPSHOT_DIR"
-            value = "$(SOURCE_ROOT)/Snapshots"
+            value = "$(SOURCE_ROOT)/../Snapshots/Example"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
@@ -92,7 +92,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "SNAPSHOT_DIR"
-            value = "$(SOURCE_ROOT)/Snapshots"
+            value = "$(SOURCE_ROOT)/../Snapshots/Example"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
@@ -122,7 +122,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "SNAPSHOT_DIR"
-            value = "$(SOURCE_ROOT)/Snapshots"
+            value = "$(SOURCE_ROOT)/../Snapshots/Example"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

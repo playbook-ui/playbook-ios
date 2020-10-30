@@ -22,7 +22,7 @@ targets:
       commandLineArguments:
         -AppleLanguages (en): true
       environmentVariables:
-        SNAPSHOT_DIR: $(SOURCE_ROOT)/Snapshots
+        SNAPSHOT_DIR: $(SOURCE_ROOT)/../Snapshots/Example
     attributes:
       ProvisioningStyle: Manual
 
