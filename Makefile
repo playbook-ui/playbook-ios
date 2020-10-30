@@ -47,7 +47,7 @@ npm:
 
 .PHONY: docs
 docs:
-	$(SWIFT_TOOL) swift-doc generate Sources -n Playbook -f html -o docs
+	$(SWIFT_TOOL) swift-doc generate Sources -n Playbook -f html --base-url ./ -o docs
 
 .PHONY: fix-readme-links
 fix-readme-links:
