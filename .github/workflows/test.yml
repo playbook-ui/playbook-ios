@@ -63,8 +63,11 @@ jobs:
       - name: Podspec lint
         run: make pod-lib-lint
 
-      - name: Test library iOS
+      - name: Test library & Generate snapshots
         run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Playbook.xcodeproj -scheme Playbook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
+
+      - name: Generate snapshots of example app
+        run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Example/PlaybookExample.xcodeproj -scheme SamplePlaybook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
 
       - name: Visual regression test
         if: matrix.xcode_version == '12.2'
