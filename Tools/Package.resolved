@@ -14,9 +14,9 @@
         "package": "CommonMark",
         "repositoryURL": "https://github.com/SwiftDocOrg/CommonMark.git",
         "state": {
-          "branch": "master",
-          "revision": "1903d99dc9429a29a7933767c7790db175121fec",
-          "version": null
+          "branch": null,
+          "revision": "62176a332884826997928ba578d9d322c16772fb",
+          "version": "0.4.0"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/SwiftDocOrg/GraphViz.git",
         "state": {
           "branch": null,
-          "revision": "03405c13dc1c31f50c08bbec6e7587cbee1c7fb3",
-          "version": null
+          "revision": "c4746cb3ff6f5e7c5d5540c40b98555521c3ee43",
+          "version": "0.1.3"
         }
       },
       {
@@ -87,8 +87,8 @@
         "repositoryURL": "https://github.com/apple/swift-argument-parser.git",
         "state": {
           "branch": null,
-          "revision": "8d31a0905c346a45c87773ad50862b5b3df8dff6",
-          "version": "0.0.4"
+          "revision": "92646c0cdbaca076c8d3d0207891785b3379cbff",
+          "version": "0.3.1"
         }
       },
       {
@@ -104,8 +104,8 @@
         "package": "swift-doc",
         "repositoryURL": "https://github.com/SwiftDocOrg/swift-doc.git",
         "state": {
-          "branch": "1.0.0-beta.2",
-          "revision": "dbb361185b701922f395b385085303a3d8da19e7",
+          "branch": null,
+          "revision": "164157531625a77474884185d1cba0c12ebe0cfa",
           "version": null
         }
       },
@@ -113,18 +113,9 @@
         "package": "swift-format",
         "repositoryURL": "https://github.com/apple/swift-format.git",
         "state": {
-          "branch": "swift-5.2-branch",
-          "revision": "1fda39893d3652a9a3f1673565a227f843d59f3c",
+          "branch": "swift-5.3-branch",
+          "revision": "12089179aa1668a2478b2b2111d98fa37f3531e3",
           "version": null
-        }
-      },
-      {
-        "package": "HTMLEntities",
-        "repositoryURL": "https://github.com/IBM-Swift/swift-html-entities.git",
-        "state": {
-          "branch": null,
-          "revision": "744c094976355aa96ca61b9b60ef0a38e979feb7",
-          "version": "3.0.14"
         }
       },
       {
@@ -150,16 +141,16 @@
         "repositoryURL": "https://github.com/ra1028/swift-mod.git",
         "state": {
           "branch": null,
-          "revision": "f008849446c43bd7ba5851a09f5671de3aa6dad5",
-          "version": "0.0.3"
+          "revision": "c8b459119967aa145c0fa7b87e29a104b2a7b345",
+          "version": "0.0.4"
         }
       },
       {
         "package": "SwiftSyntax",
         "repositoryURL": "https://github.com/apple/swift-syntax.git",
         "state": {
-          "branch": "0.50200.0",
-          "revision": "0688b9cfc4c3dd234e4f55f1f056b2affc849873",
+          "branch": "0.50300.0",
+          "revision": "844574d683f53d0737a9c6d706c3ef31ed2955eb",
           "version": null
         }
       },
@@ -186,8 +177,8 @@
         "repositoryURL": "https://github.com/SwiftDocOrg/SwiftMarkup.git",
         "state": {
           "branch": null,
-          "revision": "431f418ae1833a312646e934a2891e778c1b03b0",
-          "version": "0.0.5"
+          "revision": "7915d17608dd32434dc8abb95156f70367f38a5a",
+          "version": "0.2.1"
         }
       },
       {
@@ -203,8 +194,8 @@
         "package": "SwiftSyntaxHighlighter",
         "repositoryURL": "https://github.com/NSHipster/SwiftSyntaxHighlighter.git",
         "state": {
-          "branch": "1.0.0",
-          "revision": "4a20d10bba17241b66650d99081801536146b43c",
+          "branch": "1.1.3",
+          "revision": "b086ef5066b6f799f9c7d6d7fc1553581b55ef1e",
           "version": null
         }
       },
@@ -222,8 +213,8 @@
         "repositoryURL": "https://github.com/yonaskolb/XcodeGen.git",
         "state": {
           "branch": null,
-          "revision": "01c6959f487fd67f57d05f1fe82d1263771cda25",
-          "version": "2.15.1"
+          "revision": "bb4a3fa2dd720594e47f33cd48cce84fcf9f7066",
+          "version": "2.18.0"
         }
       },
       {
@@ -231,8 +222,8 @@
         "repositoryURL": "https://github.com/tuist/XcodeProj.git",
         "state": {
           "branch": null,
-          "revision": "912d40cc2ea4a300eff6dd7c6a10b4f4dedbcbec",
-          "version": "7.10.0"
+          "revision": "545bfa746b6eb4ea0ad8d3a12c6590445392bb50",
+          "version": "7.13.0"
         }
       },
       {

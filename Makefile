@@ -27,7 +27,7 @@ lint:
 .PHONY: pod-lib-lint
 pod-lib-lint:
 	for lib in $(LIBS); do \
-	  bundle exec pod lib lint $$lib.podspec; \
+	  bundle exec pod lib lint --quick $$lib.podspec; \
 	done
 
 .PHONY: pod-release

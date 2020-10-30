@@ -22,7 +22,7 @@ public struct Snapshot: TestTool {
 
     /// A set of snapshot environment simulating devices.
     public var devices: [SnapshotDevice]
-    
+
     /// A closure to preprocess scenario UIView before generating snapshot.
     public var viewPreprocessor: ((UIView) -> UIView)?
 
