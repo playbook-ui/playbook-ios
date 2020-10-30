@@ -5,7 +5,46 @@ on:
     branches:
       - master
 jobs:
-  macOS:
+  validation:
+    name: Validation
+    runs-on: macOS-10.15
+    strategy:
+      matrix:
+        xcode_version:
+          - "12.1"
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode_version }}.app
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get ruby gem cache
+        id: gem-cache
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-1-gem-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: ${{ runner.os }}-1-gem-
+
+      - name: Install ruby gems
+        if: steps.gem-cache.cache.outputs.cache-hit != 'true'
+        run: make gem
+
+      - name: Get SwiftPM cache
+        uses: actions/cache@v2
+        with:
+          path: Tools/.build
+          key: ${{ runner.os }}-${{ matrix.xcode_version }}-1-spm-${{ hashFiles('Tools/Package.resolved') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.xcode_version }}-1-spm-
+
+      - name: Podspec lint
+        run: make pod-lib-lint
+
+      - name: Validation
+        run: make all && [ -z "$(git status --porcelain)" ] && make lint
+        env:
+          SPM_FORCE_BUILD: 1
+
+  test:
     name: Test on macOS
     runs-on: macOS-10.15
     strategy:
@@ -25,18 +64,6 @@ jobs:
           git branch
           git shortlog
 
-      - name: Get ruby gem cache
-        id: gem-cache
-        uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-1-gem-${{ hashFiles('Gemfile.lock') }}
-          restore-keys: ${{ runner.os }}-1-gem-
-
-      - name: Install ruby gems
-        if: steps.gem-cache.cache.outputs.cache-hit != 'true'
-        run: make gem
-
       - name: Get npm cache
         id: npm-cache
         uses: actions/cache@v2
@@ -48,20 +75,6 @@ jobs:
       - name: Install npm packages
         if: steps.npm-cache.cache.outputs.cache-hit != 'true'
         run: make npm
-
-      - name: Get SwiftPM cache
-        uses: actions/cache@v2
-        with:
-          path: Tools/.build
-          key: ${{ runner.os }}-${{ matrix.xcode_version }}-1-spm-${{ hashFiles('Tools/Package.resolved') }}
-          restore-keys: ${{ runner.os }}-${{ matrix.xcode_version }}-1-spm-
-
-      - name: Validation
-        if: matrix.xcode_version == '12.2'
-        run: make all && [ -z "$(git status --porcelain)" ] && make lint
-
-      - name: Podspec lint
-        run: make pod-lib-lint
 
       - name: Test library & Generate snapshots
         run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Playbook.xcodeproj -scheme Playbook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
