@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/logo.png" alt="Playbook" width="400">
+<img src="https://raw.githubusercontent.com/playbook-ui/mediakit/master/logo/default-h%402x.png" alt="Playbook" width="400">
 </p>
 
 <p align="center">A library for isolated developing UI components and automatically taking snapshots of them.</p>
@@ -237,5 +237,5 @@ Playbook is released under the [Apache 2.0 License](https://github.com/playbook-
 
 <br>
 <p align="center">
-<img alt="Playbook" src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/footer-logo.png" width="280">
+<img alt="Playbook" src="https://raw.githubusercontent.com/playbook-ui/mediakit/master/logo/default%402x.png" width="280">
 </p>
