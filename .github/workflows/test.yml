@@ -1,5 +1,9 @@
 name: GitHub Actions
-on: [push, pull_request]
+on:
+  pull_request:
+  push:
+    branches:
+      - master
 jobs:
   macOS:
     name: Test on macOS
@@ -37,8 +41,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: Tools/.build
-          key: ${{ runner.os }}-3-spm-${{ hashFiles('Tools/Package.resolved') }}
-          restore-keys: ${{ runner.os }}-3-spm-
+          key: ${{ runner.os }}-${{ matrix.xcode_version }}-0-spm-${{ hashFiles('Tools/Package.resolved') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.xcode_version }}-0-spm-
 
       - name: Validation
         if: matrix.xcode_version == '12.2'
