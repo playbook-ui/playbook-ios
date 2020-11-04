@@ -68,7 +68,7 @@ internal struct PlaybookGalleryIOS14: View {
     var name: String
     var snapshotColorScheme: ColorScheme
 
-    @StateObject
+    @ObservedObject
     var store: GalleryStore
 
     @Environment(\.galleryDependency)
@@ -88,6 +88,7 @@ internal struct PlaybookGalleryIOS14: View {
                 }
                 .ignoresSafeArea(edges: .horizontal)
                 .navigationBarTitle(name)
+                .background(Color(.primaryBackground).ignoresSafeArea())
                 .sheet(item: $store.selectedScenario) { data in
                     ScenarioDisplaySheet(data: data) {
                         store.selectedScenario = nil

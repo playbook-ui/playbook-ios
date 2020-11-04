@@ -54,8 +54,7 @@ internal struct ScenarioSearchTreeIOS14: View {
             }
         }
         .background(
-            Color(.secondaryBackground)
-                .edgesIgnoringSafeArea(.all)
+            Color(.secondaryBackground).ignoresSafeArea()
         )
     }
 }
@@ -152,13 +151,17 @@ private extension ScenarioSearchTreeIOS14 {
     }
 
     func emptyContent() -> some View {
-        Text("This filter resulted in 0 results")
-            .foregroundColor(Color(.label))
-            .font(.body)
-            .bold()
-            .lineLimit(nil)
-            .padding(24)
-            .padding(.top, 24)
+        VStack(spacing: .zero) {
+            Text("This filter resulted in 0 results")
+                .foregroundColor(Color(.label))
+                .font(.body)
+                .bold()
+                .lineLimit(nil)
+                .padding(24)
+                .padding(.top, 24)
+
+            Spacer.zero
+        }
     }
 
     func searchBar() -> some View {
