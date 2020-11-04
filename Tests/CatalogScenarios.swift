@@ -68,7 +68,7 @@ struct CatalogScenarios: ScenarioProvider {
                 )
             }
 
-            Scenario("Drawer iOS13", layout: .fill) {
+            Scenario("Drawer", layout: .sizing(h: .fixed(300), v: .fill)) {
                 ScenarioSearchTreeIOS13()
                     .environmentObject(
                         CatalogStore(
@@ -77,8 +77,28 @@ struct CatalogScenarios: ScenarioProvider {
                             openedKinds: ["Kind 1"],
                             isSearchTreeHidden: false
                         )
+                        .start()
                     )
             }
         }
+
+        #if swift(>=5.3)
+        if #available(iOS 14.0, *) {
+            playbook.addScenarios(of: "Catalog") {
+                Scenario("Drawer iOS14", layout: .sizing(h: .fixed(300), v: .fill)) {
+                    ScenarioSearchTreeIOS14()
+                        .environmentObject(
+                            CatalogStore(
+                                playbook: .test,
+                                selectedScenario: .stub,
+                                openedKinds: ["Kind 1"],
+                                isSearchTreeHidden: false
+                            )
+                            .start()
+                        )
+                }
+            }
+        }
+        #endif
     }
 }

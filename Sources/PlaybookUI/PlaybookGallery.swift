@@ -97,7 +97,7 @@ internal struct PlaybookGalleryIOS14: View {
             .environmentObject(store)
             .navigationViewStyle(StackNavigationViewStyle())
             .onAppear {
-//                dependency.scheduler.schedule(on: .main, action: store.prepare)
+                dependency.scheduler.schedule(on: .main, action: store.prepare)
             }
         }
     }
