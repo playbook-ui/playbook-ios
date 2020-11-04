@@ -8,7 +8,7 @@ internal struct SearchBar: View {
 
     var body: some View {
         SearchBarWrapper(text: $text, placeholder: "Search") { searchBar in
-            let backgroundImage = UIColor.tertiarySystemFill.circleImage(length: height)
+            let backgroundImage = UIColor.tertiarySystemFill.circleImage(length: self.height)
             searchBar.setSearchFieldBackgroundImage(backgroundImage, for: .normal)
         }
         .animation(nil)

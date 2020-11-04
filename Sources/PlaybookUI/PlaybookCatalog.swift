@@ -27,7 +27,7 @@ public struct PlaybookCatalog: View {
     }
 }
 
-internal struct PlaybookCatalogInternal: View {
+private struct PlaybookCatalogInternal: View {
     var name: String
     var playbook: Playbook
 
@@ -35,15 +35,15 @@ internal struct PlaybookCatalogInternal: View {
     var store: CatalogStore
 
     @WeakReference
-    private var contentUIView: UIView?
+    var contentUIView: UIView?
 
     @Environment(\.horizontalSizeClass)
-    private var horizontalSizeClass
+    var horizontalSizeClass
 
     @Environment(\.verticalSizeClass)
-    private var verticalSizeClass
+    var verticalSizeClass
 
-    public var body: some View {
+    var body: some View {
         platformContent()
             .environmentObject(store)
             .onAppear(perform: selectFirstScenario)

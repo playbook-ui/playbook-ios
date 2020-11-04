@@ -35,23 +35,34 @@ public struct PlaybookGallery: View {
     }
 
     /// Declares the content and behavior of this view.
+    @ViewBuilder
     public var body: some View {
+        #if swift(>=5.3)
         if #available(iOS 14.0, *) {
             PlaybookGalleryIOS14(
                 name: name,
                 snapshotColorScheme: snapshotColorScheme,
                 store: store
             )
-        } else {
+        }
+        else {
             PlaybookGalleryIOS13(
                 name: name,
                 snapshotColorScheme: snapshotColorScheme,
                 store: store
             )
         }
+        #else
+        PlaybookGalleryIOS13(
+            name: name,
+            snapshotColorScheme: snapshotColorScheme,
+            store: store
+        )
+        #endif
     }
 }
 
+#if swift(>=5.3)
 @available(iOS 14.0, *)
 private struct PlaybookGalleryIOS14: View {
     var name: String
@@ -76,17 +87,17 @@ private struct PlaybookGalleryIOS14: View {
                     }
                 }
                 .ignoresSafeArea(edges: .horizontal)
-                .navigationBarTitle(self.name)
-                .sheet(item: self.$store.selectedScenario) { data in
+                .navigationBarTitle(name)
+                .sheet(item: $store.selectedScenario) { data in
                     ScenarioDisplaySheet(data: data) {
-                        self.store.selectedScenario = nil
+                        store.selectedScenario = nil
                     }
                 }
             }
-            .environmentObject(self.store)
+            .environmentObject(store)
             .navigationViewStyle(StackNavigationViewStyle())
             .onAppear {
-                self.dependency.scheduler.schedule(on: .main, action: self.store.prepare)
+                dependency.scheduler.schedule(on: .main, action: store.prepare)
             }
         }
     }
@@ -109,9 +120,9 @@ private extension PlaybookGalleryIOS14 {
                     safeAreaInsets: geometry.safeAreaInsets,
                     serialDispatcher: SerialMainDispatcher(
                         interval: 0.2,
-                        scheduler: self.dependency.scheduler
+                        scheduler: dependency.scheduler
                     ),
-                    onSelect: { self.store.selectedScenario = $0 }
+                    onSelect: { store.selectedScenario = $0 }
                 )
             }
 
@@ -138,6 +149,7 @@ private extension PlaybookGalleryIOS14 {
             .padding(.horizontal, 24)
     }
 }
+#endif
 
 private struct PlaybookGalleryIOS13: View {
     var name: String

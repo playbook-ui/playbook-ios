@@ -1,20 +1,26 @@
 import SwiftUI
 
 internal struct ScenarioSearchTree: View {
+    @ViewBuilder
     var body: some View {
+        #if swift(>=5.3)
         if #available(iOS 14.0, *) {
             ScenarioSearchTreeIOS14()
         }
         else {
             ScenarioSearchTreeIOS13()
         }
+        #else
+        ScenarioSearchTreeIOS13()
+        #endif
     }
 }
 
+#if swift(>=5.3)
 @available(iOS 14.0, *)
 private struct ScenarioSearchTreeIOS14: View {
     @EnvironmentObject
-    private var store: CatalogStore
+    var store: CatalogStore
 
     var body: some View {
         VStack(spacing: .zero) {
@@ -58,11 +64,11 @@ private struct ScenarioSearchTreeIOS14: View {
 private extension ScenarioSearchTreeIOS14 {
     func searchTextBinding() -> Binding<String?> {
         Binding(
-            get: { self.store.searchText },
+            get: { store.searchText },
             set: { newValue in
                 let isEmpty = newValue.map { $0.isEmpty } ?? true
-                self.store.openedSearchingKinds = isEmpty ? nil : Set(self.store.result.data.map { $0.kind })
-                self.store.searchText = newValue
+                store.openedSearchingKinds = isEmpty ? nil : Set(store.result.data.map { $0.kind })
+                store.searchText = newValue
             }
         )
     }
@@ -119,7 +125,7 @@ private extension ScenarioSearchTreeIOS14 {
                 store.selectedScenario = data
             },
             label: {
-                VStack(spacing: 0) {
+                VStack(spacing: .zero) {
                     HStack(spacing: 8) {
                         Image(symbol: .circleFill)
                             .font(.system(size: 10))
@@ -146,21 +152,17 @@ private extension ScenarioSearchTreeIOS14 {
     }
 
     func emptyContent() -> some View {
-        VStack(spacing: 0) {
-            Text("This filter resulted in 0 results")
-                .foregroundColor(Color(.label))
-                .font(.body)
-                .bold()
-                .lineLimit(nil)
-                .padding(24)
-
-            Spacer.zero
-        }
-        .padding(.top, 24)
+        Text("This filter resulted in 0 results")
+            .foregroundColor(Color(.label))
+            .font(.body)
+            .bold()
+            .lineLimit(nil)
+            .padding(24)
+            .padding(.top, 24)
     }
 
     func searchBar() -> some View {
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
             SearchBar(text: searchTextBinding(), height: 44)
 
             Counter(
@@ -173,6 +175,7 @@ private extension ScenarioSearchTreeIOS14 {
         }
     }
 }
+#endif
 
 private struct ScenarioSearchTreeIOS13: View {
     @EnvironmentObject
