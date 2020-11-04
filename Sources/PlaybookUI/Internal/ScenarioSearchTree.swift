@@ -234,10 +234,10 @@ private extension ScenarioSearchTreeIOS13 {
 
         static func == (lhs: Row, rhs: Row) -> Bool {
             switch (lhs, rhs) {
-            case (.kind(let lData, let lisOpened), .kind(let rData, let risOpened)):
+            case (.kind(let lData, let lIsOpened), .kind(let rData, let rIsOpened)):
                 return lData.kind == rData.kind
                     && lData.shouldHighlight == rData.shouldHighlight
-                    && lisOpened == risOpened
+                    && lIsOpened == rIsOpened
 
             case (.scenario(let lData, let lIsSelected), .scenario(let rData, let rIsSelected)):
                 return lData.kind == rData.kind
@@ -267,7 +267,7 @@ private extension ScenarioSearchTreeIOS13 {
     }
 
     func searchBar() -> some View {
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
             SearchBar(text: searchTextBinding(), height: 44)
 
             Counter(

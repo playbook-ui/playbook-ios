@@ -34,7 +34,6 @@ private struct SearchBarWrapper: UIViewRepresentable {
         let searchBar = UISearchBar()
         searchBar.enablesReturnKeyAutomatically = false
         searchBar.backgroundImage = UIImage()
-        searchBar.setSearchFieldBackgroundImage(UIImage(), for: .normal)
         searchBar.setPositionAdjustment(UIOffset(horizontal: 8, vertical: 0), for: .search)
         searchBar.setPositionAdjustment(UIOffset(horizontal: -8, vertical: 0), for: .clear)
         return searchBar

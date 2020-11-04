@@ -127,7 +127,7 @@ private extension PlaybookGalleryIOS14 {
             }
 
         case .standby:
-            VStack(spacing: 0) {
+            VStack(spacing: .zero) {
                 message("Preparing snapshots ...", font: .system(size: 24))
 
                 Image(symbol: .book)
