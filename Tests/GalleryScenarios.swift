@@ -6,7 +6,7 @@ struct GalleryScenarios: ScenarioProvider {
     static func addScenarios(into playbook: Playbook) {
         playbook.addScenarios(of: "Gallery") {
             Scenario("Ready", layout: .fill) { context in
-                PlaybookGalleryInternal(
+                PlaybookGalleryIOS13(
                     name: "TEST",
                     snapshotColorScheme: .light,
                     store: GalleryStore(
@@ -29,7 +29,7 @@ struct GalleryScenarios: ScenarioProvider {
             }
 
             Scenario("Preparing", layout: .fill) { context in
-                PlaybookGalleryInternal(
+                PlaybookGalleryIOS13(
                     name: "TEST",
                     snapshotColorScheme: .light,
                     store: GalleryStore(
@@ -43,7 +43,7 @@ struct GalleryScenarios: ScenarioProvider {
             }
 
             Scenario("Empty", layout: .fill) { context in
-                PlaybookGalleryInternal(
+                PlaybookGalleryIOS13(
                     name: "TEST",
                     snapshotColorScheme: .light,
                     store: GalleryStore(
@@ -63,7 +63,7 @@ struct GalleryScenarios: ScenarioProvider {
             }
 
             Scenario("Searching", layout: .fill) { context in
-                PlaybookGalleryInternal(
+                PlaybookGalleryIOS13(
                     name: "TEST",
                     snapshotColorScheme: .light,
                     store: GalleryStore(
@@ -75,29 +75,6 @@ struct GalleryScenarios: ScenarioProvider {
                     )
                     .takeSnapshots()
                     .start(with: "2")
-                )
-                .environment(
-                    \.galleryDependency,
-                    GalleryDependency(
-                        scheduler: SchedulerMock(),
-                        context: context
-                    )
-                )
-            }
-
-            Scenario("Dark snapshots", layout: .fill) { context in
-                PlaybookGalleryInternal(
-                    name: "TEST",
-                    snapshotColorScheme: .dark,
-                    store: GalleryStore(
-                        playbook: .test,
-                        preSnapshotCountLimit: 100,
-                        screenSize: context.screenSize.portrait,
-                        userInterfaceStyle: .dark,
-                        status: .ready
-                    )
-                    .takeSnapshots()
-                    .start()
                 )
                 .environment(
                     \.galleryDependency,
@@ -195,6 +172,115 @@ struct GalleryScenarios: ScenarioProvider {
                 )
             }
         }
+
+        #if swift(>=5.3)
+        if #available(iOS 14.0, *) {
+            playbook.addScenarios(of: "Gallery") {
+                Scenario("Ready iOS14", layout: .fill) { context in
+                    PlaybookGalleryIOS14(
+                        name: "TEST",
+                        snapshotColorScheme: .light,
+                        store: GalleryStore(
+                            playbook: .test,
+                            preSnapshotCountLimit: 100,
+                            screenSize: context.screenSize.portrait,
+                            userInterfaceStyle: .light,
+                            status: .ready
+                        )
+                        .takeSnapshots()
+                        .start()
+                    )
+                    .environment(
+                        \.galleryDependency,
+                        GalleryDependency(
+                            scheduler: SchedulerMock(),
+                            context: context
+                        )
+                    )
+                }
+
+                Scenario("Preparing iOS14", layout: .fill) { context in
+                    PlaybookGalleryIOS14(
+                        name: "TEST",
+                        snapshotColorScheme: .light,
+                        store: GalleryStore(
+                            playbook: .test,
+                            preSnapshotCountLimit: 0,
+                            screenSize: context.screenSize.portrait,
+                            userInterfaceStyle: .light
+                        )
+                        .start()
+                    )
+                }
+
+                Scenario("Empty iOS14", layout: .fill) { context in
+                    PlaybookGalleryIOS14(
+                        name: "TEST",
+                        snapshotColorScheme: .light,
+                        store: GalleryStore(
+                            playbook: Playbook(),
+                            preSnapshotCountLimit: 0,
+                            screenSize: context.screenSize.portrait,
+                            userInterfaceStyle: .light
+                        )
+                    )
+                    .environment(
+                        \.galleryDependency,
+                        GalleryDependency(
+                            scheduler: SchedulerMock(),
+                            context: context
+                        )
+                    )
+                }
+
+                Scenario("Searching iOS14", layout: .fill) { context in
+                    PlaybookGalleryIOS14(
+                        name: "TEST",
+                        snapshotColorScheme: .light,
+                        store: GalleryStore(
+                            playbook: .test,
+                            preSnapshotCountLimit: 100,
+                            screenSize: context.screenSize.portrait,
+                            userInterfaceStyle: .light,
+                            status: .ready
+                        )
+                        .takeSnapshots()
+                        .start(with: "2")
+                    )
+                    .environment(
+                        \.galleryDependency,
+                        GalleryDependency(
+                            scheduler: SchedulerMock(),
+                            context: context
+                        )
+                    )
+                }
+
+                Scenario("Dark snapshots", layout: .fill) { context in
+                    PlaybookGalleryIOS14(
+                        name: "TEST",
+                        snapshotColorScheme: .dark,
+                        store: GalleryStore(
+                            playbook: .test,
+                            preSnapshotCountLimit: 100,
+                            screenSize: context.screenSize.portrait,
+                            userInterfaceStyle: .dark,
+                            status: .ready
+                        )
+                        .takeSnapshots()
+                        .start()
+                    )
+                    .environment(
+                        \.galleryDependency,
+                        GalleryDependency(
+                            scheduler: SchedulerMock(),
+                            context: context
+                        )
+                    )
+                }
+            }
+        }
+        #endif
     }
 }
 
