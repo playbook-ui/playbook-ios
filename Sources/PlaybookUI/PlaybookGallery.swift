@@ -114,6 +114,8 @@ private extension PlaybookGalleryIOS14 {
 
         case .ready:
             Counter(numerator: store.result.matchedCount, denominator: store.scenariosCount)
+                .padding(.leading, geometry.safeAreaInsets.leading)
+                .padding(.trailing, geometry.safeAreaInsets.trailing)
 
             ForEach(store.result.data, id: \.kind) { data in
                 ScenarioDisplayList(
