@@ -64,7 +64,7 @@ public struct PlaybookGallery: View {
 
 #if swift(>=5.3)
 @available(iOS 14.0, *)
-private struct PlaybookGalleryIOS14: View {
+internal struct PlaybookGalleryIOS14: View {
     var name: String
     var snapshotColorScheme: ColorScheme
 
@@ -97,7 +97,7 @@ private struct PlaybookGalleryIOS14: View {
             .environmentObject(store)
             .navigationViewStyle(StackNavigationViewStyle())
             .onAppear {
-                dependency.scheduler.schedule(on: .main, action: store.prepare)
+//                dependency.scheduler.schedule(on: .main, action: store.prepare)
             }
         }
     }
@@ -151,7 +151,7 @@ private extension PlaybookGalleryIOS14 {
 }
 #endif
 
-private struct PlaybookGalleryIOS13: View {
+internal struct PlaybookGalleryIOS13: View {
     var name: String
     var snapshotColorScheme: ColorScheme
 

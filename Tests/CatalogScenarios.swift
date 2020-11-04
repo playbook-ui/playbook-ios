@@ -67,6 +67,18 @@ struct CatalogScenarios: ScenarioProvider {
                     .start(with: "2")
                 )
             }
+
+            Scenario("Drawer iOS13", layout: .fill) {
+                ScenarioSearchTreeIOS13()
+                    .environmentObject(
+                        CatalogStore(
+                            playbook: .test,
+                            selectedScenario: .stub,
+                            openedKinds: ["Kind 1"],
+                            isSearchTreeHidden: false
+                        )
+                    )
+            }
         }
     }
 }

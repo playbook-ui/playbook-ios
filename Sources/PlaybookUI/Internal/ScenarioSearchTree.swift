@@ -18,7 +18,7 @@ internal struct ScenarioSearchTree: View {
 
 #if swift(>=5.3)
 @available(iOS 14.0, *)
-private struct ScenarioSearchTreeIOS14: View {
+internal struct ScenarioSearchTreeIOS14: View {
     @EnvironmentObject
     var store: CatalogStore
 
@@ -177,7 +177,7 @@ private extension ScenarioSearchTreeIOS14 {
 }
 #endif
 
-private struct ScenarioSearchTreeIOS13: View {
+internal struct ScenarioSearchTreeIOS13: View {
     @EnvironmentObject
     private var store: CatalogStore
 

@@ -27,7 +27,7 @@ public struct PlaybookCatalog: View {
     }
 }
 
-private struct PlaybookCatalogInternal: View {
+internal struct PlaybookCatalogInternal: View {
     var name: String
     var playbook: Playbook
 
