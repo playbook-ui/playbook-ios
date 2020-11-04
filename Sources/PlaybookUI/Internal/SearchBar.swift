@@ -1,7 +1,25 @@
 import SwiftUI
 import UIKit
 
-internal struct SearchBar: UIViewRepresentable {
+internal struct SearchBar: View {
+    @Binding
+    var text: String?
+    var height: CGFloat
+
+    var body: some View {
+        SearchBarWrapper(text: $text, placeholder: "Search") { searchBar in
+            let backgroundImage = UIColor.tertiarySystemFill.circleImage(length: height)
+            searchBar.setSearchFieldBackgroundImage(backgroundImage, for: .normal)
+        }
+        .animation(nil)
+        .accentColor(Color(.primaryBlue))
+        .frame(height: height)
+        .padding(.top, 16)
+        .padding(.horizontal, 8)
+    }
+}
+
+private struct SearchBarWrapper: UIViewRepresentable {
     @Binding
     var text: String?
 
@@ -16,6 +34,7 @@ internal struct SearchBar: UIViewRepresentable {
         let searchBar = UISearchBar()
         searchBar.enablesReturnKeyAutomatically = false
         searchBar.backgroundImage = UIImage()
+        searchBar.setSearchFieldBackgroundImage(UIImage(), for: .normal)
         searchBar.setPositionAdjustment(UIOffset(horizontal: 8, vertical: 0), for: .search)
         searchBar.setPositionAdjustment(UIOffset(horizontal: -8, vertical: 0), for: .clear)
         return searchBar
@@ -29,16 +48,16 @@ internal struct SearchBar: UIViewRepresentable {
     }
 }
 
-internal extension SearchBar {
+private extension SearchBarWrapper {
     final class Coordinator: NSObject, UISearchBarDelegate {
-        let searchBar: SearchBar
+        let base: SearchBarWrapper
 
-        init(_ searchBar: SearchBar) {
-            self.searchBar = searchBar
+        init(_ base: SearchBarWrapper) {
+            self.base = base
         }
 
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            self.searchBar.text = searchText
+            base.text = searchText
         }
 
         func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

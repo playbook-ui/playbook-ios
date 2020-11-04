@@ -3,12 +3,9 @@ import SwiftUI
 /// A view that displays scenarios manged by given `Playbook` instance with
 /// gallery-style appearance.
 public struct PlaybookGallery: View {
-    private var underlyingView: PlaybookGalleryInternal
-
-    /// Declares the content and behavior of this view.
-    public var body: some View {
-        underlyingView
-    }
+    private let name: String
+    private let snapshotColorScheme: ColorScheme
+    private let store: GalleryStore
 
     /// Creates a new view that displays scenarios managed by given `Playbook` instance.
     ///
@@ -27,20 +24,122 @@ public struct PlaybookGallery: View {
         preSnapshotCountLimit: Int = 100,
         snapshotColorScheme: ColorScheme = .light
     ) {
-        underlyingView = PlaybookGalleryInternal(
-            name: name,
-            snapshotColorScheme: snapshotColorScheme,
-            store: GalleryStore(
-                playbook: playbook,
-                preSnapshotCountLimit: preSnapshotCountLimit,
-                screenSize: UIScreen.main.fixedCoordinateSpace.bounds.size,
-                userInterfaceStyle: snapshotColorScheme.userInterfaceStyle
-            )
+        self.name = name
+        self.snapshotColorScheme = snapshotColorScheme
+        self.store = GalleryStore(
+            playbook: playbook,
+            preSnapshotCountLimit: preSnapshotCountLimit,
+            screenSize: UIScreen.main.fixedCoordinateSpace.bounds.size,
+            userInterfaceStyle: snapshotColorScheme.userInterfaceStyle
         )
+    }
+
+    /// Declares the content and behavior of this view.
+    public var body: some View {
+        if #available(iOS 14.0, *) {
+            PlaybookGalleryIOS14(
+                name: name,
+                snapshotColorScheme: snapshotColorScheme,
+                store: store
+            )
+        } else {
+            PlaybookGalleryIOS13(
+                name: name,
+                snapshotColorScheme: snapshotColorScheme,
+                store: store
+            )
+        }
     }
 }
 
-internal struct PlaybookGalleryInternal: View {
+@available(iOS 14.0, *)
+private struct PlaybookGalleryIOS14: View {
+    var name: String
+    var snapshotColorScheme: ColorScheme
+
+    @StateObject
+    var store: GalleryStore
+
+    @Environment(\.galleryDependency)
+    var dependency
+
+    var body: some View {
+        GeometryReader { geometry in
+            NavigationView {
+                ScrollView {
+                    LazyVStack(spacing: .zero) {
+                        SearchBar(text: $store.searchText, height: 44)
+                            .padding(.leading, geometry.safeAreaInsets.leading)
+                            .padding(.trailing, geometry.safeAreaInsets.trailing)
+
+                        statefulBody(geometry: geometry)
+                    }
+                }
+                .ignoresSafeArea(edges: .horizontal)
+                .navigationBarTitle(self.name)
+                .sheet(item: self.$store.selectedScenario) { data in
+                    ScenarioDisplaySheet(data: data) {
+                        self.store.selectedScenario = nil
+                    }
+                }
+            }
+            .environmentObject(self.store)
+            .navigationViewStyle(StackNavigationViewStyle())
+            .onAppear {
+                self.dependency.scheduler.schedule(on: .main, action: self.store.prepare)
+            }
+        }
+    }
+}
+
+@available(iOS 14.0, *)
+private extension PlaybookGalleryIOS14 {
+    @ViewBuilder
+    func statefulBody(geometry: GeometryProxy) -> some View {
+        switch store.status {
+        case .ready where store.result.data.isEmpty:
+            message("This filter resulted in 0 results", font: .headline)
+
+        case .ready:
+            Counter(numerator: store.result.matchedCount, denominator: store.scenariosCount)
+
+            ForEach(store.result.data, id: \.kind) { data in
+                ScenarioDisplayList(
+                    data: data,
+                    safeAreaInsets: geometry.safeAreaInsets,
+                    serialDispatcher: SerialMainDispatcher(
+                        interval: 0.2,
+                        scheduler: self.dependency.scheduler
+                    ),
+                    onSelect: { self.store.selectedScenario = $0 }
+                )
+            }
+
+        case .standby:
+            VStack(spacing: 0) {
+                message("Preparing snapshots ...", font: .system(size: 24))
+
+                Image(symbol: .book)
+                    .imageScale(.large)
+                    .font(.system(size: 60))
+                    .foregroundColor(Color(.label))
+            }
+        }
+    }
+
+    func message(_ text: String, font: Font) -> some View {
+        Text(text)
+            .foregroundColor(Color(.label))
+            .font(font)
+            .bold()
+            .lineLimit(nil)
+            .fixedSize(horizontal: false, vertical: true)
+            .padding(.vertical, 44)
+            .padding(.horizontal, 24)
+    }
+}
+
+private struct PlaybookGalleryIOS13: View {
     var name: String
     var snapshotColorScheme: ColorScheme
 
@@ -48,19 +147,9 @@ internal struct PlaybookGalleryInternal: View {
     var store: GalleryStore
 
     @Environment(\.galleryDependency)
-    private var dependency
+    var dependency
 
-    init(
-        name: String,
-        snapshotColorScheme: ColorScheme,
-        store: GalleryStore
-    ) {
-        self.name = name
-        self.snapshotColorScheme = snapshotColorScheme
-        self.store = store
-    }
-
-    public var body: some View {
+    var body: some View {
         GeometryReader { geometry in
             NavigationView {
                 TableView(
@@ -87,7 +176,7 @@ internal struct PlaybookGalleryInternal: View {
     }
 }
 
-private extension PlaybookGalleryInternal {
+private extension PlaybookGalleryIOS13 {
     enum Status {
         case standby
         case ready
@@ -135,18 +224,6 @@ private extension PlaybookGalleryInternal {
         }
     }
 
-    func searchBar() -> some View {
-        let height: CGFloat = 44
-        return SearchBar(text: $store.searchText, placeholder: "Search") { searchBar in
-            let backgroundImage = UIColor.tertiarySystemFill.circleImage(length: height)
-            searchBar.setSearchFieldBackgroundImage(backgroundImage, for: .normal)
-        }
-        .accentColor(Color(.primaryBlue))
-        .frame(height: height)
-        .padding(.top, 16)
-        .padding(.horizontal, 8)
-    }
-
     func row(with row: Row, geometry: GeometryProxy) -> some View {
         switch row {
         case .scenarios(let data):
@@ -175,10 +252,6 @@ private extension PlaybookGalleryInternal {
 
     func standby() -> some View {
         VStack(spacing: 0) {
-            HStack {
-                Spacer.zero
-            }
-
             message("Preparing snapshots ...", font: .system(size: 24))
 
             Image(symbol: .book)
@@ -189,20 +262,14 @@ private extension PlaybookGalleryInternal {
     }
 
     func message(_ text: String, font: Font) -> some View {
-        VStack(spacing: 0) {
-            HStack {
-                Spacer.zero
-            }
-
-            Text(text)
-                .foregroundColor(Color(.label))
-                .font(font)
-                .bold()
-                .lineLimit(nil)
-                .fixedSize(horizontal: false, vertical: true)
-        }
-        .padding(.vertical, 44)
-        .padding(.horizontal, 24)
+        Text(text)
+            .foregroundColor(Color(.label))
+            .font(font)
+            .bold()
+            .lineLimit(nil)
+            .fixedSize(horizontal: false, vertical: true)
+            .padding(.vertical, 44)
+            .padding(.horizontal, 24)
     }
 
     func snapshot() -> NSDiffableDataSourceSnapshot<Section, Row> {
@@ -228,7 +295,9 @@ private extension PlaybookGalleryInternal {
     }
 
     func configureTableview(_ tableView: UITableView) {
-        let tableHeaderView = UIHostingController(rootView: searchBar())
+        let tableHeaderView = UIHostingController(
+            rootView: SearchBar(text: $store.searchText, height: 44)
+        )
         tableHeaderView.view.backgroundColor = .clear
         tableHeaderView.view.sizeToFit()
         tableView.backgroundColor = .primaryBackground
