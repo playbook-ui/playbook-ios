@@ -101,34 +101,6 @@ Scenario("MapView", layout: .fill) { context in
 
 ---
 
-### PlaybookSnapshot
-
-Scenarios can be tested by the instance of types conform to `TestTool` protocol.  
-`Snapshot` is one of them, which can generate the snapshots of all scenarios with simulate the screen size and safe area of the given devices.  
-Since `Snapshot` depends on `XCTest`, it should be used in the module for unit test.   
-
-```swift
-final class SnapshotTests: XCTestCase {
-    func testTakeSnapshot() throws {
-        let directory = ProcessInfo.processInfo.environment["SNAPSHOT_DIR"]!
-
-        try Playbook.default.run(
-            Snapshot(
-                directory: URL(fileURLWithPath: directory),
-                clean: true,
-                format: .png,
-                keyWindow: UIApplication.shared.windows.first { $0.isKeyWindow },
-                devices: [.iPhone11Pro(.portrait)]
-            )
-        )
-    }
-}
-```
-
-<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/generated-images.png" alt="generate images" width="660">
-
----
-
 ### PlaybookUI
 
 `PlaybookUI` is a framework that provides user interfaces made by `SwiftUI` for browsing a list of scenarios.  
@@ -157,9 +129,45 @@ To save snapshot images to the photo library from the share button on each UI, `
 
 ---
 
+### PlaybookSnapshot
+
+Scenarios can be tested by the instance of types conform to `TestTool` protocol.  
+`Snapshot` is one of them, which can generate the snapshots of all scenarios with simulate the screen size and safe area of the given devices.  
+Since `Snapshot` depends on `XCTest`, it should be used in the module for unit test.   
+
+```swift
+final class SnapshotTests: XCTestCase {
+    func testTakeSnapshot() throws {
+        let directory = ProcessInfo.processInfo.environment["SNAPSHOT_DIR"]!
+
+        try Playbook.default.run(
+            Snapshot(
+                directory: URL(fileURLWithPath: directory),
+                clean: true,
+                format: .png,
+                keyWindow: UIApplication.shared.windows.first { $0.isKeyWindow },
+                devices: [.iPhone11Pro(.portrait)]
+            )
+        )
+    }
+}
+```
+
+<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/generated-images.png" alt="generate images" width="660">
+
+---
+
+### [PlaybookAccessibilitySnapshot](https://github.com/playbook-ui/accessibility-snapshot-ios)
+
+An extension to `Playbook` that uses [AccessibilitySnapshot](https://github.com/cashapp/AccessibilitySnapshot) to produce snapshots with accessibility information such as activation points and labels.
+
+<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/accessibility-snapshot.png" alt="accessibility-snapshot" width="400">
+
+---
+
 ### Integration with Third-party Tools
 
-The snapshot image files generated on the host machine's file system by `PlaybookSnapshot` can be used with a variety of third-party tools.  
+The generated snapshot images can be used for more advanced visual regression testing by using a variety of third party tools.  
 
 #### [percy](https://percy.io)
 
