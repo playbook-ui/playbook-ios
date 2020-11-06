@@ -16,7 +16,7 @@ public struct Profile {
         Profile(
             username: "g_kumar",
             prefersNotifications: true,
-            seasonalPhoto: .winter,
+            seasonalPhoto: .summer,
             goalDate: goalDate
         )
     }

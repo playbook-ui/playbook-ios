@@ -47,12 +47,12 @@ public struct CategoryRow: View {
 public struct CategoryItem: View {
     public var landmark: Landmark
     public var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             landmark.image
                 .renderingMode(.original)
                 .resizable()
                 .frame(width: 155, height: 155)
-                .cornerRadius(5)
+                .cornerRadius(155 / 2)
             Text(landmark.name)
                 .foregroundColor(.primary)
                 .font(.caption)

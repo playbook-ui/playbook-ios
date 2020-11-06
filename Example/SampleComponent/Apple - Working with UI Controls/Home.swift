@@ -49,7 +49,7 @@ public struct CategoryHome: View {
                     Text("See All")
                 }
             }
-            .navigationBarTitle(Text("Featured"))
+            .navigationBarTitle(Text("Home"))
             .navigationBarItems(trailing: profileButton)
             .sheet(isPresented: $showingProfile) {
                 ProfileHost()
