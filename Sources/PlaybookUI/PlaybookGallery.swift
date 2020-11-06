@@ -93,6 +93,7 @@ internal struct PlaybookGalleryIOS14: View {
                     ScenarioDisplaySheet(data: data) {
                         store.selectedScenario = nil
                     }
+                    .environmentObject(store)
                 }
             }
             .environmentObject(store)
