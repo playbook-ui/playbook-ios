@@ -2,7 +2,7 @@ import SwiftUI
 
 @testable import PlaybookUI
 
-struct GalleryScenarios: ScenarioProvider {
+enum GalleryScenarios: ScenarioProvider {
     static func addScenarios(into playbook: Playbook) {
         playbook.addScenarios(of: "Gallery") {
             Scenario("Ready", layout: .fill) { context in

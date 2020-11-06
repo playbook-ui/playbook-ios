@@ -78,13 +78,14 @@ public struct Snapshot: TestTool {
                 let directoryURL =
                     directoryURL
                     .appendingPathComponent(device.name, isDirectory: true)
-                    .appendingPathComponent(store.kind.rawValue, isDirectory: true)
+                    .appendingPathComponent(normalize(store.kind.rawValue), isDirectory: true)
+
                 try fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true)
 
                 func attemptToWrite(data: Data, scenario: Scenario) {
                     let fileURL =
                         directoryURL
-                        .appendingPathComponent(scenario.name.rawValue)
+                        .appendingPathComponent(normalize(scenario.name.rawValue))
                         .appendingPathExtension(format.fileExtension)
 
                     XCTAssertNoThrow(try data.write(to: fileURL), file: scenario.file, line: scenario.line)
@@ -111,5 +112,16 @@ public struct Snapshot: TestTool {
 
         group.notify(queue: .main, execute: expectation.fulfill)
         XCTWaiter().wait(for: [expectation], timeout: timeout)
+    }
+}
+
+private extension Snapshot {
+    static let nameNormalizationCharacters = CharacterSet(charactersIn: ".:/")
+        .union(.whitespacesAndNewlines)
+        .union(.illegalCharacters)
+        .union(.controlCharacters)
+
+    func normalize(_ string: String) -> String {
+        string.components(separatedBy: Self.nameNormalizationCharacters).joined(separator: "_")
     }
 }

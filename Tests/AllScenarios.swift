@@ -5,5 +5,6 @@ struct AllScenarios: ScenarioProvider {
         playbook
             .add(GalleryScenarios.self)
             .add(CatalogScenarios.self)
+            .add(ExtraScenarios.self)
     }
 }
