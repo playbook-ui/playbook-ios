@@ -2,7 +2,7 @@ import SwiftUI
 
 @testable import PlaybookUI
 
-struct CatalogScenarios: ScenarioProvider {
+enum CatalogScenarios: ScenarioProvider {
     static func addScenarios(into playbook: Playbook) {
         playbook.addScenarios(of: "Catalog") {
             Scenario("Drawer close", layout: .fill) {
