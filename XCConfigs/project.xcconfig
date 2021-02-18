@@ -1,8 +1,6 @@
 SDKROOT =
 SUPPORTED_PLATFORMS = iphoneos iphonesimulator
 TARGETED_DEVICE_FAMILY = 1,2
-VALID_ARCHS[sdk=iphoneos*] = arm64 armv7 armv7s
-VALID_ARCHS[sdk=iphonesimulator*] = i386 x86_64
 
 BUILD_LIBRARY_FOR_DISTRIBUTION = YES
 CODE_SIGNING_REQUIRED = NO
