@@ -82,7 +82,7 @@ jobs:
         run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Example/PlaybookExample.xcodeproj -scheme SamplePlaybook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
 
       - name: Visual regression test
-        if: matrix.xcode_version == '12.4'
+        if: matrix.xcode_version == '12.5.1'
         run: npx percy upload Snapshots
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
