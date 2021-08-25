@@ -7,11 +7,11 @@ on:
 jobs:
   validation:
     name: Validation
-    runs-on: macOS-10.15
+    runs-on: macos-11
     strategy:
       matrix:
         xcode_version:
-          - "12.2"
+          - 12.5.1
     env:
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode_version }}.app
     steps:
@@ -46,13 +46,12 @@ jobs:
 
   test:
     name: Test on macOS
-    runs-on: macOS-10.15
+    runs-on: macos-11
     strategy:
       matrix:
         xcode_version:
-          - "11.3.1"
-          - "11.4.1"
-          - "12.2"
+          - 11.7
+          - 12.5.1
     env:
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode_version }}.app
     steps:
@@ -83,7 +82,7 @@ jobs:
         run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Example/PlaybookExample.xcodeproj -scheme SamplePlaybook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
 
       - name: Visual regression test
-        if: matrix.xcode_version == '12.2'
+        if: matrix.xcode_version == '12.5.1'
         run: npx percy upload Snapshots
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

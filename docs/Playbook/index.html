@@ -14,7 +14,6 @@
             </strong>
             <span>Documentation</span>
         </a>
-        <sup>Beta</sup>
     </header>
 
     <!--
@@ -38,7 +37,7 @@
 </h1>
 
 <div class="declaration">
-<pre class="highlight"><code><span class="attribute">open</span> <span class="keyword">class</span> <span class="type">Playbook</span> </code></pre>
+<pre class="highlight"><code><html><body><span class="attribute">open</span> <span class="keyword">class</span> <span class="type">Playbook</span>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>The central scenario manager.</p>
@@ -54,7 +53,7 @@ with instantiate arbitrarily.</p>
     }
 }
 
-<span class="variable">Playbook</span>.<span class="type">default</span>.<span class="type">addScenarios</span>(<span class="variable">of</span>: <span class="string literal">"</span><span class="string literal">Components</span><span class="string literal">"</span>) {
+<span class="variable">Playbook</span>.<span class="variable">default</span>.<span class="variable">addScenarios</span>(<span class="variable">of</span>: <span class="string literal">"</span><span class="string literal">Components</span><span class="string literal">"</span>) {
     <span class="variable">Scenario</span>(<span class="string literal">"</span><span class="string literal">Content</span><span class="string literal">"</span>, <span class="variable">layout</span>: .<span class="variable">compressed</span>) {
         <span class="variable">Content</span>()
     }
@@ -67,10 +66,10 @@ with instantiate arbitrarily.</p>
 
         <div role="article" class="initializer" id="playbook.init()">
     <h3>
-        <code>init()</code>
+        <code><a href="#playbook.init()">init()</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>() </code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">init</span>()  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>Initialize a new <code>Playbook</code>.</p>
@@ -83,10 +82,10 @@ with instantiate arbitrarily.</p>
 
         <div role="article" class="variable" id="playbook.`default`">
     <h3>
-        <code>`default`</code>
+        <code><a href="#playbook.`default`">`default`</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">let</span> <span class="variable">`default`</span> </code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">let</span> <span class="variable">`default`</span>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>The default shared instance of <code>Playbook</code>.</p>
@@ -95,10 +94,10 @@ with instantiate arbitrarily.</p>
 </div>
 <div role="article" class="variable" id="playbook.stores">
     <h3>
-        <code>stores</code>
+        <code><a href="#playbook.stores">stores</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">var</span> <span class="variable">stores</span>: [<span class="type">ScenarioStore</span>] </code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">var</span> <span class="variable">stores</span>: [<a href="https://playbook-ui.github.io/playbook-ios/ScenarioStore"><span class="type">ScenarioStore</span></a>]  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>A set of stores that holds the added scenarios.</p>
@@ -111,10 +110,10 @@ with instantiate arbitrarily.</p>
 
         <div role="article" class="function" id="playbook.scenarios(of:)">
     <h3>
-        <code>scenarios(of:​)</code>
+        <code><a href="#playbook.scenarios(of:)">scenarios(of:​)</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">scenarios</span>(<span class="variable">of</span> <span class="variable">kind</span>: <span class="type">ScenarioKind</span>) -&gt; <span class="type">ScenarioStore</span> </code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">scenarios</span>(<span class="variable">of</span> <span class="variable">kind</span>: <a href="https://playbook-ui.github.io/playbook-ios/ScenarioKind"><span class="type">ScenarioKind</span></a>) -&gt; <a href="https://playbook-ui.github.io/playbook-ios/ScenarioStore"><span class="type">ScenarioStore</span></a>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>Returns a store identified by specified kind.</p>
@@ -149,11 +148,11 @@ with instantiate arbitrarily.</p>
 </div>
 <div role="article" class="function" id="playbook.add(_:)">
     <h3>
-        <code>add(_:​)</code>
+        <code><a href="#playbook.add(_:)">add(_:​)</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="attribute">@</span><span class="attribute">discardableResult</span>
-    <span class="keyword">public</span> <span class="keyword">func</span> <span class="function">add</span>&lt;<span class="variable">Provider</span>: <span class="type">ScenarioProvider</span>&gt;(<span class="keyword">_</span> <span class="variable">provider</span>: <span class="type">Provider</span>.<span class="type">Type</span>) -&gt; <span class="keyword">Self</span> </code></pre>
+<pre class="highlight"><code><html><body><span class="attribute">@</span><span class="attribute">discardableResult</span>
+    <span class="keyword">public</span> <span class="keyword">func</span> <span class="function">add</span>&lt;<span class="variable">Provider</span>: <a href="https://playbook-ui.github.io/playbook-ios/ScenarioProvider"><span class="type">ScenarioProvider</span></a>&gt;(<span class="keyword">_</span> <span class="variable">provider</span>: <span class="type">Provider</span>.<span class="type">Type</span>) -&gt; <span class="keyword">Self</span>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>Adds a set scenarios defined in specified provider.</p>
@@ -184,11 +183,11 @@ with instantiate arbitrarily.</p>
 </div>
 <div role="article" class="function" id="playbook.addscenarios(of:_:)">
     <h3>
-        <code>add​Scenarios(of:​_:​)</code>
+        <code><a href="#playbook.addscenarios(of:_:)">add​Scenarios(of:​_:​)</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="attribute">@</span><span class="attribute">discardableResult</span>
-    <span class="keyword">public</span> <span class="keyword">func</span> <span class="function">addScenarios</span>&lt;<span class="variable">S</span>: <span class="type">ScenariosBuildable</span>&gt;(<span class="variable">of</span> <span class="variable">kind</span>: <span class="type">ScenarioKind</span>, <span class="attribute">@</span><span class="type">ScenariosBuilder</span> <span class="keyword">_</span> <span class="variable">scenarios</span>: () -&gt; <span class="type">S</span>) -&gt; <span class="keyword">Self</span> </code></pre>
+<pre class="highlight"><code><html><body><span class="attribute">@</span><span class="attribute">discardableResult</span>
+    <span class="keyword">public</span> <span class="keyword">func</span> <span class="function">addScenarios</span>&lt;<span class="variable">S</span>: <a href="https://playbook-ui.github.io/playbook-ios/ScenariosBuildable"><span class="type">ScenariosBuildable</span></a>&gt;(<span class="variable">of</span> <span class="variable">kind</span>: <a href="https://playbook-ui.github.io/playbook-ios/ScenarioKind"><span class="type">ScenarioKind</span></a>, <span class="attribute">@</span><a href="https://playbook-ui.github.io/playbook-ios/ScenariosBuilder"><span class="type">ScenariosBuilder</span></a> <span class="keyword">_</span> <span class="variable">scenarios</span>: () -&gt; <span class="type">S</span>) -&gt; <span class="keyword">Self</span>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>Adds a set of scenarios passed by function builder.</p>
@@ -225,10 +224,10 @@ with instantiate arbitrarily.</p>
 </div>
 <div role="article" class="function" id="playbook.run(_:_:)">
     <h3>
-        <code>run(_:​_:​)</code>
+        <code><a href="#playbook.run(_:_:)">run(_:​_:​)</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">run</span>(<span class="keyword">_</span> <span class="variable">test</span>: <span class="type">TestTool</span>, <span class="keyword">_</span> <span class="variable">tests</span>: <span class="type">TestTool</span>...) <span class="keyword">throws</span> </code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">run</span>(<span class="keyword">_</span> <span class="variable">test</span>: <a href="https://playbook-ui.github.io/playbook-ios/TestTool"><span class="type">TestTool</span></a>, <span class="keyword">_</span> <span class="variable">tests</span>: <a href="https://playbook-ui.github.io/playbook-ios/TestTool"><span class="type">TestTool</span></a>...) <span class="keyword">throws</span>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>Serialy runs specified tests conform to <code>TestTool</code> protocol.</p>
@@ -269,7 +268,7 @@ with instantiate arbitrarily.</p>
 
     <footer>
         <p>
-    Generated on <time datetime="2020-11-04T22:33:18+0900">November 4, 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-08-25T19:01:53+0900">August 25, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
 </p>
     </footer>
 </body>

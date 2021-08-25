@@ -14,7 +14,6 @@
             </strong>
             <span>Documentation</span>
         </a>
-        <sup>Beta</sup>
     </header>
 
     <!--
@@ -38,7 +37,7 @@
 </h1>
 
 <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">SnapshotSupport</span> </code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">SnapshotSupport</span>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>A namespace for the methods supporting to generate snapshot from scenarios.</p>
@@ -59,25 +58,25 @@
 
         <div role="article" class="function" id="snapshotsupport.data(for:on:format:scale:keywindow:viewpreprocessor:handler:)">
     <h3>
-        <code>data(for:​on:​format:​scale:​key​Window:​view​Preprocessor:​handler:​)</code>
+        <code><a href="#snapshotsupport.data(for:on:format:scale:keywindow:viewpreprocessor:handler:)">data(for:​on:​format:​scale:​key​Window:​view​Preprocessor:​handler:​)</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">data</span>(
-        <span class="variable">for</span> <span class="variable">scenario</span>: <span class="type">Scenario</span>,
-        <span class="variable">on</span> <span class="variable">device</span>: <span class="type">SnapshotDevice</span>,
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">data</span>(
+        <span class="variable">for</span> <span class="variable">scenario</span>: <a href="https://playbook-ui.github.io/playbook-ios/Scenario"><span class="type">Scenario</span></a>,
+        <span class="variable">on</span> <span class="variable">device</span>: <a href="https://playbook-ui.github.io/playbook-ios/SnapshotDevice"><span class="type">SnapshotDevice</span></a>,
         <span class="variable">format</span>: <span class="type">ImageFormat</span>,
-        <span class="variable">scale</span>: <span class="type">CGFloat</span> = <span class="variable">UIScreen</span>.<span class="type">main</span>.<span class="type">scale</span>,
+        <span class="variable">scale</span>: <span class="type">CGFloat</span> = <span class="variable">UIScreen</span>.<span class="variable">main</span>.<span class="variable">scale</span>,
         <span class="variable">keyWindow</span>: <span class="type">UIWindow</span>? = <span class="keyword">nil</span>,
         <span class="variable">viewPreprocessor</span>: ((<span class="type">UIView</span>) -&gt; <span class="type">UIView</span>)? = <span class="keyword">nil</span>,
         <span class="variable">handler</span>: <span class="attribute">@</span><span class="attribute">escaping</span> (<span class="type">Data</span>) -&gt; <span class="type">Void</span>
-    ) </code></pre>
+    )  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>Generates an image file data that snapshots the given scenario.</p>
 
 </div>
 <div class="discussion">
-    <aside class="note">
+    <aside class="note" title="Note">
     <p>Passing the key window adds the scenario content to the view hierarchy and actually renders it, so producing a more accurate snapshot image.</p>
 
 </aside>
@@ -140,24 +139,24 @@
 </div>
 <div role="article" class="function" id="snapshotsupport.image(for:on:scale:keywindow:viewpreprocessor:handler:)">
     <h3>
-        <code>image(for:​on:​scale:​key​Window:​view​Preprocessor:​handler:​)</code>
+        <code><a href="#snapshotsupport.image(for:on:scale:keywindow:viewpreprocessor:handler:)">image(for:​on:​scale:​key​Window:​view​Preprocessor:​handler:​)</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">image</span>(
-        <span class="variable">for</span> <span class="variable">scenario</span>: <span class="type">Scenario</span>,
-        <span class="variable">on</span> <span class="variable">device</span>: <span class="type">SnapshotDevice</span>,
-        <span class="variable">scale</span>: <span class="type">CGFloat</span> = <span class="variable">UIScreen</span>.<span class="type">main</span>.<span class="type">scale</span>,
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">image</span>(
+        <span class="variable">for</span> <span class="variable">scenario</span>: <a href="https://playbook-ui.github.io/playbook-ios/Scenario"><span class="type">Scenario</span></a>,
+        <span class="variable">on</span> <span class="variable">device</span>: <a href="https://playbook-ui.github.io/playbook-ios/SnapshotDevice"><span class="type">SnapshotDevice</span></a>,
+        <span class="variable">scale</span>: <span class="type">CGFloat</span> = <span class="variable">UIScreen</span>.<span class="variable">main</span>.<span class="variable">scale</span>,
         <span class="variable">keyWindow</span>: <span class="type">UIWindow</span>? = <span class="keyword">nil</span>,
         <span class="variable">viewPreprocessor</span>: ((<span class="type">UIView</span>) -&gt; <span class="type">UIView</span>)? = <span class="keyword">nil</span>,
         <span class="variable">handler</span>: <span class="attribute">@</span><span class="attribute">escaping</span> (<span class="type">UIImage</span>) -&gt; <span class="type">Void</span>
-    ) </code></pre>
+    )  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>Generates an <code>UIImage</code> that snapshots the given scenario.</p>
 
 </div>
 <div class="discussion">
-    <aside class="note">
+    <aside class="note" title="Note">
     <p>Passing the key window adds the scenario content to the view hierarchy and actually renders it, so producing a more accurate snapshot image.</p>
 
 </aside>
@@ -221,7 +220,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2020-11-04T22:33:18+0900">November 4, 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-08-25T19:01:53+0900">August 25, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
 </p>
     </footer>
 </body>

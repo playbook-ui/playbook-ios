@@ -1,28 +1,24 @@
-SWIFT_TOOL := Tools/swift-run.sh
+SWIFT_RUN := swift run -c release
 GITHUB_RAW_CONTENT_PATH := https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/
 GITHUB_TREE_PATH := https://github.com/playbook-ui/playbook-ios/tree/master/
 LIBS := "Playbook" "PlaybookUI" "PlaybookSnapshot"
 
 .PHONY: all
-all: proj mod format
+all: proj format
 
 .PHONY: proj
 proj:
-	$(SWIFT_TOOL) xcodegen
-	$(SWIFT_TOOL) xcodegen --spec Example/project.yml --project Example
-
-.PHONY: mod
-mod:
-	$(SWIFT_TOOL) swift-mod
+	$(SWIFT_RUN) --package-path Tools xcodegen
+	$(SWIFT_RUN) --package-path Tools xcodegen --spec Example/project.yml --project Example
 
 .PHONY: format
 format:
-	$(SWIFT_TOOL) swift-format --configuration .swift-format.json -i -r -m format \
+	$(SWIFT_RUN) --package-path Tools swift-format -i -r -m format \
 	  Sources Tests Example/SamplePlaybook Example/SampleSnapshot
 
 .PHONY: lint
 lint:
-	$(SWIFT_TOOL) swift-format --configuration .swift-format.json -r -m lint Sources Tests
+	$(SWIFT_RUN) --package-path Tools swift-format -r -m lint Sources Tests
 
 .PHONY: pod-lib-lint
 pod-lib-lint:
@@ -47,7 +43,7 @@ npm:
 
 .PHONY: docs
 docs:
-	$(SWIFT_TOOL) swift-doc generate Sources -n Playbook -f html -o docs --base-url https://playbook-ui.github.io/playbook-ios
+	$(SWIFT_RUN) --package-path Tools/Doc swift-doc generate Sources -n Playbook -f html -o docs --base-url https://playbook-ui.github.io/playbook-ios
 
 .PHONY: fix-readme-links
 fix-readme-links:
