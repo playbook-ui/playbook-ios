@@ -18,7 +18,7 @@ format:
 
 .PHONY: lint
 lint:
-	$(SWIFT_RUN) --package-path Tools swift-format --configuration .swift-format.json -r -m lint Sources Tests
+	$(SWIFT_RUN) --package-path Tools swift-format -r -m lint Sources Tests
 
 .PHONY: pod-lib-lint
 pod-lib-lint:
