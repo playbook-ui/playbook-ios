@@ -133,7 +133,7 @@ To save snapshot images to the photo library from the share button on each UI, `
 
 Scenarios can be tested by the instance of types conform to `TestTool` protocol.  
 `Snapshot` is one of them, which can generate the snapshots of all scenarios with simulate the screen size and safe area of the given devices.  
-Since `Snapshot` depends on `XCTest`, it should be used in the module for unit test.   
+Since Playbook doesn't depend on XCTest, it doesn't necessarily need to be run on Unit-test.  
 
 ```swift
 final class SnapshotTests: XCTestCase {
