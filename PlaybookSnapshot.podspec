@@ -12,7 +12,6 @@ Pod::Spec.new do |spec|
     spec.swift_versions = '5.1'
     spec.ios.deployment_target = '11.0'
     spec.ios.source_files = 'Sources/PlaybookSnapshot/**/*.swift'
-    spec.ios.frameworks = 'XCTest'
     spec.dependency 'Playbook', "~> 0.2.0"
 
     spec.pod_target_xcconfig = {

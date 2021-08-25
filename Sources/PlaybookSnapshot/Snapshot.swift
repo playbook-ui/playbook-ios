@@ -1,4 +1,5 @@
-import XCTest
+import Playbook
+import UIKit
 
 /// The testing tool which generates snapshot images from scenarios managed by `Playbook`.
 public struct Snapshot: TestTool {
@@ -62,7 +63,8 @@ public struct Snapshot: TestTool {
     /// - Parameters:
     ///   - playbook: A `Playbook` instance to be tested.
     public func run(with playbook: Playbook) throws {
-        let expectation = XCTestExpectation(description: "Wait for done take all snapshots")
+        let timeoutTimestamp = Date.timeIntervalSinceReferenceDate + timeout
+
         let group = DispatchGroup()
 
         let fileManager = FileManager.default
@@ -72,6 +74,8 @@ public struct Snapshot: TestTool {
         if clean && fileManager.fileExists(atPath: directoryURL.path) {
             try fileManager.removeItem(at: directoryURL)
         }
+
+        var writingFailureURLs = [URL]()
 
         for device in devices {
             for store in playbook.stores {
@@ -88,7 +92,12 @@ public struct Snapshot: TestTool {
                         .appendingPathComponent(normalize(scenario.name.rawValue))
                         .appendingPathExtension(format.fileExtension)
 
-                    XCTAssertNoThrow(try data.write(to: fileURL), file: scenario.file, line: scenario.line)
+                    do {
+                        try data.write(to: fileURL)
+                    }
+                    catch {
+                        writingFailureURLs.append(fileURL)
+                    }
                 }
 
                 for scenario in store.scenarios {
@@ -110,8 +119,29 @@ public struct Snapshot: TestTool {
             }
         }
 
-        group.notify(queue: .main, execute: expectation.fulfill)
-        XCTWaiter().wait(for: [expectation], timeout: timeout)
+        let waiter = SnapshotWaiter()
+        let awaitQueue = DispatchQueue(label: #file, qos: .default)
+        let runLoop = RunLoop.current
+
+        waiter.wait(until: .distantFuture)
+        group.notify(queue: awaitQueue) {
+            waiter.fulfill()
+        }
+
+        while waiter.isWaiting {
+            let remaining = timeoutTimestamp - Date.timeIntervalSinceReferenceDate
+            let timeIntervalToRun = min(0.1, remaining)
+
+            if timeIntervalToRun <= 0 {
+                throw SnapshotError.timeout(timeout)
+            }
+
+            runLoop.run(mode: .default, before: Date(timeIntervalSinceNow: timeIntervalToRun))
+        }
+
+        guard writingFailureURLs.isEmpty else {
+            throw SnapshotError.fileWritingFailure(urls: writingFailureURLs)
+        }
     }
 }
 
