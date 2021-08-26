@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
     spec.swift_versions = '5.1'
     spec.ios.deployment_target = '11.0'
     spec.ios.source_files = 'Sources/PlaybookSnapshot/**/*.swift'
-    spec.dependency 'Playbook', "~> 0.2.0"
+    spec.dependency 'Playbook', "~> #{`cat .version`}"
 
     spec.pod_target_xcconfig = {
         'APPLICATION_EXTENSION_API_ONLY' => 'YES',
