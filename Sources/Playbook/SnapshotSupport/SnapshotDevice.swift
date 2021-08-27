@@ -523,7 +523,7 @@ public extension SnapshotDevice {
     /// - Returns: A device simulated the `iPhone 12 mini`.
     @available(iOS 12.0, *)
     static func iPhone12Mini(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
-        iPhone12(orientation).style(style)
+        iPhone12Mini(orientation).style(style)
     }
 
     /// `iPhone 12 mini` simulated device.
