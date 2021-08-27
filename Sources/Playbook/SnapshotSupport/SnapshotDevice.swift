@@ -565,7 +565,7 @@ public extension SnapshotDevice {
     /// - Returns: A device simulated the `iPhone 12`.
     @available(iOS 12.0, *)
     static func iPhone12(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
-        iPhone12Pro(orientation, style: style)
+        iPhone12(orientation).style(style)
     }
 
     /// `iPhone 12` simulated device.
@@ -575,7 +575,27 @@ public extension SnapshotDevice {
     ///
     /// - Returns: A device simulated the `iPhone 12`.
     static func iPhone12(_ orientation: Orientation) -> SnapshotDevice {
-        iPhone12Pro(orientation)
+        SnapshotDevice(
+            name: "iPhone 12 \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 390, height: 844),
+                landscape: CGSize(width: 844, height: 390)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 47, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 47, bottom: 21, right: 47)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: .compact,
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
     }
 
     /// `iPhone 12 Pro` simulated device.
