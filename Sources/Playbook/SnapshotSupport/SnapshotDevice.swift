@@ -43,6 +43,15 @@ public struct SnapshotDevice {
         self.traitCollection = traitCollection
     }
 
+    /// Adds a user interface style as a trait collection.
+    /// - Parameter style: A user interface style to be used.
+    /// - Returns: The device that added the given user interface style
+    ///            as a trait collection to `self`.
+    @available(iOS 12.0, *)
+    public func style(_ style: UIUserInterfaceStyle) -> SnapshotDevice {
+        addingTraitCollection(UITraitCollection(userInterfaceStyle: style))
+    }
+
     /// Adds an arbitrary trait collection to change the appearance.
     ///
     /// - Parameters
@@ -884,13 +893,6 @@ private extension UITraitCollection {
             UITraitCollection(forceTouchCapability: forceTouchCapability),
             UITraitCollection(preferredContentSizeCategory: preferredContentSizeCategory),
         ])
-    }
-}
-
-private extension SnapshotDevice {
-    @available(iOS 12.0, *)
-    func style(_ style: UIUserInterfaceStyle) -> SnapshotDevice {
-        addingTraitCollection(UITraitCollection(userInterfaceStyle: style))
     }
 }
 
