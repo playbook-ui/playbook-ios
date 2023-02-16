@@ -706,6 +706,95 @@ public extension SnapshotDevice {
     }
 }
 
+/// iPhone 14 Series
+public extension SnapshotDevice {
+    /// `iPhone 14 Pro` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///    - style: A theme of UI appearance.
+    ///
+    /// - Returns: A device simulated the `iPhone 14 Pro`.
+    @available(*, deprecated, message: "Alternatively, `.iPhone14Pro(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
+    @available(iOS 12.0, *)
+    static func iPhone14Pro(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+        iPhone14Pro(orientation).style(style)
+    }
+
+    /// `iPhone 14 Pro` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPhone 14 Pro`.
+    static func iPhone14Pro(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPhone 14 Pro \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 393, height: 852),
+                landscape: CGSize(width: 852, height: 393)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 59, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 59, bottom: 21, right: 59)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: .compact,
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+
+    /// `iPhone 14 Pro Max` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///    - style: A theme of UI appearance.
+    ///
+    /// - Returns: A device simulated the `iPhone 14 Pro Max`.
+    @available(*, deprecated, message: "Alternatively, `.iPhone14ProMax(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
+    @available(iOS 12.0, *)
+    static func iPhone14ProMax(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+        iPhone14ProMax(orientation).style(style)
+    }
+
+    /// `iPhone 14 Pro Max` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPhone 14 Pro Max`.
+    static func iPhone14ProMax(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPhone 14 Pro Max \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 430, height: 932),
+                landscape: CGSize(width: 932, height: 430)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 59, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 59, bottom: 21, right: 59)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: orientation.use(portrait: .compact, landscape: .regular),
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+}
+
 /// iPad Mini 5th
 public extension SnapshotDevice {
     /// `iPad Mini 5th generation` simulated device.
