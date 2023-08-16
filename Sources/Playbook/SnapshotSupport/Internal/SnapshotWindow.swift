@@ -57,6 +57,14 @@ internal final class SnapshotWindow: UIWindow {
         isHidden = false
 
         if window != nil {
+            // In iOS 16 and 17, setting `isHidden` nor does not update
+            // the safeAreaInsets on the rootViewController's view. Updating
+            // `additionalSafeAreaInsets` will so force an update
+            if scenarioViewController.view.safeAreaInsets == .zero {
+                scenarioViewController.additionalSafeAreaInsets = .init(top: 1, left: 0, bottom: 0, right: 0)
+                scenarioViewController.additionalSafeAreaInsets = .zero
+            }
+
             // Prioritise use snapshot device's `safeAreaInsets`
             // by `additionalSafeAreaInsets` if having a parent window.
             let originalSafeAreaInsets = scenarioViewController.view.safeAreaInsets
