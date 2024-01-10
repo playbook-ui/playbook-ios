@@ -22,7 +22,7 @@ To run project, install dependencies and open workspace as following commands.
 ```bash
 $ git clone https://github.com/playbook-ui/playbook-ios.git
 $ cd playbook-ios
-$ open Exapmle/PlaybookExample.xcworkspace
+$ open Example/PlaybookExample.xcodeproj
 ```
 
 ### Lint & Format & Project Generation
