@@ -8,7 +8,6 @@ all: proj format
 
 .PHONY: proj
 proj:
-	$(SWIFT_RUN) --package-path Tools xcodegen
 	$(SWIFT_RUN) --package-path Tools xcodegen --spec Example/project.yml --project Example
 
 .PHONY: format

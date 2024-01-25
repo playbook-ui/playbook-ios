@@ -25,5 +25,3 @@ about: Create a bug question.
 - Xcode version:
 
 - Devices/Simulators:
-
-- Carthage version:
