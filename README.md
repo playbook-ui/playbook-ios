@@ -18,7 +18,6 @@
 <br>
 <a href="https://github.com/playbook-ui/playbook-ios/releases/latest"><img alt="Release" src="https://img.shields.io/github/v/release/playbook-ui/playbook-ios.svg"/></a>
 <a href="https://swift.org/package-manager"><img alt="Swift Package Manager" src="https://img.shields.io/badge/SwiftPM-compatible-yellowgreen.svg"/></a>
-<a href="https://cocoapods.org/pods/Playbook"><img alt="CocoaPods" src="https://img.shields.io/cocoapods/v/Playbook.svg"/></a>
 <a href="https://github.com/Carthage/Carthage"><img alt="Carthage" src="https://img.shields.io/badge/Carthage-compatible-yellow.svg"/></a>
 
 `Playbook` is a library that provides a sandbox for building UI components without having to worry about application-specific dependencies, strongly inspired by [Storybook](https://storybook.js.org/) for JavaScript in web-frontend development.  
@@ -197,23 +196,6 @@ Playbook features are separated into the following frameworks.
 - `Playbook`: Core system of component management.
 - `PlaybookSnapshot`: Generates snapshots of all components.
 - `PlaybookUI`: Products a browsing UI for components managed by Playbook.
-
-### [CocoaPods](https://cocoapods.org)
-
-Add the following to your `Podfile`:
-
-```ruby
-target 'YourPlaybook' do
-  pod 'Playbook'
-  pod 'PlaybookUI'
-
-  target 'YourPlaybookTests' do
-    inherit! :search_paths
-
-    pod 'PlaybookSnapshot'
-  end
-end
-```
 
 ### [Carthage](https://github.com/Carthage/Carthage)
 

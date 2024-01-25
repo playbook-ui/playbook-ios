@@ -30,9 +30,6 @@ node_modules
 ## Carthage
 Carthage/Build
 
-## CocoaPods
-Pods/
-
 ## SwiftPM
 .swiftpm
 .build
