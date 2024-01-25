@@ -1,6 +1,0 @@
-#include "./project.xcconfig"
-
-IPHONEOS_DEPLOYMENT_TARGET = 11.0
-FRAMEWORK_SEARCH_PATHS = $(inherited) $(PLATFORM_DIR)/Developer/Library/Frameworks
-APPLICATION_EXTENSION_API_ONLY = YES
-ENABLE_BITCODE = NO

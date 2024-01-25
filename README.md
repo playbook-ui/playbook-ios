@@ -18,7 +18,6 @@
 <br>
 <a href="https://github.com/playbook-ui/playbook-ios/releases/latest"><img alt="Release" src="https://img.shields.io/github/v/release/playbook-ui/playbook-ios.svg"/></a>
 <a href="https://swift.org/package-manager"><img alt="Swift Package Manager" src="https://img.shields.io/badge/SwiftPM-compatible-yellowgreen.svg"/></a>
-<a href="https://github.com/Carthage/Carthage"><img alt="Carthage" src="https://img.shields.io/badge/Carthage-compatible-yellow.svg"/></a>
 
 `Playbook` is a library that provides a sandbox for building UI components without having to worry about application-specific dependencies, strongly inspired by [Storybook](https://storybook.js.org/) for JavaScript in web-frontend development.  
 
@@ -182,10 +181,7 @@ The generated snapshot images can be used for more advanced visual regression te
 
 - Swift 5.1+
 - Xcode 11.0+
-- iOS
-  - `Playbook`: 11.0+
-  - `PlaybookSnapshot`: 11.0+
-  - `PlaybookUI`: 13.0+
+- iOS 13.0+
 
 ---
 
@@ -196,14 +192,6 @@ Playbook features are separated into the following frameworks.
 - `Playbook`: Core system of component management.
 - `PlaybookSnapshot`: Generates snapshots of all components.
 - `PlaybookUI`: Products a browsing UI for components managed by Playbook.
-
-### [Carthage](https://github.com/Carthage/Carthage)
-
-Add the following to your `Cartfile`:
-
-```
-github "playbook-ui/playbook-ios"
-```
 
 ### [Swift Package Manager](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
 

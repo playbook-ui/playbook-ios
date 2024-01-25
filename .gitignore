@@ -20,15 +20,8 @@ build/
 archive/
 *.xcframework
 
-## Gem
-.bundle
-vendor
-
 ## npm
 node_modules
-
-## Carthage
-Carthage/Build
 
 ## SwiftPM
 .swiftpm
