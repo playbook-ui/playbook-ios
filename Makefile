@@ -20,23 +20,6 @@ format:
 lint:
 	$(SWIFT_RUN) --package-path Tools swift-format -r -m lint Sources Tests
 
-.PHONY: pod-lib-lint
-pod-lib-lint:
-	for lib in $(LIBS); do \
-	  bundle exec pod lib lint --quick $$lib.podspec; \
-	done
-
-.PHONY: pod-release
-pod-release:
-	for lib in $(LIBS); do \
-	  bundle exec pod trunk push $$lib.podspec; \
-	done
-
-.PHONY: gem
-gem:
-	bundle config path vendor/bundle
-	bundle install --jobs 4 --retry 3
-
 .PHONY: npm
 npm:
 	npm i

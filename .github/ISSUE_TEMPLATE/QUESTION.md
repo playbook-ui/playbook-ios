@@ -10,12 +10,9 @@ about: Create a bug question.
 
 ## Expected Behavior
 
-
 ## Current Behavior
 
-
 ## Detailed Description (Include Screenshots)
-
 
 ## Environment
 
@@ -29,4 +26,4 @@ about: Create a bug question.
 
 - Devices/Simulators:
 
-- CocoaPods/Carthage version:
+- Carthage version:
