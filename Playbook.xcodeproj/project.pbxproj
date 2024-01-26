@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -151,12 +151,10 @@
 		2F065DE6EA72726CE6FE821D /* ScenarioName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioName.swift; sourceTree = "<group>"; };
 		302C484FF86103B73D1C1122 /* AllScenarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllScenarios.swift; sourceTree = "<group>"; };
 		369C805F890E0F0A27A44B5F /* SearchedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedData.swift; sourceTree = "<group>"; };
-		3767D49CC715964856F2C8FC /* project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
 		377D53C09A49B19955FA86BE /* CatalogDrawerStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDrawerStyle.swift; sourceTree = "<group>"; };
 		385C5E36DF37E9A2AF379859 /* Playbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playbook.swift; sourceTree = "<group>"; };
 		38F7F9F34307C4DEEDF210F9 /* GalleryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryStore.swift; sourceTree = "<group>"; };
 		39688046A26BC35A5FDFC672 /* ScenarioDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioDisplay.swift; sourceTree = "<group>"; };
-		3C6A8B3A250BFEBCF94DE00F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4351CB488B9D56ABCDD4E27A /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		51782585DE3DFFD2FDB8684B /* Export.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Export.swift; sourceTree = "<group>"; };
 		5576F4CB67593B259E12C387 /* HorizontalSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSeparator.swift; sourceTree = "<group>"; };
@@ -172,9 +170,7 @@
 		70BEAC578E82D5EE82664DA2 /* SerialMainDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialMainDispatcher.swift; sourceTree = "<group>"; };
 		77D5B1C44FC9E87FD3237459 /* ScenarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioViewController.swift; sourceTree = "<group>"; };
 		81538A32C0A57BA96700E55E /* ScenarioStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioStoreTests.swift; sourceTree = "<group>"; };
-		8248570BCAF6EC831893E6D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8700BC5E0B042913C8C10CBA /* TestTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTool.swift; sourceTree = "<group>"; };
-		8722461DF39472D9644FF1F0 /* playbook.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = playbook.xcconfig; sourceTree = "<group>"; };
 		89B9EFFA662D997B8B95EE74 /* Export.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Export.swift; sourceTree = "<group>"; };
 		8B7C02BA0BA547162205F277 /* SnapshotLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotLoader.swift; sourceTree = "<group>"; };
 		8EC4A04F778E41A014D8DD46 /* ScenarioContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioContentView.swift; sourceTree = "<group>"; };
@@ -187,21 +183,18 @@
 		9BAD3FE8D577886981218938 /* GalleryScenarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryScenarios.swift; sourceTree = "<group>"; };
 		A2C24C0BB3864D3AF550A05D /* Scheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
 		A5527163A80E0C62E2C9C19F /* ScenarioSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioSwiftUI.swift; sourceTree = "<group>"; };
-		A70B24C925A15F6B0AC5E2DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A8FCF24068A7FDD9BAD27ECA /* ScenarioDisplaySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioDisplaySheet.swift; sourceTree = "<group>"; };
 		ABBE0D7EADE227862CB3EB1F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		AEB78746E7DE13CB4BBD42FC /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		B4FB169EFF0C0FF72C2E69C4 /* ScenarioContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioContent.swift; sourceTree = "<group>"; };
 		B6C5F051089936C546DFBB95 /* SnapshotDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotDevice.swift; sourceTree = "<group>"; };
 		B6CEC4F17D84235922932498 /* ScenarioStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioStore.swift; sourceTree = "<group>"; };
-		BD2797C015EB9FA651FF9731 /* playbook-ui.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "playbook-ui.xcconfig"; sourceTree = "<group>"; };
 		C65E03F37BA759FC6E55D1C2 /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
 		CEB51C85B7D63CEF5DC83B60 /* ScenarioSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioSwiftUITests.swift; sourceTree = "<group>"; };
 		CF2924992CEC971C20B6EC33 /* SearchedListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedListData.swift; sourceTree = "<group>"; };
 		D15384CB93B122425863A487 /* CatalogScenarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogScenarios.swift; sourceTree = "<group>"; };
 		D36894DCD112EFAAEE670D92 /* ScenariosBuildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenariosBuildable.swift; sourceTree = "<group>"; };
 		D63CD111722A3B8067BFE548 /* ScenarioContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioContext.swift; sourceTree = "<group>"; };
-		DABAF59DE9EB7656EBC4BECE /* playbook-snapshot.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "playbook-snapshot.xcconfig"; sourceTree = "<group>"; };
 		DE2CD5659122DCA1911F566F /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		DF07EECC1D23D59334517855 /* ScenarioDisplayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioDisplayList.swift; sourceTree = "<group>"; };
 		E2E59E35FC704B6D9414A6DC /* CatalogSplitStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogSplitStyle.swift; sourceTree = "<group>"; };
@@ -213,7 +206,6 @@
 		F49057856849F915AB692364 /* ScenarioSearchStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioSearchStore.swift; sourceTree = "<group>"; };
 		F6B0431D91C939D181493ECC /* PlaybookGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybookGallery.swift; sourceTree = "<group>"; };
 		F830987472F2FBD2C3BA7284 /* ScenarioKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioKind.swift; sourceTree = "<group>"; };
-		F8CD57D4C3A633B40E195ED4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F913250C8A5AB7148459FEC6 /* ScenarioViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioViewControllerTests.swift; sourceTree = "<group>"; };
 		FA6FEAB12579B7940EA763BB /* Highlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Highlight.swift; sourceTree = "<group>"; };
 		FF4E86485B651D2EE3F6A2A6 /* EnvironmentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValues.swift; sourceTree = "<group>"; };
@@ -254,7 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				89B9EFFA662D997B8B95EE74 /* Export.swift */,
-				A70B24C925A15F6B0AC5E2DD /* Info.plist */,
 				66200EEB348D4A81C09138E5 /* Snapshot.swift */,
 				108C38EAC8F960E10B0FA627 /* SnapshotError.swift */,
 			);
@@ -283,7 +274,6 @@
 		34A7A22A9D2F66C3D3C200A0 /* Playbook */ = {
 			isa = PBXGroup;
 			children = (
-				F8CD57D4C3A633B40E195ED4 /* Info.plist */,
 				385C5E36DF37E9A2AF379859 /* Playbook.swift */,
 				6E50413A08A9CF285D97A65C /* Scenario.swift */,
 				B4FB169EFF0C0FF72C2E69C4 /* ScenarioContent.swift */,
@@ -326,7 +316,6 @@
 			isa = PBXGroup;
 			children = (
 				51782585DE3DFFD2FDB8684B /* Export.swift */,
-				8248570BCAF6EC831893E6D8 /* Info.plist */,
 				EA762F5B447EF9828E1F86F2 /* PlaybookCatalog.swift */,
 				F6B0431D91C939D181493ECC /* PlaybookGallery.swift */,
 				6A92FC6CA051A044FE8B4F24 /* Internal */,
@@ -385,20 +374,8 @@
 			children = (
 				451BAFC42E6BBA83231BB2F3 /* Sources */,
 				C71D05311B2E181F61A0F029 /* Tests */,
-				90280B763801C9C042F88BFF /* XCConfigs */,
 				31133753B3319A33B8EEC994 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		90280B763801C9C042F88BFF /* XCConfigs */ = {
-			isa = PBXGroup;
-			children = (
-				DABAF59DE9EB7656EBC4BECE /* playbook-snapshot.xcconfig */,
-				BD2797C015EB9FA651FF9731 /* playbook-ui.xcconfig */,
-				8722461DF39472D9644FF1F0 /* playbook.xcconfig */,
-				3767D49CC715964856F2C8FC /* project.xcconfig */,
-			);
-			path = XCConfigs;
 			sourceTree = "<group>";
 		};
 		96A6614F953260203A322B13 /* Internal */ = {
@@ -416,7 +393,6 @@
 				D15384CB93B122425863A487 /* CatalogScenarios.swift */,
 				56D23A73BBBCC7E6D4027CDB /* ExtraScenarios.swift */,
 				9BAD3FE8D577886981218938 /* GalleryScenarios.swift */,
-				3C6A8B3A250BFEBCF94DE00F /* Info.plist */,
 				AEB78746E7DE13CB4BBD42FC /* Mocks.swift */,
 				9370D44977281AAEBF6DEF44 /* PlaybookTests.swift */,
 				F291632484870BA6A8BA1609 /* ScenarioContentTests.swift */,
@@ -517,7 +493,8 @@
 		3E7E7046F8672F08F9C6CEAD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1200;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					85CBE39381637979CD313688 = {
 						ProvisioningStyle = Manual;
@@ -534,7 +511,7 @@
 				};
 			};
 			buildConfigurationList = B5DFE76B8C428779BF70DA5D /* Build configuration list for PBXProject "Playbook" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -684,14 +661,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "app.playbook-ui.Playbook-Tests";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		14062AF774D0FD35AC65A787 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3767D49CC715964856F2C8FC /* project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -723,6 +705,9 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -735,61 +720,108 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 		1CCBF6D6B05821678343CF97 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8722461DF39472D9644FF1F0 /* playbook.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = Sources/Playbook/Info.plist;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "app.playbook-ui.Playbook";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		3FA2E61367E6AC3013C9E9D0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD2797C015EB9FA651FF9731 /* playbook-ui.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = Sources/PlaybookUI/Info.plist;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "app.playbook-ui.PlaybookUI";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		45280683F227949289B6FF05 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DABAF59DE9EB7656EBC4BECE /* playbook-snapshot.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = Sources/PlaybookSnapshot/Info.plist;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "app.playbook-ui.PlaybookSnapshot";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		535B6C63900DC7E6F72C79B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD2797C015EB9FA651FF9731 /* playbook-ui.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = Sources/PlaybookUI/Info.plist;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "app.playbook-ui.PlaybookUI";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		79ED333DCDF1947137269979 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3767D49CC715964856F2C8FC /* project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -821,6 +853,9 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -828,6 +863,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"DEBUG=1",
@@ -838,33 +874,59 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		C288BD47AA157B2A1ED1309C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8722461DF39472D9644FF1F0 /* playbook.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = Sources/Playbook/Info.plist;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "app.playbook-ui.Playbook";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		E66D88EE607F8695AD366F91 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DABAF59DE9EB7656EBC4BECE /* playbook-snapshot.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = Sources/PlaybookSnapshot/Info.plist;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "app.playbook-ui.PlaybookSnapshot";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -873,8 +935,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "app.playbook-ui.Playbook-Tests";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

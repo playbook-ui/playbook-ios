@@ -1,0 +1,70 @@
+name: Playbook
+options:
+  bundleIdPrefix: app.playbook-ui
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: 13.0
+
+settings:
+  GENERATE_INFOPLIST_FILE: YES
+  CODE_SIGNING_REQUIRED: NO
+  CODE_SIGN_IDENTITY: "-"
+  CODE_SIGN_STYLE: Manual
+
+schemes:
+  Playbook:
+    build:
+      targets:
+        Playbook: all
+        PlaybookUI: [test]
+        PlaybookSnapshot: [test]
+    test:
+      targets:
+        - Playbook-Tests
+      commandLineArguments:
+        -AppleLanguages (en): true
+      environmentVariables:
+        SNAPSHOT_DIR: $(SOURCE_ROOT)/Snapshots
+
+  PlaybookUI:
+    build:
+      targets:
+        PlaybookUI: all
+
+  PlaybookSnapshot:
+    build:
+      targets:
+        PlaybookSnapshot: all
+
+targets:
+  Playbook:
+    type: framework
+    platform: iOS
+    sources:
+      - Sources/Playbook
+
+  PlaybookUI:
+    type: framework
+    platform: iOS
+    sources:
+      - Sources/PlaybookUI
+    dependencies:
+      - target: Playbook
+
+  PlaybookSnapshot:
+    type: framework
+    platform: iOS
+    sources:
+      - Sources/PlaybookSnapshot
+    dependencies:
+      - target: Playbook
+
+  Playbook-Tests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Tests
+    dependencies:
+      - target: Playbook
+      - target: PlaybookUI
+      - target: PlaybookSnapshot

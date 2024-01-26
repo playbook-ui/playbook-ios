@@ -62,7 +62,7 @@ private extension Drawer {
 
     var shadowRadius: CGFloat { 12 }
 
-    func withShadow<Content: View>(_ content: Content) -> some View {
+    func withShadow(_ content: some View) -> some View {
         content.shadow(color: Color.black.opacity(0.3), radius: shadowRadius)
     }
 

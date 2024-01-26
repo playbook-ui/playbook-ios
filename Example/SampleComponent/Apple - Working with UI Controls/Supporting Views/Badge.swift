@@ -11,7 +11,7 @@ public struct Badge: View {
     public static let rotationCount = 8
     
     public var badgeSymbols: some View {
-        ForEach(0..<Badge.rotationCount) { i in
+        ForEach(0..<Badge.rotationCount, id: \.self) { i in
             RotatedBadgeSymbol(
                 angle: .degrees(Double(i) / Double(Badge.rotationCount)) * 360.0)
         }

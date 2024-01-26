@@ -3,6 +3,7 @@ import XCTest
 
 final class SnapshotTests: XCTestCase {
     func testTakeSnapshot() throws {
+        print("\(ProcessInfo.processInfo.environment)")
         guard let directory = ProcessInfo.processInfo.environment["SNAPSHOT_DIR"] else {
             fatalError("Set directory to the build environment variables with key `SNAPSHOT_DIR`.")
         }
@@ -18,8 +19,8 @@ final class SnapshotTests: XCTestCase {
                 keyWindow: UIApplication.shared.windows.first { $0.isKeyWindow },
                 devices: [
                     .iPhone11Pro(.portrait),
-                    .iPhone11Pro(.landscape, style: .dark),
-                    .iPhoneSE(.portrait, style: .dark),
+                    .iPhone11Pro(.landscape).style(.dark),
+                    .iPhoneSE(.portrait).style(.dark),
                     .iPadPro12_9(.landscape),
                 ],
                 viewPreprocessor: { view in
