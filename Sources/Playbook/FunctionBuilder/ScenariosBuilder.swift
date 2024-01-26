@@ -1,5 +1,5 @@
 /// The custom parameter attribute that constructs scenarios from multi-statement closures.
-@_functionBuilder
+@resultBuilder
 public struct ScenariosBuilder: ScenariosBuildable {
     private var _buildScenarios: () -> [Scenario]
 

@@ -1,59 +1,46 @@
-name: GitHub Actions
+name: test
 on:
   pull_request:
   push:
     branches:
       - master
+  workflow_dispatch:
+
+env:
+  DEVELOPER_DIR: /Applications/Xcode_15.2.app
+
 jobs:
   validation:
     name: Validation
-    runs-on: macos-11
-    strategy:
-      matrix:
-        xcode_version:
-          - 12.5.1
-    env:
-      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode_version }}.app
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v2
-
-      - name: Get ruby gem cache
-        id: gem-cache
-        uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-1-gem-${{ hashFiles('Gemfile.lock') }}
-          restore-keys: ${{ runner.os }}-1-gem-
-
-      - name: Install ruby gems
-        if: steps.gem-cache.cache.outputs.cache-hit != 'true'
-        run: make gem
 
       - name: Get SwiftPM cache
         uses: actions/cache@v2
         with:
           path: Tools/.build
-          key: ${{ runner.os }}-${{ matrix.xcode_version }}-1-spm-${{ hashFiles('Tools/Package.resolved') }}
-          restore-keys: ${{ runner.os }}-${{ matrix.xcode_version }}-1-spm-
+          key: ${{ runner.os }}-0-spm-${{ hashFiles('Package.resolved') }}
+          restore-keys: ${{ runner.os }}-0-spm
 
-      - name: Podspec lint
-        run: make pod-lib-lint
+      - name: Validate format
+        run: |
+          make format
+          if [ -n "$(git status --porcelain)" ]; then echo "Make sure that the code is formated by 'make format'."; exit 1; fi
+          make lint
+        env:
+          SPM_FORCE_BUILD: 1
 
-      - name: Validation
-        run: make all && [ -z "$(git status --porcelain)" ] && make lint
+      - name: Validate example project
+        run: |
+          make proj
+          if [ -n "$(git status --porcelain)" ]; then echo "Make sure that example project is formated by 'make proj'."; exit 1; fi
         env:
           SPM_FORCE_BUILD: 1
 
   test:
     name: Test on macOS
-    runs-on: macos-11
-    strategy:
-      matrix:
-        xcode_version:
-          - 11.7
-          - 12.5.1
-    env:
-      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode_version }}.app
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v2
       - name: Show environments
@@ -76,13 +63,12 @@ jobs:
         run: make npm
 
       - name: Test library & Generate snapshots
-        run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Playbook.xcodeproj -scheme Playbook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
+        run: set -o pipefail && xcodebuild test -scheme Playbook -destination 'platform=iOS Simulator,name=iPhone 15 Pro' | xcpretty -c
 
       - name: Generate snapshots of example app
-        run: set -o pipefail && xcodebuild build-for-testing test-without-building -project Example/PlaybookExample.xcodeproj -scheme SamplePlaybook -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro' ENABLE_TESTABILITY=YES | xcpretty -c
+        run: set -o pipefail && xcodebuild test -project Example/PlaybookExample.xcodeproj -scheme SamplePlaybook -destination 'platform=iOS Simulator,name=iPhone 15 Pro' | xcpretty -c
 
       - name: Visual regression test
-        if: matrix.xcode_version == '12.5.1'
         run: npx percy upload Snapshots
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

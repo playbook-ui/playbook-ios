@@ -43,7 +43,7 @@ public struct HikeGraph: View {
 
         return GeometryReader { proxy in
             AnyView(HStack(alignment: .bottom, spacing: proxy.size.width / 120) {
-                ForEach(data.indices) { index in
+                ForEach(data.indices, id: \.self) { index in
                     GraphCapsule(
                         index: index,
                         height: proxy.size.height,

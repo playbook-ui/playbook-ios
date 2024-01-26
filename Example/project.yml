@@ -4,9 +4,15 @@ projectReferences:
     path: ../Playbook.xcodeproj
 
 options:
+  createIntermediateGroups: true
   bundleIdPrefix: app.playbook-ui.Example
   deploymentTarget:
     iOS: 13.0
+
+settings:
+  CODE_SIGNING_REQUIRED: NO
+  CODE_SIGN_IDENTITY: "-"
+  CODE_SIGN_STYLE: Manual
 
 schemes:
   SamplePlaybook:
@@ -31,9 +37,6 @@ targets:
       - target: SampleComponent
       - target: Playbook/Playbook
       - target: Playbook/PlaybookUI
-    configFiles:
-      Debug: ../XCConfigs/project.xcconfig
-      Release: ../XCConfigs/project.xcconfig
 
   SampleSnapshot:
     type: bundle.unit-test
@@ -43,9 +46,6 @@ targets:
     dependencies:
       - target: SamplePlaybook
       - target: Playbook/PlaybookSnapshot
-    configFiles:
-      Debug: ../XCConfigs/project.xcconfig
-      Release: ../XCConfigs/project.xcconfig
 
   SampleApp:
     type: application
@@ -54,15 +54,9 @@ targets:
       - SampleApp
     dependencies:
       - target: SampleComponent
-    configFiles:
-      Debug: ../XCConfigs/project.xcconfig
-      Release: ../XCConfigs/project.xcconfig
 
   SampleComponent:
     type: framework
     platform: iOS
     sources:
       - SampleComponent
-    configFiles:
-      Debug: ../XCConfigs/project.xcconfig
-      Release: ../XCConfigs/project.xcconfig
