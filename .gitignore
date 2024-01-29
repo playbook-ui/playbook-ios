@@ -27,7 +27,8 @@ node_modules
 .swiftpm
 .build
 
-## Visual regression test
+## Snapshot test
 Snapshots
-.reg
-gcloud-service-key.json
+
+## Documentation
+docs

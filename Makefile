@@ -16,6 +16,13 @@ format:
 lint:
 	$(TOOL) swift-format lint -s -p -r Sources Tests
 
+.PHONY: docs
+docs:
+	xcodebuild docbuild \
+	  -scheme PlaybookUI \
+	  -destination generic/platform=iOS \
+	  OTHER_DOCC_FLAGS="--transform-for-static-hosting --hosting-base-path playbook-ios --output-dir docs"
+
 .PHONY: npm
 npm:
 	npm i
