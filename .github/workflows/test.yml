@@ -19,9 +19,9 @@ jobs:
       - name: Get SwiftPM cache
         uses: actions/cache@v2
         with:
-          path: Tools/.build
-          key: ${{ runner.os }}-0-spm-${{ hashFiles('Package.resolved') }}
-          restore-keys: ${{ runner.os }}-0-spm
+          path: .build
+          key: ${{ runner.os }}-1-spm-${{ hashFiles('Package.resolved') }}
+          restore-keys: ${{ runner.os }}-1-spm
 
       - name: Validate format
         run: |
