@@ -19,9 +19,9 @@ lint:
 .PHONY: docs
 docs:
 	xcodebuild docbuild \
-	  -scheme PlaybookUI \
+	  -scheme PlaybookSnapshot \
 	  -destination generic/platform=iOS \
-	  OTHER_DOCC_FLAGS="--transform-for-static-hosting --hosting-base-path playbook-ios --output-dir docs"
+	  OTHER_DOCC_FLAGS="--transform-for-static-hosting --hosting-base-path playbook-ios --output-path docs"
 
 .PHONY: npm
 npm:
