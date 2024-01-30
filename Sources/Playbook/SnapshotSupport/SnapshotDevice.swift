@@ -524,6 +524,129 @@ public extension SnapshotDevice {
     }
 }
 
+/// iPhone 13 Series
+public extension SnapshotDevice {
+    /// `iPhone 13 mini` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPhone 13 mini`.
+    static func iPhone13Mini(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPhone 13 mini \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 375, height: 812),
+                landscape: CGSize(width: 812, height: 375)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 50, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 50, bottom: 21, right: 50)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: .compact,
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+
+    /// `iPhone 13` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPhone 13`.
+    static func iPhone13(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPhone 13 \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 390, height: 844),
+                landscape: CGSize(width: 844, height: 390)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 47, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 47, bottom: 21, right: 47)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: .compact,
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+
+    /// `iPhone 13 Pro` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPhone 13 Pro`.
+    static func iPhone13Pro(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPhone 13 Pro \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 390, height: 844),
+                landscape: CGSize(width: 844, height: 390)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 47, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 47, bottom: 21, right: 47)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: .compact,
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+
+    /// `iPhone 13 Pro Max` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPhone 13 Pro Max`.
+    static func iPhone13ProMax(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPhone 13 Pro Max \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 428, height: 926),
+                landscape: CGSize(width: 926, height: 428)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 47, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 47, bottom: 21, right: 47)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: orientation.use(portrait: .compact, landscape: .regular),
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+}
+
 /// iPhone 14 Series
 public extension SnapshotDevice {
     /// `iPhone 14 Pro` simulated device.
@@ -587,7 +710,70 @@ public extension SnapshotDevice {
     }
 }
 
-/// iPad Mini 5th
+/// iPhone 15 Series
+public extension SnapshotDevice {
+    /// `iPhone 15 Pro` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPhone 15 Pro`.
+    static func iPhone15Pro(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPhone 15 Pro \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 393, height: 852),
+                landscape: CGSize(width: 852, height: 393)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 59, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 59, bottom: 21, right: 59)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: .compact,
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+
+    /// `iPhone 15 Pro Max` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPhone 15 Pro Max`.
+    static func iPhone15ProMax(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPhone 15 Pro Max \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 430, height: 932),
+                landscape: CGSize(width: 932, height: 430)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 59, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 59, bottom: 21, right: 59)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: orientation.use(portrait: .compact, landscape: .regular),
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+}
+
+/// iPad Mini
 public extension SnapshotDevice {
     /// `iPad Mini 5th generation` simulated device.
     ///
@@ -603,6 +789,33 @@ public extension SnapshotDevice {
                 landscape: CGSize(width: 1024, height: 768)
             ),
             safeAreaInsets: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .pad,
+                displayScale: 2,
+                displayGamut: .SRGB,
+                horizontalSizeClass: .regular,
+                verticalSizeClass: .regular,
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+
+    /// `iPad Mini 6th generation` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPad Mini 6th generation`.
+    static func iPadMini6th(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPad mini 6th \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 744, height: 1133),
+                landscape: CGSize(width: 1133, height: 744)
+            ),
+            safeAreaInsets: UIEdgeInsets(top: 24, left: 20, bottom: 24, right: 20),
             traitCollection: UITraitCollection(
                 userInterfaceIdiom: .pad,
                 displayScale: 2,
