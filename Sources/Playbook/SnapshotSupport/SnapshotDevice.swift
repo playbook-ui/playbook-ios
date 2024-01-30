@@ -647,7 +647,6 @@ public extension SnapshotDevice {
     }
 }
 
-
 /// iPhone 14 Series
 public extension SnapshotDevice {
     /// `iPhone 14 Pro` simulated device.
@@ -773,7 +772,6 @@ public extension SnapshotDevice {
         )
     }
 }
-
 
 /// iPad Mini
 public extension SnapshotDevice {
