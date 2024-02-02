@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		04DAC4EBEE89D365F72AD5DB /* SnapshotSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023425CAEE4AA111BE174F66 /* SnapshotSupport.swift */; };
 		04E6DA15062197311CB80A23 /* ScenarioProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E1EB13B5ED8DD48245B1E8 /* ScenarioProvider.swift */; };
-		06CC7A9EF2AEA3FEEC75B0B3 /* ScenarioContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F291632484870BA6A8BA1609 /* ScenarioContentTests.swift */; };
 		0D0659EBE8EF0971AF40405D /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C24C0BB3864D3AF550A05D /* Scheduler.swift */; };
 		0E1A77DB134CE41112BE7EFB /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BDCEF4FDC1DE7D50B6E73D /* Counter.swift */; };
 		0FEB2071F01AF72A62527F63 /* Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FEAB12579B7940EA763BB /* Highlight.swift */; };
@@ -200,7 +199,6 @@
 		EA762F5B447EF9828E1F86F2 /* PlaybookCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybookCatalog.swift; sourceTree = "<group>"; };
 		EB7DE56F774FFD4DB73EBD37 /* CatalogBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogBarItem.swift; sourceTree = "<group>"; };
 		EC23506D3CC07FABB1992787 /* Playbook-Tests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = "Playbook-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F291632484870BA6A8BA1609 /* ScenarioContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioContentTests.swift; sourceTree = "<group>"; };
 		F49057856849F915AB692364 /* ScenarioSearchStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioSearchStore.swift; sourceTree = "<group>"; };
 		F6B0431D91C939D181493ECC /* PlaybookGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybookGallery.swift; sourceTree = "<group>"; };
 		F830987472F2FBD2C3BA7284 /* ScenarioKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioKind.swift; sourceTree = "<group>"; };
@@ -392,7 +390,6 @@
 				9BAD3FE8D577886981218938 /* GalleryScenarios.swift */,
 				AEB78746E7DE13CB4BBD42FC /* Mocks.swift */,
 				9370D44977281AAEBF6DEF44 /* PlaybookTests.swift */,
-				F291632484870BA6A8BA1609 /* ScenarioContentTests.swift */,
 				81538A32C0A57BA96700E55E /* ScenarioStoreTests.swift */,
 				CEB51C85B7D63CEF5DC83B60 /* ScenarioSwiftUITests.swift */,
 				F913250C8A5AB7148459FEC6 /* ScenarioViewControllerTests.swift */,
@@ -538,7 +535,6 @@
 				334B859A3103A83A4EC996BF /* GalleryScenarios.swift in Sources */,
 				F9DF0B63F62E3A7B5ED2E619 /* Mocks.swift in Sources */,
 				E7597D8F364FF8D2CD4DF584 /* PlaybookTests.swift in Sources */,
-				06CC7A9EF2AEA3FEEC75B0B3 /* ScenarioContentTests.swift in Sources */,
 				B945D03AD556F3F8B3161147 /* ScenarioStoreTests.swift in Sources */,
 				72DDF1BB8E77EF11CB9BB4FC /* ScenarioSwiftUITests.swift in Sources */,
 				6CF7056823EA1730746AB145 /* ScenarioViewControllerTests.swift in Sources */,
