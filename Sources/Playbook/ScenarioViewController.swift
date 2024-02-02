@@ -81,7 +81,7 @@ private extension ScenarioViewController {
             return
         }
 
-        let contentViewController = scenario.content(context).makeUIViewController()
+        let contentViewController = scenario.content(context)
         self.contentViewController = contentViewController
 
         contentViewController.willMove(toParent: self)
