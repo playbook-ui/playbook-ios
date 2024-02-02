@@ -65,7 +65,6 @@
 		C0F32DC787F41414E09C37FB /* HorizontalSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5576F4CB67593B259E12C387 /* HorizontalSeparator.swift */; };
 		C51E0AB09C31FA61FE7D90BF /* ExtraScenarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D23A73BBBCC7E6D4027CDB /* ExtraScenarios.swift */; };
 		C6A0A71A7D1DB2BECD5B4A2D /* ScenarioSearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068FE06929659477F04AA176 /* ScenarioSearchTree.swift */; };
-		CB15497812BC08565D686486 /* ScenarioContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FB169EFF0C0FF72C2E69C4 /* ScenarioContent.swift */; };
 		CF8244A4AB05E5ED99B68742 /* SnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B59B5A8B33031C6AF8A049E /* SnapshotTests.swift */; };
 		D016FBABE74D6996F5648DDC /* SnapshotDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5F051089936C546DFBB95 /* SnapshotDevice.swift */; };
 		D45CD95A63FC59D24E4F5E65 /* GalleryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7F9F34307C4DEEDF210F9 /* GalleryStore.swift */; };
@@ -186,7 +185,6 @@
 		A8FCF24068A7FDD9BAD27ECA /* ScenarioDisplaySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioDisplaySheet.swift; sourceTree = "<group>"; };
 		ABBE0D7EADE227862CB3EB1F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		AEB78746E7DE13CB4BBD42FC /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
-		B4FB169EFF0C0FF72C2E69C4 /* ScenarioContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioContent.swift; sourceTree = "<group>"; };
 		B6C5F051089936C546DFBB95 /* SnapshotDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotDevice.swift; sourceTree = "<group>"; };
 		B6CEC4F17D84235922932498 /* ScenarioStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioStore.swift; sourceTree = "<group>"; };
 		C65E03F37BA759FC6E55D1C2 /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
@@ -276,7 +274,6 @@
 			children = (
 				385C5E36DF37E9A2AF379859 /* Playbook.swift */,
 				6E50413A08A9CF285D97A65C /* Scenario.swift */,
-				B4FB169EFF0C0FF72C2E69C4 /* ScenarioContent.swift */,
 				D63CD111722A3B8067BFE548 /* ScenarioContext.swift */,
 				F830987472F2FBD2C3BA7284 /* ScenarioKind.swift */,
 				FF835DB024B80E2FADFFD0FC /* ScenarioLayout.swift */,
@@ -556,7 +553,6 @@
 				99904F2A1ECCD16DC130B51A /* OrderedStorage.swift in Sources */,
 				FD3C77D1442C7CAADC579CB2 /* Playbook.swift in Sources */,
 				BF44BEAFAA1183BE4B9952AF /* Scenario.swift in Sources */,
-				CB15497812BC08565D686486 /* ScenarioContent.swift in Sources */,
 				341406194DDF8C7A82AB96D0 /* ScenarioContext.swift in Sources */,
 				BE7BF04B28E47309D2D7608D /* ScenarioKind.swift in Sources */,
 				DDF763A23C1AE9464827CCCE /* ScenarioLayout.swift in Sources */,
