@@ -47,14 +47,14 @@ internal final class SnapshotWindow: UIWindow {
         scenarioViewController.disablesEndAppearanceTransition = true
         scenarioViewController.shouldStatusBarHidden = true
 
-        frame.size = CGSize(
-            width: scenario.layout.fixedWidth ?? device.size.width,
-            height: scenario.layout.fixedHeight ?? device.size.height
-        )
         windowLevel = .normal - 1
         layer.speed = .greatestFiniteMagnitude
         rootViewController = scenarioViewController
         isHidden = false
+        frame.size = CGSize(
+            width: scenario.layout.fixedWidth ?? device.size.width,
+            height: scenario.layout.fixedHeight ?? device.size.height
+        )
 
         if window != nil {
             // In iOS 16 and 17, setting `isHidden` nor does not update

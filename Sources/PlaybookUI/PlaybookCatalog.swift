@@ -1,195 +1,65 @@
+import Playbook
 import SwiftUI
 
-/// A view that displays scenarios manged by given `Playbook` instance with
-/// catalog-style appearance.
+@available(iOS 15.0, *)
 public struct PlaybookCatalog: View {
-    private var underlyingView: PlaybookCatalogInternal
+    private let title: String?
 
-    /// Creates a new view that displays scenarios managed by given `Playbook` instance.
-    ///
-    /// - Parameters:
-    ///   - name: A name of `Playbook` to be displayed on the user interface.
-    ///   - playbook: A `Playbook` instance that manages scenarios to be displayed.
+    @StateObject
+    private var searchState: SearchState
+    @StateObject
+    private var catalogState = CatalogState()
+    @StateObject
+    private var shareState = ShareState()
+    @Environment(\.horizontalSizeClass)
+    private var horizontalSizeClass
+    @Environment(\.verticalSizeClass)
+    private var verticalSizeClass
+
     public init(
-        name: String = "PLAYBOOK",
+        title: String? = nil,
         playbook: Playbook = .default
     ) {
-        underlyingView = PlaybookCatalogInternal(
-            name: name,
-            playbook: playbook,
-            store: CatalogStore(playbook: playbook)
-        )
+        self.title = title
+        self._searchState = StateObject(wrappedValue: SearchState(playbook: playbook))
     }
 
-    /// Declares the content and behavior of this view.
     public var body: some View {
-        underlyingView
-    }
-}
+        Group {
+            switch (horizontalSizeClass, verticalSizeClass) {
+            case (.regular, .regular):
+                CatalogSplit()
 
-internal struct PlaybookCatalogInternal: View {
-    var name: String
-    var playbook: Playbook
-
-    @ObservedObject
-    var store: CatalogStore
-
-    @WeakReference
-    var contentUIView: UIView?
-
-    @Environment(\.horizontalSizeClass)
-    var horizontalSizeClass
-
-    @Environment(\.verticalSizeClass)
-    var verticalSizeClass
-
-    var body: some View {
-        platformContent()
-            .environmentObject(store)
-            .onAppear(perform: selectFirstScenario)
-            .sheet(item: $store.shareItem) { item in
-                ImageSharingView(item: item) { self.store.shareItem = nil }
-                    .edgesIgnoringSafeArea(.all)
+            default:
+                CatalogDrawer()
             }
+        }
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            CatalogBottomBar(
+                title: title,
+                primaryItemSymbol: primaryBarItemSymbol
+            )
+        }
+        .ignoresSafeArea(.keyboard)
+        .preferredColorScheme(catalogState.colorScheme)
+        .environmentObject(searchState)
+        .environmentObject(catalogState)
+        .environmentObject(shareState)
+        .onAppear {
+            catalogState.selectInitial(searchResult: searchState.result)
+        }
     }
 }
 
-private extension PlaybookCatalogInternal {
-    var bottomBarHeight: CGFloat { 44 }
-
-    func platformContent() -> some View {
+@available(iOS 15.0, *)
+private extension PlaybookCatalog {
+    var primaryBarItemSymbol: Image.SFSymbols {
         switch (horizontalSizeClass, verticalSizeClass) {
         case (.regular, .regular):
-            return AnyView(
-                CatalogSplitStyle(
-                    name: name,
-                    searchTree: ScenarioSearchTree(),
-                    content: scenarioContent
-                )
-            )
+            return .sidebarLeft
 
         default:
-            return AnyView(
-                CatalogDrawerStyle(
-                    name: name,
-                    searchTree: ScenarioSearchTree(),
-                    content: scenarioContent
-                )
-            )
+            return .magnifyingglass
         }
-    }
-
-    func displayView() -> some View {
-        if let data = store.selectedScenario {
-            return AnyView(
-                ScenarioContentView(
-                    kind: data.kind,
-                    scenario: data.scenario,
-                    additionalSafeAreaInsets: .only(bottom: bottomBarHeight),
-                    contentUIView: _contentUIView
-                )
-                .edgesIgnoringSafeArea(.all)
-            )
-        }
-        else {
-            return AnyView(emptyContent())
-        }
-    }
-
-    func emptyContent() -> some View {
-        VStack(spacing: 0) {
-            HStack {
-                Spacer.zero
-            }
-
-            Spacer.zero
-
-            Image(symbol: .book)
-                .imageScale(.large)
-                .font(.system(size: 60))
-                .foregroundColor(Color(.label))
-
-            Spacer.fixed(length: 44)
-
-            Text("There are no scenarios")
-                .foregroundColor(Color(.label))
-                .font(.system(size: 24, weight: .bold))
-                .lineLimit(nil)
-
-            Spacer.zero
-        }
-        .padding(.horizontal, 24)
-    }
-
-    func scenarioContent(firstBarItem: CatalogBarItem) -> some View {
-        ZStack {
-            Color(.scenarioBackground)
-                .edgesIgnoringSafeArea(.all)
-
-            displayView()
-
-            VStack(spacing: 0) {
-                Spacer.zero
-
-                Divider()
-                    .edgesIgnoringSafeArea(.all)
-
-                bottomBar(firstBarItem: firstBarItem)
-            }
-        }
-    }
-
-    func bottomBar(firstBarItem: CatalogBarItem) -> some View {
-        HStack(spacing: 24) {
-            firstBarItem
-
-            if store.selectedScenario != nil {
-                CatalogBarItem(
-                    image: Image(symbol: .squareAndArrowUp),
-                    insets: .only(bottom: 4),
-                    action: share
-                )
-            }
-
-            HStack(spacing: 0) {
-                Spacer(minLength: 0)
-
-                Text(name)
-                    .bold()
-                    .lineLimit(1)
-                    .font(.system(size: 24))
-            }
-        }
-        .padding(.horizontal, 24)
-        .frame(height: bottomBarHeight)
-        .background(
-            Blur(style: .systemMaterial)
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all),
-            alignment: .topLeading
-        )
-    }
-
-    func share() {
-        guard let uiView = contentUIView else { return }
-
-        let image = UIGraphicsImageRenderer(bounds: uiView.bounds).image { _ in
-            uiView.drawHierarchy(in: uiView.bounds, afterScreenUpdates: true)
-        }
-
-        store.shareItem = ImageSharingView.Item(image: image)
-    }
-
-    func selectFirstScenario() {
-        guard store.selectedScenario == nil, let store = playbook.stores.first, let scenario = store.scenarios.first else {
-            return
-        }
-
-        self.store.start()
-        self.store.selectedScenario = SearchedData(
-            scenario: scenario,
-            kind: store.kind,
-            shouldHighlight: false
-        )
     }
 }

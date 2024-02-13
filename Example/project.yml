@@ -7,7 +7,7 @@ options:
   createIntermediateGroups: true
   bundleIdPrefix: app.playbook-ui.Example
   deploymentTarget:
-    iOS: 13.0
+    iOS: 15.0
 
 settings:
   CODE_SIGNING_REQUIRED: NO
