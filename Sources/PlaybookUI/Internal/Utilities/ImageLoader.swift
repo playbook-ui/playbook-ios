@@ -82,6 +82,7 @@ private extension ImageLoader {
                     )
                 ),
                 format: .png,
+                maxSize: item.source.size,
                 scale: item.source.scale
             ) { [weak self] data in
                 guard let self else {

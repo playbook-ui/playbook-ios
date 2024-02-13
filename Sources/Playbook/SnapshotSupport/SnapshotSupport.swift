@@ -40,6 +40,7 @@ public enum SnapshotSupport {
         for scenario: Scenario,
         on device: SnapshotDevice,
         format: ImageFormat,
+        maxSize: CGSize? = nil,
         scale: CGFloat = UIScreen.main.scale,
         keyWindow: UIWindow? = nil,
         viewPreprocessor: ((UIView) -> UIView)? = nil,
@@ -48,6 +49,7 @@ public enum SnapshotSupport {
         makeResource(
             for: scenario,
             on: device,
+            maxSize: maxSize,
             scale: scale,
             keyWindow: keyWindow,
             viewPreprocessor: viewPreprocessor
@@ -73,6 +75,7 @@ public enum SnapshotSupport {
         for scenario: Scenario,
         on device: SnapshotDevice,
         scale: CGFloat = UIScreen.main.scale,
+        maxSize: CGSize? = nil,
         keyWindow: UIWindow? = nil,
         viewPreprocessor: ((UIView) -> UIView)? = nil,
         handler: @escaping (UIImage) -> Void
@@ -80,6 +83,7 @@ public enum SnapshotSupport {
         makeResource(
             for: scenario,
             on: device,
+            maxSize: maxSize,
             scale: scale,
             keyWindow: keyWindow,
             viewPreprocessor: viewPreprocessor
@@ -98,15 +102,15 @@ private extension SnapshotSupport {
     static func makeResource(
         for scenario: Scenario,
         on device: SnapshotDevice,
+        maxSize: CGSize?,
         scale: CGFloat,
         keyWindow: UIWindow?,
         viewPreprocessor: ((UIView) -> UIView)? = nil,
         completion: @escaping (Resource) -> Void
     ) {
         withoutAnimation {
-            let window = SnapshotWindow(scenario: scenario, device: device)
+            let window = SnapshotWindow(scenario: scenario, device: device, maxSize: maxSize)
             let contentView = window.contentView!
-
             let isEmbedInKeyWindow: Bool
 
             if let keyWindow = keyWindow {
@@ -128,22 +132,15 @@ private extension SnapshotSupport {
 
                 let format = UIGraphicsImageRendererFormat(for: device.traitCollection)
                 format.scale = scale
+                format.preferredRange = .standard
 
-                if #available(iOS 12.0, *) {
-                    format.preferredRange = .standard
-                }
-                else {
-                    format.prefersExtendedRange = false
-                }
-
-                var snapshotView: UIView
-
-                if let viewPreprocessor = viewPreprocessor {
-                    snapshotView = viewPreprocessor(contentView)
-                }
-                else {
-                    snapshotView = contentView
-                }
+                let snapshotView =
+                    if let viewPreprocessor = viewPreprocessor {
+                        viewPreprocessor(contentView)
+                    }
+                    else {
+                        contentView
+                    }
 
                 let renderer = UIGraphicsImageRenderer(bounds: snapshotView.bounds, format: format)
                 let actions: UIGraphicsDrawingActions = { context in
