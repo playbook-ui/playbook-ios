@@ -49,7 +49,6 @@ private extension ImageLoader {
         }
 
         guard !item.isCancelled else {
-            queue.removeFirst()
             return startNext()
         }
 
@@ -62,7 +61,6 @@ private extension ImageLoader {
             }
 
             guard !item.isCancelled else {
-                queue.removeFirst()
                 return startNext()
             }
 
@@ -93,7 +91,6 @@ private extension ImageLoader {
                 item.continuation?.resume(returning: image)
                 item.continuation = nil
                 imageCache.create(file: data, for: item.source)
-                queue.removeFirst()
                 startNext()
             }
         }
@@ -104,7 +101,8 @@ private extension ImageLoader {
             return
         }
 
-        if sequentiallyProcessedCount < 4 {
+        if sequentiallyProcessedCount < 3 {
+            queue.removeFirst()
             start()
         }
         else {
@@ -114,6 +112,7 @@ private extension ImageLoader {
                 }
 
                 sequentiallyProcessedCount = 0
+                queue.removeFirst()
                 start()
             }
         }

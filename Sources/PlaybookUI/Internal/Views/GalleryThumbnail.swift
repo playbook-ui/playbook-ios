@@ -45,7 +45,7 @@ internal struct GalleryThumbnail: View {
         .onChange(of: colorScheme) { _ in
             image = nil
         }
-        .task(id: colorScheme) {
+        .task(id: colorScheme, priority: .background) {
             let source = ImageSource(
                 scenario: data.scenario,
                 kind: data.kind,

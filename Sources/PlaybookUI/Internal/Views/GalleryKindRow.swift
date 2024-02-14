@@ -23,7 +23,7 @@ internal struct GalleryKindRow: View {
             .padding(.horizontal, 24)
 
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(alignment: .top, spacing: 0) {
+                LazyHStack(spacing: 8) {
                     ForEach(data.scenarios, id: \.scenario.name) { data in
                         Button {
                             onSelect(data)
