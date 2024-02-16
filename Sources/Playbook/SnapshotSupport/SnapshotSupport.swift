@@ -149,7 +149,31 @@ private extension SnapshotSupport {
                 let actions: UIGraphicsDrawingActions = { context in
                     withoutAnimation {
                         if isEmbedInKeyWindow {
-                            snapshotView.drawHierarchy(in: snapshotView.bounds, afterScreenUpdates: true)
+                            let nativeScale = UIScreen.main.nativeScale
+                            let size = snapshotView.bounds.size
+                            let nativeScaledSize = CGSize(
+                                width: size.width * nativeScale,
+                                height: size.height * nativeScale
+                            )
+                            let sizeLimit: CGFloat = 8192
+                            let limitedScale = max(nativeScaledSize.width / sizeLimit, nativeScaledSize.height / sizeLimit)
+
+                            if limitedScale > 1 {
+                                // `UIView.drawHierarchy` seems to have an internal hard-coded limit size of 8192x8192,
+                                // and specifying a size beyond that resulting in an empty image is drawn.
+                                let limitedRect = CGRect(
+                                    x: .zero,
+                                    y: .zero,
+                                    width: size.width / limitedScale,
+                                    height: size.height / limitedScale
+                                )
+                                context.cgContext.scaleBy(x: limitedScale, y: limitedScale)
+                                snapshotView.drawHierarchy(in: limitedRect, afterScreenUpdates: true)
+                            }
+                            else {
+                                snapshotView.drawHierarchy(in: snapshotView.bounds, afterScreenUpdates: true)
+                            }
+
                             snapshotView.removeFromSuperview()
                         }
                         else {
