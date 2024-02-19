@@ -3,7 +3,6 @@ import XCTest
 
 final class SnapshotTests: XCTestCase {
     func testTakeSnapshot() throws {
-        print("\(ProcessInfo.processInfo.environment)")
         guard let directory = ProcessInfo.processInfo.environment["SNAPSHOT_DIR"] else {
             fatalError("Set directory to the build environment variables with key `SNAPSHOT_DIR`.")
         }

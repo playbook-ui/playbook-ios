@@ -7,7 +7,7 @@ A single line in the graph.
 
 import SwiftUI
 
-public struct GraphCapsule: View {
+public struct GraphCapsule: View, Equatable {
     public var index: Int
     public var height: CGFloat
     public var range: Range<Double>
@@ -33,7 +33,7 @@ public struct GraphCapsule: View {
             .fill(color)
             .frame(height: height * heightRatio, alignment: .bottom)
             .offset(x: 0, y: height * -offsetRatio)
-            .animation(animation)
+            .animation(animation, value: self)
     }
 
     public init(

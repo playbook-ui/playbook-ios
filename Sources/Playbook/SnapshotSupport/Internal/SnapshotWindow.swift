@@ -4,6 +4,7 @@ internal final class SnapshotWindow: UIWindow {
     private let scenario: Scenario
     private let device: SnapshotDevice
     private let scenarioViewController: ScenarioViewController
+    private let maxSize: CGSize?
 
     var contentView: UIView? {
         scenarioViewController.contentViewController?.view
@@ -24,7 +25,11 @@ internal final class SnapshotWindow: UIWindow {
         return safeAreaInsets
     }
 
-    init(scenario: Scenario, device: SnapshotDevice) {
+    init(
+        scenario: Scenario,
+        device: SnapshotDevice,
+        maxSize: CGSize? = nil
+    ) {
         let context = ScenarioContext(
             snapshotWaiter: SnapshotWaiter(),
             isSnapshot: true,
@@ -33,6 +38,7 @@ internal final class SnapshotWindow: UIWindow {
 
         self.scenario = scenario
         self.device = device
+        self.maxSize = maxSize
         self.scenarioViewController = ScenarioViewController(context: context, scenario: scenario)
 
         super.init(frame: .zero)
@@ -47,14 +53,18 @@ internal final class SnapshotWindow: UIWindow {
         scenarioViewController.disablesEndAppearanceTransition = true
         scenarioViewController.shouldStatusBarHidden = true
 
-        frame.size = CGSize(
-            width: scenario.layout.fixedWidth ?? device.size.width,
-            height: scenario.layout.fixedHeight ?? device.size.height
-        )
         windowLevel = .normal - 1
         layer.speed = .greatestFiniteMagnitude
         rootViewController = scenarioViewController
         isHidden = false
+
+        let idealWidth = scenario.layout.fixedWidth ?? device.size.width
+        let idealHeight = scenario.layout.fixedHeight ?? device.size.height
+
+        frame.size = CGSize(
+            width: maxSize.map { min($0.width, idealWidth) } ?? idealWidth,
+            height: maxSize.map { min($0.height, idealHeight) } ?? idealHeight
+        )
 
         if window != nil {
             // In iOS 16 and 17, setting `isHidden` nor does not update
