@@ -1,16 +1,17 @@
-TOOL := PLAYBOOK_DEVELOPMENT=1 swift run -c release
-GITHUB_RAW_CONTENT_PATH := https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/
-GITHUB_TREE_PATH := https://github.com/playbook-ui/playbook-ios/tree/master/
-LIBS := "Playbook" "PlaybookUI" "PlaybookSnapshot"
+TOOL = scripts/swift-run.sh
+GITHUB_RAW_CONTENT_PATH = https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/
+GITHUB_TREE_PATH = https://github.com/playbook-ui/playbook-ios/tree/master/
+LIBS = "Playbook" "PlaybookUI" "PlaybookSnapshot"
+XCODE_GEN_RESOURCES = .build/checkouts/XcodeGen/SettingPresets
 
 .PHONY: proj
 proj:
-	$(TOOL) xcodegen
-	$(TOOL) xcodegen --spec Example/project.yml --project Example
+	SWIFT_PACKAGE_RESOURCES=$(XCODE_GEN_RESOURCES) $(TOOL) xcodegen
+	SWIFT_PACKAGE_RESOURCES=$(XCODE_GEN_RESOURCES) $(TOOL) xcodegen --spec Example/project.yml --project Example
 
 .PHONY: format
 format:
-	$(TOOL) swift-format format -i -p -r Sources Tests Example/SamplePlaybook Example/SampleSnapshot
+	$(TOOL) swift-format format -i -p -r Sources Tests Example/SamplePlaybook Example/SampleSnapshot Package.swift Tools/Package.swift
 
 .PHONY: lint
 lint:

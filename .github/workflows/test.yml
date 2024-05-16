@@ -16,27 +16,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Get SwiftPM cache
-        uses: actions/cache@v2
+      - uses: actions/cache@v4
         with:
-          path: .build
-          key: ${{ runner.os }}-1-spm-${{ hashFiles('Package.resolved') }}
-          restore-keys: ${{ runner.os }}-1-spm
+          path: Tools/bin
+          key: spm-${{ runner.os }}-${{env.DEVELOPER_DIR}}-${{ hashFiles('Tools/Package.swift') }}
+
+      - name: Validate lint
+        run: make lint
 
       - name: Validate format
         run: |
           make format
-          if [ -n "$(git status --porcelain)" ]; then echo "Make sure that the code is formated by 'make format'."; exit 1; fi
-          make lint
-        env:
-          SPM_FORCE_BUILD: 1
+          if [ -n "$(git status --porcelain)" ]; then git diff && echo "Make sure that the code is formated by 'make format'."; exit 1; fi
 
-      - name: Validate example project
+      - name: Validate projects
         run: |
           make proj
-          if [ -n "$(git status --porcelain)" ]; then echo "Make sure that example project is formated by 'make proj'."; exit 1; fi
-        env:
-          SPM_FORCE_BUILD: 1
+          if [ -n "$(git status --porcelain)" ]; then git diff && echo "Make sure that projects are formated by 'make proj'."; exit 1; fi
 
   test:
     name: Test on macOS
@@ -52,7 +48,7 @@ jobs:
 
       - name: Get npm cache
         id: npm-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.os }}-0-npm-${{ hashFiles('package-lock.json') }}
