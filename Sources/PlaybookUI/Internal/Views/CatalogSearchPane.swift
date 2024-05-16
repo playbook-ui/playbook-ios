@@ -9,6 +9,8 @@ internal struct CatalogSearchPane: View {
     @FocusState
     private var isFocused
 
+    let onSelect: (SelectData) -> Void
+
     var body: some View {
         HStack(spacing: 0) {
             VStack(spacing: 0) {
@@ -59,8 +61,7 @@ internal struct CatalogSearchPane: View {
                                             data: data,
                                             isSelected: catalogState.selected?.id == select.id
                                         ) {
-                                            catalogState.selected = select
-                                            catalogState.isSearchPainCollapsed = true
+                                            onSelect(select)
                                         }
                                     }
                                 }

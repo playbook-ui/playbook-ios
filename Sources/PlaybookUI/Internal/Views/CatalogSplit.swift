@@ -22,9 +22,11 @@ internal struct CatalogSplit: View {
                         }
                 }
 
-                CatalogSearchPane()
-                    .frame(width: sidebarWidth)
-                    .offset(x: catalogState.isSearchPainCollapsed ? -sidebarWidth : 0)
+                CatalogSearchPane { data in
+                    catalogState.selected = data
+                }
+                .frame(width: sidebarWidth)
+                .offset(x: catalogState.isSearchPainCollapsed ? -sidebarWidth : 0)
             }
         }
         .animation(.snappy(duration: 0.3), value: catalogState.isSearchPainCollapsed)

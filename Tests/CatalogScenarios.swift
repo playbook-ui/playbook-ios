@@ -70,7 +70,7 @@ enum CatalogScenarios: ScenarioProvider {
                 catalogState.expandedKinds = ["Kind 1"]
                 catalogState.isSearchPainCollapsed = false
 
-                return CatalogSearchPane()
+                return CatalogSearchPane { _ in }
                     .environmentObject(SearchState(playbook: .test))
                     .environmentObject(catalogState)
             }

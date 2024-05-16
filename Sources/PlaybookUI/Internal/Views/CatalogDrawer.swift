@@ -3,23 +3,22 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 internal struct CatalogDrawer: View {
-    @EnvironmentObject
-    private var catalogState: CatalogState
-
     var body: some View {
         ZStack {
             CatalogTop()
-            Drawer(isCollapsed: $catalogState.isSearchPainCollapsed)
+            Drawer()
         }
     }
 }
 
 @available(iOS 15.0, *)
 private struct Drawer: View {
-    @Binding
-    var isCollapsed: Bool
+    @EnvironmentObject
+    private var catalogState: CatalogState
 
     var body: some View {
+        let isCollapsed = catalogState.isSearchPainCollapsed
+
         GeometryReader { geometry in
             let drawerWidth =
                 geometry.safeAreaInsets.leading
@@ -33,17 +32,20 @@ private struct Drawer: View {
                     .opacity(isCollapsed ? 0 : 0.3)
                     .ignoresSafeArea()
                     .onTapGesture {
-                        isCollapsed = true
+                        catalogState.isSearchPainCollapsed = true
                     }
 
                 HStack(spacing: 0) {
-                    CatalogSearchPane()
-                        .frame(width: drawerWidth)
-                        .background {
-                            Rectangle()
-                                .ignoresSafeArea()
-                                .shadow(radius: 10)
-                        }
+                    CatalogSearchPane { data in
+                        catalogState.selected = data
+                        catalogState.isSearchPainCollapsed = true
+                    }
+                    .frame(width: drawerWidth)
+                    .background {
+                        Rectangle()
+                            .ignoresSafeArea()
+                            .shadow(radius: 10)
+                    }
 
                     Spacer.zero
                 }
