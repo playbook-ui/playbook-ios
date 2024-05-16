@@ -2,7 +2,7 @@ TOOL = scripts/swift-run.sh
 GITHUB_RAW_CONTENT_PATH = https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/
 GITHUB_TREE_PATH = https://github.com/playbook-ui/playbook-ios/tree/master/
 LIBS = "Playbook" "PlaybookUI" "PlaybookSnapshot"
-XCODE_GEN_RESOURCES = .build/checkouts/XcodeGen/SettingPresets
+XCODE_GEN_RESOURCES = Tools/.build/checkouts/XcodeGen/SettingPresets
 
 .PHONY: proj
 proj:
