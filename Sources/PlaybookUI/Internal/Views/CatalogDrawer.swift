@@ -11,9 +11,6 @@ internal struct CatalogDrawer: View {
             CatalogTop()
             Drawer(isCollapsed: $catalogState.isSearchPainCollapsed)
         }
-        .onChange(of: catalogState.selected?.id) { _ in
-            catalogState.isSearchPainCollapsed = true
-        }
     }
 }
 

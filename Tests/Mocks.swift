@@ -3,42 +3,6 @@ import SwiftUI
 
 @testable import PlaybookUI
 
-struct SchedulerMock: SchedulerProtocol {
-    func schedule(on queue: DispatchQueue, action: @escaping () -> Void) {
-        action()
-    }
-
-    func schedule(on: DispatchQueue, after interval: TimeInterval, action: @escaping () -> Void) {
-        action()
-    }
-}
-
-final class SnapshotLoaderMock: SnapshotLoaderProtocol {
-    let device: SnapshotDevice
-    let takeSnapshotResult: Data
-    let loadImageResult: Result<UIImage?, Error>
-
-    init(
-        device: SnapshotDevice,
-        takeSnapshotResult: Data = Data(),
-        loadImageResult: Result<UIImage?, Error> = .success(nil)
-    ) {
-        self.device = device
-        self.takeSnapshotResult = takeSnapshotResult
-        self.loadImageResult = loadImageResult
-    }
-
-    func takeSnapshot(for scenario: Scenario, kind: ScenarioKind, completion: ((Data) -> Void)?) {
-        completion?(takeSnapshotResult)
-    }
-
-    func loadImage(kind: ScenarioKind, name: ScenarioName) -> Result<UIImage?, Error> {
-        loadImageResult
-    }
-
-    func clean() {}
-}
-
 extension Playbook {
     static let test: Playbook = {
         let playbok = Playbook()
@@ -55,12 +19,30 @@ extension Playbook {
     }()
 }
 
+extension SelectData {
+    static func stub() -> Self {
+        SelectData(kind: "Kind", scenario: .stub("Scenario"))
+    }
+}
+
 extension SearchedData {
-    static var stub: Self {
+    static func stub(_ index: Int) -> Self {
         SearchedData(
-            scenario: .stub("Scenario 1"),
-            kind: "Kind 1",
-            shouldHighlight: false
+            kind: "Kind",
+            scenario: .stub("Scenario \(index)"),
+            highlightRange: nil
+        )
+    }
+}
+
+extension SearchedKindData {
+    static func stub(
+        scenarios: [SearchedData] = (0..<3).map { .stub($0) }
+    ) -> Self {
+        SearchedKindData(
+            kind: "Kind",
+            highlightRange: nil,
+            scenarios: scenarios
         )
     }
 }

@@ -14,7 +14,7 @@ final class SnapshotTests: XCTestCase {
                 format: .png,
                 scale: 1,
                 keyWindow: getKeyWindow(),
-                devices: [.iPhone11Pro(.portrait)]
+                devices: [.iPhone15Pro(.portrait)]
             )
         )
     }

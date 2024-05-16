@@ -60,6 +60,7 @@ internal struct CatalogSearchPane: View {
                                             isSelected: catalogState.selected?.id == select.id
                                         ) {
                                             catalogState.selected = select
+                                            catalogState.isSearchPainCollapsed = true
                                         }
                                     }
                                 }

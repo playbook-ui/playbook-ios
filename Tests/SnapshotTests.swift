@@ -1,6 +1,7 @@
 import PlaybookSnapshot
 import XCTest
 
+@available(iOS 15.0, *)
 final class SnapshotTests: XCTestCase {
     func testTakeSnapshot() throws {
         guard let directory = ProcessInfo.processInfo.environment["SNAPSHOT_DIR"] else {
@@ -17,9 +18,9 @@ final class SnapshotTests: XCTestCase {
                 scale: 1,
                 keyWindow: getKeyWindow(),
                 devices: [
-                    .iPhone11Pro(.portrait),
-                    .iPhone11Pro(.landscape).style(.dark),
-                    .iPhoneSE(.portrait).style(.dark),
+                    .iPhone15Pro(.portrait),
+                    .iPhone15Pro(.landscape).style(.dark),
+                    .iPhone13Mini(.portrait),
                     .iPadPro12_9(.landscape),
                 ],
                 viewPreprocessor: { view in
