@@ -55,17 +55,7 @@ public struct PlaybookGallery: View {
                         }
                     }
 
-                    Rectangle()
-                        .fill(.clear)
-                        .frame(height: 24)
-                        .frame(maxWidth: .infinity)
-                        .contextMenu {
-                            Button {
-                                galleryState.clearImageCache()
-                            } label: {
-                                Text("Clear image cache")
-                            }
-                        }
+                    Spacer.fixed(length: 24)
                 }
                 .listRowSpacing(.zero)
                 .listRowInsets(EdgeInsets())
@@ -77,7 +67,7 @@ public struct PlaybookGallery: View {
             .environment(\.defaultMinListRowHeight, 0)
             .navigationTitleIfPresent(title)
             .background {
-                Color(.primaryBackground)
+                Color(.background)
                     .ignoresSafeArea()
             }
             .ignoresSafeArea(.keyboard)
@@ -86,7 +76,18 @@ public struct PlaybookGallery: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    ColorSchemePicker(colorScheme: $galleryState.colorScheme)
+                    HStack {
+                        Menu {
+                            Button("Clear Thumbnail Cache") {
+                                galleryState.clearImageCache()
+                            }
+                        } label: {
+                            Image(symbol: .ellipsisCircle)
+                                .imageStyle(font: .subheadline)
+                        }
+
+                        ColorSchemePicker(colorScheme: $galleryState.colorScheme)
+                    }
                 }
             }
         }

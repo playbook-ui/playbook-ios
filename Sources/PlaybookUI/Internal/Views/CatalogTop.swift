@@ -30,7 +30,7 @@ internal struct CatalogTop: View {
         }
         .frame(maxHeight: .infinity)
         .background {
-            Color(.primaryBackground)
+            Color(.background)
                 .ignoresSafeArea()
         }
         .ignoresSafeArea()

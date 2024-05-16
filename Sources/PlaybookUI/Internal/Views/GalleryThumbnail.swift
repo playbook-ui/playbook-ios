@@ -18,7 +18,7 @@ internal struct GalleryThumbnail: View {
 
     var body: some View {
         ZStack {
-            Color(.primaryBackground)
+            Color(.background)
 
             if let image {
                 Image(uiImage: image)

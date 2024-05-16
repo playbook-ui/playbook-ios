@@ -12,15 +12,8 @@ internal struct CatalogSplit: View {
 
             ZStack(alignment: .leading) {
                 HStack(spacing: 0) {
-                    CatalogSearchPane()
-                    Divider()
-                        .ignoresSafeArea()
-                }
-                .frame(width: sidebarWidth)
-                .offset(x: catalogState.isSearchPainCollapsed ? -sidebarWidth / 2 : 0)
-
-                HStack(spacing: 0) {
                     Spacer.fixed(length: catalogState.isSearchPainCollapsed ? 0 : sidebarWidth)
+
                     CatalogTop()
                         .transformEnvironment(\.horizontalSizeClass) { sizeClass in
                             if !catalogState.isSearchPainCollapsed {
@@ -28,8 +21,12 @@ internal struct CatalogSplit: View {
                             }
                         }
                 }
+
+                CatalogSearchPane()
+                    .frame(width: sidebarWidth)
+                    .offset(x: catalogState.isSearchPainCollapsed ? -sidebarWidth : 0)
             }
         }
-        .animation(.smooth(duration: 0.3), value: catalogState.isSearchPainCollapsed)
+        .animation(.snappy(duration: 0.3), value: catalogState.isSearchPainCollapsed)
     }
 }

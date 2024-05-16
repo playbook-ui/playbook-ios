@@ -4,10 +4,9 @@ internal extension UIColor {
     static let primaryBlue = UIColor(hex: 0x048DFF)
     static let highlight = UIColor.systemYellow
     static let translucentFill = UIColor.secondarySystemFill
-    static let primaryBackground = UIColor { traitCollection in
+    static let background = UIColor { traitCollection in
         traitCollection.userInterfaceStyle == .light ? .white : .black
     }
-    static let secondaryBackground = UIColor.secondarySystemBackground
 }
 
 private extension UIColor {

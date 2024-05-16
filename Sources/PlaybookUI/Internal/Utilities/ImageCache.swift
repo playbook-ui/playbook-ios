@@ -69,6 +69,10 @@ private extension ImageCache {
     }
 
     func remove(at url: URL) {
+        guard fileManager.fileExists(atPath: url.path) else {
+            return
+        }
+
         do {
             try fileManager.removeItem(at: url)
         }

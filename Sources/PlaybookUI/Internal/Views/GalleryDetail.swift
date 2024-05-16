@@ -27,7 +27,7 @@ internal struct GalleryDetail: View {
             }
         }
         .background {
-            Color(.primaryBackground)
+            Color(.background)
                 .ignoresSafeArea()
         }
     }
