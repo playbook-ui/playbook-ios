@@ -15,7 +15,7 @@ final class SnapshotTests: XCTestCase {
                 clean: true,
                 format: .png,
                 scale: 1,
-                keyWindow: UIApplication.shared.windows.first { $0.isKeyWindow },
+                keyWindow: getKeyWindow(),
                 devices: [
                     .iPhone11Pro(.portrait),
                     .iPhone11Pro(.landscape).style(.dark),
@@ -28,5 +28,13 @@ final class SnapshotTests: XCTestCase {
                 }
             )
         )
+    }
+
+    func getKeyWindow() -> UIWindow? {
+        UIApplication.shared.connectedScenes
+            .lazy
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap(\.windows)
+            .first(where: \.isKeyWindow)
     }
 }
