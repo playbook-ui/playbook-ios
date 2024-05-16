@@ -23,6 +23,7 @@ jobs:
 
       - name: Validate lint
         run: make lint
+
       - name: Validate format
         run: |
           make format
@@ -47,7 +48,7 @@ jobs:
 
       - name: Get npm cache
         id: npm-cache
-        uses: actions/cache@@v4
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.os }}-0-npm-${{ hashFiles('package-lock.json') }}
