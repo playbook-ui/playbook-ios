@@ -19,7 +19,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: Tools/bin
-          key: spm-${{ runner.os }}-${{env.DEVELOPER_DIR}}-${{ hashFiles('Tools/Package.swift') }}
+          key: spm-0-${{ runner.os }}-${{env.DEVELOPER_DIR}}-${{ hashFiles('Tools/Package.swift') }}
 
       - name: Validate lint
         run: make lint
