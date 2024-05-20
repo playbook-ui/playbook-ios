@@ -30,17 +30,17 @@ internal struct PlaybookGalleryContent: View {
                         isFocused = false
                     }
 
-                    if searchState.result.kinds.isEmpty {
+                    if searchState.result.categories.isEmpty {
                         UnavailableView(
                             symbol: .magnifyingglass,
                             description: "No Result for \"\(searchState.query)\""
                         )
                     }
                     else {
-                        ForEach(searchState.result.kinds, id: \.kind) { data in
-                            GalleryKindRow(data: data) { selected in
+                        ForEach(searchState.result.categories, id: \.category) { data in
+                            GalleryCategoryRow(data: data) { selected in
                                 galleryState.selected = SelectData(
-                                    kind: selected.kind,
+                                    category: selected.category,
                                     scenario: selected.scenario
                                 )
                             }

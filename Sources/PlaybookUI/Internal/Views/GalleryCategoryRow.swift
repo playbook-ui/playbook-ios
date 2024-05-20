@@ -1,8 +1,8 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-internal struct GalleryKindRow: View {
-    let data: SearchedKindData
+internal struct GalleryCategoryRow: View {
+    let data: SearchedCategoryData
     let onSelect: (SearchedData) -> Void
 
     var body: some View {
@@ -14,7 +14,7 @@ internal struct GalleryKindRow: View {
                     .frame(height: 16)
 
                 HighlightText(
-                    content: data.kind.rawValue,
+                    content: data.category.rawValue,
                     range: data.highlightRange
                 )
                 .textStyle(font: .headline)
@@ -24,7 +24,7 @@ internal struct GalleryKindRow: View {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 8) {
-                    ForEach(data.scenarios, id: \.scenario.name) { data in
+                    ForEach(data.scenarios, id: \.scenario.title) { data in
                         Button {
                             onSelect(data)
                         } label: {

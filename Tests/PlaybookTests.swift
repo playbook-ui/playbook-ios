@@ -4,8 +4,8 @@ import XCTest
 final class PlaybookTests: XCTestCase {
     func testScenarios() {
         let playbook = Playbook()
-        let first = playbook.scenarios(of: "kind")
-        let second = playbook.scenarios(of: "kind")
+        let first = playbook.scenarios(of: "category")
+        let second = playbook.scenarios(of: "category")
         XCTAssertEqual(ObjectIdentifier(first), ObjectIdentifier(second))
     }
 
@@ -16,11 +16,11 @@ final class PlaybookTests: XCTestCase {
         let third = playbook.scenarios(of: "third")
 
         XCTAssertEqual(
-            playbook.stores.map { $0.kind },
+            playbook.stores.map { $0.category },
             [
-                first.kind,
-                second.kind,
-                third.kind,
+                first.category,
+                second.category,
+                third.category,
             ]
         )
     }
@@ -29,16 +29,16 @@ final class PlaybookTests: XCTestCase {
         struct TestProvider: ScenarioProvider {
             static func addScenarios(into playbook: Playbook) {
                 playbook
-                    .scenarios(of: "kind")
-                    .add(Scenario("name", layout: .fill) { UIView() })
+                    .scenarios(of: "category")
+                    .add(Scenario("title", layout: .fill) { UIView() })
             }
         }
 
         let playbook = Playbook()
         playbook.add(TestProvider.self)
 
-        let scenario = playbook.scenarios(of: "kind").scenarios.first
-        XCTAssertEqual(scenario?.name, "name")
+        let scenario = playbook.scenarios(of: "category").scenarios.first
+        XCTAssertEqual(scenario?.title, "title")
     }
 
     func testAddScenarios() {
@@ -46,16 +46,16 @@ final class PlaybookTests: XCTestCase {
         let scenario0 = Scenario("0", layout: .fill) { UIView() }
         let scenario1 = Scenario("1", layout: .fill) { UIView() }
 
-        playbook.addScenarios(of: "kind") {
+        playbook.addScenarios(of: "category") {
             scenario0
             scenario1
         }
 
-        let store = playbook.scenarios(of: "kind")
+        let store = playbook.scenarios(of: "category")
 
         XCTAssertEqual(store.scenarios.count, 2)
-        XCTAssertEqual(store.scenarios[0].name, scenario0.name)
-        XCTAssertEqual(store.scenarios[1].name, scenario1.name)
+        XCTAssertEqual(store.scenarios[0].title, scenario0.title)
+        XCTAssertEqual(store.scenarios[1].title, scenario1.title)
     }
 
     func testRunTestTools() throws {

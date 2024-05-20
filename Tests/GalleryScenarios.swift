@@ -26,7 +26,7 @@ enum GalleryScenarios: ScenarioProvider {
             }
 
             Scenario("Row", layout: .fillH) { context in
-                GalleryKindRow(data: .stub()) { _ in }
+                GalleryCategoryRow(data: .stub()) { _ in }
                     .environmentObject(ImageLoader())
             }
 

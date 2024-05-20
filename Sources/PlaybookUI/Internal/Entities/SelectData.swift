@@ -2,14 +2,14 @@ import Playbook
 
 internal struct SelectData: Identifiable {
     struct ID: Hashable {
-        let kind: ScenarioKind
-        let name: ScenarioName
+        let category: ScenarioCategory
+        let title: ScenarioTitle
     }
 
     var id: ID {
-        ID(kind: kind, name: scenario.name)
+        ID(category: category, title: scenario.title)
     }
 
-    let kind: ScenarioKind
+    let category: ScenarioCategory
     let scenario: Scenario
 }

@@ -82,14 +82,14 @@ public struct Snapshot: TestTool {
                 let directoryURL =
                     directoryURL
                     .appendingPathComponent(device.name, isDirectory: true)
-                    .appendingPathComponent(normalize(store.kind.rawValue), isDirectory: true)
+                    .appendingPathComponent(normalize(store.category.rawValue), isDirectory: true)
 
                 try fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true)
 
                 func attemptToWrite(data: Data, scenario: Scenario) {
                     let fileURL =
                         directoryURL
-                        .appendingPathComponent(normalize(scenario.name.rawValue))
+                        .appendingPathComponent(normalize(scenario.title.rawValue))
                         .appendingPathExtension(format.fileExtension)
 
                     do {

@@ -1,21 +1,21 @@
-/// The class for managing a set of scenarios identified by the arbitrary kind.
+/// The class for managing a set of scenarios identified by the arbitrary category.
 public final class ScenarioStore {
     /// A unique identifier of the secenarios managed by this instance.
-    public let kind: ScenarioKind
+    public let category: ScenarioCategory
 
-    private var storage = OrderedStorage<ScenarioName, Scenario>()
+    private var storage = OrderedStorage<ScenarioTitle, Scenario>()
 
     /// The set of scenarios managed by this store.
     public var scenarios: [Scenario] {
         Array(storage)
     }
 
-    /// Initialize a new store with given kind.
+    /// Initialize a new store with given category.
     ///
     /// - Parameters:
-    ///   - kind: A unique identifier of the secenarios managed by this instance.
-    public init(kind: ScenarioKind) {
-        self.kind = kind
+    ///   - category: A unique identifier of the secenarios managed by this instance.
+    public init(category: ScenarioCategory) {
+        self.category = category
     }
 
     /// Adds a scenario to this store instance.
@@ -26,7 +26,7 @@ public final class ScenarioStore {
     /// - Returns: A instance of `self`.
     @discardableResult
     public func add(_ scenario: Scenario) -> Self {
-        storage.append(scenario, for: scenario.name)
+        storage.append(scenario, for: scenario.title)
         return self
     }
 }

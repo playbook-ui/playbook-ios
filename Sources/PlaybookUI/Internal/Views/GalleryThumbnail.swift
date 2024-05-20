@@ -48,7 +48,7 @@ internal struct GalleryThumbnail: View {
         .task(id: colorScheme, priority: .background) {
             let source = ImageSource(
                 scenario: data.scenario,
-                kind: data.kind,
+                category: data.category,
                 size: screenSize,
                 scale: imageScale,
                 colorScheme: colorScheme
@@ -68,7 +68,7 @@ private struct NameLabel: View {
                 .ignoresSafeArea()
 
             HighlightText(
-                content: data.scenario.name.rawValue,
+                content: data.scenario.title.rawValue,
                 range: data.highlightRange
             )
             .textStyle(font: .caption, lineLimit: 3)

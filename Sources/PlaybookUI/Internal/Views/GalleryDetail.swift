@@ -22,7 +22,7 @@ internal struct GalleryDetail: View {
             .ignoresSafeArea()
         }
         .safeAreaInset(edge: .top, spacing: 0) {
-            GalleryDetailTopBar(title: data.scenario.name.rawValue) {
+            GalleryDetailTopBar(title: data.scenario.title.rawValue) {
                 shareState.shareSnapshot()
             }
         }

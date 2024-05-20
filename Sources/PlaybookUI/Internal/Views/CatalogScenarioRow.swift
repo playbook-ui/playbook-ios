@@ -19,7 +19,7 @@ internal struct CatalogScenarioRow: View {
                     Spacer.fixed(length: 8)
 
                     HighlightText(
-                        content: data.scenario.name.rawValue,
+                        content: data.scenario.title.rawValue,
                         range: data.highlightRange
                     )
                     .textStyle(font: .subheadline)

@@ -10,18 +10,18 @@ internal final class CatalogState: ObservableObject {
     @Published
     var colorScheme: ColorScheme?
     @Published
-    var expandedKinds = Set<ScenarioKind>()
+    var expandedCategories = Set<ScenarioCategory>()
     @Published
-    var searchingKinds: Set<ScenarioKind>?
+    var searchingCategories: Set<ScenarioCategory>?
 
-    var currentExpandedKinds: Set<ScenarioKind> {
-        get { searchingKinds ?? expandedKinds }
+    var currentExpandedCategories: Set<ScenarioCategory> {
+        get { searchingCategories ?? expandedCategories }
         set {
-            if searchingKinds != nil {
-                searchingKinds = newValue
+            if searchingCategories != nil {
+                searchingCategories = newValue
             }
             else {
-                expandedKinds = newValue
+                expandedCategories = newValue
             }
         }
     }
@@ -31,19 +31,19 @@ internal final class CatalogState: ObservableObject {
             return
         }
 
-        let scenario = searchResult.kinds.first?.scenarios.first
+        let scenario = searchResult.categories.first?.scenarios.first
         selected = scenario.map { scenario in
             SelectData(
-                kind: scenario.kind,
+                category: scenario.category,
                 scenario: scenario.scenario
             )
         }
     }
 
-    func updateSearchingKinds(query: String, searchResult: SearchResult) {
-        searchingKinds =
+    func updateSearchingCategories(query: String, searchResult: SearchResult) {
+        searchingCategories =
             query.isEmpty
             ? nil
-            : Set(searchResult.kinds.map(\.kind))
+            : Set(searchResult.categories.map(\.category))
     }
 }
