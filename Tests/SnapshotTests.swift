@@ -1,9 +1,9 @@
 import PlaybookSnapshot
 import XCTest
 
+@available(iOS 15.0, *)
 final class SnapshotTests: XCTestCase {
     func testTakeSnapshot() throws {
-        print("\(ProcessInfo.processInfo.environment)")
         guard let directory = ProcessInfo.processInfo.environment["SNAPSHOT_DIR"] else {
             fatalError("Set directory to the build environment variables with key `SNAPSHOT_DIR`.")
         }
@@ -16,11 +16,11 @@ final class SnapshotTests: XCTestCase {
                 clean: true,
                 format: .png,
                 scale: 1,
-                keyWindow: UIApplication.shared.windows.first { $0.isKeyWindow },
+                keyWindow: getKeyWindow(),
                 devices: [
-                    .iPhone11Pro(.portrait),
-                    .iPhone11Pro(.landscape).style(.dark),
-                    .iPhoneSE(.portrait).style(.dark),
+                    .iPhone15Pro(.portrait),
+                    .iPhone15Pro(.landscape).style(.dark),
+                    .iPhone13Mini(.portrait),
                     .iPadPro12_9(.landscape),
                 ],
                 viewPreprocessor: { view in
@@ -29,5 +29,13 @@ final class SnapshotTests: XCTestCase {
                 }
             )
         )
+    }
+
+    func getKeyWindow() -> UIWindow? {
+        UIApplication.shared.connectedScenes
+            .lazy
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap(\.windows)
+            .first(where: \.isKeyWindow)
     }
 }

@@ -24,7 +24,6 @@ public struct HikeView: View {
             HStack {
                 HikeGraph(hike: hike, path: \.elevation)
                     .frame(width: 50, height: 30)
-                    .animation(nil)
                 
                 VStack(alignment: .leading) {
                     Text(verbatim: hike.name)

@@ -2,103 +2,78 @@ import SwiftUI
 
 @testable import PlaybookUI
 
+@available(iOS 15.0, *)
 enum CatalogScenarios: ScenarioProvider {
+    @MainActor
     static func addScenarios(into playbook: Playbook) {
         playbook.addScenarios(of: "Catalog") {
             Scenario("Drawer close", layout: .fill) {
-                PlaybookCatalogInternal(
-                    name: "TEST",
-                    playbook: .test,
-                    store: CatalogStore(
-                        playbook: .test,
-                        selectedScenario: .stub,
-                        isSearchTreeHidden: true
-                    )
-                    .start()
-                )
+                let catalogState = CatalogState()
+                catalogState.isSearchPainCollapsed = true
+
+                return PlaybookCatalogContent(title: nil)
+                    .environmentObject(SearchState(playbook: .test))
+                    .environmentObject(catalogState)
+                    .environmentObject(ShareState())
             }
 
             Scenario("Drawer open", layout: .fill) {
-                PlaybookCatalogInternal(
-                    name: "TEST",
-                    playbook: .test,
-                    store: CatalogStore(
-                        playbook: .test,
-                        selectedScenario: .stub,
-                        openedKinds: ["Kind 1"],
-                        isSearchTreeHidden: false
-                    )
-                    .start()
-                )
+                let catalogState = CatalogState()
+                catalogState.isSearchPainCollapsed = false
+
+                return PlaybookCatalogContent(title: nil)
+                    .environmentObject(SearchState(playbook: .test))
+                    .environmentObject(catalogState)
+                    .environmentObject(ShareState())
             }
 
             Scenario("Drawer close empty", layout: .fill) {
-                PlaybookCatalogInternal(
-                    name: "TEST",
-                    playbook: Playbook(),
-                    store: CatalogStore(
-                        playbook: Playbook(),
-                        isSearchTreeHidden: true
-                    )
-                )
+                let searchState = SearchState(playbook: Playbook())
+                let catalogState = CatalogState()
+                catalogState.isSearchPainCollapsed = true
+
+                return PlaybookCatalogContent(title: nil)
+                    .environmentObject(searchState)
+                    .environmentObject(catalogState)
+                    .environmentObject(ShareState())
             }
 
             Scenario("Drawer open empty", layout: .fill) {
-                PlaybookCatalogInternal(
-                    name: "TEST",
-                    playbook: Playbook(),
-                    store: CatalogStore(
-                        playbook: Playbook(),
-                        isSearchTreeHidden: false
-                    )
-                )
+                let searchState = SearchState(playbook: Playbook())
+                let catalogState = CatalogState()
+                catalogState.isSearchPainCollapsed = false
+
+                return PlaybookCatalogContent(title: nil)
+                    .environmentObject(searchState)
+                    .environmentObject(catalogState)
+                    .environmentObject(ShareState())
             }
 
-            Scenario("Searching", layout: .fill) {
-                PlaybookCatalogInternal(
-                    name: "TEST",
-                    playbook: .test,
-                    store: CatalogStore(
-                        playbook: .test,
-                        selectedScenario: .stub,
-                        openedSearchingKinds: Set(Playbook.test.stores.map { $0.kind }),
-                        isSearchTreeHidden: false
-                    )
-                    .start(with: "2")
-                )
+            Scenario("Drawer open searching", layout: .fill) {
+                let searchState = SearchState(playbook: .test)
+                let catalogState = CatalogState()
+                searchState.query = "1"
+                catalogState.isSearchPainCollapsed = false
+
+                return PlaybookCatalogContent(title: nil)
+                    .environmentObject(searchState)
+                    .environmentObject(catalogState)
+                    .environmentObject(ShareState())
             }
 
-            Scenario("Drawer", layout: .sizing(h: .fixed(300), v: .fill)) {
-                ScenarioSearchTreeIOS13()
-                    .environmentObject(
-                        CatalogStore(
-                            playbook: .test,
-                            selectedScenario: .stub,
-                            openedKinds: ["Kind 1"],
-                            isSearchTreeHidden: false
-                        )
-                        .start()
-                    )
+            Scenario("SearchPane", layout: .sizing(h: .fixed(300), v: .fill)) {
+                let catalogState = CatalogState()
+                catalogState.selected = SelectData(
+                    kind: "Kind 1",
+                    scenario: .stub("Scenario 1")
+                )
+                catalogState.expandedKinds = ["Kind 1"]
+                catalogState.isSearchPainCollapsed = false
+
+                return CatalogSearchPane { _ in }
+                    .environmentObject(SearchState(playbook: .test))
+                    .environmentObject(catalogState)
             }
         }
-
-        #if swift(>=5.3)
-        if #available(iOS 14.0, *) {
-            playbook.addScenarios(of: "Catalog") {
-                Scenario("Drawer iOS14", layout: .sizing(h: .fixed(300), v: .fill)) {
-                    ScenarioSearchTreeIOS14()
-                        .environmentObject(
-                            CatalogStore(
-                                playbook: .test,
-                                selectedScenario: .stub,
-                                openedKinds: ["Kind 1"],
-                                isSearchTreeHidden: false
-                            )
-                            .start()
-                        )
-                }
-            }
-        }
-        #endif
     }
 }
