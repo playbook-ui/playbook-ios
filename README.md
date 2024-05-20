@@ -5,12 +5,12 @@
 <p align="center">A library for isolated developing UI components and automatically taking snapshots of them.</p>
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/demo.png" alt="playbook" width="850">
+<img src="assets/overview.png" alt="playbook" width="850">
 </p>
 
 # Playbook
 
-<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/mockup.gif" alt="Playbook" width="350" align="right">
+<img src="assets/demo.gif" alt="Playbook" width="250" align="right">
 
 <a href="https://developer.apple.com/swift"><img alt="Swift5" src="https://img.shields.io/badge/language-Swift5-orange.svg"/></a>
 <a href="https://github.com/playbook-ui/playbook-ios/actions"><img alt="CI Status" src="https://github.com/playbook-ui/playbook-ios/workflows/GitHub%20Actions/badge.svg"/></a>
@@ -110,7 +110,7 @@ Those that are displayed on the top screen are not actually doing layout, but ra
 
 | Browser | Detail |
 | ------- | ------ |
-|<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/gallery-light.png" alt="Gellery Light" width="150"><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/gallery-dark.png" alt="Gellery Dark" width="150">|<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/gallery-content-light.png" alt="Gellery Content Light" width="150"><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/gallery-content-dark.png" alt="Gellery Content Dark" width="150">|
+|<img src="assets/gallery_light.png" alt="Gellery Light" width="150"><img src="assets/gallery_dark.png" alt="Gellery Dark" width="150">|<img src="assets/gallery_detail_light.png" alt="Gellery Content Light" width="150"><img src="assets/gallery_detail_dark.png" alt="Gellery Content Dark" width="150">|
 
 #### PlaybookCatalog
 
@@ -119,7 +119,7 @@ If you have too many scenarios, this may be more efficient than `PlaybookCatalog
 
 | Browser | Detail |
 | ------- | ------ |
-|<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/catalog-drawer-light.png" alt="Catalog Drawer Light" width="150"><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/catalog-drawer-dark.png" alt="Catalog Drawer Dark" width="150">|<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/catalog-light.png" alt="Catalog Light" width="150"><img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/catalog-dark.png" alt="Catalog Dark" width="150">|
+|<img src="assets/catalog_light.png" alt="Catalog Light" width="150"><img src="assets/catalog_dark.png" alt="Catalog Dark" width="150">|<img src="assets/catalog_detail_light.png" alt="Catalog Detail Light" width="150"><img src="assets/catalog_detail_dark.png" alt="Catalog Detail Dark" width="150">|
 
 #### How to Save Snapshot Images
 
@@ -143,15 +143,14 @@ final class SnapshotTests: XCTestCase {
                 directory: URL(fileURLWithPath: directory),
                 clean: true,
                 format: .png,
-                keyWindow: UIApplication.shared.windows.first { $0.isKeyWindow },
-                devices: [.iPhone11Pro(.portrait)]
+                devices: [.iPhone15Pro(.portrait)]
             )
         )
     }
 }
 ```
 
-<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/generated-images.png" alt="generate images" width="660">
+<img src="assets/generated_images.png" alt="Generated Images" width="660">
 
 ---
 
@@ -159,7 +158,7 @@ final class SnapshotTests: XCTestCase {
 
 An extension to `Playbook` that uses [AccessibilitySnapshot](https://github.com/cashapp/AccessibilitySnapshot) to produce snapshots with accessibility information such as activation points and labels.
 
-<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/accessibility-snapshot.png" alt="accessibility-snapshot" width="400">
+<img src="assets/accessibility_snapshot.png" alt="Accessibility Snapshot" width="400">
 
 ---
 
@@ -169,19 +168,19 @@ The generated snapshot images can be used for more advanced visual regression te
 
 #### [percy](https://percy.io)
 
-<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/percy.png" alt="percy" width="600">
+<img src="assets/percy.png" alt="percy" width="600">
 
 #### [reg-viz/reg-suit](https://github.com/reg-viz/reg-suit)
 
-<img src="https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/assets/reg-report.png" alt="reg-suit" width="600">
+<img src="assets/reg_report.png" alt="reg-suit" width="600">
 
 ---
 
 ## Requirements
 
 - Swift 5.9+
-- Xcode 15.0+
-- iOS 13.0+
+- Xcode 15.2+
+- iOS 13.0+ (PlaybookUI: iOS 15.0+)
 
 ---
 
