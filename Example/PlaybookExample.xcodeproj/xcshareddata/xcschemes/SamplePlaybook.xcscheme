@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1430"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      runPostActionsOnFailure = "NO">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -26,7 +27,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "NO">
+      shouldUseLaunchSchemeArgsEnv = "NO"
+      onlyGenerateCoverageForSpecifiedTargets = "NO">
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -36,6 +38,18 @@
             ReferencedContainer = "container:PlaybookExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FCB8178D69617DAF634AD15B"
+               BuildableName = "SampleSnapshot.xctest"
+               BlueprintName = "SampleSnapshot"
+               ReferencedContainer = "container:PlaybookExample.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
       <CommandLineArguments>
          <CommandLineArgument
             argument = "-AppleLanguages (en)"
@@ -49,18 +63,6 @@
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
-      <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FCB8178D69617DAF634AD15B"
-               BuildableName = "SampleSnapshot.xctest"
-               BlueprintName = "SampleSnapshot"
-               ReferencedContainer = "container:PlaybookExample.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
