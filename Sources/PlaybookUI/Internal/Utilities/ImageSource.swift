@@ -3,7 +3,7 @@ import SwiftUI
 
 struct ImageSource {
     let scenario: Scenario
-    let kind: ScenarioKind
+    let category: ScenarioCategory
     let size: CGSize
     let scale: CGFloat
     let colorScheme: ColorScheme

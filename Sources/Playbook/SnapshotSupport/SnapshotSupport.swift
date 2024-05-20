@@ -123,11 +123,11 @@ private extension SnapshotSupport {
 
             window.prepareForSnapshot {
                 if contentView.bounds.size.width <= 0 {
-                    fatalError("The view was laid out with zero width in scenario - \(scenario.name)", file: scenario.file, line: scenario.line)
+                    fatalError("The view was laid out with zero width in scenario - \(scenario.title)", file: scenario.file, line: scenario.line)
                 }
 
                 if contentView.bounds.size.height <= 0 {
-                    fatalError("The view was laid out with zero height in scenario - \(scenario.name)", file: scenario.file, line: scenario.line)
+                    fatalError("The view was laid out with zero height in scenario - \(scenario.title)", file: scenario.file, line: scenario.line)
                 }
 
                 let format = UIGraphicsImageRendererFormat(for: device.traitCollection)

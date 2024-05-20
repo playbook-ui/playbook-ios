@@ -1,7 +1,7 @@
 import Playbook
 
-internal struct SearchedKindData {
-    let kind: ScenarioKind
+internal struct SearchedCategoryData {
+    let category: ScenarioCategory
     let highlightRange: Range<String.Index>?
     let scenarios: [SearchedData]
 }

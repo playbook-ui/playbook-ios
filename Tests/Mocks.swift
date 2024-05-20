@@ -7,8 +7,8 @@ extension Playbook {
     static let test: Playbook = {
         let playbok = Playbook()
 
-        for kindNumber in 1...3 {
-            let store = playbok.scenarios(of: "Kind \(kindNumber)")
+        for categoryNumber in 1...3 {
+            let store = playbok.scenarios(of: "Category \(categoryNumber)")
 
             for scenarioNumber in 1...3 {
                 store.add(.stub("Scenario \(scenarioNumber)"))
@@ -21,26 +21,26 @@ extension Playbook {
 
 extension SelectData {
     static func stub() -> Self {
-        SelectData(kind: "Kind", scenario: .stub("Scenario"))
+        SelectData(category: "Category", scenario: .stub("Scenario"))
     }
 }
 
 extension SearchedData {
     static func stub(_ index: Int) -> Self {
         SearchedData(
-            kind: "Kind",
+            category: "Category",
             scenario: .stub("Scenario \(index)"),
             highlightRange: nil
         )
     }
 }
 
-extension SearchedKindData {
+extension SearchedCategoryData {
     static func stub(
         scenarios: [SearchedData] = (0..<3).map { .stub($0) }
     ) -> Self {
-        SearchedKindData(
-            kind: "Kind",
+        SearchedCategoryData(
+            category: "Category",
             highlightRange: nil,
             scenarios: scenarios
         )
@@ -48,8 +48,8 @@ extension SearchedKindData {
 }
 
 extension Scenario {
-    static func stub(_ name: ScenarioName) -> Self {
-        Scenario(name, layout: .fill) {
+    static func stub(_ title: ScenarioTitle) -> Self {
+        Scenario(title, layout: .fill) {
             StubView()
         }
     }

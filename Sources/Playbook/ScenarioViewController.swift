@@ -77,7 +77,7 @@ private extension ScenarioViewController {
             return contentViewController = nil
         }
 
-        if let previous = previous, scenario.name == previous.name {
+        if let previous = previous, scenario.title == previous.title {
             return
         }
 

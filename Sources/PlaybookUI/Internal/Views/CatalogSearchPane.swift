@@ -29,31 +29,31 @@ internal struct CatalogSearchPane: View {
 
                 List {
                     Group {
-                        if searchState.result.kinds.isEmpty {
+                        if searchState.result.categories.isEmpty {
                             UnavailableView(
                                 symbol: .magnifyingglass,
                                 description: "No Result for \"\(searchState.query)\""
                             )
                         }
                         else {
-                            ForEach(searchState.result.kinds, id: \.kind) { data in
-                                let isExpanded = catalogState.currentExpandedKinds.contains(data.kind)
+                            ForEach(searchState.result.categories, id: \.category) { data in
+                                let isExpanded = catalogState.currentExpandedCategories.contains(data.category)
 
-                                CatalogKindRow(data: data, isExpanded: isExpanded) {
+                                CatalogCategoryRow(data: data, isExpanded: isExpanded) {
                                     withAnimation(.smooth(duration: 0.1)) {
                                         if isExpanded {
-                                            catalogState.currentExpandedKinds.remove(data.kind)
+                                            catalogState.currentExpandedCategories.remove(data.category)
                                         }
                                         else {
-                                            catalogState.currentExpandedKinds.insert(data.kind)
+                                            catalogState.currentExpandedCategories.insert(data.category)
                                         }
                                     }
                                 }
 
                                 if isExpanded {
-                                    ForEach(data.scenarios, id: \.scenario.name) { data in
+                                    ForEach(data.scenarios, id: \.scenario.title) { data in
                                         let select = SelectData(
-                                            kind: data.kind,
+                                            category: data.category,
                                             scenario: data.scenario
                                         )
 
@@ -91,7 +91,7 @@ internal struct CatalogSearchPane: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onChange(of: searchState.query) { query in
-            catalogState.updateSearchingKinds(query: query, searchResult: searchState.result)
+            catalogState.updateSearchingCategories(query: query, searchResult: searchState.result)
         }
         .onChange(of: catalogState.isSearchPainCollapsed) { isCollapsed in
             if isCollapsed {

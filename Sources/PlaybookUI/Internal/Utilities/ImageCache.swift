@@ -63,8 +63,8 @@ private extension ImageCache {
             .appendingPathComponent(source.size.height.description, isDirectory: true)
             .appendingPathComponent(source.scale.description, isDirectory: true)
             .appendingPathComponent("\(source.colorScheme)", isDirectory: true)
-            .appendingPathComponent(normalize(source.kind.rawValue), isDirectory: true)
-            .appendingPathComponent(normalize(source.scenario.name.rawValue))
+            .appendingPathComponent(normalize(source.category.rawValue), isDirectory: true)
+            .appendingPathComponent(normalize(source.scenario.title.rawValue))
             .appendingPathExtension(SnapshotSupport.ImageFormat.png.fileExtension)
     }
 

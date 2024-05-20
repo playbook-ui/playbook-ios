@@ -67,7 +67,7 @@ private extension ImageLoader {
             SnapshotSupport.data(
                 for: item.source.scenario,
                 on: SnapshotDevice(
-                    name: item.source.scenario.name.rawValue,
+                    name: item.source.scenario.title.rawValue,
                     size: item.source.size,
                     traitCollection: UITraitCollection(
                         traitsFrom: [

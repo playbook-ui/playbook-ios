@@ -12,7 +12,7 @@ final class ScenarioViewControllerTests: XCTestCase {
         let controller = ScenarioViewController(context: .stub)
         let content = UIView()
 
-        controller.scenario = Scenario("name", layout: .fill) {
+        controller.scenario = Scenario("title", layout: .fill) {
             content
         }
 
@@ -34,7 +34,7 @@ final class ScenarioViewControllerTests: XCTestCase {
         ) {
             let controller = ScenarioViewController(context: .stub)
 
-            controller.scenario = Scenario("name", layout: layout) {
+            controller.scenario = Scenario("title", layout: layout) {
                 IntrinsicSizeView(intrinsicSize)
             }
             controller.view.layoutIfNeeded()

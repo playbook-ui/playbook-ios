@@ -25,21 +25,21 @@ open class Playbook {
         Array(storage)
     }
 
-    private var storage = OrderedStorage<ScenarioKind, ScenarioStore>()
+    private var storage = OrderedStorage<ScenarioCategory, ScenarioStore>()
 
     /// Initialize a new `Playbook`.
     public init() {}
 
-    /// Returns a store identified by specified kind.
+    /// Returns a store identified by specified category.
     ///
     /// If there is no store yet, add and return it.
     ///
     /// - Parameters:
-    ///   - kind: A unique identifier that stores a set of scenarios.
+    ///   - category: A unique identifier that stores a set of scenarios.
     ///
-    /// - Returns: A store identified by specified kind.
-    public func scenarios(of kind: ScenarioKind) -> ScenarioStore {
-        storage.element(for: kind, default: ScenarioStore(kind: kind))
+    /// - Returns: A store identified by specified category.
+    public func scenarios(of category: ScenarioCategory) -> ScenarioStore {
+        storage.element(for: category, default: ScenarioStore(category: category))
     }
 
     /// Adds a set scenarios defined in specified provider.
@@ -57,13 +57,13 @@ open class Playbook {
     /// Adds a set of scenarios passed by function builder.
     ///
     /// - Parameters:
-    ///   - kind: A unique identifier that stores a set of scenarios.
+    ///   - category: A unique identifier that stores a set of scenarios.
     ///   - scenarios: A function builder that create a set of scenarios.
     ///
     /// - Returns: A instance of `self`.
     @discardableResult
-    public func addScenarios<S: ScenariosBuildable>(of kind: ScenarioKind, @ScenariosBuilder _ scenarios: () -> S) -> Self {
-        let store = self.scenarios(of: kind)
+    public func addScenarios<S: ScenariosBuildable>(of category: ScenarioCategory, @ScenariosBuilder _ scenarios: () -> S) -> Self {
+        let store = self.scenarios(of: category)
 
         for scenario in scenarios().buildScenarios() {
             store.add(scenario)

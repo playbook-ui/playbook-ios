@@ -11,7 +11,7 @@ internal final class SearchState: ObservableObject {
     }
 
     @Published
-    private(set) var result = SearchResult(count: 0, total: 0, kinds: [])
+    private(set) var result = SearchResult(count: 0, total: 0, categories: [])
 
     init(playbook: Playbook) {
         self.playbook = playbook
@@ -27,15 +27,15 @@ private extension SearchState {
             string.lowercased().range(of: query)
         }
 
-        let kinds: [SearchedKindData] =
+        let categories: [SearchedCategoryData] =
             if query.isEmpty {
                 playbook.stores.map { store in
-                    SearchedKindData(
-                        kind: store.kind,
+                    SearchedCategoryData(
+                        category: store.category,
                         highlightRange: nil,
                         scenarios: store.scenarios.map { scenario in
                             SearchedData(
-                                kind: store.kind,
+                                category: store.category,
                                 scenario: scenario,
                                 highlightRange: nil
                             )
@@ -45,30 +45,30 @@ private extension SearchState {
             }
             else {
                 playbook.stores.compactMap { store in
-                    if let range = matchedRange(store.kind.rawValue) {
-                        return SearchedKindData(
-                            kind: store.kind,
+                    if let range = matchedRange(store.category.rawValue) {
+                        return SearchedCategoryData(
+                            category: store.category,
                             highlightRange: range,
                             scenarios: store.scenarios.map { scenario in
                                 SearchedData(
-                                    kind: store.kind,
+                                    category: store.category,
                                     scenario: scenario,
-                                    highlightRange: matchedRange(scenario.name.rawValue)
+                                    highlightRange: matchedRange(scenario.title.rawValue)
                                 )
                             }
                         )
                     }
                     else {
-                        let data = SearchedKindData(
-                            kind: store.kind,
+                        let data = SearchedCategoryData(
+                            category: store.category,
                             highlightRange: nil,
                             scenarios: store.scenarios.compactMap { scenario in
-                                guard let range = matchedRange(scenario.name.rawValue) else {
+                                guard let range = matchedRange(scenario.title.rawValue) else {
                                     return nil
                                 }
 
                                 return SearchedData(
-                                    kind: store.kind,
+                                    category: store.category,
                                     scenario: scenario,
                                     highlightRange: range
                                 )
@@ -80,9 +80,9 @@ private extension SearchState {
             }
 
         result = SearchResult(
-            count: kinds.reduce(0) { $0 + $1.scenarios.count },
+            count: categories.reduce(0) { $0 + $1.scenarios.count },
             total: playbook.stores.reduce(0) { $0 + $1.scenarios.count },
-            kinds: kinds
+            categories: categories
         )
     }
 }

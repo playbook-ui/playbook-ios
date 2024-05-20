@@ -1,8 +1,8 @@
 import SwiftUI
 
 @available(iOS 15, *)
-internal struct CatalogKindRow: View {
-    let data: SearchedKindData
+internal struct CatalogCategoryRow: View {
+    let data: SearchedCategoryData
     let isExpanded: Bool
     let onSelect: () -> Void
 
@@ -18,7 +18,7 @@ internal struct CatalogKindRow: View {
                     Spacer.fixed(length: 8)
 
                     HighlightText(
-                        content: data.kind.rawValue,
+                        content: data.category.rawValue,
                         range: data.highlightRange
                     )
                     .textStyle(font: .headline)

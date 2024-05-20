@@ -64,10 +64,10 @@ enum CatalogScenarios: ScenarioProvider {
             Scenario("SearchPane", layout: .sizing(h: .fixed(300), v: .fill)) {
                 let catalogState = CatalogState()
                 catalogState.selected = SelectData(
-                    kind: "Kind 1",
+                    category: "Category 1",
                     scenario: .stub("Scenario 1")
                 )
-                catalogState.expandedKinds = ["Kind 1"]
+                catalogState.expandedCategories = ["Category 1"]
                 catalogState.isSearchPainCollapsed = false
 
                 return CatalogSearchPane { _ in }

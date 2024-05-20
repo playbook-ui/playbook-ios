@@ -2,8 +2,8 @@ import UIKit
 
 /// Represents part of the component state.
 public struct Scenario {
-    /// A unique name of scenario that describes component and its state.
-    public var name: ScenarioName
+    /// A unique title of scenario that describes component and its state.
+    public var title: ScenarioTitle
 
     /// Represents how the component should be laid out.
     public var layout: ScenarioLayout
@@ -20,19 +20,19 @@ public struct Scenario {
     /// Creates a new scenario.
     ///
     /// - Parameters:
-    ///   - name: A unique name of this scenario.
+    ///   - title: A unique title of this scenario.
     ///   - layout: Represents how the component should be laid out.
     ///   - file: A file path where defined this scenario.
     ///   - line: A line number where defined this scenario in file.
     ///   - content: A closure that make a new content with passed context.
     public init(
-        _ name: ScenarioName,
+        _ title: ScenarioTitle,
         layout: ScenarioLayout,
         file: StaticString = #file,
         line: UInt = #line,
         content: @escaping (ScenarioContext) -> UIViewController
     ) {
-        self.name = name
+        self.title = title
         self.layout = layout
         self.file = file
         self.line = line
@@ -42,20 +42,20 @@ public struct Scenario {
     /// Creates a new scenario.
     ///
     /// - Parameters:
-    ///   - name: A unique name of this scenario.
+    ///   - title: A unique title of this scenario.
     ///   - layout: Represents how the component should be laid out.
     ///   - file: A file path where defined this scenario.
     ///   - line: A line number where defined this scenario in file.
     ///   - content: A closure that make a new content with passed context.
     public init(
-        _ name: ScenarioName,
+        _ title: ScenarioTitle,
         layout: ScenarioLayout,
         file: StaticString = #file,
         line: UInt = #line,
         content: @escaping (ScenarioContext) -> UIView
     ) {
         self.init(
-            name,
+            title,
             layout: layout,
             file: file,
             line: line,
@@ -68,20 +68,20 @@ public struct Scenario {
     /// Creates a new scenario.
     ///
     /// - Parameters:
-    ///   - name: A unique name of this scenario.
+    ///   - title: A unique title of this scenario.
     ///   - layout: Represents how the component should be laid out.
     ///   - file: A file path where defined this scenario.
     ///   - line: A line number where defined this scenario in file.
     ///   - content: A closure that make a new content.
     public init(
-        _ name: ScenarioName,
+        _ title: ScenarioTitle,
         layout: ScenarioLayout,
         file: StaticString = #file,
         line: UInt = #line,
         content: @escaping () -> UIViewController
     ) {
         self.init(
-            name,
+            title,
             layout: layout,
             file: file,
             line: line,
@@ -92,20 +92,20 @@ public struct Scenario {
     /// Creates a new scenario.
     ///
     /// - Parameters:
-    ///   - name: A unique name of this scenario.
+    ///   - title: A unique title of this scenario.
     ///   - layout: Represents how the component should be laid out.
     ///   - file: A file path where defined this scenario.
     ///   - line: A line number where defined this scenario in file.
     ///   - content: A closure that make a new content.
     public init(
-        _ name: ScenarioName,
+        _ title: ScenarioTitle,
         layout: ScenarioLayout,
         file: StaticString = #file,
         line: UInt = #line,
         content: @escaping () -> UIView
     ) {
         self.init(
-            name,
+            title,
             layout: layout,
             file: file,
             line: line,

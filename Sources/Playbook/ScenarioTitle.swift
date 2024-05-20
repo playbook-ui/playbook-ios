@@ -1,12 +1,12 @@
-/// Represents a unique identifier of the set of scenarios.
-public struct ScenarioKind: Hashable, RawRepresentable, ExpressibleByStringLiteral, CustomStringConvertible, ExpressibleByStringInterpolation {
+/// Represents a unique title of the scenario.
+public struct ScenarioTitle: Hashable, RawRepresentable, ExpressibleByStringLiteral, CustomStringConvertible, ExpressibleByStringInterpolation {
     /// The raw string value.
     public var rawValue: String
 
     /// A textual representation of this instance.
     public var description: String { rawValue }
 
-    /// Creates a new kind with given raw string value.
+    /// Creates a new title with given raw string value.
     ///
     /// - Parameters:
     ///   - rawValue: The raw string value.
@@ -14,10 +14,10 @@ public struct ScenarioKind: Hashable, RawRepresentable, ExpressibleByStringLiter
         self.rawValue = rawValue
     }
 
-    /// Creates a new kind with given raw string value.
+    /// Creates a new title with given raw string value.
     ///
     /// - Parameters:
-    ///   - value: The raw string value.
+    ///   - rawValue: The raw string value.
     public init(stringLiteral value: String) {
         self.init(rawValue: value)
     }

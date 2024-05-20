@@ -3,7 +3,7 @@ import XCTest
 
 final class ScenarioStoreTests: XCTestCase {
     func testScenariosOrder() {
-        let store = ScenarioStore(kind: "kind")
+        let store = ScenarioStore(category: "category")
         let first = Scenario("first", layout: .fill) { UIView() }
         let second = Scenario("second", layout: .fill) { UIView() }
         let third = Scenario("third", layout: .fill) { UIView() }
@@ -13,11 +13,11 @@ final class ScenarioStoreTests: XCTestCase {
         store.add(third)
 
         XCTAssertEqual(
-            store.scenarios.map { $0.name },
+            store.scenarios.map { $0.title },
             [
-                first.name,
-                second.name,
-                third.name,
+                first.title,
+                second.title,
+                third.title,
             ]
         )
     }
