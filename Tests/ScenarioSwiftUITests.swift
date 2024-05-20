@@ -1,5 +1,5 @@
-import SwiftUI
 import Playbook
+import SwiftUI
 import XCTest
 
 final class ScenarioSwiftUITests: XCTestCase {
