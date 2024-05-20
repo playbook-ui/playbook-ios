@@ -12,7 +12,6 @@ internal extension Image {
         case chevronRight = "chevron.right"
         case circleFill = "circle.fill"
         case sidebarLeft = "sidebar.left"
-        case photo
     }
 
     init(symbol: SFSymbols) {

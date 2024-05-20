@@ -1,15 +1,6 @@
 import SwiftUI
 
 internal extension UIImage {
-    static func circle(size: CGFloat) -> UIImage {
-        let size = CGSize(width: size, height: size)
-        return UIGraphicsImageRenderer(size: size).image { context in
-            let rect = CGRect(origin: .zero, size: size)
-            UIColor.tertiarySystemFill.setFill()
-            context.cgContext.fillEllipse(in: rect)
-        }
-    }
-
     // Drawn with SwiftDraw: https://github.com/swhitty/SwiftDraw
     static let logoMark = {
         let size = CGSize(width: 142.0, height: 103.0)
