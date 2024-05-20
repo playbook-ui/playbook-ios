@@ -1,5 +1,3 @@
-#if canImport(SwiftUI) && canImport(Combine)
-
 import SwiftUI
 
 @available(iOS 13.0, *)
@@ -17,7 +15,7 @@ public extension Scenario {
         layout: ScenarioLayout,
         file: StaticString = #file,
         line: UInt = #line,
-        content: @escaping (ScenarioContext) -> Content
+        @ViewBuilder content: @escaping (ScenarioContext) -> Content
     ) {
         self.init(name, layout: layout, file: file, line: line) { context in
             let content = content(context).transaction { transaction in
@@ -44,7 +42,7 @@ public extension Scenario {
         layout: ScenarioLayout,
         file: StaticString = #file,
         line: UInt = #line,
-        content: @escaping () -> Content
+        @ViewBuilder content: @escaping () -> Content
     ) {
         self.init(
             name,
@@ -55,5 +53,3 @@ public extension Scenario {
         )
     }
 }
-
-#endif

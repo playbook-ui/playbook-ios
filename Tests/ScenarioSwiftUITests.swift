@@ -1,5 +1,3 @@
-#if canImport(SwiftUI) && canImport(Combine)
-
 import SwiftUI
 import Playbook
 import XCTest
@@ -21,5 +19,3 @@ final class ScenarioSwiftUITests: XCTestCase {
         XCTAssertEqual(scenario.line, 10)
     }
 }
-
-#endif
