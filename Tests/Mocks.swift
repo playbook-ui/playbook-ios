@@ -26,10 +26,10 @@ extension SelectData {
 }
 
 extension SearchedData {
-    static func stub(_ index: Int) -> Self {
+    static func stub(_ title: ScenarioTitle) -> Self {
         SearchedData(
             category: "Category",
-            scenario: .stub("Scenario \(index)"),
+            scenario: .stub(title),
             highlightRange: nil
         )
     }
@@ -37,7 +37,7 @@ extension SearchedData {
 
 extension SearchedCategoryData {
     static func stub(
-        scenarios: [SearchedData] = (0..<3).map { .stub($0) }
+        scenarios: [SearchedData] = (0..<3).map { .stub("Scenario \($0)") }
     ) -> Self {
         SearchedCategoryData(
             category: "Category",
