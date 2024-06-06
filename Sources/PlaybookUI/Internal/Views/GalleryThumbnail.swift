@@ -72,6 +72,7 @@ private struct NameLabel: View {
                 range: data.highlightRange
             )
             .textStyle(font: .caption)
+            .minimumScaleFactor(0.1)
             .padding(.top, 4)
             .padding([.bottom, .horizontal], 8)
             .frame(maxWidth: .infinity)
