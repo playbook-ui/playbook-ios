@@ -3,29 +3,15 @@ import UIKit
 
 /// The testing tool which generates snapshot images from scenarios managed by `Playbook`.
 public struct Snapshot: TestTool {
-    /// A base directory for exporting snapshot image files.
-    public var directory: URL
-
-    /// Specifies whether that to clean directory before generating snapshots.
-    public var clean: Bool
-
-    /// An image file format of exported data.
-    public var format: SnapshotSupport.ImageFormat
-
-    /// A timeout interval until the finish snapshot of all scenarios.
-    public var timeout: TimeInterval
-
-    /// A rendering scale of the snapshot image.
-    public var scale: CGFloat
-
-    /// The key window of the application.
-    public weak var keyWindow: UIWindow?
-
-    /// A set of snapshot environment simulating devices.
-    public var devices: [SnapshotDevice]
-
-    /// A closure to preprocess scenario UIView before generating snapshot.
-    public var viewPreprocessor: ((UIView) -> UIView)?
+    private let directory: URL
+    private let clean: Bool
+    private let format: SnapshotSupport.ImageFormat
+    private let timeout: TimeInterval
+    private let scale: CGFloat
+    private let keyWindow: UIWindow?
+    private let devices: [SnapshotDevice]
+    private let logOutput: TextOutputStream?
+    private let viewPreprocessor: ((UIView) -> UIView)?
 
     /// Creates a new snapshot tool for export all image files into specified directory.
     ///
@@ -46,6 +32,7 @@ public struct Snapshot: TestTool {
         scale: CGFloat = UIScreen.main.scale,
         keyWindow: UIWindow? = nil,
         devices: [SnapshotDevice],
+        logOutput: TextOutputStream? = nil,
         viewPreprocessor: ((UIView) -> UIView)? = nil
     ) {
         self.directory = directory
@@ -55,6 +42,7 @@ public struct Snapshot: TestTool {
         self.scale = scale
         self.keyWindow = keyWindow
         self.devices = devices
+        self.logOutput = logOutput
         self.viewPreprocessor = viewPreprocessor
     }
 
@@ -64,11 +52,8 @@ public struct Snapshot: TestTool {
     ///   - playbook: A `Playbook` instance to be tested.
     public func run(with playbook: Playbook) throws {
         let timeoutTimestamp = Date.timeIntervalSinceReferenceDate + timeout
-
         let group = DispatchGroup()
-
         let fileManager = FileManager.default
-
         let directoryURL = URL(fileURLWithPath: directory.path, isDirectory: true)
 
         if clean && fileManager.fileExists(atPath: directoryURL.path) {
@@ -86,21 +71,21 @@ public struct Snapshot: TestTool {
 
                 try fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true)
 
-                func attemptToWrite(data: Data, scenario: Scenario) {
+                for scenario in store.scenarios {
                     let fileURL =
                         directoryURL
                         .appendingPathComponent(normalize(scenario.title.rawValue))
                         .appendingPathExtension(format.fileExtension)
 
-                    do {
-                        try data.write(to: fileURL)
-                    }
-                    catch {
-                        writingFailureURLs.append(fileURL)
-                    }
-                }
+                    log(
+                        """
+                        Generating snapshot for:
+                         - Device: \(device.name.rawString)
+                         - Category: \(store.category.rawValue.rawString)
+                         - Scenario: \(scenario.title.rawValue.rawString)
+                        """
+                    )
 
-                for scenario in store.scenarios {
                     group.enter()
 
                     SnapshotSupport.data(
@@ -111,7 +96,20 @@ public struct Snapshot: TestTool {
                         keyWindow: keyWindow,
                         viewPreprocessor: viewPreprocessor,
                         handler: { data in
-                            attemptToWrite(data: data, scenario: scenario)
+                            do {
+                                try data.write(to: fileURL)
+                                log("Generated in \(fileURL.absoluteString)")
+                            }
+                            catch {
+                                log(
+                                    """
+                                    Failed to write the snapshot in \(fileURL.absoluteString)
+                                    Error: \(error)
+                                    """
+                                )
+                                writingFailureURLs.append(fileURL)
+                            }
+
                             group.leave()
                         }
                     )
@@ -133,14 +131,14 @@ public struct Snapshot: TestTool {
             let timeIntervalToRun = min(0.1, remaining)
 
             if timeIntervalToRun <= 0 {
-                throw SnapshotError.timeout(timeout)
+                try log(error: .timeout(timeout))
             }
 
             runLoop.run(mode: .default, before: Date(timeIntervalSinceNow: timeIntervalToRun))
         }
 
-        guard writingFailureURLs.isEmpty else {
-            throw SnapshotError.fileWritingFailure(urls: writingFailureURLs)
+        if !writingFailureURLs.isEmpty {
+            try log(error: .fileWritingFailure(urls: writingFailureURLs))
         }
     }
 }
@@ -153,5 +151,27 @@ private extension Snapshot {
 
     func normalize(_ string: String) -> String {
         string.components(separatedBy: Self.nameNormalizationCharacters).joined(separator: "_")
+    }
+
+    func log(error: SnapshotError) throws {
+        log(error.debugDescription)
+        throw error
+    }
+
+    func log(_ message: String) {
+        let log = "[Playbook] \(message)"
+
+        if var logOutput {
+            logOutput.write(log)
+        }
+        else {
+            print(log)
+        }
+    }
+}
+
+private extension String {
+    var rawString: String {
+        unicodeScalars.reduce(into: "") { $0 += $1.escaped(asASCII: true) }
     }
 }
