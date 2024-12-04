@@ -178,8 +178,8 @@ The generated snapshot images can be used for more advanced visual regression te
 
 ## Requirements
 
-- Swift 5.9+
-- Xcode 15.2+
+- Swift 5.10
+- Xcode 15.4
 - iOS 13.0+ (PlaybookUI: iOS 15.0+)
 
 ---
