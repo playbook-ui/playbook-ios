@@ -3,6 +3,6 @@
     "version": "0.1.0",
     "author": "Playbook",
     "devDependencies": {
-        "@percy/cli-upload": "1.30.4"
+        "@percy/cli": "1.30.4"
     }
 }
